@@ -1,6 +1,3 @@
-Below is a ready-to-copy `README.md` for the **[www.apespetcare.org.uk](http://www.apespetcare.org.uk)** GitHub repository.
-
-````markdown
 # APES Pet Care Website
 
 This repository is used to support the ongoing development, maintenance and improvement of the APES Pet Care website:
@@ -85,23 +82,3 @@ Screenshots or evidence:
 Device and browser:
 Urgency:
 Additional notes:
-````
-
-## Repository Use
-
-This repository is intended for internal website development and maintenance tracking. It supports structured collaboration and provides a transparent record of decisions, actions and completed fixes.
-
-## Status
-
-This repository is actively used to manage development and fixes for:
-
-[www.apespetcare.org.uk](https://www.apespetcare.org.uk)
-
-## Maintained By
-
-Association of Protecting Exotic Species CIC
-APES CIC
-[www.apes.org.uk](https://www.apes.org.uk)
-
-```
-```
