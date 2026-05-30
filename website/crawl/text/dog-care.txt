@@ -1,0 +1,135 @@
+﻿URL: https://www.apespetcare.org.uk/dog-care
+
+Dog Care                              document.documentElement.removeAttribute('data-nojs');  window.zs_content_format="0";window.zs_resource_url = "/dog-care";window.isDefaultLogo = "false";window.zs_site_resource_id = "90144000000002012";window.zs_site_resource_path = "";  window.is_portal_site="true";              window.zs_data_center="Europe";  window.stand_alone_path="";  window.zs_rendering_mode="live";  window.is_social_share_enabled="true";    if(Array.prototype.slice.apply(document.getElementsByTagName('script')).filter(i=>i.id==='zsiqscript').length   var message_bar_info={"message_bar_enable":true,"mb_last_updated_time":1776419198361,"accept_button_text":"Thanks for the update","message_bar_position":"1","messagebar_theme":"1","message_bar_content":"   Please note:  We are currently operating from temporary premises while our new premises in Warrington are being prepared. Thank you for bearing with us during this time.  "};     var zpc_msgs={"cookie.manage.table.title4":"Expires In","cookie.manage.table.title3":"Type","cookie.text.necessary.desc":"These cookies are essential for this website to function and cannot be switched off.","cookie.text.functional.desc":"These cookies are used to remember your preferences you choose on this website.","cookie.text.manage.service.name":"Zoho Sites","cookie.manage.table.title2":"Purpose","cookie.text.manage.service.desc":"Online website builder with extensive customization options.","cookie.manage.table.title1":"Name","cookie.text.analytics.title":"Analytical","cookie.text.analytics.desc":"These cookies are used to measure this website's performance.","cookie.text.necessary.title":"Essential","cookie.text.functional.title":"Functional"};    window._zcBan.set_config({"after_decline_msg_buttontext":"Okay, Close.","cookie_bar_enable":true,"cp_text":"This website uses cookies for its basic functioning, to remember your preferences and to help us understand its performance. ${policy_message}","after_decline_msg":true,"manage_btn_text":"Manage","manage_save_text":"Save","multi_page":false,"version":"1.1","f_privacy_btn":true,"f_revisit_consent":true,"after_decline_msg_text":"Declining cookies may affect the functions and user experience of this website. Please note that we use a cookie to remember your preference. You can also clear cookies and site data of this website from your browser settings","policy_msg":"You can learn more about how cookies are used by visiting the ${policy}","manage_message":"We have organised all the cookies used in this website under various categories. You may choose to accept or decline by using the toggle button in each of the following categories. Please note that we use a cookie to remember your preference. ${policy_message}","multi_site":true,"accept_btn_text":"Accept all","cp_url_label":"Cookie Policy","decline_btn_text":"Decline","cp_url":"\/","manage_close_text":"Close","theme":"2","position":"2","manage_heading":"Manage preferences","f_manage_dialog":true,"f_decline_btn":true})  window.zs_resource_id = "90144000000475007";window.zs_resource_type = "1";window.zs_resource_full_path = "/dog-care";window.zs_site_type = "0";window.zs_resource_contentstate = "3";window.zs_page_reviewer =  null;  {"@context":"http:\/\/schema.org\/","@type":"Organization","url":"https:\/\/www.apespetcare.org.uk","logo":"https:\/\/www.apespetcare.org.uk\/images\/logo\/APES_Pet_Care_Clinic_Logo_3D_440x250.png","sameAs":["https:\/\/www.youtube.com\/@apesorguk","https:\/\/wa.me\/message\/PY4MXCLOYORTJ1","https:\/\/maps.app.goo.gl\/L7817HAujD2CAi9Y7","https:\/\/www.google.com\/search?q=APES+Association+Of+Protecting+Exotic+Species&stick=H4sIAAAAAAAA_-NgU1I1qDCxME8yTElMNjU3Sk5LSzK0MqgwSzFMNE4zS0pLSjFKNTGyWMSq6xjgGqzgWFycn5yZWJKZn6fgn6YQUJRfkppckpmXruBakV-SmawQXJCanJlaDAADb9AdWQAAAA&hl=en-GB&mat=CaaAUq0d4eb_ElYBpsFAC8OPpYY7KPjaTzPdjArdPvOXCg72r7snEFQh45qKTdGEIefr5jgc4jsXEXmHpU_FAxz4eskpboXSYU2tAA84RRoPXYkfFZz9x5aYWn0OYKMORw&authuser=0","http:\/\/facebook.com\/apespetcare","http:\/\/instagram.com\/apesorguk","http:\/\/twitter.com\/apesorguk","http:\/\/m.me\/119192901146882","https:\/\/www.apes.org.uk","mailto:pet.care@apes.org.uk"]}    window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-FKGRRCJ0QE');    
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "1526fa8e-132a-46ff-90b2-94386a285bde",
+    });
+  });
+        Skip to search  Skip to main content      
+  
+            
+   APES Pet Care Clinic  
+  Helping pet owners keep their pets healthy. Part of Association of Protecting Exotic Species  
+              info@apespetcare.org.uk           0300 302 0228     
+      Sign In  
+  Sign Up  
+        
+  Sign Out  
+          
+  
+                  Home              APES              Pet Care Clinic News              Events        More                  Services                  General Services                Care Services                  Dog Care              Cat Care              Reptile Care              Invert Care              Rabbit Care              Guinea Pig Care              Ferret Care                    Care Plans              Lab Services              Products                            Bookings              APES Shelter              Donate              Client Portals                  Client Portal                  Client Billing Portal                  About Us                  About Us                  APES Network Status                Contact Us             
+                   
+    
+                                                                                         
+         [data-element-id="elm_P3PsqrPiSvyZG73OFmbZcA"].zpsection{ border-radius:1px; }            [data-element-id="elm_HTHPgRj2TJ-HB8Fyix7AHA"].zpelem-heading { border-radius:1px; }   Dog Care Services  
+   [data-element-id="elm_xKeiiN8dTyO3aPnmL09oDg"].zpelem-text { border-radius:1px; }    Please note we are not a VET we are a pet clinic that can deal with routine care, treatments and some first aid.  
+      [data-element-id="elm_ARBURUwLTjw5FpDfgWBNIg"].zprow{ border-radius:1px; }     [data-element-id="elm_Lj4e6XH0Yy0P5UVTvo9DwQ"].zpelem-col{ border-radius:1px; }     [data-element-id="elm_LLNtCvwqbxhXWWO5niiKxA"].zpelem-text { border-radius:1px; }    We try to keep our fees as low as possible, calculating time, and the situation.  
+                   Dog Services  
+        
+       You can find a number of services provided below for dogs.  
+    div[data-element-id="elm_mwNdCY31ybgyy4b13H6O5Q"] div.zpspacer { height:9px; } @media (max-width: 768px) { div[data-element-id="elm_mwNdCY31ybgyy4b13H6O5Q"] div.zpspacer { height:calc(9px / 3); } }    
+                         Flea Treatment  
+      Get your dog treated for  £3.00 per pet , price of treatment which is dependant on brand.   
+    
+    
+                      Worming Treatment  
+        Get your dog treated for  £3.00 per pet , price of treatment which is dependant on brand.     
+    
+    
+                      Teeth Cleaning  
+        Get your dog treated for  £7.50 per pet . Please note agressive dogs can not be done. We will refer you to a vet that can sedate.     
+    
+    
+                          Ear Cleaning  
+        Get your dog treated for  £7.50 per pet . Please note agressive dogs can not be done. We will refer you to a vet that can sedate.     
+    
+    
+       
+                   Nail Clipping  
+        Get your dog treated for  £5.00 per pet . Please note agressive dogs can not be done. We will refer you to a vet that can sedate.     
+    
+    
+         [data-element-id="elm_HWHIT-lB397kv8akpmHknA"].zpsection{ border-radius:1px; }            [data-element-id="elm_pLxSqGMH5-hBMNkc78GPOw"].zpelem-heading { border-radius:1px; }   APES Support Service Packages  
+           [data-element-id="elm_-SIbOI1xjLG61sGOr9YxPQ"].zprow{ border-radius:1px; }     [data-element-id="elm_yLcdXzNL6LyGRNuAQLDdTg"].zpelem-col{ border-radius:1px; }           
+          [data-element-id="elm_5h1JqX0sDe11T0CU91FLug"].zpsection{ border-radius:1px; }            [data-element-id="elm_UVueBVEQwaenSPFJ0Y57iA"].zpelem-heading { border-radius:1px; }   Lab Services  
+   [data-element-id="elm_ifk50T-7nphkKY3bf88pPA"].zpelem-text { border-radius:1px; }    Labs can tell us lots about what is going on with your pets health.  
+      [data-element-id="elm_PQ3PyQc8pLWD-dBNZDZIlw"].zprow{ border-radius:1px; }     [data-element-id="elm_w2LfbZOYDCJ820UgHGKOtQ"].zpelem-col{ border-radius:1px; }     [data-element-id="elm_hX2MEG88rvCGvbwBOxEmqw"].zpelem-heading { border-radius:1px; }   Our Rates  
+     [data-element-id="elm_wgnSxjOCoSecB_eP00UhCA"].zprow{ border-radius:1px; }     [data-element-id="elm_sc4fB3mnsaWCAd7zitiqGA"].zpelem-col{ border-radius:1px; }     [data-element-id="elm_wRCT65CwclSUgtuSJjzoTQ"] .zptabelem-inner-container.zptabs-style-01.zptab-type-01 .zptab, [data-element-id="elm_wRCT65CwclSUgtuSJjzoTQ"] .zptabelem-inner-container.zptabs-style-01.zptab-type-01 .zptabs-content-container .zptab-content{ border-style:solid; border-color: !important; } @media (max-width: 767px) { } @media all and (min-width: 768px) and (max-width:991px){ }             Dog Lab  
+            Dog Lab  
+      [data-element-id="elm_XxlT3A56Y4ygqUwgSG9fiA"].zprow{ border-radius:1px; }        div[data-element-id="elm_MFSWqqo7mHH8V3KOq7qEjg"] div.zpspacer { height:1px; } @media (max-width: 768px) { div[data-element-id="elm_MFSWqqo7mHH8V3KOq7qEjg"] div.zpspacer { height:calc(1px / 3); } }    
+    [data-element-id="elm_AIKW_XKUks2HlrGCKolUTA"].zprow{ border-radius:1px; }     [data-element-id="elm_n1MGTu9dSL8tJeZ8id_PYg"].zpelem-col{ border-radius:1px; }     [data-element-id="elm_uydGdjmco_BbXOVIBEgTeQ"].zpelem-heading { border-radius:1px; }     Faecal Test 1    
+      Aerobic Culture, Salmonella, Campylobacter, Species Specific Sensitivity.    
+    [data-element-id="elm_5yeHqte3-A-2TUFlnM2iEw"].zpelem-heading { border-radius:1px; }   £66.52  
+     div[data-element-id="elm_EsM1hNltZgnMNwtu3yGXKA"] div.zpspacer { height:1px; } @media (max-width: 768px) { div[data-element-id="elm_EsM1hNltZgnMNwtu3yGXKA"] div.zpspacer { height:calc(1px / 3); } }    
+    [data-element-id="elm_sRJYViYJIbUQwUw4cV13Kg"].zprow{ border-radius:1px; }        [data-element-id="elm_UysvYjA8QerKvV_GV1dWHw"].zpelem-heading { border-radius:1px; }    Faecal Test 2   
+       Aerobic Culture, Salmonella, Campylobacter, Species Specific Sensitivity, full parasitology.     
+    [data-element-id="elm_k6C41uPhYL_R6ZtAr6zyuQ"].zpelem-heading { border-radius:1px; }   £95.60  
+   [data-element-id="elm_Diyrk-fGhb5wQuzprqEOQQ"].zpelem-heading { border-radius:1px; }    Faecal Screen   
+   [data-element-id="elm_7068x6KYkmNph2e-8FRudw"].zpelem-text { border-radius:1px; }     This is a microscopy for the detection of Ova, Protozoa, Cysts and parasites,  Including Coccidia, Giardia, Trichmonas   .     
+    [data-element-id="elm_lOAkJdm4A00laMmOiaohbg"].zpelem-heading { border-radius:1px; }   £38.01  
+   [data-element-id="elm_DzCbvA-TncipYFKsWh1Rdg"].zpelem-heading { border-radius:1px; }     Giardia (Qualitative)    
+   [data-element-id="elm_ONaTn5JsJwEXW5tlbI1Bww"].zpelem-text { border-radius:1px; }      This Is an immunochromatographic assay.     
+    [data-element-id="elm_6tnFwr_IQu6Oyzyooe79QQ"].zpelem-heading { border-radius:1px; }   £19  
+   [data-element-id="elm_tRR3SrSveTeTaixKmFOcTg"].zpelem-heading { border-radius:1px; }    Giardia (PCR)   
+   [data-element-id="elm_3Z5jU13CDnNX-_bTgGhY3g"].zpelem-heading { border-radius:1px; }   £83.52  
+     div[data-element-id="elm_knCxX8D8XdLt5CtoxyiXVA"] div.zpspacer { height:1px; } @media (max-width: 768px) { div[data-element-id="elm_knCxX8D8XdLt5CtoxyiXVA"] div.zpspacer { height:calc(1px / 3); } }    
+        div[data-element-id="elm_xMinnkxs9RmI3nusRuWRrg"] div.zpspacer { height:1px; } @media (max-width: 768px) { div[data-element-id="elm_xMinnkxs9RmI3nusRuWRrg"] div.zpspacer { height:calc(1px / 3); } }    
+    [data-element-id="elm_Mi9Z1PUhPPEPXfQC4WnYvA"].zprow{ border-radius:1px; }           Full Parasitology    
+     Direct and concentrate examination for Helminth ova, Protozoa, Protozoal Cysts, including Giardia, Cryptosporidia, and Amoeba.  
+      [data-element-id="elm_etrLG3wnfTwlSofI6wch4w"].zprow{ border-radius:1px; }        [data-element-id="elm_ccSB_BKGZlWJDtiiFAnynw"].zpelem-heading { border-radius:1px; }   £58.60  
+   [data-element-id="elm_-AHUDTaTCeb6fM79sjVzLA"].zpelem-heading { border-radius:1px; }     UCCR     
+   [data-element-id="elm_6LN-Nv3EyF_wNTdDe7H-dw"].zpelem-text { border-radius:1px; }      Urine testing for hyperadrenocorticism in canines.     
+    [data-element-id="elm_pV5Pzai29tV43GkMBbNSxw"].zpelem-heading { border-radius:1px; }   £104  
+     UPCR   
+     This is a test for kidney function and damage.  
+                                       £34.84               
+     div[data-element-id="elm_HzLzG3RCMiVmOStQxnnuEA"] div.zpspacer { height:1px; } @media (max-width: 768px) { div[data-element-id="elm_HzLzG3RCMiVmOStQxnnuEA"] div.zpspacer { height:calc(1px / 3); } }    
+    div[data-element-id="elm_FPmYNMO8Oxx9mLt90q3EeA"] div.zpspacer { height:1px; } @media (max-width: 768px) { div[data-element-id="elm_FPmYNMO8Oxx9mLt90q3EeA"] div.zpspacer { height:calc(1px / 3); } }    
+               [data-element-id="elm_TbyL500zxZvdywLajQE1wA"].zpsection{ border-radius:1px; }         [data-element-id="elm_s3EVmjmLxB56sB-TWpZd8Q"].zpelem-col{ border-radius:1px; }     [data-element-id="elm_aEb-1O5ePc-GV5MHJA6D2A"].zpelem-heading { border-radius:1px; }   Book your appointment!  
+   [data-element-id="elm_HyiYMYZs4wa7CKd8GXp5Fg"].zpelem-text { border-radius:1px; }    At the moment we run a booking only service as we have other services we provide. We can not deal with walk-ins for our pet care clinic.  
+    [data-element-id="elm_wL73PPOhHZyQEkMJ6CIU7w"].zpelem-button{ border-radius:1px; }       Read More   
+        [data-element-id="elm_pkfu66_yNY4PoMYrooQpQw"].zpsection{ border-radius:1px; }      [data-element-id="elm_46ey--gaAAM_wAljO1g5uQ"].zprow{ border-radius:1px; }     [data-element-id="elm_lLVlJnVert0kK209gox9rw"].zpelem-col{ border-radius:1px; }     [data-element-id="elm_P6iiKEjJpWKoxvdMgEEE7A"] .zpdivider-container.zpdivider-text .zpdivider-common{ } [data-element-id="elm_P6iiKEjJpWKoxvdMgEEE7A"].zpelem-dividertext{ border-radius:1px; }      For Emergency Veterinary Care Please Call Rutland House 
+         [data-element-id="elm_Cd7p_hknr3N2E53nvIsXhA"].zpsection{ border-radius:1px; }            [data-element-id="elm_Yz_OoX2cQ20kGZD4QZblJg"].zprow{ border-radius:1px; }        [data-element-id="elm_B9rEVBND4tgJpoAA3gRZkg"].zpelem-text { border-radius:1px; }     Rutland House Veterinary Hospital   In an emergency, please call  01744 853510 .    Unfortunately, there are occasions when your pet might need emergency treatment. It may have been in a life-threatening accident or your pet may have developed a sudden illness which needs urgent care.     This can be very distressing but here at Rutland House we are proud to have a 24-hour emergency care service at our hospital. Should the situation arise you can be assured that your pet is being looked after by our team 24 hours a day, 365 days a year.     Evening Clinics - Rutland House Veterinary Hospital Group Clients Only   Consultation fee  £114.48     Monday-Friday: 6.00pm – 8.00pm*     Out of Hours Emergency Service    Consultation fee  £188.48     Monday-Friday: After 6.00pm*  Saturday: All day  Sunday: All day  Bank Holidays: All day     * To non-member practice clients from 8.00pm, Consultation fee £224.10.   All prices include VAT       
+    div[data-element-id="elm_XUyLoolbpIZNDH_2NS-VTA"] div.zpspacer { height:26px; } @media (max-width: 768px) { div[data-element-id="elm_XUyLoolbpIZNDH_2NS-VTA"] div.zpspacer { height:calc(26px / 3); } }    
+    [data-element-id="elm_K9tkIipjfZk9I2uFk2_9Ig"].zpelem-button{ border-radius:1px; }       Read More   
+        @media (min-width: 992px) { [data-element-id="elm_Ii_55OftIDo1N70ApUZ-qw"] .zpimage-container figure img { width: 350px ; height: 58.33px ; } } @media (max-width: 991px) and (min-width: 768px) { [data-element-id="elm_Ii_55OftIDo1N70ApUZ-qw"] .zpimage-container figure img { width:723px ; height:120.50px ; } } @media (max-width: 767px) { [data-element-id="elm_Ii_55OftIDo1N70ApUZ-qw"] .zpimage-container figure img { width:415px ; height:69.17px ; } } [data-element-id="elm_Ii_55OftIDo1N70ApUZ-qw"].zpelem-image { border-radius:1px; }           
+           Get Started Now   
+           
+                [data-element-id="elm_3GN40zvrt0T4FN-Z9rs2rA"].zprow{ border-radius:1px; }        @media (min-width: 992px) { [data-element-id="elm_2XYO0jzEelFm93WLT8KbCg"] .zpimage-container figure img { width: 427px ; height: 242.61px ; } } @media (max-width: 991px) and (min-width: 768px) { [data-element-id="elm_2XYO0jzEelFm93WLT8KbCg"] .zpimage-container figure img { width:200px ; height:200.00px ; } } @media (max-width: 767px) { [data-element-id="elm_2XYO0jzEelFm93WLT8KbCg"] .zpimage-container figure img { width:200px ; height:200.00px ; } } [data-element-id="elm_2XYO0jzEelFm93WLT8KbCg"].zpelem-image { border-radius:1px; }           
+            [data-element-id="elm_sA9QiAW7KYjhH_7DTfereA"].zpelem-text { border-radius:1px; }          Helping people in poverty or low incomes to keep their pets healthy and safe.    
+               Donate   
+    [data-element-id="elm_D-dFncFNriymONCdjfkJ7g"].zpelem-text { border-radius:1px; }    Address: 40 Morris Street, St Helens, WA9 3EN  Phone:  0300 302 0228   
+     
+                Volunteer & Student Placements   
+             [data-element-id="elm_8GZ1zpfQS27OF3kSqmkepA"].zpelem-col{ border-radius:1px; }     [data-element-id="elm_g0M7ZDRL7jMebz23GDQfwg"].zpelem-heading { border-radius:1px; }    SERVICES   
+        
+     [data-element-id="elm_b2t9eJhqTCmw2CQ6RG3eMg"].zpelem-text { border-radius:1px; }     Reptile    Inverts    Dogs    Cats    Rabbits   
+          CONTACT US   
+        
+     [data-element-id="elm_VIu5plB_uZlyljbOQ4oewQ"].zpelem-text { border-radius:1px; }     Contact Or Find Us    Booking    
+        [data-element-id="elm_JkmhABiuzt823waXGU2Biw"].zpelem-heading { border-radius:1px; }    Policies   
+        
+     [data-element-id="elm_YZPr42WMGiuOM8KSC8jVdg"].zpelem-text { border-radius:1px; }     Privacy    Terms    Bookings Policy    Refund Policy    News   
+    [data-element-id="elm_bFfTxvz-5Un8QTIBsljnjg"].zpelem-heading { border-radius:1px; }    Association of Protecting Exotic Species CIC Services   
+        
+     [data-element-id="elm_06iaW8N3ATyyNYsCJAv1MQ"].zpelem-text { border-radius:1px; }     APES Website    APES Shelter & Rescue    APES Pet Shop    MyAPES   
+        Subscribe to our newsletter   Stay informed about our latest updates through email. Subscribe here.   First Name   Last Name   Email   Subscribe   
+                 
+             [data-element-id="elm_uzj2TFXnHEUB469dvcgYvQ"].zpelem-text { border-radius:1px; }      © 2023 APES Pet Care Clinic | All Rights   Reserved | Part of the Association of Protecting Exotic Species | CIC Number: 16253848              Non-profit Charitable Organisation Registered and   Regulated by the CIC Commission        
+        [data-element-id="elm_LL0bVSb-2SguhazBaHo4qg"].zpelem-text { border-radius:1px; }                               
+         
+  (function(d,t) {
+    var BASE_URL="https://chatwoot.workspace.apes.org.uk";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'xnfcZVWwvLQj3X6wDnbfMcxY',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");

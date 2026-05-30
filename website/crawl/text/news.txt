@@ -1,0 +1,67 @@
+﻿URL: https://www.apespetcare.org.uk/news
+
+Pet Care Clinic News                            document.documentElement.removeAttribute('data-nojs');  window.zs_content_format="0";window.zs_resource_url = "/news";window.isDefaultLogo = "false";window.zs_site_resource_id = "90144000000002012";window.zs_site_resource_path = "";  window.is_portal_site="true";              window.zs_data_center="Europe";  window.stand_alone_path="";  window.zs_rendering_mode="live";  window.is_social_share_enabled="true";    if(Array.prototype.slice.apply(document.getElementsByTagName('script')).filter(i=>i.id==='zsiqscript').length   var message_bar_info={"message_bar_enable":true,"mb_last_updated_time":1776419198361,"accept_button_text":"Thanks for the update","message_bar_position":"1","messagebar_theme":"1","message_bar_content":"   Please note:  We are currently operating from temporary premises while our new premises in Warrington are being prepared. Thank you for bearing with us during this time.  "};     var zpc_msgs={"cookie.manage.table.title4":"Expires In","cookie.manage.table.title3":"Type","cookie.text.necessary.desc":"These cookies are essential for this website to function and cannot be switched off.","cookie.text.functional.desc":"These cookies are used to remember your preferences you choose on this website.","cookie.text.manage.service.name":"Zoho Sites","cookie.manage.table.title2":"Purpose","cookie.text.manage.service.desc":"Online website builder with extensive customization options.","cookie.manage.table.title1":"Name","cookie.text.analytics.title":"Analytical","cookie.text.analytics.desc":"These cookies are used to measure this website's performance.","cookie.text.necessary.title":"Essential","cookie.text.functional.title":"Functional"};    window._zcBan.set_config({"after_decline_msg_buttontext":"Okay, Close.","cookie_bar_enable":true,"cp_text":"This website uses cookies for its basic functioning, to remember your preferences and to help us understand its performance. ${policy_message}","after_decline_msg":true,"manage_btn_text":"Manage","manage_save_text":"Save","multi_page":false,"version":"1.1","f_privacy_btn":true,"f_revisit_consent":true,"after_decline_msg_text":"Declining cookies may affect the functions and user experience of this website. Please note that we use a cookie to remember your preference. You can also clear cookies and site data of this website from your browser settings","policy_msg":"You can learn more about how cookies are used by visiting the ${policy}","manage_message":"We have organised all the cookies used in this website under various categories. You may choose to accept or decline by using the toggle button in each of the following categories. Please note that we use a cookie to remember your preference. ${policy_message}","multi_site":true,"accept_btn_text":"Accept all","cp_url_label":"Cookie Policy","decline_btn_text":"Decline","cp_url":"\/","manage_close_text":"Close","theme":"2","position":"2","manage_heading":"Manage preferences","f_manage_dialog":true,"f_decline_btn":true})  window.zs_resource_id = "90144000000747131";window.zs_resource_type = "6";window.zs_resource_full_path = "/news/";window.zs_content_json = {};  {"blogPosts":[],"@type":"Blog","@context":"http:\/\/schema.org\/","headline":"Pet Care Clinic News","url":"https:\/\/www.apespetcare.org.uk\/news","sameAs":["https:\/\/www.youtube.com\/@apesorguk","https:\/\/wa.me\/message\/PY4MXCLOYORTJ1","https:\/\/maps.app.goo.gl\/L7817HAujD2CAi9Y7","https:\/\/www.google.com\/search?q=APES+Association+Of+Protecting+Exotic+Species&stick=H4sIAAAAAAAA_-NgU1I1qDCxME8yTElMNjU3Sk5LSzK0MqgwSzFMNE4zS0pLSjFKNTGyWMSq6xjgGqzgWFycn5yZWJKZn6fgn6YQUJRfkppckpmXruBakV-SmawQXJCanJlaDAADb9AdWQAAAA&hl=en-GB&mat=CaaAUq0d4eb_ElYBpsFAC8OPpYY7KPjaTzPdjArdPvOXCg72r7snEFQh45qKTdGEIefr5jgc4jsXEXmHpU_FAxz4eskpboXSYU2tAA84RRoPXYkfFZz9x5aYWn0OYKMORw&authuser=0","http:\/\/facebook.com\/apespetcare","http:\/\/instagram.com\/apesorguk","http:\/\/twitter.com\/apesorguk","http:\/\/m.me\/119192901146882","https:\/\/www.apes.org.uk","mailto:pet.care@apes.org.uk"]}    window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-FKGRRCJ0QE');    
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "1526fa8e-132a-46ff-90b2-94386a285bde",
+    });
+  });
+        Skip to search  Skip to main content      
+  
+            
+   APES Pet Care Clinic  
+  Helping pet owners keep their pets healthy. Part of Association of Protecting Exotic Species  
+              info@apespetcare.org.uk           0300 302 0228     
+      Sign In  
+  Sign Up  
+        
+  Sign Out  
+          
+  
+                  Home              APES              Pet Care Clinic News              Events        More                  Services                  General Services                Care Services                  Dog Care              Cat Care              Reptile Care              Invert Care              Rabbit Care              Guinea Pig Care              Ferret Care                    Care Plans              Lab Services              Products                            Bookings              APES Shelter              Donate              Client Portals                  Client Portal                  Client Billing Portal                  About Us                  About Us                  APES Network Status                Contact Us             
+                   
+    
+                                                                                         
+     Pet Care Clinic News    
+           Subscribe to RSS Feed   
+   Categories  
+    Newsletters  (0)    
+    Tags  
+    Newsletters    
+                     [data-element-id="elm_3GN40zvrt0T4FN-Z9rs2rA"].zprow{ border-radius:1px; }        @media (min-width: 992px) { [data-element-id="elm_2XYO0jzEelFm93WLT8KbCg"] .zpimage-container figure img { width: 427px ; height: 242.61px ; } } @media (max-width: 991px) and (min-width: 768px) { [data-element-id="elm_2XYO0jzEelFm93WLT8KbCg"] .zpimage-container figure img { width:200px ; height:200.00px ; } } @media (max-width: 767px) { [data-element-id="elm_2XYO0jzEelFm93WLT8KbCg"] .zpimage-container figure img { width:200px ; height:200.00px ; } } [data-element-id="elm_2XYO0jzEelFm93WLT8KbCg"].zpelem-image { border-radius:1px; }           
+            [data-element-id="elm_sA9QiAW7KYjhH_7DTfereA"].zpelem-text { border-radius:1px; }          Helping people in poverty or low incomes to keep their pets healthy and safe.    
+               Donate   
+    [data-element-id="elm_D-dFncFNriymONCdjfkJ7g"].zpelem-text { border-radius:1px; }    Address: 40 Morris Street, St Helens, WA9 3EN  Phone:  0300 302 0228   
+     
+                Volunteer & Student Placements   
+             [data-element-id="elm_8GZ1zpfQS27OF3kSqmkepA"].zpelem-col{ border-radius:1px; }     [data-element-id="elm_g0M7ZDRL7jMebz23GDQfwg"].zpelem-heading { border-radius:1px; }    SERVICES   
+        
+     [data-element-id="elm_b2t9eJhqTCmw2CQ6RG3eMg"].zpelem-text { border-radius:1px; }     Reptile    Inverts    Dogs    Cats    Rabbits   
+          CONTACT US   
+        
+     [data-element-id="elm_VIu5plB_uZlyljbOQ4oewQ"].zpelem-text { border-radius:1px; }     Contact Or Find Us    Booking    
+        [data-element-id="elm_JkmhABiuzt823waXGU2Biw"].zpelem-heading { border-radius:1px; }    Policies   
+        
+     [data-element-id="elm_YZPr42WMGiuOM8KSC8jVdg"].zpelem-text { border-radius:1px; }     Privacy    Terms    Bookings Policy    Refund Policy    News   
+    [data-element-id="elm_bFfTxvz-5Un8QTIBsljnjg"].zpelem-heading { border-radius:1px; }    Association of Protecting Exotic Species CIC Services   
+        
+     [data-element-id="elm_06iaW8N3ATyyNYsCJAv1MQ"].zpelem-text { border-radius:1px; }     APES Website    APES Shelter & Rescue    APES Pet Shop    MyAPES   
+        Subscribe to our newsletter   Stay informed about our latest updates through email. Subscribe here.   First Name   Last Name   Email   Subscribe   
+                 
+             [data-element-id="elm_uzj2TFXnHEUB469dvcgYvQ"].zpelem-text { border-radius:1px; }      © 2023 APES Pet Care Clinic | All Rights   Reserved | Part of the Association of Protecting Exotic Species | CIC Number: 16253848              Non-profit Charitable Organisation Registered and   Regulated by the CIC Commission        
+        [data-element-id="elm_LL0bVSb-2SguhazBaHo4qg"].zpelem-text { border-radius:1px; }                               
+         
+  (function(d,t) {
+    var BASE_URL="https://chatwoot.workspace.apes.org.uk";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'xnfcZVWwvLQj3X6wDnbfMcxY',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
