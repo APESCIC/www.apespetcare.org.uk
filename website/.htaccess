@@ -1,0 +1,8 @@
+DirectoryIndex index.php index.html
+
+RewriteEngine On
+RewriteRule ^news/?$ https://www.apesnews.org.uk [R=301,L]
+RewriteRule ^news/newsletters/?$ https://www.apesnews.org.uk [R=301,L]
+RewriteRule ^news/tag/news-letters/?$ https://www.apesnews.org.uk [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
