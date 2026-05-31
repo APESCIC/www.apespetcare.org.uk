@@ -1,83 +1,58 @@
-<html>
-<head>
-  <title>Cloudron LAMP app (PHP <?php echo PHP_VERSION ?>)</title>
+<?php
+$rootPath = __DIR__;
+$pageTitle = 'Affordable Pet Health Support';
+$metaDescription = 'APES Pet Care Clinic provides affordable first aid and general health support for pets, with clear referral advice when veterinary treatment is needed.';
+$pageKicker = 'APES Pet Care Clinic';
+$heroTitle = 'Supportive Pet Care For Every Species';
+$heroLead = 'We help families with affordable first aid and general health support for dogs, cats, rabbits, reptiles, invertebrates, and more. If your pet needs a vet, we will tell you quickly and clearly.';
+$activeNav = 'home';
+require_once $rootPath . '/includes/page-init.php';
+require_once $rootPath . '/includes/header.php';
+?>
+  <section class="hero">
+    <article class="hero-panel reveal">
+      <p class="page-kicker"><?= apes_escape($pageKicker) ?></p>
+      <h1 class="hero-title"><?= apes_escape($heroTitle) ?></h1>
+      <p class="hero-lead"><?= apes_escape($heroLead) ?></p>
+      <div class="hero-badges">
+        <?php foreach ($heroBadges as $badge): ?>
+          <span><?= apes_escape($badge) ?></span>
+        <?php endforeach; ?>
+      </div>
+    </article>
+    <aside class="hero-logo reveal">
+      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="APES Pet Care Clinic illustrated logo">
+    </aside>
+  </section>
 
-  <style>
-
-    body {
-      width: 50%;
-      min-width: 640px;
-      margin: auto;
-      font-family: Helvetica;
-      color: #333;
-    }
-
-    pre {
-      font-family: monospace;
-      background: #333;
-      color: white;
-      border: none;
-      width: 99%;
-      padding: 10px;
-      text-align: left;
-      font-size: 13px;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.176);
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    .center > table {
-      width: 100%;
-    }
-
-    .table {
-      border-style: solid;
-      border-width: 1px;
-    }
-
-    .h, .e {
-      background-color: white !important;
-    }
-
-  </style>
-
-</head>
-<body>
-
-<br/>
-
-<h1>Cloudron LAMP App (PHP <?php echo PHP_VERSION ?>)</h1>
-
-<br/>
-
-<h2>Overview</h2>
-<p>
-  <div>
-    This page is a placeholder showing information on how to use the LAMP stack (PHP <?php echo PHP_VERSION ?>)
-    This page will get overwritten, when an index.php or index.html is uploaded.
+  <div class="service-grid">
+    <?php foreach ($servicesMenu as $service): ?>
+      <a class="service-card reveal" href="<?= apes_escape($service['path']) ?>"><?= apes_escape($service['label']) ?></a>
+    <?php endforeach; ?>
   </div>
-</p>
 
-<h2>Database Credentials</h2>
-<p>
-  <div>
-    MySQL, Redis &amp; SMTP credentials are stored in <code>credentials.txt</code>. You can access this file
-    via <a target="_blank" href="https://docs.cloudron.io/packages/lamp/#sftp">SFTP</a> or via the
-    <a target="_blank" href="https://docs.cloudron.io/packages/#file-manager">File Manager</a>.
-  </div>
-  <br/>
-  <div>Note that the credentials can only be used from within your app. They will not work from outside the Cloudron.</div>
-</p>
-
-<h2>phpMyAdmin</h2>
-<p>
-  phpMyAdmin is installed <a href="/phpmyadmin" target="_blank">here</a>. For login credentials, see <code>phpmyadmin_login.txt</code>
-  via SFTP or the File Manager.
-</p>
-
-</body>
-</html>
+  <section class="content-layout">
+    <article class="article">
+      <div class="content-card reveal">
+        <h2>What We Do</h2>
+        <p>We offer practical first aid support, routine welfare checks, and general health guidance for a wide range of species.</p>
+        <p>Our service is designed to help families who may struggle with the immediate cost of a veterinary consultation.</p>
+      </div>
+      <div class="content-card reveal">
+        <h2>What We Do Not Do</h2>
+        <p>We are not a veterinary surgery and we do not carry out operations, invasive procedures, sedation, or emergency surgery.</p>
+        <p>When a pet needs veterinary treatment, we advise quickly and refer owners to an appropriate veterinary provider.</p>
+      </div>
+      <div class="content-card reveal">
+        <h2>How We Help You Decide Next Steps</h2>
+        <p>Many concerns can be managed with better husbandry, careful monitoring, and first aid support. Some concerns need urgent veterinary care.</p>
+        <p>Our role is to assess, explain, and help you make safe decisions for your pet without delay.</p>
+      </div>
+      <div class="content-card reveal">
+        <h2>Friendly, Affordable, and Non-Judgmental</h2>
+        <p>Our team is committed to animal welfare first. We focus on clear advice, realistic support, and helping pet owners feel confident in what to do next.</p>
+      </div>
+    </article>
+    <?php require $rootPath . '/includes/clinic-sidebar.php'; ?>
+  </section>
+<?php require_once $rootPath . '/includes/footer.php'; ?>
