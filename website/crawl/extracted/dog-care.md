@@ -1,0 +1,63 @@
+# Dog Care
+
+URL: https://www.apespetcare.org.uk/dog-care
+
+- data-theme-content-container="theme-content-container" class="theme-content-area theme-pages-full-stretch">
+- Dog Care Services
+- Please note we are not a VET we are a pet clinic that can deal with routine care, treatments and some first aid.
+- We try to keep our fees as low as possible, calculating time, and the situation.
+- Dog Services
+- You can find a number of services provided below for dogs.
+- Flea Treatment
+- Get your dog treated for £3.00 per pet, price of treatment which is dependant on brand.
+- Worming Treatment
+- Teeth Cleaning
+- Get your dog treated for £7.50 per pet. Please note agressive dogs can not be done. We will refer you to a vet that can sedate.
+- Ear Cleaning
+- Nail Clipping
+- Get your dog treated for £5.00 per pet. Please note agressive dogs can not be done. We will refer you to a vet that can sedate.
+- APES Support Service Packages
+- Lab Services
+- Labs can tell us lots about what is going on with your pets health.
+- Our Rates
+- Faecal Test 1
+- Aerobic Culture, Salmonella, Campylobacter, Species Specific Sensitivity.
+- £66.52
+- Faecal Test 2
+- Aerobic Culture, Salmonella, Campylobacter, Species Specific Sensitivity, full parasitology.
+- £95.60
+- Faecal Screen
+- This is a microscopy for the detection of Ova, Protozoa, Cysts and parasites, Including Coccidia, Giardia, Trichmonas.
+- £38.01
+- Giardia (Qualitative)
+- This Is an immunochromatographic assay.
+- £19
+- Giardia (PCR)
+- £83.52
+- Full Parasitology
+- Direct and concentrate examination for Helminth ova, Protozoa, Protozoal Cysts, including Giardia, Cryptosporidia, and Amoeba.
+- £58.60
+- UCCR
+- Urine testing for hyperadrenocorticism in canines.
+- £104
+- UPCR
+- This is a test for kidney function and damage.
+- £34.84
+- Book your appointment!
+- At the moment we run a booking only service as we have other services we provide. We can not deal with walk-ins for our pet care clinic.
+- Rutland House Veterinary Hospital
+- In an emergency, please call 01744 853510.
+- Unfortunately, there are occasions when your pet might need emergency treatment. It may have been in a life-threatening accident or your pet may have developed a sudden illness which needs urgent care.This can be very distressing but here at Rutland House we are proud to have a 24-hour emergency care service at our hospital. Should the situation arise you can be assured that your pet is being looked after by our team 24 hours a day, 365 days a year.Evening Clinics - Rutland House Veterinary Hospital Group Clients OnlyConsultation fee £114.48Monday-Friday: 6.00pm – 8.00pm*Out of Hours Emergency Service Consultation fee £188.48Monday-Friday: After 6.00pm*Saturday: All daySunday: All dayBank Holidays: All day* To non-member practice clients from 8.00pm, Consultation fee £224.10.All prices include VAT
+- Unfortunately, there are occasions when your pet might need emergency treatment. It may have been in a life-threatening accident or your pet may have developed a sudden illness which needs urgent care.
+- This can be very distressing but here at Rutland House we are proud to have a 24-hour emergency care service at our hospital. Should the situation arise you can be assured that your pet is being looked after by our team 24 hours a day, 365 days a year.
+- Evening Clinics - Rutland House Veterinary Hospital Group Clients Only
+- Consultation fee £114.48
+- Monday-Friday: 6.00pm – 8.00pm*
+- Out of Hours Emergency Service
+- Consultation fee £188.48
+- Monday-Friday: After 6.00pm*
+- Saturday: All day
+- Sunday: All day
+- Bank Holidays: All day
+- * To non-member practice clients from 8.00pm, Consultation fee £224.10.
+- All prices include VAT

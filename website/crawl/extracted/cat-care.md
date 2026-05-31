@@ -1,0 +1,46 @@
+# Cat Care
+
+URL: https://www.apespetcare.org.uk/cat-care
+
+- data-theme-content-container="theme-content-container" class="theme-content-area theme-pages-full-stretch">
+- Cat Care Services
+- Please note we are not a VET we are a pet clinic that can deal with routine care, treatments and some first aid.
+- We try to keep our fees as low as possible, calculating time, and the situation.
+- Cat Services
+- You can find a number of services provided below for cats.
+- Flea Treatment
+- Get your dog treated for £3.00 per pet, price of treatment which is dependant on brand.
+- Worming Treatment
+- Teeth Cleaning
+- Get your dog treated for £7.50 per pet. Please note agressive dogs can not be done. We will refer you to a vet that can sedate.
+- Ear Cleaning
+- Nail Clipping
+- Get your dog treated for £5.00 per pet. Please note agressive dogs can not be done. We will refer you to a vet that can sedate.
+- APES Support Service Packages
+- Lab Services
+- Labs can tell us lots about what is going on with your pets health.
+- Our Rates
+- Faecal Test 1
+- Aerobic Culture, Salmonella, Campylobacter, Species Specific Sensitivity.
+- £66.52
+- Faecal Test 2
+- Aerobic Culture, Salmonella, Campylobacter, Species Specific Sensitivity, full parasitology.
+- £95.60
+- Faecal Screen
+- This is a microscopy for the detection of Ova, Protozoa, Cysts and parasites, Including Coccidia, Giardia, Trichmonas.
+- £38.01
+- Giardia (Qualitative)
+- This Is an immunochromatographic assay.
+- £19
+- Giardia (PCR)
+- £83.52
+- Full Parasitology
+- Direct and concentrate examination for Helminth ova, Protozoa, Protozoal Cysts, including Giardia, Cryptosporidia, and Amoeba.
+- £58.60
+- UCCR
+- Urine testing for hyperadrenocorticism
+- £104
+- UPCR
+- This is a test for kidney function and damage.
+- £34.84
+- Toxoplasma Gondii PCR

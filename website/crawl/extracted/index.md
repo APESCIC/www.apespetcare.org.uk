@@ -1,0 +1,54 @@
+# APES Pet Care Clinic | Help for people on low incomes.
+
+URL: https://www.apespetcare.org.uk/
+
+- data-theme-content-container="theme-content-container" class="theme-content-area theme-pages-full-stretch">
+- Welcome to the APES Pet Care Clinic, a dedicated non-profit charity committed to the health and well-being of all animals, including exotic species. Our primary goal is to assist pet owners in maintaining their pets' health by offering affordable consultations and treatments, especially for those who may lack the funds for veterinary services.
+- Our Services:
+- Reptile Services: We provide specialized care for reptiles, including shedding aid, fang removal, respiratory infection treatment, claw clippings, and parasite removal.
+- Invert Services: Our clinic offers care for invertebrates, ensuring their unique needs are met.
+- Dog and Cat Services: We offer routine care and treatments for dogs and cats, such as flea and worming treatments, claw clippings, and more.
+- Health Care Plans: Tailored plans to keep your pet in optimal health.
+- Faecal Testing: Laboratory services to detect and address potential health issues.
+- Please note that while we are not a veterinary practice, we are a pet clinic equipped to handle routine care, treatments, and some first aid services.
+- Our Commitment:
+- Non-Profit Charity: As a non-profit organization, we are dedicated to animal welfare of all types and species.
+- Helping Low Incomes & No Incomes: We charge small fees to help keep our services going, aiming to assist those who may lack the funds for veterinary consultations.
+- Animal Welfare Is Our Top Priority: We are not here to judge; our focus is to ensure your pet is healthy and safe, providing you with the knowledge and support needed to achieve this.
+- At APES Pet Care Clinic, we believe that every pet deserves quality care, and every owner should have access to the resources necessary to provide it. Our team of trained and qualified staff is here to help you keep your pet fit and healthy.
+- Subscribe to our newsletter
+- Stay informed about our latest updates through email. Subscribe here.
+- Signup For Our Newsletter
+- APES Pet Care Clinic provides affordable care for all animals, from dogs and cats to exotic pets. Our newsletter offers valuable advice on pet health, nutrition, and wellbeing, plus updates on our clinic services, including:
+- Health checks
+- Flea & worming treatments
+- Claw clipping
+- And more! Join our community of pet lovers and subscribe today!
+- "We have partnered up with Veterian App to provide the best service possible"
+- Exotic Vets
+- Finding it hard to find a Exotc Vet?
+- Vets 4 Exotics Vets is one of the many vets in the Manchester area that is a exotic vet.
+- We now provide consultations for people needing non-emergency advice and support. From skin irritations to, ear irritations, ingrowing claws and more we may be able to help without the need of a vet consultation.
+- Domestic Vets
+- Finding it hard to find a Vet?
+- Bold Vets is one of the many vets in the Merseyside area that is a mixed vet.
+- Finding it hard to find a Exotic Vet?
+- Rutland House is our closest vets in the St Helens area that is a mixed vet.
+- Medical and Health?
+- There is a fine line between health and medical situations. Not all situations need a VET or to pay out for a VET consolation.
+- At APES Pet Care Clinic we charge a small fee to see and assess your pet by trained qualified staff.
+- Please note we are not a VET but a way to verify if a VET is needed or home treatment can be done at the fraction of the price.
+- Our Staff Have a Number Of Qualifications
+- Here are some of the qualifications our staff hold.
+- Level 3 Award in Small Animal Care and Welfare
+- Level 3 Diploma Animal Welfare Officer
+- Level 3 Diploma in Animal Assisted Intervention
+- Level 3 Award for Pet Care in Retail
+- Level 3 Certificate in Canine Nutrition
+- Access to Higher Education Diploma (Veterinary Science)
+- Pet Care Clinic
+- The clinic is a first aid clinic, we do not do operations or invasive procedures. What we can do is;
+- Assess and advise if veterinary treatment is needed. We can also refer you to the best vet possible for you.
+- Perform health checks and advise you if you need to have something suspect to be seen by a vet.
+- Our Staff
+- Our staff are fully trained and qualified to perform the services APES Pet Care Clinic provides.
