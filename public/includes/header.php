@@ -45,7 +45,6 @@
         <div class="brand-copy">
           <span class="brand-title">APES Pet Care Clinic</span>
           <span class="brand-subtitle">Compassion first, for every species.</span>
-          <span class="brand-version"><?= apes_escape($siteVersionTag) ?></span>
         </div>
       </a>
       <button class="menu-toggle" aria-expanded="false" data-menu-toggle>Menu</button>

@@ -35,7 +35,6 @@ if (!isset($showNotice)) {
 
 $siteName = 'APES Pet Care Clinic';
 $siteVersion = 'APES Pet Care Clinic v0.0.0b';
-$siteVersionTag = 'v0.0.0b';
 $noticeText = 'Please note: We are currently operating from temporary premises while our new premises in Warrington are being prepared. Thank you for bearing with us during this time.';
 $scopeText = 'Important: APES Pet Care Clinic provides first aid and general health support. We do not carry out operations or invasive veterinary procedures.';
 

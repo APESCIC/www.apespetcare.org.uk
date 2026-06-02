@@ -14,7 +14,7 @@
   --radius-sm: 10px;
   --shadow-soft: 0 16px 42px rgba(19, 70, 64, 0.14);
   --shadow-card: 0 12px 28px rgba(11, 46, 42, 0.1);
-  --container: min(1180px, 92vw);
+  --container: min(1180px, 90vw);
 }
 
 * {
@@ -88,20 +88,6 @@ a {
 .brand-subtitle {
   font-size: 0.82rem;
   color: var(--ink-700);
-}
-
-.brand-version {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 2px;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: rgba(84, 201, 180, 0.2);
-  border: 1px solid rgba(19, 70, 64, 0.2);
-  color: var(--sea-900);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
 }
 
 .menu-toggle {
