@@ -183,11 +183,23 @@ a {
 }
 
 .mega-link {
-  display: block;
-  padding: 10px 12px;
+  display: grid;
+  gap: 0.35rem;
+  padding: 12px 14px;
   border: 1px solid rgba(19, 70, 64, 0.14);
   border-radius: 10px;
   background: rgba(248, 255, 252, 0.9);
+}
+
+.mega-link-title {
+  font-weight: 800;
+  color: var(--sea-900);
+}
+
+.mega-link-description {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-700);
 }
 
 .notice {

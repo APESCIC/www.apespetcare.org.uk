@@ -56,29 +56,34 @@
             <p class="mega-heading">Pet Care Services</p>
             <div class="mega-links">
               <?php foreach ($servicesMenu as $service): ?>
-                <a class="mega-link" href="<?= apes_escape($service['path']) ?>"><?= apes_escape($service['label']) ?></a>
+                <a class="mega-link" href="<?= apes_escape($service['path']) ?>">
+                  <span class="mega-link-title"><?= apes_escape($service['label']) ?></span>
+                  <span class="mega-link-description"><?= apes_escape($service['description']) ?></span>
+                </a>
               <?php endforeach; ?>
             </div>
           </div>
         </div>
-        <a class="<?= trim(apes_is_active($activeNav, 'about')) ?>" href="/about-us/">About Us</a>
-        <a class="<?= trim(apes_is_active($activeNav, 'bookings')) ?>" href="/bookings/">Bookings</a>
-        <a class="<?= trim(apes_is_active($activeNav, 'donate')) ?>" href="/donate/">Donate</a>
-        <div class="drop mega<?= apes_nav_in_group($activeNav, ['events', 'news', 'policies', 'changelog']) ?>">
+        <div class="drop mega<?= apes_nav_in_group($activeNav, ['about', 'events', 'news', 'policies', 'changelog']) ?>">
           <a class="drop-trigger" href="#" aria-haspopup="true">Information</a>
           <div class="drop-panel mega-panel">
-            <p class="mega-heading">News, Events, Policies And Website Updates</p>
+            <p class="mega-heading">About, News, Policies And Website Updates</p>
             <div class="mega-links">
               <?php foreach ($informationMenu as $item): ?>
                 <a
                   class="mega-link"
                   href="<?= apes_escape($item['path']) ?>"
                   <?php if (!empty($item['external'])): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>
-                ><?= apes_escape($item['label']) ?></a>
+                >
+                  <span class="mega-link-title"><?= apes_escape($item['label']) ?></span>
+                  <span class="mega-link-description"><?= apes_escape($item['description']) ?></span>
+                </a>
               <?php endforeach; ?>
             </div>
           </div>
         </div>
+        <a class="<?= trim(apes_is_active($activeNav, 'bookings')) ?>" href="/bookings/">Bookings</a>
+        <a class="<?= trim(apes_is_active($activeNav, 'donate')) ?>" href="/donate/">Donate</a>
         <a class="<?= trim(apes_is_active($activeNav, 'contact')) ?>" href="/contact/">Contact</a>
       </nav>
     </div>

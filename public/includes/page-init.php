@@ -35,7 +35,7 @@ if (!isset($showNotice)) {
 
 $siteName = 'APES Pet Care Clinic';
 $versionFile = dirname(__DIR__) . '/VERSION';
-$siteVersionNumber = 'v0.0.2';
+$siteVersionNumber = 'v0.0.3';
 if (is_file($versionFile)) {
     $versionValue = trim((string) file_get_contents($versionFile));
     if ($versionValue !== '') {
@@ -63,16 +63,16 @@ $heroBadges = [
 ];
 
 $servicesMenu = [
-    ['label' => 'General Services', 'path' => '/general-services/'],
-    ['label' => 'Dog Care', 'path' => '/dog-care/'],
-    ['label' => 'Cat Care', 'path' => '/cat-care/'],
-    ['label' => 'Reptile Care', 'path' => '/reptile-care/'],
-    ['label' => 'Invert Care', 'path' => '/invert-care/'],
-    ['label' => 'Rabbit Care', 'path' => '/rabbit-care/'],
-    ['label' => 'Guinea Pig Care', 'path' => '/guinea-care/'],
-    ['label' => 'Ferret Care', 'path' => '/ferret-care/'],
-    ['label' => 'Care Plans', 'path' => '/Care%20Plans/care-plans/'],
-    ['label' => 'Lab Services', 'path' => '/APES%20Lab%20Services/apes-lab-services/'],
+    ['label' => 'General Services', 'path' => '/general-services/', 'description' => 'Routine first aid, welfare checks, and safe next-step guidance for pets.'],
+    ['label' => 'Dog Care', 'path' => '/dog-care/', 'description' => 'Practical support for common canine care concerns and referral advice.'],
+    ['label' => 'Cat Care', 'path' => '/cat-care/', 'description' => 'Routine feline checks, first aid support, and next-step guidance.'],
+    ['label' => 'Reptile Care', 'path' => '/reptile-care/', 'description' => 'Species-aware help for reptile welfare, husbandry, and urgent-care triage.'],
+    ['label' => 'Invert Care', 'path' => '/invert-care/', 'description' => 'Support for invertebrate welfare, husbandry, and moulting concerns.'],
+    ['label' => 'Rabbit Care', 'path' => '/rabbit-care/', 'description' => 'Welfare support for rabbits with practical referral advice when needed.'],
+    ['label' => 'Guinea Pig Care', 'path' => '/guinea-care/', 'description' => 'Practical guinea pig support for common welfare concerns.'],
+    ['label' => 'Ferret Care', 'path' => '/ferret-care/', 'description' => 'First aid and general health support tailored to ferrets.'],
+    ['label' => 'Care Plans', 'path' => '/Care%20Plans/care-plans/', 'description' => 'Preventive support plans to spread routine care costs.'],
+    ['label' => 'Lab Services', 'path' => '/APES%20Lab%20Services/apes-lab-services/', 'description' => 'Coordinated testing options to support health investigations.'],
 ];
 
 $policiesMenu = [
@@ -82,17 +82,26 @@ $policiesMenu = [
     ['label' => 'Terms and Conditions', 'path' => '/policies/terms-and-conditions/'],
 ];
 
+$policyDescriptions = [
+    'Booking Policy' => 'Appointment expectations and booking terms before you book.',
+    'Privacy Policy' => 'How personal information is used and protected.',
+    'Refund Policy' => 'Refund rules for booked services and cancellations.',
+    'Terms and Conditions' => 'Website and service terms for using the clinic.',
+];
+
 $informationMenu = [
-    ['label' => 'Events', 'path' => '/events/'],
-    ['label' => 'News', 'path' => $newsUrl, 'external' => true],
+    ['label' => 'About Us', 'path' => '/about-us/', 'description' => 'Learn about APES, our clinic scope, and our welfare-first approach.'],
+    ['label' => 'Events', 'path' => '/events/', 'description' => 'Community events, awareness sessions, and practical pet welfare education.'],
+    ['label' => 'News', 'path' => $newsUrl, 'external' => true, 'description' => 'Latest APES news and public updates on the external news site.'],
     ...array_map(
         static fn(array $policy): array => [
             'label' => $policy['label'],
             'path' => $policy['path'],
+            'description' => $policyDescriptions[$policy['label']] ?? '',
         ],
         $policiesMenu
     ),
-    ['label' => 'Change Log Hub', 'path' => $changelogPath],
+    ['label' => 'Change Log Hub', 'path' => $changelogPath, 'description' => 'Track website releases, fixes, and compliance updates.'],
 ];
 
 function apes_escape(string $value): string

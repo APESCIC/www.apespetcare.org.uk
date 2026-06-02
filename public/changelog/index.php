@@ -10,12 +10,67 @@ require_once $rootPath . '/includes/page-init.php';
 
 $releaseEntries = [
     [
+        'version' => 'v0.0.3',
+        'date' => '2026-06-02',
+        'title' => 'Navigation reorder and mega menu descriptions',
+        'status' => 'Stable',
+        'statusKey' => 'stable',
+        'current' => true,
+        'impact' => 'public-facing operational',
+        'types' => 'changed fixed',
+        'pills' => [
+            ['class' => 'pill-version', 'label' => 'Version v0.0.3'],
+            ['class' => 'pill-status', 'label' => 'Stable'],
+            ['class' => 'pill-type', 'label' => 'Changed'],
+            ['class' => 'pill-type', 'label' => 'Fixed'],
+            ['class' => 'pill-fix', 'label' => 'Navigation Fix'],
+            ['class' => 'pill-fix', 'label' => 'Content Fix'],
+        ],
+        'summary' => 'Reordered the main website navigation to prioritise Services and Information, moved About Us into the Information mega menu, and added descriptive supporting copy to every mega-menu item.',
+        'details' => [
+            'Reordered the shared top-level header navigation to Home, Services, Information, Bookings, Donate, and Contact so the primary public journey matches the requested sequence.',
+            'Removed About Us as a standalone top-level link and added it to the Information mega menu without changing the /about-us/ route.',
+            'Added short descriptive summaries to every item inside the Services and Information mega menus so visitors can understand destination purpose before clicking.',
+            'Updated shared menu rendering so each mega-menu card now presents a title and description while preserving external-link handling for the News destination.',
+            'Expanded Information menu active-state handling so the group stays highlighted on About Us, Events, policy pages, and the Change Log Hub.',
+            'Updated the canonical VERSION file plus both changelog records so the release remains synchronised under the new v0.0.3 stable patch entry.',
+        ],
+        'typePills' => [
+            ['class' => 'pill-type', 'label' => 'Changed', 'description' => 'Reordered the shared header navigation and enriched mega-menu card content with supporting descriptions.'],
+            ['class' => 'pill-type', 'label' => 'Fixed', 'description' => 'Corrected the information architecture so About Us now sits inside the Information menu and menu intent is clearer to visitors.'],
+        ],
+        'fixPills' => [
+            ['class' => 'pill-fix', 'label' => 'Navigation Fix', 'description' => 'The main navigation now follows the requested six-item order and keeps related informational routes grouped together.'],
+            ['class' => 'pill-fix', 'label' => 'Content Fix', 'description' => 'Mega-menu items now explain their destination purpose with concise descriptive copy.'],
+        ],
+        'affectedAreas' => [
+            'Website' => 'APES Pet Care Clinic public website.',
+            'Page or route' => 'Shared header navigation, /about-us/, /events/, /policies/*, /changelog/, /bookings/, /donate/, and /contact/.',
+            'Files changed' => 'includes/page-init.php, includes/header.php, assets/css/styles.css, changelog/index.php, VERSION, CHANGELOG.md.',
+            'User groups affected' => 'Public visitors, donors, service users, volunteers, and staff sharing key website routes.',
+            'Public impact' => 'Visitors see the requested navigation order and clearer mega-menu destination descriptions across desktop and mobile navigation.',
+            'Internal impact' => 'Shared menu data now carries reusable descriptions for future navigation maintenance and release auditing.',
+        ],
+        'versionDecision' => [
+            'Previous version' => 'v0.0.2',
+            'New version' => 'v0.0.3',
+            'Version type' => 'Stable patch release',
+            'Reason for version bump' => 'This is a low-risk public navigation and content clarification update that improves an existing user journey without changing routes or introducing a new workflow.',
+        ],
+        'validation' => [
+            'Checks run' => 'Reviewed shared menu data, header rendering, and synchronized release records by diff inspection. No local PHP CLI binary was available for automated linting in this environment.',
+            'Manual checks completed' => 'Verified the intended top-level menu order, About Us placement within Information, active-state grouping, external News link handling, and the presence of descriptions for every Services and Information mega-menu item.',
+            'Known limitations' => 'Visual behaviour was reviewed statically in code only, so a live browser pass may still be helpful for final spacing confirmation on small screens.',
+            'Rollback notes' => 'Revert the shared navigation arrays, header markup, mega-menu card styling, VERSION, and both changelog entries to restore the previous top-level About Us link and earlier menu presentation.',
+        ],
+    ],
+    [
         'version' => 'v0.0.2',
         'date' => '2026-06-02',
         'title' => 'Change Log Hub alignment and naming standardisation',
         'status' => 'Stable',
         'statusKey' => 'stable',
-        'current' => true,
+        'current' => false,
         'impact' => 'public-facing operational',
         'types' => 'changed fixed compliance',
         'pills' => [
