@@ -142,7 +142,490 @@ Codex must record the correction itself as a changelog entry unless the changelo
 
 ---
 
-## 3. Change Log Hub format
+## 3. Change Log Hub page design and behaviour
+
+Codex must build and maintain Change Log Hub pages using the APES CIC website pattern shown in the intranet Change Log Hub reference design.
+
+The Change Log Hub page must be a proper website page, not only a Markdown file. It must visually and functionally resemble the APES reference pattern: green hero header, current version pills, timeline panel, search, filters, and collapsible version cards.
+
+The page must use a clean green APES CIC theme and must include:
+
+- A compact page header or hero panel.
+- The page title: `Change Log Hub`.
+- A short subtitle explaining that users can track major releases, fixes, compliance changes, and website improvements.
+- A visible current version label.
+- Version/status pills.
+- A searchable and filterable version timeline.
+- Collapsible release/version entries.
+- Detailed release information inside each expanded entry.
+- Clear validation and rollback information.
+- Consistent version formatting using `vmajor.minor.patch` or `vmajor.minor.patchb`.
+
+### Required page layout
+
+The Change Log Hub page must use this general structure:
+
+```txt
+Change Log Hub
+Track every major release for this website, including updates, fixes, compliance changes, and user-facing improvements.
+
+Current version: v0.0.0
+[Version v0.0.0] [Stable or Beta]
+
+Version Timeline
+
+[Search versions, files, release notes]
+[All releases] [Current release] [Stable] [Beta] [Fixes] [Compliance]
+[Expand all] [Collapse all]
+
+> v0.0.0 - Release title
+  [Version v0.0.0] [Stable/Beta] [Changed] [Fixed] [Compliance]
+  Collapsible release detail panel
+```
+
+The exact text may be adapted to the website, but the structure must remain consistent.
+
+### Header or hero panel
+
+The top panel must include:
+
+- `Change Log Hub` as the visible page heading.
+- A short plain-English explanation of what the hub records.
+- `Current version: vX.Y.Z` or `Current version: vX.Y.Zb`.
+- Pills showing current version and release status.
+
+Recommended header example:
+
+```html
+<section class="change-log-hero">
+  <h1>Change Log Hub</h1>
+  <p>Track every major release for this website, including updates, fixes, compliance changes, and user-facing improvements.</p>
+  <p class="current-version">Current version: <strong>v0.0.0</strong></p>
+  <span class="pill pill-version">Version v0.0.0</span>
+  <span class="pill pill-status">Stable</span>
+</section>
+```
+
+For beta versions, use:
+
+```html
+<span class="pill pill-status">Beta</span>
+```
+
+### Version Timeline area
+
+The Change Log Hub must include a `Version Timeline` section.
+
+This section must provide:
+
+- Search input.
+- Filter controls.
+- Expand all control.
+- Collapse all control.
+- Collapsible entries for each release.
+- A clear visual separation between release entries.
+
+Recommended structure:
+
+```html
+<section class="change-log-panel">
+  <h2>Version Timeline</h2>
+
+  <div class="change-log-controls">
+    <label class="sr-only" for="changeLogSearch">Search version history</label>
+    <input id="changeLogSearch" type="search" placeholder="Search versions, files, release notes">
+
+    <button type="button" data-filter="all">All releases</button>
+    <button type="button" data-filter="current">Current release</button>
+    <button type="button" data-action="expand-all">Expand all</button>
+    <button type="button" data-action="collapse-all">Collapse all</button>
+  </div>
+
+  <p data-change-log-empty hidden>No matching release entries found.</p>
+
+  <div class="change-log-timeline">
+    <!-- Release entries go here -->
+  </div>
+</section>
+```
+
+### Required filter system
+
+The Change Log Hub page must include a filter system.
+
+At minimum, Codex must provide filters for:
+
+- All releases
+- Current release
+
+Where useful, Codex should also add filters for:
+
+- Stable
+- Beta
+- Added
+- Changed
+- Fixed
+- Removed
+- Security
+- Compliance
+- Accessibility
+- SEO
+- Forms
+- Integrations
+- Public-facing
+- Internal-only
+
+Filter controls must only hide or show entries. They must not delete content.
+
+Filters must work alongside search where JavaScript is available.
+
+If JavaScript is not available, all entries must remain visible and readable.
+
+### Required search behaviour
+
+The search field must allow users to search by:
+
+- Version number
+- Release title
+- Release date
+- Change type
+- Fix type
+- File name
+- Page or route
+- Website area
+- User group
+- Summary text
+- Detailed release notes
+
+Search must be case-insensitive.
+
+If no entries match the search, the page should show:
+
+```txt
+No matching release entries found.
+```
+
+### Collapsible version entries
+
+Each release entry must be collapsible.
+
+Codex may use native HTML `<details>` and `<summary>` elements unless the website framework has an existing accessible accordion component.
+
+Native HTML is preferred because it is accessible, lightweight, and works without extra JavaScript.
+
+The newest or current release should be open by default. Older releases should usually be collapsed by default.
+
+Recommended collapsible structure:
+
+```html
+<details class="release-card" data-version="v0.0.0" data-current="true" data-status="stable" data-types="changed fixed compliance" open>
+  <summary>
+    <span class="release-version">v0.0.0</span>
+    <span class="release-title">Release title</span>
+    <span class="release-date">YYYY-MM-DD</span>
+  </summary>
+
+  <div class="release-body">
+    <div class="release-pills">
+      <span class="pill pill-version">Version v0.0.0</span>
+      <span class="pill pill-status">Stable</span>
+      <span class="pill pill-type">Changed</span>
+      <span class="pill pill-fix">Fixed</span>
+      <span class="pill pill-compliance">Compliance</span>
+    </div>
+
+    <h3>Summary</h3>
+    <p>Briefly explain what changed and why.</p>
+
+    <h3>Detailed changes</h3>
+    <ul>
+      <li>Describe each material change in plain English.</li>
+    </ul>
+
+    <h3>Affected areas</h3>
+    <ul>
+      <li>Website:</li>
+      <li>Page or route:</li>
+      <li>Files changed:</li>
+      <li>User groups affected:</li>
+      <li>Public impact:</li>
+      <li>Internal impact:</li>
+    </ul>
+
+    <h3>Version decision</h3>
+    <ul>
+      <li>Previous version:</li>
+      <li>New version:</li>
+      <li>Version type:</li>
+      <li>Reason for version bump:</li>
+    </ul>
+
+    <h3>Validation</h3>
+    <ul>
+      <li>Checks run:</li>
+      <li>Manual checks completed:</li>
+      <li>Known limitations:</li>
+      <li>Rollback notes:</li>
+    </ul>
+  </div>
+</details>
+```
+
+### Expand all and collapse all
+
+The Change Log Hub page must include controls for:
+
+- Expand all
+- Collapse all
+
+These controls should open and close every release card.
+
+If JavaScript is not available, the page must still work because users can manually open each native `<details>` entry.
+
+Recommended JavaScript:
+
+```html
+<script>
+  (function () {
+    const search = document.querySelector('#changeLogSearch');
+    const entries = Array.from(document.querySelectorAll('.release-card'));
+    const buttons = Array.from(document.querySelectorAll('[data-filter]'));
+    const expandAll = document.querySelector('[data-action="expand-all"]');
+    const collapseAll = document.querySelector('[data-action="collapse-all"]');
+    const empty = document.querySelector('[data-change-log-empty]');
+    let activeFilter = 'all';
+
+    function matchesSearch(entry) {
+      if (!search || !search.value.trim()) return true;
+      return entry.textContent.toLowerCase().includes(search.value.trim().toLowerCase());
+    }
+
+    function matchesFilter(entry) {
+      if (activeFilter === 'all') return true;
+      if (activeFilter === 'current') return entry.dataset.current === 'true';
+      const haystack = [
+        entry.dataset.status,
+        entry.dataset.types,
+        entry.dataset.impact
+      ].join(' ').toLowerCase();
+      return haystack.includes(activeFilter.toLowerCase());
+    }
+
+    function updateEntries() {
+      let visibleCount = 0;
+      entries.forEach(entry => {
+        const visible = matchesSearch(entry) && matchesFilter(entry);
+        entry.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+      if (empty) empty.hidden = visibleCount !== 0;
+    }
+
+    if (search) search.addEventListener('input', updateEntries);
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        activeFilter = button.dataset.filter || 'all';
+        buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        updateEntries();
+      });
+    });
+
+    if (expandAll) {
+      expandAll.addEventListener('click', () => {
+        entries.forEach(entry => {
+          if (!entry.hidden) entry.open = true;
+        });
+      });
+    }
+
+    if (collapseAll) {
+      collapseAll.addEventListener('click', () => {
+        entries.forEach(entry => {
+          if (!entry.hidden) entry.open = false;
+        });
+      });
+    }
+
+    updateEntries();
+  })();
+</script>
+```
+
+### Required visual style
+
+The Change Log Hub should follow this visual direction:
+
+- APES green theme.
+- Rounded hero panel.
+- White or very light mint content cards.
+- Teal/green borders or top accents.
+- Pill badges.
+- Compact timeline-style release cards.
+- Strong contrast for readability.
+- Responsive layout.
+- Keyboard-accessible controls.
+
+Recommended CSS:
+
+```css
+.change-log-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.change-log-hero {
+  background: linear-gradient(135deg, #006b5f, #008577);
+  color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0.75rem 2rem rgba(0, 60, 52, 0.16);
+}
+
+.change-log-panel {
+  background: #ffffff;
+  border: 1px solid #cfe8e4;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 60, 52, 0.08);
+}
+
+.change-log-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.change-log-controls input[type="search"] {
+  flex: 1 1 260px;
+  min-width: 220px;
+  border: 1px solid #b7ded8;
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+}
+
+.change-log-controls button {
+  border: 1px solid #00a99d;
+  background: #ffffff;
+  color: #006b5f;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.change-log-controls button[aria-pressed="true"],
+.change-log-controls button:hover,
+.change-log-controls button:focus {
+  background: #e6f7f4;
+  outline: none;
+}
+
+.release-card {
+  border: 1px solid #b7ded8;
+  border-top: 4px solid #00a99d;
+  border-radius: 0.75rem;
+  margin: 0.75rem 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.release-card summary {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.release-card[open] summary {
+  border-bottom: 1px solid #dff0ed;
+}
+
+.release-body {
+  padding: 1rem;
+}
+
+.release-version {
+  color: #006b5f;
+}
+
+.release-date {
+  margin-left: auto;
+  color: #4b635f;
+  font-size: 0.9rem;
+}
+
+.release-pills {
+  margin-bottom: 1rem;
+}
+
+[data-change-log-empty] {
+  padding: 1rem;
+  border: 1px dashed #b7ded8;
+  border-radius: 0.75rem;
+  background: #f4fbfa;
+}
+```
+
+### Accessibility requirements
+
+The Change Log Hub must be accessible.
+
+Codex must ensure:
+
+- The page has one clear `h1`.
+- Release entries use accessible collapsible controls.
+- Search input has a label, even if visually hidden.
+- Buttons have clear text.
+- Keyboard users can tab through filters, search, and release entries.
+- Colour is not the only way to understand change type.
+- Pills use text labels, not colour alone.
+- Hidden entries are hidden using the `hidden` attribute or equivalent.
+- The page remains readable if JavaScript fails.
+
+### Mobile behaviour
+
+On small screens:
+
+- The search field should remain full width or near-full width.
+- Filter buttons should wrap onto multiple lines.
+- Release summary rows should wrap cleanly.
+- Dates should not overflow.
+- Long file paths should wrap.
+- Pills should wrap and remain readable.
+
+### Current release rule
+
+The current release must be clearly identifiable.
+
+Codex must mark the current release using:
+
+```html
+data-current="true"
+```
+
+Example:
+
+```html
+<details class="release-card" data-version="v0.2.1" data-current="true" data-status="stable" data-types="changed fixed" open>
+```
+
+Only one release should be marked as current unless the website has separate current stable and current beta releases.
+
+If both stable and beta are present, Codex must label them clearly:
+
+- Current stable
+- Current beta
+
+---
+
+## 4. Change Log Hub entry format
 
 Codex must use this structure for each release entry:
 
@@ -214,7 +697,7 @@ Use fix pills where a change repairs a problem:
 
 ---
 
-## 4. Pill display guidance
+## 5. Pill display guidance
 
 If the Change Log Hub is Markdown-only, Codex must still include pill-style HTML spans.
 
@@ -269,7 +752,7 @@ Do not introduce CSS unless the relevant website or changelog page needs it.
 
 ---
 
-## 5. Version numbering standard
+## 6. Version numbering standard
 
 All website versions must use this format:
 
@@ -313,7 +796,7 @@ The `v` prefix is mandatory for APES CIC website versions.
 
 ---
 
-## 6. Version source of truth
+## 7. Version source of truth
 
 Codex must identify the project’s canonical website version before changing it.
 
@@ -344,7 +827,7 @@ Codex must not blindly update third-party module versions, generated vendor vers
 
 ---
 
-## 7. Version bump rules
+## 8. Version bump rules
 
 Codex must use semantic versioning adapted for APES CIC websites.
 
@@ -441,7 +924,7 @@ v1.8.4 -> v1.8.5b
 
 ---
 
-## 8. Beta version rules
+## 9. Beta version rules
 
 A beta version is used when the update is not yet final or is being tested before full release.
 
@@ -485,7 +968,7 @@ depending on the type of work.
 
 ---
 
-## 9. Planning requirement
+## 10. Planning requirement
 
 At the start of planning, Codex must confirm the type of update being worked on.
 
@@ -515,7 +998,7 @@ Default assumptions:
 
 ---
 
-## 10. Required Codex workflow
+## 11. Required Codex workflow
 
 For every website task, Codex must follow this workflow.
 
@@ -604,7 +1087,7 @@ Codex’s final response must include:
 
 ---
 
-## 11. Generated website export rule
+## 12. Generated website export rule
 
 Some APES CIC websites may include generated exports from CMS or website builders.
 
@@ -629,7 +1112,7 @@ Codex must:
 
 ---
 
-## 12. Change type guidance
+## 13. Change type guidance
 
 Use these type pills consistently.
 
@@ -746,7 +1229,7 @@ Pill:
 
 ---
 
-## 13. Changelog entry detail standard
+## 14. Changelog entry detail standard
 
 Changelog entries must be detailed enough for a director, staff member, volunteer, auditor, developer, or future maintainer to understand:
 
@@ -776,7 +1259,7 @@ Use precise entries such as:
 
 ---
 
-## 14. Multi-website rule
+## 15. Multi-website rule
 
 If a change affects more than one website, Codex must record the update in either:
 
@@ -803,7 +1286,7 @@ If only one website is affected, Codex must still name it.
 
 ---
 
-## 15. Commit and pull request guidance
+## 16. Commit and pull request guidance
 
 When preparing a commit or pull request, Codex must include the version number in the PR summary.
 
@@ -851,7 +1334,7 @@ website: add beta boarding form and bump to v0.3.0b
 
 ---
 
-## 16. Final self-check before completion
+## 17. Final self-check before completion
 
 Before Codex finishes any website task, it must answer these questions internally:
 
@@ -873,7 +1356,7 @@ If any answer is no, Codex must fix the omission before finalising the work.
 
 ---
 
-## 17. Default answer when update type is unclear
+## 18. Default answer when update type is unclear
 
 When a user asks Codex to make a website change but does not state the update type, Codex must respond with:
 
@@ -885,7 +1368,7 @@ If the user asks Codex to proceed without confirmation, Codex must infer the upd
 
 ---
 
-## 18. APES CIC tone and governance standard
+## 19. APES CIC tone and governance standard
 
 Website changelog entries must be professional, plain-English, and audit-friendly.
 
@@ -912,7 +1395,7 @@ Where relevant, note whether the change relates to:
 
 ---
 
-## 19. Non-negotiable instruction
+## 20. Non-negotiable instruction
 
 Codex must never treat changelog and version updates as optional for website work.
 
