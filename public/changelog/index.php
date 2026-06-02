@@ -10,12 +10,65 @@ require_once $rootPath . '/includes/page-init.php';
 
 $releaseEntries = [
     [
+        'version' => 'v0.1.1',
+        'date' => '2026-06-02',
+        'title' => 'Chatwoot live chat launcher refresh',
+        'status' => 'Stable',
+        'statusKey' => 'stable',
+        'current' => true,
+        'impact' => 'public-facing operational',
+        'types' => 'changed fixed',
+        'pills' => [
+            ['class' => 'pill-version', 'label' => 'Version v0.1.1'],
+            ['class' => 'pill-status', 'label' => 'Stable'],
+            ['class' => 'pill-type', 'label' => 'Changed'],
+            ['class' => 'pill-type', 'label' => 'Fixed'],
+            ['class' => 'pill-fix', 'label' => 'Integration Fix'],
+            ['class' => 'pill-fix', 'label' => 'Content Fix'],
+        ],
+        'summary' => 'Updated the global Chatwoot live chat integration to use the supplied website token and launcher configuration so the website shows the new right-hand expanded support bubble consistently.',
+        'details' => [
+            'Replaced the existing global Chatwoot launcher settings in the shared header so the launcher now uses the requested right-hand placement, expanded bubble type, and Speak with an advisor title across the website.',
+            'Updated the Chatwoot website token in the shared SDK bootstrap while keeping the existing APES workspace base URL and asynchronous SDK loading pattern.',
+            'Confirmed the website still injects only one shared Chatwoot bootstrap script from the common header, avoiding duplicate launcher creation from legacy configuration.',
+            'Updated the canonical VERSION file plus both changelog records so the release is synchronised under the new v0.1.1 stable patch entry.',
+        ],
+        'typePills' => [
+            ['class' => 'pill-type', 'label' => 'Changed', 'description' => 'Updated the shared live chat configuration used across public website pages.'],
+            ['class' => 'pill-type', 'label' => 'Fixed', 'description' => 'Corrected the launcher behaviour and account connection details so the website points at the supplied Chatwoot workspace and presents the requested copy.'],
+        ],
+        'fixPills' => [
+            ['class' => 'pill-fix', 'label' => 'Integration Fix', 'description' => 'The shared Chatwoot SDK bootstrap now uses the supplied website token and launcher settings without duplicating the script.'],
+            ['class' => 'pill-fix', 'label' => 'Content Fix', 'description' => 'The live chat launcher title now reads Speak with an advisor instead of the previous incorrect wording.'],
+        ],
+        'affectedAreas' => [
+            'Website' => 'APES Pet Care Clinic public website.',
+            'Page or route' => 'Shared global header integration across all public routes, plus /changelog/.',
+            'Files changed' => 'includes/header.php, VERSION, CHANGELOG.md, and changelog/index.php.',
+            'User groups affected' => 'Public visitors, service users, donors, volunteers, and staff responding to incoming live chat enquiries.',
+            'Public impact' => 'Visitors should now see the requested Chatwoot launcher title and expanded bubble on the right-hand side of the website.',
+            'Internal impact' => 'Live chat messages should route through the supplied Chatwoot website token without relying on the retired launcher configuration.',
+        ],
+        'versionDecision' => [
+            'Previous version' => 'v0.1.0',
+            'New version' => 'v0.1.1',
+            'Version type' => 'Stable patch release',
+            'Reason for version bump' => 'This is a low-risk public-facing integration correction to an existing global script and does not add a new website section or workflow.',
+        ],
+        'validation' => [
+            'Checks run' => 'Searched the codebase for Chatwoot references to confirm the shared header is the single launcher source and reviewed the updated token, base URL, async SDK load, and launcher settings by code inspection. No local PHP CLI binary was available in this environment for automated php -l checks.',
+            'Manual checks completed' => 'Confirmed the shared runtime script now matches the supplied position, type, launcherTitle, baseUrl, and websiteToken values and that the live PHP source no longer references the retired Chatwoot token.',
+            'Known limitations' => 'Live browser verification on the rendered site was not available in this environment, so the final launcher appearance and console state still need a manual browser check on live or staging. Historical crawl snapshot artifacts still contain the previous token string and were left untouched because they are generated records rather than the live source template.',
+            'Rollback notes' => 'Revert the shared header Chatwoot snippet, VERSION file, and both changelog entries to restore the previous v0.1.0 live chat configuration.',
+        ],
+    ],
+    [
         'version' => 'v0.1.0',
         'date' => '2026-06-02',
         'title' => 'Stripe pre-pay booking flow for clinic services',
         'status' => 'Stable',
         'statusKey' => 'stable',
-        'current' => true,
+        'current' => false,
         'impact' => 'public-facing operational',
         'types' => 'added changed fixed',
         'pills' => [

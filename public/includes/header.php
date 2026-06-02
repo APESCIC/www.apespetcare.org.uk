@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script defer src="/assets/js/site.js"></script>
   <script>
-    window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Speak to a advisor."};
+    window.chatwootSettings = {"position":"right","type":"expanded_bubble","launcherTitle":"Speak with an advisor"};
     (function(d,t) {
       var BASE_URL="https://chatwoot.workspace.apes.org.uk";
       var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -21,7 +21,7 @@
       s.parentNode.insertBefore(g,s);
       g.onload=function(){
         window.chatwootSDK.run({
-          websiteToken: 'xnfcZVWwvLQj3X6wDnbfMcxY',
+          websiteToken: 'wtYALUsWmdbQXWnXgy42Kpxz',
           baseUrl: BASE_URL
         })
       }
