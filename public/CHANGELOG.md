@@ -1,3 +1,53 @@
+## [v0.3.1] - 2026-06-02
+
+<span class="pill pill-version">Version v0.3.1</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Navigation Fix</span>
+
+### Summary
+
+Updated the donate-page Donorbox button so it now opens the donation form in a dedicated popup window instead of replacing the current website page.
+
+### Detailed changes
+
+- Updated the Donorbox donate button on `/donate/` to call `window.open(...)` and launch the donation flow in a popup window.
+- Kept the existing destination URL, amount, designation, and button styling unchanged while adjusting only the click behaviour.
+- Updated the canonical VERSION file plus both changelog records so the release is synchronised under the new v0.3.1 stable patch entry.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Adjusted the donate button interaction on the existing donate page.
+- <span class="pill pill-type">Fixed</span> Prevented the donation journey from navigating visitors away from the APES donate page when opening the external Donorbox form.
+
+### Fix pills
+
+- <span class="pill pill-fix">Navigation Fix</span> The external donation form now opens in its own popup window rather than taking over the current page.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `/donate/` and `/changelog/`.
+- Files changed: `donate/index.php`, `VERSION`, `CHANGELOG.md`, and `changelog/index.php`.
+- User groups affected: Public visitors and donors using the website donation route.
+- Public impact: Visitors can keep the donate page open while the Donorbox donation form opens separately in a popup window.
+- Internal impact: Donation handling remains unchanged, but the requested external-donation behaviour is now reflected in the audited release record.
+
+### Version decision
+
+- Previous version: v0.3.0
+- New version: v0.3.1
+- Version type: Stable patch release
+- Reason for version bump: This is a low-risk user-visible interaction fix on an existing donate-page call to action and does not add a new page, route, or workflow.
+
+### Validation
+
+- Checks run: Reviewed the updated donate button markup and synchronised `v0.3.1` release records by code inspection. No local `php` CLI binary was available in this environment for automated `php -l` checks.
+- Manual checks completed: Confirmed the donate button now uses inline popup-window behaviour while retaining the existing Donorbox link destination and button content in the template source.
+- Known limitations: Live browser verification was not available in this environment, so the final popup behaviour still needs a manual browser pass to confirm popup blockers and window sizing behave as expected on the live site.
+- Rollback notes: Revert the donate button click handler, VERSION file, and both changelog entries to restore the previous v0.3.0 donate-button behaviour.
+
 ## [v0.3.0] - 2026-06-02
 
 <span class="pill pill-version">Version v0.3.0</span>
