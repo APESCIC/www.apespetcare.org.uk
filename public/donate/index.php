@@ -96,9 +96,14 @@ require_once $rootPath . '/includes/header.php';
             </div>
             <p>Your donation helps us cover the resources, welfare support, and practical care costs that allow us to keep helping pets and their carers.</p>
             <div class="donation-button-wrap">
-              <a class="dbox-donation-page-button" href="https://donorbox.org/apes-pet-care-clinic-donations?designation=Area+of+greatest+need&amount=30" onclick="window.open(this.href, 'apesDonatePopup', 'popup=yes,width=720,height=820,resizable=yes,scrollbars=yes'); return false;" style="background: rgb(18, 138, 237); color: rgb(255, 255, 255); text-decoration: none; font-family: Verdana, sans-serif; display: block; gap: 8px; width: fit-content; font-size: 16px; border-radius: 5px; line-height: 24px; padding: 8px 24px; margin-right: auto;"><img role="presentation" src="https://donorbox.org/images/white_logo.svg">Donate</a>
+              <a class="apes-donate-button" href="https://donorbox.org/apes-pet-care-clinic-donations" onclick="window.open(this.href, 'apesDonatePopup', 'popup=yes,width=720,height=820,resizable=yes,scrollbars=yes'); return false;">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 21 4.9 13.9c-2.6-2.6-2.6-6.8 0-9.4s6.8-2.6 9.4 0l.7.7.7-.7c2.6-2.6 6.8-2.6 9.4 0s2.6 6.8 0 9.4Z"></path>
+                </svg>
+                <span>Donate Now</span>
+              </a>
             </div>
-            <p class="donation-note">This button takes you to our secure Donorbox donation page for our area of greatest need fund.</p>
+            <p class="donation-note">This button opens our secure donation page in a separate popup window so you can keep this page open while you give.</p>
           </article>
         </div>
       </div>

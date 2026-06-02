@@ -10,12 +10,66 @@ require_once $rootPath . '/includes/page-init.php';
 
 $releaseEntries = [
     [
+        'version' => 'v0.3.2',
+        'date' => '2026-06-02',
+        'title' => 'APES heart donate button and popup CTA refresh',
+        'status' => 'Stable',
+        'statusKey' => 'stable',
+        'current' => true,
+        'impact' => 'public-facing operational',
+        'types' => 'changed fixed',
+        'pills' => [
+            ['class' => 'pill-version', 'label' => 'Version v0.3.2'],
+            ['class' => 'pill-status', 'label' => 'Stable'],
+            ['class' => 'pill-type', 'label' => 'Changed'],
+            ['class' => 'pill-type', 'label' => 'Fixed'],
+            ['class' => 'pill-fix', 'label' => 'Navigation Fix'],
+            ['class' => 'pill-fix', 'label' => 'Content Fix'],
+        ],
+        'summary' => 'Replaced the Donorbox-branded donate anchor on the public donate page with an APES-owned heart button that opens the donation form in a popup window while keeping the website page in place.',
+        'details' => [
+            'Removed the Donorbox-branded donate anchor styling, external Donorbox logo image, and old query-string destination from the donate funds card on /donate/.',
+            'Added a new APES-styled green donate button with an inline white heart icon and Donate Now label so the funds card now uses the website\'s own visual language.',
+            'Kept the popup-window behaviour for the external donation journey and updated the button to point at the base URL https://donorbox.org/apes-pet-care-clinic-donations.',
+            'Updated the donation helper note so visitors are told that the secure donation page opens in a separate popup window.',
+            'Updated the canonical VERSION file plus both changelog records so the release is synchronised under the new v0.3.2 stable patch entry.',
+        ],
+        'typePills' => [
+            ['class' => 'pill-type', 'label' => 'Changed', 'description' => 'Reworked the donate-page funds CTA to use APES-native button styling and the base donation URL.'],
+            ['class' => 'pill-type', 'label' => 'Fixed', 'description' => 'Removed third-party branded button code so the public donation route now matches the site design and still preserves the popup behaviour.'],
+        ],
+        'fixPills' => [
+            ['class' => 'pill-fix', 'label' => 'Navigation Fix', 'description' => 'The donation journey still opens in a popup window without navigating visitors away from the donate page.'],
+            ['class' => 'pill-fix', 'label' => 'Content Fix', 'description' => 'The funds CTA now uses APES-owned button copy and visuals instead of embedded Donorbox branding.'],
+        ],
+        'affectedAreas' => [
+            'Website' => 'APES Pet Care Clinic public website.',
+            'Page or route' => '/donate/ and /changelog/.',
+            'Files changed' => 'donate/index.php, assets/css/styles.css, VERSION, CHANGELOG.md, and changelog/index.php.',
+            'User groups affected' => 'Public visitors, donors, volunteers, and staff sharing the donation route.',
+            'Public impact' => 'Visitors now see an APES-branded heart donate button that opens the secure donation page in a separate popup window.',
+            'Internal impact' => 'The public donation CTA now matches the site design system while preserving the existing external donation workflow.',
+        ],
+        'versionDecision' => [
+            'Previous version' => 'v0.3.1',
+            'New version' => 'v0.3.2',
+            'Version type' => 'Stable patch release',
+            'Reason for version bump' => 'This is a low-risk public-facing CTA refresh and interaction-preserving update on an existing donate route without adding a new workflow or page.',
+        ],
+        'validation' => [
+            'Checks run' => 'Reviewed the updated donate template, confirmed the base Donorbox URL, checked that the old dbox-donation-page-button class no longer appears in live source files, and synchronised v0.3.2 release records by code inspection. No local php CLI binary was available in this environment for automated php -l checks.',
+            'Manual checks completed' => 'Confirmed the new donate CTA uses an inline heart SVG, APES green styling, the requested Donate Now label, and the existing popup-window settings in the template source.',
+            'Known limitations' => 'Live browser verification was not available in this environment, so the final popup behaviour, button spacing, and popup-blocker behaviour still need a manual browser pass on staging or production.',
+            'Rollback notes' => 'Revert the donate template CTA swap, donate-button stylesheet updates, VERSION file, and both changelog entries to restore the previous v0.3.1 Donorbox-branded button state.',
+        ],
+    ],
+    [
         'version' => 'v0.3.1',
         'date' => '2026-06-02',
         'title' => 'Donate button popup-window behaviour update',
         'status' => 'Stable',
         'statusKey' => 'stable',
-        'current' => true,
+        'current' => false,
         'impact' => 'public-facing operational',
         'types' => 'changed fixed',
         'pills' => [
