@@ -12,6 +12,7 @@
 
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website" src="https://img.shields.io/badge/apespetcare.org.uk-live-1B5E20"></a>
+  <img alt="Repository" src="https://img.shields.io/badge/repository-GitHub-2E7D32">
   <img alt="Status" src="https://img.shields.io/badge/status-active_maintenance-2E7D32">
   <img alt="Theme" src="https://img.shields.io/badge/theme-APES_Habitat-43A047">
   <img alt="Accessibility" src="https://img.shields.io/badge/accessibility-WCAG_AA_target-00796B">
@@ -88,9 +89,19 @@ The exact structure may vary depending on the framework, but the repository shou
 
 ```text
 .
-├── .gitlab/
-│   ├── issue_templates/
-│   └── merge_request_templates/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── feature_request.md
+│   │   ├── content_update.md
+│   │   ├── accessibility_issue.md
+│   │   ├── security_privacy.md
+│   │   └── compliance_governance.md
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   └── deploy.yml
+│   ├── pull_request_template.md
+│   └── dependabot.yml
 ├── docs/
 │   ├── accessibility/
 │   ├── architecture/
@@ -115,8 +126,10 @@ The exact structure may vary depending on the framework, but the repository shou
 │   ├── accessibility/
 │   ├── integration/
 │   └── unit/
-├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── CHANGELOG.md
+├── LICENSE
 ├── README.md
 └── SECURITY.md
 ```
@@ -181,7 +194,7 @@ Document required variables in `.env.example` using safe placeholder values only
 
 ---
 
-## 🛠 Development workflow
+## 🛠 GitHub workflow
 
 ### Branch naming
 
@@ -210,24 +223,58 @@ Improve contrast on service cards
 Document lab services content model
 ```
 
-### Merge requests
+### Issues
 
-Every merge request should include:
+Use GitHub Issues for planned changes, bugs, content work, accessibility improvements, governance tasks and maintenance items.
+
+Every issue should include:
+
+* Summary of the problem or requested change.
+* User or operational need.
+* Acceptance criteria.
+* Relevant page, route or component.
+* Screenshots or examples where helpful.
+* Accessibility, security, data protection or compliance considerations.
+* Priority and owner where known.
+
+Recommended issue templates live in:
+
+```text
+.github/ISSUE_TEMPLATE/
+```
+
+### Pull requests
+
+Every pull request should include:
 
 * Summary of the change.
+* Linked issue, using `Closes #123` where appropriate.
 * Reason for the change.
 * Screenshots or screen recordings for user interface changes.
 * Accessibility considerations.
 * Security and data protection considerations.
 * Testing completed.
-* Rollback notes where relevant.
+* Deployment and rollback notes where relevant.
 
-Use templates in:
+Recommended pull request template:
 
 ```text
-.gitlab/issue_templates/
-.gitlab/merge_request_templates/
+.github/pull_request_template.md
 ```
+
+### GitHub Actions
+
+Use GitHub Actions for repeatable checks and safe deployment workflows.
+
+Suggested checks:
+
+* Install dependencies.
+* Run linting.
+* Run unit and integration tests.
+* Run build checks.
+* Run accessibility checks where tooling is available.
+* Run dependency and security checks.
+* Deploy only from protected branches or approved environments.
 
 ---
 
@@ -294,16 +341,16 @@ Use the strongest practical test coverage for the type of change.
 
 ## 🧯 Priority issue types
 
-Use the correct issue template so triage is faster.
+Use the correct GitHub issue template so triage is faster.
 
 | Issue type | Use when |
 |---|---|
-| **Bug** | Something is broken or behaving unexpectedly. |
-| **Feature Request** | A new website function, service page or user journey is needed. |
-| **Content Update** | The change is primarily wording, guidance, links or document structure. |
-| **Accessibility** | The change affects readability, keyboard use, contrast, forms or assistive technology. |
-| **Security / Privacy** | The change affects access control, personal data, payment links, logs or confidential information. |
-| **Compliance / Governance** | The change relates to policies, terms, refunds, bookings, company details or statutory wording. |
+| **Bug report** | Something is broken or behaving unexpectedly. |
+| **Feature request** | A new website function, service page or user journey is needed. |
+| **Content update** | The change is primarily wording, guidance, links or document structure. |
+| **Accessibility issue** | The change affects readability, keyboard use, contrast, forms or assistive technology. |
+| **Security / privacy** | The change affects access control, personal data, payment links, logs or confidential information. |
+| **Compliance / governance** | The change relates to policies, terms, refunds, bookings, company details or statutory wording. |
 
 ---
 
@@ -339,7 +386,7 @@ Component requirements:
 
 ## 📚 Documentation standards
 
-Keep documentation close to the code and update it in the same merge request as the relevant change.
+Keep documentation close to the code and update it in the same pull request as the relevant change.
 
 Recommended documents:
 
@@ -354,6 +401,7 @@ Recommended documents:
 | `docs/decisions/` | Architecture decision records and reasoning. |
 | `SECURITY.md` | How to report security concerns safely. |
 | `CONTRIBUTING.md` | Contributor expectations and development workflow. |
+| `CODE_OF_CONDUCT.md` | Conduct expectations for contributors and collaborators. |
 
 ---
 
@@ -372,7 +420,37 @@ Do not open public issues containing:
 
 Report sensitive concerns through the approved APES internal route or by contacting the responsible lead directly.
 
-For repository security guidance, maintain a separate `SECURITY.md` file.
+For repository security guidance, maintain a separate `SECURITY.md` file and use GitHub private vulnerability reporting where enabled.
+
+---
+
+## 🤖 Dependabot and dependency maintenance
+
+Use Dependabot or an approved dependency management workflow to keep dependencies reviewed and current.
+
+Recommended rules:
+
+* Group low risk development dependency updates where appropriate.
+* Review security updates promptly.
+* Test all dependency updates before merging.
+* Do not auto merge changes that affect authentication, payments, bookings, data handling or deployment without review.
+* Record any breaking change decisions in `docs/decisions/`.
+
+---
+
+## 🔒 Branch protection
+
+Protect the default branch and any production deployment branches.
+
+Recommended settings:
+
+* Require pull requests before merging.
+* Require at least one approving review.
+* Require status checks to pass.
+* Require branches to be up to date before merging where practical.
+* Restrict who can push to protected branches.
+* Prevent force pushes and deletion of protected branches.
+* Require signed commits where organisational policy requires it.
 
 ---
 
@@ -385,7 +463,7 @@ Access should follow least privilege principles:
 * Give users the minimum role needed for their work.
 * Remove access when a role ends or no longer requires repository access.
 * Protect the default branch.
-* Require merge request review for material changes.
+* Require pull request review for material changes.
 * Treat client, welfare, safeguarding, finance, HR and governance information as sensitive by default.
 
 ---
