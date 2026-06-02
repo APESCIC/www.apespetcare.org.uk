@@ -14,7 +14,7 @@
   --radius-sm: 10px;
   --shadow-soft: 0 16px 42px rgba(19, 70, 64, 0.14);
   --shadow-card: 0 12px 28px rgba(11, 46, 42, 0.1);
-  --container: min(1180px, 90vw);
+  --container: 90vw;
 }
 
 * {
