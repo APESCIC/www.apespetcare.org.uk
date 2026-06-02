@@ -1,8 +1,8 @@
 # AGENTS.md
 
-# APES CIC Website Change Log and Versioning Instructions
+# APES CIC Website Working Instructions
 
-These instructions apply to all website repositories, website exports, public web pages, microsites, static websites, documentation sites, portal front ends, and any related website code owned or maintained by the Association of Protecting Exotic Species CIC.
+These instructions apply to all APES CIC website repositories, website exports, public web pages, intranet pages, microsites, static websites, documentation sites, portal front ends, and any related website code owned or maintained by the Association of Protecting Exotic Species CIC.
 
 Codex must follow these instructions before, during, and after making any website change.
 
@@ -10,13 +10,19 @@ Codex must follow these instructions before, during, and after making any websit
 
 ## 1. Primary rule
 
-Every website update must be recorded in the Change Log Hub.
+Every website update must be planned, versioned, recorded, validated, and, where relevant, reflected in GitHub Issues.
 
-Codex must not complete website work without checking whether a changelog entry and version update are required.
+Codex must not complete website work without checking whether the following are required:
+
+1. A website Change Log Hub page update.
+2. A root-level `CHANGELOG.md` update.
+3. A canonical version update.
+4. A GitHub Issue start, progress, or completion update.
 
 A changelog entry is required when the work changes any of the following:
 
 - Public website content
+- Intranet website content
 - Page structure
 - Forms
 - Buttons, links, menus, navigation, calls to action, or user journeys
@@ -27,13 +33,265 @@ A changelog entry is required when the work changes any of the following:
 - Scripts, widgets, site configuration, build configuration, deployment configuration, or generated website output
 - Security, privacy, safeguarding, legal, compliance, finance, governance, HR, or animal welfare related public content
 - Any user-visible bug fix
-- Any change that affects how staff, volunteers, service users, donors, adopters, partners, or the public use the website
+- Any change that affects how staff, volunteers, service users, donors, adopters, partners, students, or the public use the website
 
 If there is any uncertainty, Codex must assume a changelog entry is required.
 
 ---
 
-## 2. Change Log Hub requirement
+## 2. Planning requirement
+
+At the start of planning, Codex must confirm the type of update being worked on.
+
+Codex must ask or determine:
+
+1. Is this a major, minor, or patch update?
+2. Is this a beta update?
+3. Is the update public-facing, internal-only, or operational?
+4. Which website, page, route, component, form, or integration is affected?
+5. Does the update affect compliance, safeguarding, accessibility, donations, finance, legal, governance, HR, or animal welfare content?
+6. Should the Change Log Hub entry be public, internal, or both?
+7. Is there a related GitHub Issue?
+8. Should the GitHub Issue be updated at the start, during progress, and at completion?
+
+If the user has not confirmed the update type, Codex must ask:
+
+```txt
+Before I make the website change, please confirm the update type: major, minor, or patch. Also confirm whether this is beta, meaning the version should end in b.
+```
+
+If the user does not answer but the task must proceed, Codex must make a conservative decision and state the assumption clearly before editing.
+
+Default assumptions:
+
+- Use `patch` for small corrections and fixes.
+- Use `minor` for new pages, new content sections, new forms, new workflows, or new integrations.
+- Use `major` only for substantial redesigns, breaking changes, migrations, URL restructuring, or high-risk structural changes.
+- Use stable, not beta, unless the user says it is beta, staging, preview, trial, soft launch, or not final.
+
+---
+
+## 3. Version numbering standard
+
+All APES CIC website versions must start with `v`.
+
+Stable website versions must use this format:
+
+```txt
+vmajor.minor.patch
+```
+
+Example stable version:
+
+```txt
+v1.4.2
+```
+
+Beta website versions must add the letter `b` at the end:
+
+```txt
+vmajor.minor.patchb
+```
+
+Example beta version:
+
+```txt
+v1.4.2b
+```
+
+Stable versions must not have any suffix.
+
+Beta versions must end in `b`.
+
+Do not use other version formats such as:
+
+- `1.4.2`
+- `1.4.2b`
+- `v1.4.2-beta`
+- `v1.4.2.beta`
+- `v1.4.2-b`
+- `v.1.4.2`
+- `version 1.4.2`
+
+The `v` prefix is mandatory for APES CIC website versions.
+
+---
+
+## 4. Version source of truth
+
+Codex must identify the project’s canonical website version before changing it.
+
+Look for version files in this order:
+
+1. `VERSION`
+2. `version.txt`
+3. `version.json`
+4. `package.json`
+5. `CHANGELOG.md`
+6. Any documented website release metadata file
+
+If no version file exists, Codex must create a root-level `VERSION` file.
+
+The `VERSION` file must contain only the version number, including the mandatory `v` prefix.
+
+Example stable `VERSION` file:
+
+```txt
+v0.1.0
+```
+
+Example beta `VERSION` file:
+
+```txt
+v0.1.0b
+```
+
+Codex must not blindly update third-party module versions, generated vendor versions, embedded widget versions, CMS app versions, CDN asset versions, or platform-controlled version strings unless the task explicitly requires it.
+
+---
+
+## 5. Version bump rules
+
+Codex must use semantic versioning adapted for APES CIC websites.
+
+### Major version update
+
+Increase the major number when the change is substantial, breaking, structural, high-risk, or materially changes how the website works.
+
+Examples:
+
+- Full website redesign
+- New website platform, CMS, hosting, or deployment structure
+- Major URL restructure
+- Major navigation restructure
+- Major user journey restructure
+- Major donation, adoption, rescue, boarding, volunteer, shop, or contact flow rebuild
+- Change that may break bookmarks, automations, integrations, or staff workflows
+- Change requiring substantial rollback planning
+- Significant compliance, safeguarding, legal, finance, HR, or animal welfare public information restructuring
+
+Example:
+
+```txt
+v1.8.4 -> v2.0.0
+```
+
+For beta:
+
+```txt
+v1.8.4 -> v2.0.0b
+```
+
+### Minor version update
+
+Increase the minor number when adding or materially improving functionality or public content without a breaking restructure.
+
+Examples:
+
+- New page
+- New section
+- New service page
+- New campaign page
+- New donation journey
+- New contact or referral form
+- New volunteer, adoption, rescue, boarding, shop, event, or partner workflow
+- New public policy page
+- New public compliance, governance, safeguarding, or animal welfare information
+- New integration that does not break existing behaviour
+- Substantial content refresh across existing pages
+- New reusable component or template
+
+Example:
+
+```txt
+v1.8.4 -> v1.9.0
+```
+
+For beta:
+
+```txt
+v1.8.4 -> v1.9.0b
+```
+
+### Patch version update
+
+Increase the patch number for fixes, corrections, small improvements, or low-risk updates.
+
+Examples:
+
+- Typo, grammar, or wording correction
+- Minor copy update
+- Broken link fix
+- Small CSS fix
+- Button alignment fix
+- Image replacement
+- Form label correction
+- Metadata update
+- Small SEO correction
+- Small accessibility correction
+- Sitemap or robots correction
+- Minor bug fix
+- Small content update that does not materially change the page purpose
+
+Example:
+
+```txt
+v1.8.4 -> v1.8.5
+```
+
+For beta:
+
+```txt
+v1.8.4 -> v1.8.5b
+```
+
+---
+
+## 6. Beta version rules
+
+A beta version is used when the update is not yet final or is being tested before full release.
+
+Use beta when:
+
+- A page, feature, form, integration, or user journey is being trialled
+- The change is staged for review before public release
+- Stakeholder approval is pending
+- Content is incomplete but intentionally visible in a test or controlled environment
+- The work is deployed to a beta, staging, preview, or soft-launch environment
+
+Beta format:
+
+```txt
+vmajor.minor.patchb
+```
+
+When a beta becomes stable, remove the trailing `b` without changing the version numbers unless further work has been added. The `v` prefix must remain.
+
+Example:
+
+```txt
+v1.3.0b -> v1.3.0
+```
+
+If additional changes are made before stable release, bump the correct version segment and keep `b`.
+
+Example:
+
+```txt
+v1.3.0b -> v1.3.1b
+```
+
+or:
+
+```txt
+v1.3.0b -> v1.4.0b
+```
+
+depending on the type of work.
+
+---
+
+## 7. Change Log Hub and changelog system requirement
 
 All websites must have both:
 
@@ -139,14 +397,22 @@ When correcting an incorrectly set up changelog system, Codex must preserve usef
 
 Codex must record the correction itself as a changelog entry unless the changelog system is being created for the first time.
 
-
 ---
 
-## 3. Change Log Hub page design and behaviour
+## 8. Change Log Hub page design and behaviour
 
 Codex must build and maintain Change Log Hub pages using the APES CIC website pattern shown in the intranet Change Log Hub reference design.
 
-The Change Log Hub page must be a proper website page, not only a Markdown file. It must visually and functionally resemble the APES reference pattern: green hero header, current version pills, timeline panel, search, filters, and collapsible version cards.
+The Change Log Hub page must be a proper website page, not only a Markdown file. It must visually and functionally use the APES reference pattern:
+
+- Green hero/header panel
+- Current version display
+- Version and status pills
+- Timeline panel
+- Search
+- Filters
+- Expand all and collapse all controls
+- Collapsible version cards
 
 The page must use a clean green APES CIC theme and must include:
 
@@ -382,196 +648,28 @@ These controls should open and close every release card.
 
 If JavaScript is not available, the page must still work because users can manually open each native `<details>` entry.
 
-Recommended JavaScript:
+### Current release rule
+
+The current release must be clearly identifiable.
+
+Codex must mark the current release using:
 
 ```html
-<script>
-  (function () {
-    const search = document.querySelector('#changeLogSearch');
-    const entries = Array.from(document.querySelectorAll('.release-card'));
-    const buttons = Array.from(document.querySelectorAll('[data-filter]'));
-    const expandAll = document.querySelector('[data-action="expand-all"]');
-    const collapseAll = document.querySelector('[data-action="collapse-all"]');
-    const empty = document.querySelector('[data-change-log-empty]');
-    let activeFilter = 'all';
-
-    function matchesSearch(entry) {
-      if (!search || !search.value.trim()) return true;
-      return entry.textContent.toLowerCase().includes(search.value.trim().toLowerCase());
-    }
-
-    function matchesFilter(entry) {
-      if (activeFilter === 'all') return true;
-      if (activeFilter === 'current') return entry.dataset.current === 'true';
-      const haystack = [
-        entry.dataset.status,
-        entry.dataset.types,
-        entry.dataset.impact
-      ].join(' ').toLowerCase();
-      return haystack.includes(activeFilter.toLowerCase());
-    }
-
-    function updateEntries() {
-      let visibleCount = 0;
-      entries.forEach(entry => {
-        const visible = matchesSearch(entry) && matchesFilter(entry);
-        entry.hidden = !visible;
-        if (visible) visibleCount += 1;
-      });
-      if (empty) empty.hidden = visibleCount !== 0;
-    }
-
-    if (search) search.addEventListener('input', updateEntries);
-
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        activeFilter = button.dataset.filter || 'all';
-        buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-        updateEntries();
-      });
-    });
-
-    if (expandAll) {
-      expandAll.addEventListener('click', () => {
-        entries.forEach(entry => {
-          if (!entry.hidden) entry.open = true;
-        });
-      });
-    }
-
-    if (collapseAll) {
-      collapseAll.addEventListener('click', () => {
-        entries.forEach(entry => {
-          if (!entry.hidden) entry.open = false;
-        });
-      });
-    }
-
-    updateEntries();
-  })();
-</script>
+data-current="true"
 ```
 
-### Required visual style
+Example:
 
-The Change Log Hub should follow this visual direction:
-
-- APES green theme.
-- Rounded hero panel.
-- White or very light mint content cards.
-- Teal/green borders or top accents.
-- Pill badges.
-- Compact timeline-style release cards.
-- Strong contrast for readability.
-- Responsive layout.
-- Keyboard-accessible controls.
-
-Recommended CSS:
-
-```css
-.change-log-page {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 1.5rem;
-}
-
-.change-log-hero {
-  background: linear-gradient(135deg, #006b5f, #008577);
-  color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 0.75rem 2rem rgba(0, 60, 52, 0.16);
-}
-
-.change-log-panel {
-  background: #ffffff;
-  border: 1px solid #cfe8e4;
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 60, 52, 0.08);
-}
-
-.change-log-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0.75rem 0 1rem;
-}
-
-.change-log-controls input[type="search"] {
-  flex: 1 1 260px;
-  min-width: 220px;
-  border: 1px solid #b7ded8;
-  border-radius: 999px;
-  padding: 0.55rem 0.85rem;
-}
-
-.change-log-controls button {
-  border: 1px solid #00a99d;
-  background: #ffffff;
-  color: #006b5f;
-  border-radius: 999px;
-  padding: 0.45rem 0.75rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.change-log-controls button[aria-pressed="true"],
-.change-log-controls button:hover,
-.change-log-controls button:focus {
-  background: #e6f7f4;
-  outline: none;
-}
-
-.release-card {
-  border: 1px solid #b7ded8;
-  border-top: 4px solid #00a99d;
-  border-radius: 0.75rem;
-  margin: 0.75rem 0;
-  background: #ffffff;
-  overflow: hidden;
-}
-
-.release-card summary {
-  cursor: pointer;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  font-weight: 700;
-}
-
-.release-card[open] summary {
-  border-bottom: 1px solid #dff0ed;
-}
-
-.release-body {
-  padding: 1rem;
-}
-
-.release-version {
-  color: #006b5f;
-}
-
-.release-date {
-  margin-left: auto;
-  color: #4b635f;
-  font-size: 0.9rem;
-}
-
-.release-pills {
-  margin-bottom: 1rem;
-}
-
-[data-change-log-empty] {
-  padding: 1rem;
-  border: 1px dashed #b7ded8;
-  border-radius: 0.75rem;
-  background: #f4fbfa;
-}
+```html
+<details class="release-card" data-version="v0.2.1" data-current="true" data-status="stable" data-types="changed fixed" open>
 ```
+
+Only one release should be marked as current unless the website has separate current stable and current beta releases.
+
+If both stable and beta are present, Codex must label them clearly:
+
+- Current stable
+- Current beta
 
 ### Accessibility requirements
 
@@ -600,32 +698,64 @@ On small screens:
 - Long file paths should wrap.
 - Pills should wrap and remain readable.
 
-### Current release rule
+---
 
-The current release must be clearly identifiable.
+## 9. Pill display guidance
 
-Codex must mark the current release using:
+If the Change Log Hub is Markdown-only, Codex must still include pill-style HTML spans.
 
-```html
-data-current="true"
+If the website renders changelog entries as HTML, Codex may add CSS for pill styling where appropriate.
+
+Preferred pill CSS:
+
+```css
+.pill {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  margin: 0.1rem 0.15rem 0.1rem 0;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.pill-version {
+  background: #e6f4ea;
+  color: #14532d;
+}
+
+.pill-status {
+  background: #eef6ef;
+  color: #166534;
+}
+
+.pill-type {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.pill-fix {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.pill-security {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.pill-compliance {
+  background: #e0f2fe;
+  color: #075985;
+}
 ```
 
-Example:
-
-```html
-<details class="release-card" data-version="v0.2.1" data-current="true" data-status="stable" data-types="changed fixed" open>
-```
-
-Only one release should be marked as current unless the website has separate current stable and current beta releases.
-
-If both stable and beta are present, Codex must label them clearly:
-
-- Current stable
-- Current beta
+Do not introduce CSS unless the relevant website or changelog page needs it.
 
 ---
 
-## 4. Change Log Hub entry format
+## 10. Change Log Hub entry format
 
 Codex must use this structure for each release entry:
 
@@ -697,312 +827,218 @@ Use fix pills where a change repairs a problem:
 
 ---
 
-## 5. Pill display guidance
+## 11. GitHub Issues progress update requirement
 
-If the Change Log Hub is Markdown-only, Codex must still include pill-style HTML spans.
+Codex must keep relevant GitHub Issues updated as website work progresses.
 
-If the website renders changelog entries as HTML, Codex may add CSS for pill styling where appropriate.
+This applies when:
 
-Preferred pill CSS:
+- The work was requested from a GitHub Issue.
+- A GitHub Issue is linked in the task, branch, pull request, commit message, project board, or planning notes.
+- The work clearly relates to an existing GitHub Issue.
+- Codex creates or is asked to create a GitHub Issue for the work.
+- A website update affects release planning, changelog work, versioning, deployment, validation, or follow-up actions.
 
-```css
-.pill {
-  display: inline-block;
-  padding: 0.2rem 0.55rem;
-  margin: 0.1rem 0.15rem 0.1rem 0;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  line-height: 1.2;
-  white-space: nowrap;
-}
+### Start-of-work issue update
 
-.pill-version {
-  background: #e6f4ea;
-  color: #14532d;
-}
+At the start of changes and updates, before making implementation changes, Codex must add a GitHub Issue comment or status update confirming:
 
-.pill-status {
-  background: #eef6ef;
-  color: #166534;
-}
+- Work has started.
+- The intended scope.
+- The affected website, page, route, component, form, integration, or repository area.
+- The planned update type: major, minor, or patch.
+- Whether the work is stable or beta.
+- The expected version number where it can be determined.
+- Whether a Change Log Hub page update is required.
+- Whether root-level `CHANGELOG.md` and `VERSION` updates are required.
+- Any assumptions, risks, or items needing confirmation.
 
-.pill-type {
-  background: #ecfdf5;
-  color: #047857;
-}
+Recommended start update format:
 
-.pill-fix {
-  background: #fef9c3;
-  color: #854d0e;
-}
+```md
+## Work started
 
-.pill-security {
-  background: #fee2e2;
-  color: #991b1b;
-}
+Codex has started work on this issue.
 
-.pill-compliance {
-  background: #e0f2fe;
-  color: #075985;
-}
+### Planned scope
+
+- Website:
+- Area affected:
+- Planned update type: major / minor / patch
+- Release status: stable / beta
+- Expected version:
+- Change Log Hub update required: yes / no
+- Root `CHANGELOG.md` update required: yes / no
+- `VERSION` update required: yes / no
+
+### Notes
+
+- Assumptions:
+- Risks:
+- Confirmation needed:
 ```
 
-Do not introduce CSS unless the relevant website or changelog page needs it.
+If the update type is unclear, Codex must ask for confirmation before implementation where practical.
+
+### Progress issue updates
+
+Codex must update the related GitHub Issue as work progresses when there is a meaningful change in status.
+
+Meaningful progress includes:
+
+- Planning completed.
+- Update type confirmed or inferred.
+- Version number selected.
+- Change Log Hub page created or updated.
+- Root-level `CHANGELOG.md` created or updated.
+- `VERSION` file created or updated.
+- Website implementation completed.
+- Validation checks started.
+- Validation checks failed.
+- A blocker is found.
+- Scope changes.
+- Manual review is required.
+- A risk or limitation is identified.
+- Work is paused.
+
+Progress updates must be concise but specific.
+
+Recommended progress update format:
+
+```md
+## Progress update
+
+### Completed
+
+- 
+
+### In progress
+
+- 
+
+### Blockers or risks
+
+- 
+
+### Version and changelog status
+
+- Version:
+- Change Log Hub page:
+- Root `CHANGELOG.md`:
+- `VERSION` file:
+```
+
+Codex must not spam GitHub Issues with trivial updates. Update only when there is useful progress, a decision, a blocker, or a handover point.
+
+### End-of-work issue update
+
+When work ends, Codex must update the related GitHub Issue with a final summary.
+
+The final GitHub Issue update must include:
+
+- What was changed.
+- New version number.
+- Stable or beta status.
+- Change Log Hub page created or updated.
+- Root-level `CHANGELOG.md` created or updated.
+- `VERSION` file created or updated.
+- Files changed or main areas affected.
+- Validation checks run.
+- Manual checks completed.
+- Known limitations.
+- Rollback notes.
+- Pull request reference if available.
+- Whether the issue can be closed or needs further action.
+
+Recommended end update format:
+
+```md
+## Work completed
+
+### Summary
+
+- 
+
+### Release details
+
+- Version:
+- Release status:
+- Update type:
+
+### Changelog and version records
+
+- Change Log Hub page:
+- Root `CHANGELOG.md`:
+- `VERSION` file:
+
+### Validation
+
+- Automated checks:
+- Manual checks:
+- Result:
+
+### Files or areas changed
+
+- 
+
+### Rollback notes
+
+- 
+
+### Follow-up
+
+- Issue status recommendation: close / keep open / needs review
+- Remaining actions:
+```
+
+### Issue status and labels
+
+Where Codex has permission and the workflow supports it, Codex should update issue labels or project status to reflect progress.
+
+Recommended labels or statuses include:
+
+- `in-progress`
+- `needs-review`
+- `blocked`
+- `ready-for-release`
+- `released`
+- `changelog-updated`
+- `version-updated`
+- `beta`
+- `stable`
+
+Codex must not close an issue unless explicitly instructed or the repository workflow clearly permits closing completed issues.
+
+If Codex cannot update GitHub Issues because the tool, permission, or issue reference is unavailable, Codex must state this in its final response and include the exact issue update text that should be posted manually.
+
+### Pull request and issue linking
+
+When creating or updating a pull request, Codex must link the relevant GitHub Issue.
+
+Preferred wording:
+
+```md
+Related issue: #000
+```
+
+Only use automatic closing keywords such as `Closes #000`, `Fixes #000`, or `Resolves #000` when the work fully completes the issue and closure is intended.
+
+### Final response requirement
+
+Codex’s final response to the user must confirm:
+
+- Whether the GitHub Issue was updated at the start of work.
+- Whether progress updates were posted, if applicable.
+- Whether the final GitHub Issue update was posted.
+- If updates could not be posted, what manual update text should be used.
 
 ---
 
-## 6. Version numbering standard
-
-All website versions must use this format:
-
-```txt
-vmajor.minor.patch
-```
-
-Example stable version:
-
-```txt
-v1.4.2
-```
-
-Beta versions must add the letter `b` at the end:
-
-```txt
-vvmajor.minor.patchb
-```
-
-Example beta version:
-
-```txt
-v1.4.2b
-```
-
-Stable versions must not have any suffix.
-
-Beta versions must end in `b`.
-
-Do not use other version formats such as:
-
-- `1.4.2`
-- `1.4.2b`
-- `v1.4.2-beta`
-- `v1.4.2.beta`
-- `v1.4.2-b`
-- `v.1.4.2`
-- `version 1.4.2`
-
-The `v` prefix is mandatory for APES CIC website versions.
-
----
-
-## 7. Version source of truth
-
-Codex must identify the project’s canonical website version before changing it.
-
-Look for version files in this order:
-
-1. `VERSION`
-2. `version.txt`
-3. `version.json`
-4. `package.json`
-5. `CHANGELOG.md` or the Change Log Hub
-6. Any documented website release metadata file
-
-If no version file exists, Codex must create a root-level `VERSION` file.
-
-The `VERSION` file must contain only the version number, including the mandatory `v` prefix, for example:
-
-```txt
-v0.1.0
-```
-
-or, for beta:
-
-```txt
-v0.1.0b
-```
-
-Codex must not blindly update third-party module versions, generated vendor versions, embedded widget versions, CMS app versions, CDN asset versions, or platform-controlled version strings unless the task explicitly requires it.
-
----
-
-## 8. Version bump rules
-
-Codex must use semantic versioning adapted for APES CIC websites.
-
-### Major version update
-
-Increase the major number when the change is substantial, breaking, structural, high-risk, or materially changes how the website works.
-
-Examples:
-
-- Full website redesign
-- New website platform, CMS, hosting, or deployment structure
-- Major URL restructure
-- Major navigation restructure
-- Major user journey restructure
-- Major donation, adoption, rescue, boarding, volunteer, shop, or contact flow rebuild
-- Change that may break bookmarks, automations, integrations, or staff workflows
-- Change requiring substantial rollback planning
-- Significant compliance, safeguarding, legal, finance, HR, or animal welfare public information restructuring
-
-Example:
-
-```txt
-v1.8.4 -> v2.0.0
-```
-
-For beta:
-
-```txt
-v1.8.4 -> v2.0.0b
-```
-
-### Minor version update
-
-Increase the minor number when adding or materially improving functionality or public content without a breaking restructure.
-
-Examples:
-
-- New page
-- New section
-- New service page
-- New campaign page
-- New donation journey
-- New contact or referral form
-- New volunteer, adoption, rescue, boarding, shop, event, or partner workflow
-- New public policy page
-- New public compliance, governance, safeguarding, or animal welfare information
-- New integration that does not break existing behaviour
-- Substantial content refresh across existing pages
-- New reusable component or template
-
-Example:
-
-```txt
-v1.8.4 -> v1.9.0
-```
-
-For beta:
-
-```txt
-v1.8.4 -> v1.9.0b
-```
-
-### Patch version update
-
-Increase the patch number for fixes, corrections, small improvements, or low-risk updates.
-
-Examples:
-
-- Typo, grammar, or wording correction
-- Minor copy update
-- Broken link fix
-- Small CSS fix
-- Button alignment fix
-- Image replacement
-- Form label correction
-- Metadata update
-- Small SEO correction
-- Small accessibility correction
-- Sitemap or robots correction
-- Minor bug fix
-- Small content update that does not materially change the page purpose
-
-Example:
-
-```txt
-v1.8.4 -> v1.8.5
-```
-
-For beta:
-
-```txt
-v1.8.4 -> v1.8.5b
-```
-
----
-
-## 9. Beta version rules
-
-A beta version is used when the update is not yet final or is being tested before full release.
-
-Use beta when:
-
-- A page, feature, form, integration, or user journey is being trialled
-- The change is staged for review before public release
-- Stakeholder approval is pending
-- Content is incomplete but intentionally visible in a test or controlled environment
-- The work is deployed to a beta, staging, preview, or soft-launch environment
-
-Beta format:
-
-```txt
-vmajor.minor.patchb
-```
-
-When a beta becomes stable, remove the trailing `b` without changing the version numbers unless further work has been added. The `v` prefix must remain.
-
-Example:
-
-```txt
-v1.3.0b -> v1.3.0
-```
-
-If additional changes are made before stable release, bump the correct version segment and keep `b`.
-
-Example:
-
-```txt
-v1.3.0b -> v1.3.1b
-```
-
-or:
-
-```txt
-v1.3.0b -> v1.4.0b
-```
-
-depending on the type of work.
-
----
-
-## 10. Planning requirement
-
-At the start of planning, Codex must confirm the type of update being worked on.
-
-Codex must ask or determine:
-
-1. Is this a major, minor, or patch update?
-2. Is this a beta update?
-3. Is the update public-facing, internal-only, or operational?
-4. Which website, page, route, component, form, or integration is affected?
-5. Does the update affect compliance, safeguarding, accessibility, donations, finance, legal, governance, HR, or animal welfare content?
-6. Should the Change Log Hub entry be public, internal, or both?
-
-If the user has not confirmed the update type, Codex must ask:
-
-```txt
-Before I make the website change, please confirm the update type: major, minor, or patch. Also confirm whether this is beta, meaning the version should end in b.
-```
-
-If the user does not answer but the task must proceed, Codex must make a conservative decision and state the assumption clearly before editing.
-
-Default assumptions:
-
-- Use `patch` for small corrections and fixes.
-- Use `minor` for new pages, new content sections, new forms, new workflows, or new integrations.
-- Use `major` only for substantial redesigns, breaking changes, migrations, URL restructuring, or high-risk structural changes.
-- Use stable, not beta, unless the user says it is beta, staging, preview, trial, soft launch, or not final.
-
----
-
-## 11. Required Codex workflow
+## 12. Required Codex workflow
 
 For every website task, Codex must follow this workflow.
 
-### Step 1: Understand the change
+### Step 1: Understand the change and update GitHub Issue
 
 Codex must identify:
 
@@ -1014,6 +1050,9 @@ Codex must identify:
 - Version bump type
 - Beta status
 - Change Log Hub location
+- Related GitHub Issue, if one exists
+
+If a related GitHub Issue exists, Codex must post a start-of-work update before implementation begins.
 
 ### Step 2: Confirm update type
 
@@ -1034,11 +1073,15 @@ Codex must make only the changes required.
 
 Avoid bulk rewrites, formatting-only changes, generated-file churn, or unrelated changes.
 
+If meaningful progress occurs, Codex must update the related GitHub Issue.
+
 ### Step 4: Update version
 
 Codex must update the canonical version file.
 
 If no canonical version file exists, create `VERSION`.
+
+If a related GitHub Issue exists, Codex must update it when the version has been selected or changed.
 
 ### Step 5: Update Change Log Hub page and root CHANGELOG.md
 
@@ -1053,6 +1096,8 @@ Codex must add a detailed entry to both the website Change Log Hub page and the 
 - Version decision
 - Validation
 - Rollback notes
+
+If a related GitHub Issue exists, Codex must update it when the changelog system has been created or updated.
 
 ### Step 6: Validate
 
@@ -1072,7 +1117,11 @@ Examples:
 
 If no checks are available, Codex must state that no automated checks were found.
 
-### Step 7: Final response
+If validation fails or manual review is needed, Codex must update the related GitHub Issue.
+
+### Step 7: Final GitHub Issue update and final response
+
+If a related GitHub Issue exists, Codex must post an end-of-work update before finalising the task.
 
 Codex’s final response must include:
 
@@ -1083,11 +1132,12 @@ Codex’s final response must include:
 - Root-level `CHANGELOG.md` created or updated
 - Summary of changelog entry
 - Checks run
+- GitHub Issue start/progress/end update status
 - Any unresolved risks or manual follow-up required
 
 ---
 
-## 12. Generated website export rule
+## 13. Generated website export rule
 
 Some APES CIC websites may include generated exports from CMS or website builders.
 
@@ -1108,163 +1158,16 @@ Codex must:
 - Keep diffs narrow
 - Explain if a generated file was edited
 - Prefer source files over generated output where the source exists
-- Record generated-output changes clearly in the Change Log Hub
+- Record generated-output changes clearly in the Change Log Hub and `CHANGELOG.md`
 
 ---
 
-## 13. Change type guidance
+## 14. Multi-website rule
 
-Use these type pills consistently.
+If a change affects more than one website, Codex must record the update in:
 
-### Added
-
-Use for:
-
-- New page
-- New route
-- New section
-- New form
-- New component
-- New image or asset
-- New integration
-- New campaign
-- New policy or guidance page
-
-Pill:
-
-```html
-<span class="pill pill-type">Added</span>
-```
-
-### Changed
-
-Use for:
-
-- Existing content update
-- Existing page restructure
-- Existing user journey change
-- Existing styling update
-- Existing SEO or metadata update
-- Existing form behaviour update
-
-Pill:
-
-```html
-<span class="pill pill-type">Changed</span>
-```
-
-### Fixed
-
-Use for:
-
-- Broken links
-- Broken forms
-- Incorrect copy
-- Styling defects
-- Display defects
-- Accessibility defects
-- Incorrect metadata
-- Script errors
-- Incorrect routing
-
-Pill:
-
-```html
-<span class="pill pill-type">Fixed</span>
-```
-
-### Removed
-
-Use for:
-
-- Deleted page
-- Removed outdated content
-- Removed form
-- Removed integration
-- Retired service page
-- Removed asset
-
-Pill:
-
-```html
-<span class="pill pill-type">Removed</span>
-```
-
-### Security
-
-Use for:
-
-- Security hardening
-- Access control correction
-- Privacy improvement
-- Abuse-prevention change
-- Data exposure fix
-- Dependency security fix
-
-Pill:
-
-```html
-<span class="pill pill-security">Security</span>
-```
-
-### Compliance
-
-Use for:
-
-- CIC governance updates
-- Legal compliance updates
-- Safeguarding content
-- Animal welfare compliance
-- HR compliance
-- Finance compliance
-- Data protection
-- Public policy accuracy
-- Risk management content
-
-Pill:
-
-```html
-<span class="pill pill-compliance">Compliance</span>
-```
-
----
-
-## 14. Changelog entry detail standard
-
-Changelog entries must be detailed enough for a director, staff member, volunteer, auditor, developer, or future maintainer to understand:
-
-- What changed
-- Why it changed
-- Where it changed
-- Who or what it affects
-- Whether the change is public-facing
-- Whether the change affects operations, compliance, safeguarding, animal welfare, finance, donations, HR, governance, or legal matters
-- How the version number was selected
-- How the change was checked
-- How to roll it back if needed
-
-Avoid vague entries such as:
-
-- "Updated website"
-- "Fixed bugs"
-- "Changed content"
-- "Minor updates"
-- "General improvements"
-
-Use precise entries such as:
-
-- "Updated the donation page copy to clarify how veterinary fund donations are allocated and added a compliance note for restricted-purpose donations."
-- "Fixed the volunteer enquiry form submit button alignment on mobile and confirmed the form remains keyboard accessible."
-- "Added a new reptile boarding information page with eligibility criteria, enquiry routing, and safeguarding escalation wording."
-
----
-
-## 15. Multi-website rule
-
-If a change affects more than one website, Codex must record the update in either:
-
-1. The central website Change Log Hub page, if one exists; and
-2. Each affected website’s Change Log Hub page where each website keeps its own release record; and
+1. The central website Change Log Hub page, if one exists.
+2. Each affected website’s Change Log Hub page where each website keeps its own release record.
 3. The root-level `CHANGELOG.md` in each affected repository.
 
 The changelog entry must list every affected website.
@@ -1276,6 +1179,7 @@ Use this format:
 
 - Main APES CIC website:
 - Client portal:
+- Intranet:
 - Shop:
 - Campaign site:
 - Documentation site:
@@ -1286,7 +1190,7 @@ If only one website is affected, Codex must still name it.
 
 ---
 
-## 16. Commit and pull request guidance
+## 15. Commit and pull request guidance
 
 When preparing a commit or pull request, Codex must include the version number in the PR summary.
 
@@ -1297,6 +1201,9 @@ Recommended PR checklist:
 
 - [ ] Confirmed update type: major, minor, or patch
 - [ ] Confirmed beta status
+- [ ] Updated related GitHub Issue at start of work
+- [ ] Updated related GitHub Issue during meaningful progress, if applicable
+- [ ] Posted final related GitHub Issue update
 - [ ] Updated canonical version file
 - [ ] Created or updated website Change Log Hub page
 - [ ] Created or updated root-level `CHANGELOG.md`
@@ -1334,7 +1241,7 @@ website: add beta boarding form and bump to v0.3.0b
 
 ---
 
-## 17. Final self-check before completion
+## 16. Final self-check before completion
 
 Before Codex finishes any website task, it must answer these questions internally:
 
@@ -1351,12 +1258,15 @@ Before Codex finishes any website task, it must answer these questions internall
 11. Did I include rollback notes?
 12. If the changelog system was missing, did I create the full system?
 13. If the changelog system was incorrectly set up, did I fix and correct it?
+14. If a related GitHub Issue exists, did I post a start-of-work update?
+15. If meaningful progress occurred, did I post a progress update?
+16. If work ended, did I post an end-of-work update or provide manual update text?
 
 If any answer is no, Codex must fix the omission before finalising the work.
 
 ---
 
-## 18. Default answer when update type is unclear
+## 17. Default answer when update type is unclear
 
 When a user asks Codex to make a website change but does not state the update type, Codex must respond with:
 
@@ -1368,9 +1278,9 @@ If the user asks Codex to proceed without confirmation, Codex must infer the upd
 
 ---
 
-## 19. APES CIC tone and governance standard
+## 18. APES CIC tone and governance standard
 
-Website changelog entries must be professional, plain-English, and audit-friendly.
+Website changelog entries and GitHub Issue updates must be professional, plain-English, and audit-friendly.
 
 Use UK English.
 
@@ -1395,14 +1305,22 @@ Where relevant, note whether the change relates to:
 
 ---
 
-## 20. Non-negotiable instruction
+## 19. Non-negotiable instruction
 
-Codex must never treat changelog and version updates as optional for website work.
+Codex must never treat changelog, version updates, or related GitHub Issue updates as optional for website work.
 
-If website files change, the website Change Log Hub page, root-level `CHANGELOG.md`, and version must be checked.
+If website files change, the website Change Log Hub page, root-level `CHANGELOG.md`, canonical version, and related GitHub Issue must be checked.
 
-If the change is user-visible, operationally relevant, compliance-relevant, or release-relevant, the website Change Log Hub page, root-level `CHANGELOG.md`, and version must be updated.
+If the change is user-visible, operationally relevant, compliance-relevant, or release-relevant, the website Change Log Hub page, root-level `CHANGELOG.md`, version, and related GitHub Issue must be updated.
 
 If the website does not have a Change Log Hub page, root-level `CHANGELOG.md`, version file, or coherent changelog system, Codex must add them.
 
 If the changelog system exists but is incorrectly set up, Codex must fix and correct it before finishing the website task.
+
+If a related GitHub Issue exists, Codex must update it:
+
+1. At the start of work.
+2. During meaningful progress.
+3. At the end of work.
+
+If Codex cannot update the GitHub Issue directly, it must provide the exact update text for manual posting.
