@@ -7,6 +7,14 @@ $heroTitle = 'General Health Support';
 $heroLead = 'General support services for pets, focused on routine welfare, first aid, and safe next-step guidance.';
 $activeNav = 'services';
 require_once $rootPath . '/includes/page-init.php';
+$generalServiceKeys = [
+    'general-remote-consultation',
+    'general-in-person-consultation',
+    'follow-up-consultation',
+    'health-check',
+    'ear-cleaning',
+];
+$prepayCopy = apes_get_prepay_copy();
 require_once $rootPath . '/includes/header.php';
 ?>
   <section class="hero">
@@ -32,6 +40,12 @@ require_once $rootPath . '/includes/header.php';
         <p>We provide first aid and general health support only. We do not perform operations or invasive veterinary procedures.</p>
       </div>
       <div class="content-card reveal">
+        <h2>Pre-pay and book general clinic services</h2>
+        <p><?= apes_escape($prepayCopy['intro']) ?></p>
+        <?= apes_render_prepay_catalogue($generalServiceKeys, 'detail') ?>
+        <?= apes_render_prepay_note() ?>
+      </div>
+      <div class="content-card reveal">
         <h2>Routine Welfare Checks</h2>
         <p>General checks for coat, skin, body condition, mobility, hydration, and husbandry concerns.</p>
       </div>
@@ -42,6 +56,11 @@ require_once $rootPath . '/includes/header.php';
       <div class="content-card reveal">
         <h2>Referral Guidance</h2>
         <p>When veterinary treatment is needed, we explain why and help you choose suitable next steps quickly.</p>
+      </div>
+      <div class="content-card reveal">
+        <h2>Ready to pre-pay before you book?</h2>
+        <p>Choose the consultation or routine clinic service you need below, complete secure payment through Stripe, then use the booking instructions shown after payment.</p>
+        <?= apes_render_prepay_catalogue($generalServiceKeys, 'detail') ?>
       </div>
     </article>
     <?php require $rootPath . '/includes/clinic-sidebar.php'; ?>

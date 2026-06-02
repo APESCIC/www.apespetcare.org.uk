@@ -1,3 +1,60 @@
+## [v0.1.0] - 2026-06-02
+
+<span class="pill pill-version">Version v0.1.0</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Added</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Content Fix</span>
+<span class="pill pill-fix">Integration Fix</span>
+
+### Summary
+
+Added a shared Stripe pre-pay service catalogue and surfaced the new pre-pay and book flow across the clinic services landing page plus the relevant species and general service detail pages.
+
+### Detailed changes
+
+- Added a shared structured pre-pay service catalogue for all 16 hosted Stripe payment-link services so pricing, descriptions, categories, routes, and accessible CTA labels are maintained in one reusable source.
+- Added a new `Pre-pay and book your Pet Care Clinic appointment` section to the main clinic services landing page so visitors can browse every eligible pre-pay service in grouped categories before leaving for Stripe.
+- Updated the general services, reptile care, invert care, dog care, cat care, rabbit care, guinea pig care, and ferret care pages with contextual pre-pay CTAs that match the services already described on those routes.
+- Updated relevant service copy on detail pages where needed so the displayed pre-pay options align with the exact hosted Stripe service names and prices, including combined admittance packages and the rabbit and guinea pig spot-on treatment.
+- Added reusable styling for the new service cards, compact CTA rows, focus states, and green-theme payment blocks while keeping payment handling fully external to Stripe hosted links.
+- Updated the canonical VERSION file plus both changelog records so the release is synchronised under the new v0.1.0 stable minor entry.
+
+### Type pills
+
+- <span class="pill pill-type">Added</span> Introduced a shared pre-pay service catalogue and a new full landing-page payment section for clinic services.
+- <span class="pill pill-type">Changed</span> Updated multiple clinic service detail pages to surface contextual Stripe pre-pay CTAs and aligned pricing copy.
+- <span class="pill pill-type">Fixed</span> Corrected the public booking journey so customers can pay for supported services before following the booking instructions shown after payment.
+
+### Fix pills
+
+- <span class="pill pill-fix">Content Fix</span> Service pages now show exact pre-pay service names, prices, and booking guidance for supported Stripe-linked offers.
+- <span class="pill pill-fix">Integration Fix</span> Hosted Stripe payment links are now surfaced directly from the relevant clinic service routes without introducing custom payment logic.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `/`, `/general-services/`, `/dog-care/`, `/cat-care/`, `/reptile-care/`, `/invert-care/`, `/rabbit-care/`, `/guinea-care/`, `/ferret-care/`, and `/changelog/`.
+- Files changed: `includes/prepay-services.php`, `includes/page-init.php`, `assets/css/styles.css`, `index.php`, `general-services/index.php`, `dog-care/index.php`, `cat-care/index.php`, `reptile-care/index.php`, `invert-care/index.php`, `rabbit-care/index.php`, `guinea-care/index.php`, `ferret-care/index.php`, `VERSION`, `CHANGELOG.md`, and `changelog/index.php`.
+- User groups affected: Public visitors, service users, low-income pet owners, volunteers helping with bookings, and staff supporting appointment triage.
+- Public impact: Visitors can now review supported clinic services, pre-pay securely through Stripe, and then complete booking using the instructions provided after payment.
+- Internal impact: Stripe-linked clinic services now use one reusable data source, making future route, price, and accessibility updates easier to maintain.
+
+### Version decision
+
+- Previous version: v0.0.3
+- New version: v0.1.0
+- Version type: Stable minor release
+- Reason for version bump: This adds a new public-facing payment-first booking workflow and reusable structured service content across multiple clinic routes without changing the hosted Stripe-only payment model.
+
+### Validation
+
+- Checks run: Reviewed the shared service catalogue, route mappings, Stripe link targets, external-link attributes, and synchronised release records by code inspection. No local PHP CLI binary was available in this environment for automated `php -l` checks.
+- Manual checks completed: Verified that all 16 services appear in the landing-page pre-pay section, relevant detail pages now show contextual CTAs, accessible labels follow the required `Pre-pay and book: [service name]` format, and the payment-first booking note is present.
+- Known limitations: Live browser and responsive rendering checks were not available in this environment, so a manual browser pass is still recommended for final spacing review on mobile and tablet layouts.
+- Rollback notes: Revert the shared pre-pay catalogue include, updated page templates, stylesheet changes, VERSION file, and both changelog entries to restore the previous v0.0.3 booking presentation.
+
 ## [v0.0.3] - 2026-06-02
 
 <span class="pill pill-version">Version v0.0.3</span>

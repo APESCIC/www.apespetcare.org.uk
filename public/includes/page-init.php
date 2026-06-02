@@ -35,7 +35,7 @@ if (!isset($showNotice)) {
 
 $siteName = 'APES Pet Care Clinic';
 $versionFile = dirname(__DIR__) . '/VERSION';
-$siteVersionNumber = 'v0.0.3';
+$siteVersionNumber = 'v0.1.0';
 if (is_file($versionFile)) {
     $versionValue = trim((string) file_get_contents($versionFile));
     if ($versionValue !== '') {
@@ -118,3 +118,5 @@ function apes_nav_in_group(string $activeNav, array $expected): string
 {
     return in_array($activeNav, $expected, true) ? ' is-active' : '';
 }
+
+require_once __DIR__ . '/prepay-services.php';

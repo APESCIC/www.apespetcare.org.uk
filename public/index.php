@@ -7,6 +7,7 @@ $heroTitle = 'Supportive Pet Care For Every Species';
 $heroLead = 'We help families with affordable first aid and general health support for dogs, cats, rabbits, reptiles, invertebrates, and more. If your pet needs a vet, we will tell you quickly and clearly.';
 $activeNav = 'home';
 require_once $rootPath . '/includes/page-init.php';
+$prepayCopy = apes_get_prepay_copy();
 require_once $rootPath . '/includes/header.php';
 ?>
   <section class="hero">
@@ -30,6 +31,13 @@ require_once $rootPath . '/includes/header.php';
       <a class="service-card reveal" href="<?= apes_escape($service['path']) ?>"><?= apes_escape($service['label']) ?></a>
     <?php endforeach; ?>
   </div>
+
+  <section class="content-card prepay-section reveal">
+    <h2><?= apes_escape($prepayCopy['heading']) ?></h2>
+    <p class="prepay-section-intro"><?= apes_escape($prepayCopy['intro']) ?></p>
+    <?= apes_render_prepay_note() ?>
+    <?= apes_render_prepay_catalogue() ?>
+  </section>
 
   <section class="content-layout">
     <article class="article">

@@ -7,6 +7,10 @@ $heroTitle = 'Invertebrate Care Services';
 $heroLead = 'Support for common invertebrate care concerns with clear, species-appropriate husbandry and welfare advice.';
 $activeNav = 'services';
 require_once $rootPath . '/includes/page-init.php';
+$invertServiceKeys = [
+    'invert-parasite-removal-7-day-admittance',
+    'moult-support',
+];
 require_once $rootPath . '/includes/header.php';
 ?>
   <section class="hero">
@@ -33,17 +37,25 @@ require_once $rootPath . '/includes/header.php';
       </div>
       <div class="content-card reveal">
         <h2>Parasite Support</h2>
-        <p class="price">&pound;30.00 per invertebrate assessment.</p>
-        <p class="price">From &pound;49.00 per 7 nights where supportive treatment boarding is needed.</p>
+        <p class="price">&pound;79.00 total including 7 day admittance.</p>
+        <p>Use this option when parasite removal support and the related short admittance period are needed together.</p>
+        <?= apes_render_prepay_cta_list(['invert-parasite-removal-7-day-admittance']) ?>
       </div>
       <div class="content-card reveal">
         <h2>Moulting Support</h2>
         <p class="price">&pound;15.00 per invertebrate.</p>
         <p>Guidance for humidity, enclosure setup, and safe support during difficult moults.</p>
+        <?= apes_render_prepay_cta_list(['moult-support']) ?>
       </div>
       <div class="content-card reveal">
         <h2>Husbandry Review</h2>
         <p>We review enclosure setup, hydration, feeding routine, and environment factors to help prevent recurring welfare issues.</p>
+      </div>
+      <div class="content-card reveal">
+        <h2>Pre-pay and book from this invertebrate care page</h2>
+        <p>Complete secure Stripe payment for the relevant invertebrate support service below, then follow the booking instructions shown after payment.</p>
+        <?= apes_render_prepay_catalogue($invertServiceKeys, 'detail') ?>
+        <?= apes_render_prepay_note() ?>
       </div>
     </article>
     <?php require $rootPath . '/includes/clinic-sidebar.php'; ?>

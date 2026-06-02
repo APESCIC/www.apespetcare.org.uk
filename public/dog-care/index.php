@@ -7,6 +7,12 @@ $heroTitle = 'Dog Care Services';
 $heroLead = 'Practical support for common canine care concerns, routine checks, and clear referral advice when veterinary care is needed.';
 $activeNav = 'services';
 require_once $rootPath . '/includes/page-init.php';
+$dogServiceKeys = [
+    'flea-treatment',
+    'worming-treatment',
+    'nail-clipping',
+    'teeth-cleaning',
+];
 require_once $rootPath . '/includes/header.php';
 ?>
   <section class="hero">
@@ -34,21 +40,31 @@ require_once $rootPath . '/includes/header.php';
       </div>
       <div class="content-card reveal">
         <h2>Flea Support</h2>
-        <p class="price">From &pound;3.00 per pet, plus treatment product cost (brand dependent).</p>
+        <p class="price">Routine parasite treatments from &pound;3.00 each.</p>
+        <p>Choose the relevant pre-pay option below for standard flea or worming treatment support.</p>
+        <?= apes_render_prepay_cta_list(['flea-treatment', 'worming-treatment']) ?>
       </div>
       <div class="content-card reveal">
         <h2>Nail Clipping</h2>
         <p class="price">&pound;5.00 per pet.</p>
         <p>For highly distressed or reactive dogs, we may recommend veterinary handling support.</p>
+        <?= apes_render_prepay_cta_list(['nail-clipping']) ?>
       </div>
       <div class="content-card reveal">
         <h2>Teeth And Oral Hygiene Guidance</h2>
         <p class="price">&pound;7.50 per pet.</p>
         <p>Includes visual oral check and home-care guidance. We refer to a vet for complex dental disease.</p>
+        <?= apes_render_prepay_cta_list(['teeth-cleaning']) ?>
       </div>
       <div class="content-card reveal">
         <h2>Faecal And Lab Testing Support</h2>
         <p>Where suitable, we can arrange appropriate sample-based tests and explain results and next steps.</p>
+      </div>
+      <div class="content-card reveal">
+        <h2>Pre-pay and book from this dog care page</h2>
+        <p>Use these secure Stripe links for the routine dog care services shown on this page, then follow the booking instructions displayed after payment.</p>
+        <?= apes_render_prepay_catalogue($dogServiceKeys, 'detail') ?>
+        <?= apes_render_prepay_note() ?>
       </div>
     </article>
     <?php require $rootPath . '/includes/clinic-sidebar.php'; ?>

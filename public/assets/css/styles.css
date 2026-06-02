@@ -376,6 +376,167 @@ a {
   color: var(--sea-900);
 }
 
+.prepay-section {
+  margin-top: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+.prepay-section h2,
+.prepay-group-title,
+.prepay-card-title {
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--sea-800);
+}
+
+.prepay-section h2 {
+  margin: 0;
+}
+
+.prepay-section-intro {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.prepay-note {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(84, 201, 180, 0.12);
+  border: 1px solid rgba(19, 70, 64, 0.12);
+  color: var(--ink-800);
+  line-height: 1.5;
+}
+
+.prepay-groups {
+  display: grid;
+  gap: 18px;
+}
+
+.prepay-groups-detail {
+  gap: 16px;
+}
+
+.prepay-group {
+  display: grid;
+  gap: 12px;
+}
+
+.prepay-group-title {
+  margin: 0;
+  font-size: 1.12rem;
+}
+
+.prepay-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.prepay-grid-detail {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.prepay-card {
+  display: grid;
+  gap: 12px;
+  background: rgba(248, 255, 252, 0.96);
+  border: 1px solid rgba(19, 70, 64, 0.12);
+  border-top: 4px solid #00a99d;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 22px rgba(11, 46, 42, 0.08);
+}
+
+.prepay-card-detail {
+  padding: 14px;
+}
+
+.prepay-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.prepay-card-title {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.prepay-card-price {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: rgba(84, 201, 180, 0.18);
+  border: 1px solid rgba(19, 70, 64, 0.14);
+  color: var(--sea-900);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.prepay-card-copy {
+  margin: 0;
+  color: var(--ink-700);
+  line-height: 1.55;
+}
+
+.prepay-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.prepay-cta-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.prepay-cta-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(19, 70, 64, 0.12);
+  background: rgba(248, 255, 252, 0.94);
+}
+
+.prepay-cta-copy {
+  display: grid;
+  gap: 4px;
+  flex: 1 1 220px;
+}
+
+.prepay-cta-title,
+.prepay-cta-price {
+  color: var(--sea-900);
+}
+
+.prepay-cta-title {
+  font-weight: 800;
+}
+
+.prepay-cta-price {
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.btn {
+  text-decoration: none;
+  text-align: center;
+  font-weight: 800;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
 .booking-embed {
   margin-top: 14px;
   border-radius: var(--radius-md);
@@ -436,6 +597,29 @@ a {
   background: transparent;
   color: var(--sea-800);
   border-color: rgba(19, 70, 64, 0.25);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(11, 46, 42, 0.12);
+  outline: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible,
+.btn-prepay:hover,
+.btn-prepay:focus-visible {
+  background: #155c53;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: rgba(84, 201, 180, 0.15);
+}
+
+.btn-prepay-inline {
+  min-width: 176px;
 }
 
 .page-footer {
@@ -863,5 +1047,13 @@ a {
   .release-summary-meta {
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .prepay-cta-item {
+    align-items: flex-start;
+  }
+
+  .btn-prepay-inline {
+    width: 100%;
   }
 }

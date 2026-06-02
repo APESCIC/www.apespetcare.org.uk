@@ -7,6 +7,11 @@ $heroTitle = 'Rabbit Care Services';
 $heroLead = 'Practical support for rabbit welfare concerns, with quick referral guidance when veterinary intervention is needed.';
 $activeNav = 'services';
 require_once $rootPath . '/includes/page-init.php';
+$rabbitServiceKeys = [
+    'small-animal-parasite-treatment-beaphar',
+    'nail-clipping',
+    'teeth-cleaning',
+];
 require_once $rootPath . '/includes/header.php';
 ?>
   <section class="hero">
@@ -33,20 +38,30 @@ require_once $rootPath . '/includes/header.php';
       </div>
       <div class="content-card reveal">
         <h2>Parasite Support</h2>
-        <p class="price">From &pound;3.00 per rabbit, plus treatment product cost (from &pound;8.99 depending on product).</p>
+        <p class="price">&pound;12.49 total for the listed rabbit and guinea pig spot-on treatment.</p>
+        <p>Use the rabbit and guinea pig parasite treatment option below when Beaphar Spot On support is the right fit.</p>
+        <?= apes_render_prepay_cta_list(['small-animal-parasite-treatment-beaphar']) ?>
       </div>
       <div class="content-card reveal">
         <h2>Nail Clipping</h2>
         <p class="price">&pound;5.00 per rabbit.</p>
+        <?= apes_render_prepay_cta_list(['nail-clipping']) ?>
       </div>
       <div class="content-card reveal">
         <h2>Dental And Feeding Concern Guidance</h2>
         <p class="price">&pound;7.50 per rabbit support session.</p>
         <p>Includes visual welfare checks and advice on diet and monitoring. We refer to a vet for suspected dental disease.</p>
+        <?= apes_render_prepay_cta_list(['teeth-cleaning']) ?>
       </div>
       <div class="content-card reveal">
         <h2>General Welfare Checks</h2>
         <p>Body condition, coat, mobility, hydration, and husbandry review to support long-term rabbit health.</p>
+      </div>
+      <div class="content-card reveal">
+        <h2>Pre-pay and book from this rabbit care page</h2>
+        <p>Use these secure Stripe links for the rabbit care services shown on this page, then follow the booking instructions displayed after payment.</p>
+        <?= apes_render_prepay_catalogue($rabbitServiceKeys, 'detail') ?>
+        <?= apes_render_prepay_note() ?>
       </div>
     </article>
     <?php require $rootPath . '/includes/clinic-sidebar.php'; ?>
