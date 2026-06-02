@@ -1,0 +1,126 @@
+name: Bug Report
+description: Report a reproducible defect, fault, regression, or unexpected behaviour.
+title: "[BUG]: "
+labels:
+  - bug
+  - triage
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+
+        Use this form to report a confirmed or suspected bug. Please include enough detail for the team to reproduce, assess risk, and prioritise the issue.
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact level
+      description: Select the highest relevant impact.
+      options:
+        - Critical — service unavailable, data loss, security risk, or animal welfare / safeguarding risk
+        - High — major functionality broken or urgent operational impact
+        - Medium — partial functionality affected or workaround available
+        - Low — minor defect, cosmetic issue, or low operational impact
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_area
+    attributes:
+      label: Affected area
+      description: Which part of the system, service, or repository is affected?
+      options:
+        - Frontend / user interface
+        - Backend / API
+        - Database / data
+        - Authentication / permissions
+        - Integrations
+        - Infrastructure / deployment
+        - Documentation
+        - Compliance / governance
+        - Animal welfare operations
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the bug.
+      placeholder: "Example: Intake records fail to save when an attachment is included."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide clear reproduction steps.
+      placeholder: |
+        1. Go to...
+        2. Click...
+        3. Enter...
+        4. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What should have happened?
+      placeholder: "The record should save successfully and display a confirmation message."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: What actually happened?
+      placeholder: "The page displayed an error and the record was not saved."
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots, logs, or evidence
+      description: Attach screenshots, error logs, console output, request IDs, or other evidence.
+      placeholder: "Paste logs or drag and drop screenshots here."
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, device, OS, app version, branch, deployment environment, or commit SHA.
+      placeholder: "Chrome 126 / Windows 11 / staging / commit abc123"
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround
+      description: Is there a temporary workaround?
+      placeholder: "Users can save the record without an attachment, then upload the attachment separately."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission checks
+      options:
+        - label: I have searched existing issues to avoid creating a duplicate.
+          required: true
+        - label: I have included reproduction steps or enough evidence for triage.
+          required: true
+        - label: I have removed or redacted sensitive personal data where possible.
+          required: true

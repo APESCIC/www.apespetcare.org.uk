@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: APES CIC operational or urgent welfare escalation
+    url: https://www.apes.org.uk
+    about: Use established internal escalation routes for urgent operational, safeguarding, or animal welfare matters.
+  - name: Security or sensitive disclosure
+    url: https://www.apes.org.uk
+    about: Do not post sensitive personal data, credentials, security vulnerabilities, or confidential details in public issues.

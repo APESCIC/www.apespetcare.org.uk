@@ -1,0 +1,130 @@
+name: Feature Update
+description: Request a new feature, enhancement, workflow change, or improvement.
+title: "[FEATURE]: "
+labels:
+  - enhancement
+  - triage
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Update
+
+        Use this form for new functionality, improvements, workflow changes, technical enhancements, or operational updates.
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type
+      description: What kind of feature update is this?
+      options:
+        - New feature
+        - Enhancement to existing feature
+        - Workflow improvement
+        - Accessibility improvement
+        - Performance improvement
+        - Security improvement
+        - Compliance / governance requirement
+        - Animal welfare operations requirement
+        - Documentation update
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this update?
+      options:
+        - Critical — required urgently for safety, compliance, service continuity, or major operational delivery
+        - High — important and time-sensitive
+        - Medium — useful improvement with operational value
+        - Low — nice to have
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the requested update.
+      placeholder: "Example: Add a status filter to the case management dashboard."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What problem does this solve, or what opportunity does it create?
+      placeholder: "Staff currently have to manually search cases to find open welfare reviews."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed solution
+      description: Describe the preferred solution, behaviour, or user journey.
+      placeholder: |
+        Add filters for:
+        - Open
+        - In review
+        - Awaiting veterinary input
+        - Closed
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: List measurable conditions that must be true for this to be considered complete.
+      placeholder: |
+        - Users can filter records by status.
+        - Filter state persists when navigating back to the dashboard.
+        - Results update without requiring a full page reload.
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Expected benefits
+      description: Explain the expected operational, compliance, welfare, user, or technical benefit.
+      placeholder: "Reduces manual searching and improves visibility of urgent welfare tasks."
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Include any alternative approaches or rejected options.
+      placeholder: "We considered using search only, but structured filters are clearer for staff."
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks_dependencies
+    attributes:
+      label: Risks, dependencies, or compliance considerations
+      description: Note any dependencies, privacy concerns, security implications, legal considerations, or operational risks.
+      placeholder: "May require role-based access checks before exposing some filter results."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission checks
+      options:
+        - label: I have searched existing issues to avoid creating a duplicate.
+          required: true
+        - label: I have explained the user, operational, technical, or compliance value.
+          required: true
+        - label: I have included acceptance criteria where possible.
+          required: true
