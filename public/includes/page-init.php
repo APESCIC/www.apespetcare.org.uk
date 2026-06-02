@@ -35,7 +35,7 @@ if (!isset($showNotice)) {
 
 $siteName = 'APES Pet Care Clinic';
 $versionFile = dirname(__DIR__) . '/VERSION';
-$siteVersionNumber = 'v0.0.1';
+$siteVersionNumber = 'v0.0.2';
 if (is_file($versionFile)) {
     $versionValue = trim((string) file_get_contents($versionFile));
     if ($versionValue !== '') {
@@ -92,7 +92,7 @@ $informationMenu = [
         ],
         $policiesMenu
     ),
-    ['label' => 'Changelog', 'path' => $changelogPath],
+    ['label' => 'Change Log Hub', 'path' => $changelogPath],
 ];
 
 function apes_escape(string $value): string

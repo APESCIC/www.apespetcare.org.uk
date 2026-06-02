@@ -44,6 +44,83 @@
     });
   });
 
+  const changeLogRoot = document.querySelector("[data-change-log-root]");
+  if (changeLogRoot) {
+    const search = changeLogRoot.querySelector("#changeLogSearch");
+    const entries = Array.from(changeLogRoot.querySelectorAll(".release-card"));
+    const filterButtons = Array.from(changeLogRoot.querySelectorAll("[data-filter]"));
+    const expandAll = changeLogRoot.querySelector('[data-action="expand-all"]');
+    const collapseAll = changeLogRoot.querySelector('[data-action="collapse-all"]');
+    const empty = changeLogRoot.querySelector("[data-change-log-empty]");
+    let activeFilter = "all";
+
+    const matchesSearch = (entry) => {
+      if (!search) return true;
+      const term = search.value.trim().toLowerCase();
+      if (!term) return true;
+      return entry.textContent.toLowerCase().includes(term);
+    };
+
+    const matchesFilter = (entry) => {
+      if (activeFilter === "all") return true;
+      if (activeFilter === "current") return entry.dataset.current === "true";
+      const haystack = [
+        entry.dataset.status,
+        entry.dataset.types,
+        entry.dataset.impact,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(activeFilter);
+    };
+
+    const updateEntries = () => {
+      let visibleCount = 0;
+      entries.forEach((entry) => {
+        const visible = matchesSearch(entry) && matchesFilter(entry);
+        entry.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+
+      if (empty) {
+        empty.hidden = visibleCount !== 0;
+      }
+    };
+
+    if (search) {
+      search.addEventListener("input", updateEntries);
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter || "all";
+        filterButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        updateEntries();
+      });
+    });
+
+    if (expandAll) {
+      expandAll.addEventListener("click", () => {
+        entries.forEach((entry) => {
+          if (!entry.hidden) entry.open = true;
+        });
+      });
+    }
+
+    if (collapseAll) {
+      collapseAll.addEventListener("click", () => {
+        entries.forEach((entry) => {
+          if (!entry.hidden) entry.open = false;
+        });
+      });
+    }
+
+    updateEntries();
+  }
+
   const cards = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(

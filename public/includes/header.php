@@ -67,7 +67,7 @@
         <div class="drop mega<?= apes_nav_in_group($activeNav, ['events', 'news', 'policies', 'changelog']) ?>">
           <a class="drop-trigger" href="#" aria-haspopup="true">Information</a>
           <div class="drop-panel mega-panel">
-            <p class="mega-heading">News, Events And Policies</p>
+            <p class="mega-heading">News, Events, Policies And Website Updates</p>
             <div class="mega-links">
               <?php foreach ($informationMenu as $item): ?>
                 <a

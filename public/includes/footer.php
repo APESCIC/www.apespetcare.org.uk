@@ -12,7 +12,10 @@
           <img src="/assets/logos/bold-vets-logo.webp" alt="Bold Vets logo">
         </a>
       </div>
-      <span class="site-version-line">Website version: <?= apes_escape($siteVersion) ?></span>
+      <div class="footer-meta-links">
+        <span class="site-version-line">Website version: <?= apes_escape($siteVersion) ?></span>
+        <a class="footer-hub-link" href="<?= apes_escape($changelogPath) ?>">Change Log Hub</a>
+      </div>
       <div class='onesignal-customlink-container'></div>
     </div>
   </footer>
