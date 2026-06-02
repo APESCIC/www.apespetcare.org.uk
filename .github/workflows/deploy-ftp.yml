@@ -20,11 +20,11 @@ jobs:
 
       - name: Upload website by SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
-with:
-  server: ${{ secrets.FTP_SERVER }}
-  username: ${{ secrets.FTP_USERNAME }}
-  password: ${{ secrets.FTP_PASSWORD }}
-  server-dir: ${{ secrets.FTP_SERVER_DIR }}
-  local-dir: ./
-  protocol: ftps-legacy
-  port: 222
+        with:
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: './*'
+          remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
+          sftp_only: true
+          port: ${{ secrets.SFTP_PORT }}
