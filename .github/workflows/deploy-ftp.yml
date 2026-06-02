@@ -1,4 +1,4 @@
-name: Deploy website by FTP
+name: Deploy website by SFTP
 
 on:
   push:
@@ -9,9 +9,6 @@ on:
 permissions:
   contents: read
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   deploy:
     name: Upload website to webserver
@@ -21,15 +18,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Deploy to FTP/FTPS server
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+      - name: Upload website by SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          local-dir: ./
-          protocol: ${{ secrets.FTP_PROTOCOL }}
-          port: ${{ secrets.FTP_PORT }}
-          timeout: 120000
-          log-level: verbose
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: './*'
+          remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
+          sftp_only: true
+          port: ${{ secrets.SFTP_PORT }}
