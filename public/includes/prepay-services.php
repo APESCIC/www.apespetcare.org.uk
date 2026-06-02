@@ -411,11 +411,14 @@ function apes_render_prepay_button(array $service, string $class = 'btn btn-prim
     ob_start();
     ?>
     <a
-      class="<?= apes_escape($class) ?>"
+      class="<?= apes_escape($class) ?> js-popup-window"
       href="<?= apes_escape($service['stripeUrl']) ?>"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="<?= apes_escape($service['accessibleLabel']) ?>"
+      data-popup-name="apes_prepay_checkout"
+      data-popup-width="720"
+      data-popup-height="860"
     ><?= apes_escape($service['ctaText']) ?></a>
     <?php
 

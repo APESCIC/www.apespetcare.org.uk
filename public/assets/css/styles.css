@@ -420,6 +420,7 @@ a {
 .article {
   display: grid;
   gap: 18px;
+  min-width: 0;
 }
 
 .content-card {
@@ -428,6 +429,7 @@ a {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
   padding: 20px;
+  min-width: 0;
 }
 
 .content-card h2 {
@@ -685,9 +687,27 @@ a {
   margin-bottom: 6px;
 }
 
+.booking-guidance-list {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.booking-guidance-list li {
+  margin-bottom: 8px;
+}
+
+.booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
 .prepay-groups {
   display: grid;
   gap: 18px;
+  min-width: 0;
 }
 
 .prepay-groups-detail {
@@ -697,6 +717,7 @@ a {
 .prepay-group {
   display: grid;
   gap: 12px;
+  min-width: 0;
 }
 
 .prepay-group-title {
@@ -706,12 +727,14 @@ a {
 
 .prepay-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 14px;
+  align-items: stretch;
+  min-width: 0;
 }
 
 .prepay-grid-detail {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
 }
 
 .prepay-card {
@@ -723,6 +746,9 @@ a {
   border-radius: 16px;
   padding: 16px;
   box-shadow: 0 8px 22px rgba(11, 46, 42, 0.08);
+  min-width: 0;
+  overflow: hidden;
+  align-content: start;
 }
 
 .prepay-card-detail {
@@ -739,16 +765,18 @@ a {
 }
 
 .prepay-card-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: flex-start;
   gap: 10px;
+  min-width: 0;
 }
 
 .prepay-card-title {
   margin: 0;
   font-size: 1.02rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .prepay-card-price {
@@ -773,6 +801,13 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
+  min-width: 0;
+}
+
+.prepay-service-pills .pill {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .prepay-card-warning,
@@ -781,6 +816,8 @@ a {
   margin: 0;
   color: var(--ink-700);
   line-height: 1.5;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .prepay-card-warning {
@@ -796,6 +833,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: auto;
 }
 
 .prepay-cta-list {
@@ -1364,5 +1402,9 @@ a {
 
   .btn-prepay-inline {
     width: 100%;
+  }
+
+  .prepay-card-header {
+    grid-template-columns: 1fr;
   }
 }

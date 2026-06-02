@@ -1,3 +1,59 @@
+## [v0.5.1b] - 2026-06-02
+
+<span class="pill pill-version">Version v0.5.1b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Integration Fix</span>
+<span class="pill pill-fix">Layout Fix</span>
+
+### Summary
+
+Removed the broken embedded booking form from the public bookings page, switched booking and pre-pay links to shared popup-window behaviour with a safe fallback, and fixed card and CTA spacing issues affecting the homepage and Services Hub.
+
+### Detailed changes
+
+- Replaced the broken `/bookings/` iframe section with booking guidance, a primary popup booking CTA, and fallback messaging explaining that popup blockers will fall back to a normal new tab.
+- Generalised the shared external-link popup script so booking, contact, and Stripe pre-pay links now use one reusable popup-window pattern rather than separate hard-coded behaviours.
+- Updated the shared clinic sidebar booking CTA and all shared `Pre-pay and book` buttons so they open external workflows in a popup window by default.
+- Tightened the Services Hub pre-pay grid and card styling so long pill text, copy, and headings stay inside their cards at common desktop widths.
+- Added explicit spacing below the homepage `Before you pay` warning box so the `Open the Services Hub` CTA no longer overlaps the panel.
+- Updated the canonical `VERSION` file plus both changelog records so the release is synchronised under the new `v0.5.1b` beta patch entry.
+- Confirmed this release does not change APES Newsroom routing, footer-news behaviour, newsletter prompts, or article metadata.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Reworked the public bookings page into a non-embedded booking guidance page and moved shared external workflow links onto one popup-window pattern.
+- <span class="pill pill-type">Fixed</span> Corrected the broken booking embed, the overflowing Services Hub payment-card content, and the homepage `Before you pay` CTA overlap.
+
+### Fix pills
+
+- <span class="pill pill-fix">Integration Fix</span> Booking and Stripe pre-pay journeys now share consistent popup-window handling with safe new-tab fallback when popups are blocked.
+- <span class="pill pill-fix">Layout Fix</span> Pre-pay cards now keep long text inside card bounds and the homepage CTA spacing no longer collides with the warning panel.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `/`, `/services/`, `/bookings/`, `/contact/`, and `/changelog/`.
+- Files changed: `assets/css/styles.css`, `assets/js/site.js`, `bookings/index.php`, `contact/index.php`, `includes/clinic-sidebar.php`, `includes/prepay-services.php`, `index.php`, `services/index.php`, `VERSION`, `CHANGELOG.md`, and `changelog/index.php`.
+- User groups affected: Public visitors using the booking journey, owners using Stripe pre-pay links, and staff handling enquiries triggered from those routes.
+- Public impact: Visitors now see a working booking route, consistent popup behaviour for external booking and payment journeys, and cleaner card layouts on the Services Hub and homepage.
+- Internal impact: Shared popup handling and pre-pay card styling are now easier to maintain across routes without page-specific fixes.
+
+### Version decision
+
+- Previous version: `v0.5.0b`
+- New version: `v0.5.1b`
+- Version type: Beta patch release
+- Reason for version bump: This is a low-risk public-facing fix to an existing booking journey, CTA behaviour, and layout presentation without adding a new route or expanding website scope.
+
+### Validation
+
+- Checks run: Reviewed the updated booking template, shared popup script, shared pre-pay renderer, and shared stylesheet changes by code inspection. A local `php` CLI was not available in this workspace, so automated `php -l` syntax checks could not be run.
+- Manual checks completed: Confirmed by source inspection that the public bookings page no longer contains the broken iframe and that booking plus pre-pay links now share popup-window attributes and fallback-safe targets.
+- Known limitations: Browser-based visual QA and live popup behaviour still need a manual pass in a running site environment because this workspace does not guarantee a local PHP server or deployed preview.
+- Rollback notes: Revert the bookings template rewrite, shared popup-link updates, shared pre-pay button rendering, stylesheet changes, `VERSION`, and both changelog entries to restore the previous `v0.5.0b` booking and layout state.
+
 ## [v0.5.0b] - 2026-06-02
 
 <span class="pill pill-version">Version v0.5.0b</span>

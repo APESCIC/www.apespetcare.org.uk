@@ -6,8 +6,8 @@
     <p><strong>Address:</strong> <?= apes_escape($clinicAddress) ?></p>
     <p><strong>Attendance notice:</strong> Please wait for confirmed appointment and location instructions before attending.</p>
     <div class="cta-group">
-      <a class="btn btn-primary" href="<?= apes_escape($bookingPublicUrl) ?>" target="_blank" rel="noopener noreferrer">Open booking form</a>
-      <a class="btn btn-outline js-contact-ticket" href="<?= apes_escape($contactTicketUrl) ?>">Contact Clinic</a>
+      <a class="btn btn-primary js-popup-window" href="<?= apes_escape($bookingPublicUrl) ?>" target="_blank" rel="noopener noreferrer" data-popup-name="apes_booking_form" data-popup-width="860" data-popup-height="900">Open booking form</a>
+      <a class="btn btn-outline js-popup-window" href="<?= apes_escape($contactTicketUrl) ?>" data-popup-name="apes_contact_ticket" data-popup-width="560" data-popup-height="760">Contact Clinic</a>
       <a class="btn btn-outline" href="/donate/">Donate to Support Care</a>
     </div>
   </div>

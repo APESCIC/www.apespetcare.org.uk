@@ -28,20 +28,29 @@ require_once $rootPath . '/includes/header.php';
   <section class="content-layout">
     <article class="article">
       <div class="content-card reveal">
-        <h2>Online booking form</h2>
-        <p>Complete your booking request in the embedded form below. Booking instructions will confirm the correct appointment location and any next steps for your pet.</p>
-        <iframe
-          class="booking-embed"
-          src="<?= apes_escape($bookingEmbedUrl) ?>"
-          title="APES Pet Care Clinic Booking Form"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <h2>Open the booking form in a separate window</h2>
+        <p>Our booking form now opens in a separate secure window instead of loading inside this page. This gives you the full appointment form without the embedded loading issue shown on some devices.</p>
+        <ul class="booking-guidance-list">
+          <li>Use the button below to open the secure APES booking form in a popup window.</li>
+          <li>If your browser blocks popups, the form will open in a new tab instead.</li>
+          <li>Booking instructions will confirm the correct appointment location and any next steps for your pet.</li>
+        </ul>
+        <div class="booking-actions">
+          <a
+            class="btn btn-primary js-popup-window"
+            href="<?= apes_escape($bookingPublicUrl) ?>"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-popup-name="apes_booking_form"
+            data-popup-width="860"
+            data-popup-height="900"
+          >Open booking form</a>
+        </div>
       </div>
       <div class="content-card reveal">
-        <h2>Having trouble with the embed?</h2>
-        <p>If the form does not load on your device, open the full booking page directly.</p>
-        <p><a class="btn btn-primary" href="<?= apes_escape($bookingPublicUrl) ?>" target="_blank" rel="noopener noreferrer">Open Full Booking Page</a></p>
+        <h2>Before you open the form</h2>
+        <p>Please have your contact details, pet information, and the main reason for your booking request ready before opening the form. This helps you complete the request in one go.</p>
+        <p>Popup blockers, privacy extensions, or strict mobile browsers may stop the separate booking window from appearing. If that happens, use the same button again and your browser should fall back to a new tab.</p>
       </div>
       <div class="content-card reveal">
         <h2>Before you book</h2>

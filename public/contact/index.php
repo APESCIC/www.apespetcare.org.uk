@@ -30,7 +30,7 @@ require_once $rootPath . '/includes/header.php';
       <div class="content-card reveal">
         <h2>Open a support ticket</h2>
         <p>The fastest way to contact us is through our support ticket form.</p>
-        <p><a class="btn btn-primary js-contact-ticket" href="<?= apes_escape($contactTicketUrl) ?>">Contact Clinic</a></p>
+        <p><a class="btn btn-primary js-popup-window" href="<?= apes_escape($contactTicketUrl) ?>" data-popup-name="apes_contact_ticket" data-popup-width="560" data-popup-height="760">Contact Clinic</a></p>
       </div>
       <div class="content-card reveal">
         <h2>Live chat</h2>

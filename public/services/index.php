@@ -51,7 +51,7 @@ require_once $rootPath . '/includes/header.php';
       <div class="content-card reveal">
         <h2>Need help before paying?</h2>
         <p>If you are unsure which route fits your pet, contact the clinic team before using a payment link. We can help you decide whether APES support, a booking, or urgent veterinary care is the safest next step.</p>
-        <p><a class="btn btn-outline js-contact-ticket" href="<?= apes_escape($contactTicketUrl) ?>">Contact Clinic</a></p>
+        <p><a class="btn btn-outline js-popup-window" href="<?= apes_escape($contactTicketUrl) ?>" data-popup-name="apes_contact_ticket" data-popup-width="560" data-popup-height="760">Contact Clinic</a></p>
       </div>
     </article>
     <?php require $rootPath . '/includes/clinic-sidebar.php'; ?>

@@ -1,18 +1,31 @@
 (function () {
-  const openContactTicket = (url) => {
-    const width = 560;
-    const height = 760;
+  const openPopupWindow = (url, popupName, width, height) => {
     const left = Math.max(0, Math.floor((window.screen.width - width) / 2));
     const top = Math.max(0, Math.floor((window.screen.height - height) / 2));
     const features = `popup=yes,width=${width},height=${height},left=${left},top=${top},noopener,noreferrer`;
-
-    const popup = window.open(url, "apes_contact_ticket", features);
+    const popup = window.open(url, popupName, features);
     if (!popup) {
       window.open(url, "_blank", "noopener,noreferrer");
       return;
     }
 
     popup.focus();
+  };
+
+  const bindPopupLinks = (selector, defaults) => {
+    document.querySelectorAll(selector).forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const popupName = link.dataset.popupName || defaults.name;
+        const popupWidth = Number(link.dataset.popupWidth || defaults.width);
+        const popupHeight = Number(link.dataset.popupHeight || defaults.height);
+
+        openPopupWindow(href, popupName, popupWidth, popupHeight);
+      });
+    });
   };
 
   const menuToggle = document.querySelector("[data-menu-toggle]");
@@ -45,13 +58,16 @@
     });
   });
 
-  document.querySelectorAll(".js-contact-ticket").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      const href = link.getAttribute("href");
-      if (!href) return;
-      openContactTicket(href);
-    });
+  bindPopupLinks(".js-popup-window", {
+    name: "apes_popup_window",
+    width: 720,
+    height: 820,
+  });
+
+  bindPopupLinks(".js-contact-ticket", {
+    name: "apes_contact_ticket",
+    width: 560,
+    height: 760,
   });
 
   const changeLogRoot = document.querySelector("[data-change-log-root]");

@@ -46,7 +46,9 @@ require_once $rootPath . '/includes/header.php';
         <h2>Before you pay</h2>
         <p>Start with our Services Hub before using a payment link. Each route explains scope, suitability, and when veterinary care is the safer choice.</p>
         <?= apes_render_before_you_pay() ?>
-        <p><a class="btn btn-primary" href="<?= apes_escape($servicesHubPath) ?>">Open the Services Hub</a></p>
+        <div class="booking-actions">
+          <a class="btn btn-primary" href="<?= apes_escape($servicesHubPath) ?>">Open the Services Hub</a>
+        </div>
       </div>
       <div class="content-card reveal">
         <h2>Species and support pages</h2>
