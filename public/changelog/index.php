@@ -10,12 +10,61 @@ require_once $rootPath . '/includes/page-init.php';
 
 $releaseEntries = [
     [
+        'version' => 'v0.2.0',
+        'date' => '2026-06-02',
+        'title' => 'Hello Bar global header integration and notification review',
+        'status' => 'Stable',
+        'statusKey' => 'stable',
+        'current' => true,
+        'impact' => 'public-facing operational',
+        'types' => 'added changed',
+        'pills' => [
+            ['class' => 'pill-version', 'label' => 'Version v0.2.0'],
+            ['class' => 'pill-status', 'label' => 'Stable'],
+            ['class' => 'pill-type', 'label' => 'Added'],
+            ['class' => 'pill-type', 'label' => 'Changed'],
+        ],
+        'summary' => 'Added the Hello Bar script globally in the shared header and reviewed the website notification integrations so the current OneSignal setup remains aligned with the requested global implementation.',
+        'details' => [
+            'Added the supplied Hello Bar integration script to the shared header so it loads asynchronously across the public website before the closing head tag.',
+            'Reviewed the existing OneSignal Web SDK initialisation in the shared header and confirmed it still uses the requested app ID 1526fa8e-132a-46ff-90b2-94386a285bde.',
+            'Reviewed the shared footer and confirmed the existing onesignal-customlink-container remains present once globally for the OneSignal custom link container.',
+            'Searched the repository to confirm there is only one Hello Bar loader, one OneSignal SDK and init block, and one OneSignal custom link container in the live shared templates.',
+            'Updated the canonical VERSION file plus both changelog records so the release is synchronised under the new v0.2.0 stable minor entry.',
+        ],
+        'typePills' => [
+            ['class' => 'pill-type', 'label' => 'Added', 'description' => 'Introduced a new shared Hello Bar integration across public website routes.'],
+            ['class' => 'pill-type', 'label' => 'Changed', 'description' => 'Reviewed and documented the shared notification integration baseline so Hello Bar and OneSignal are tracked together in the current release record.'],
+        ],
+        'fixPills' => [],
+        'affectedAreas' => [
+            'Website' => 'APES Pet Care Clinic public website.',
+            'Page or route' => 'Shared global header and footer integrations across all public routes, plus /changelog/.',
+            'Files changed' => 'includes/header.php, VERSION, CHANGELOG.md, and changelog/index.php.',
+            'User groups affected' => 'Public visitors, service users, donors, volunteers, and staff monitoring notification-driven engagement on the website.',
+            'Public impact' => 'Visitors can now receive the Hello Bar experience globally while the existing OneSignal custom link implementation remains in place.',
+            'Internal impact' => 'Shared notification integrations are now release-tracked together under one audited version entry.',
+        ],
+        'versionDecision' => [
+            'Previous version' => 'v0.1.1',
+            'New version' => 'v0.2.0',
+            'Version type' => 'Stable minor release',
+            'Reason for version bump' => 'This release adds a new public-facing global integration across the website without restructuring existing routes or replacing the current OneSignal setup.',
+        ],
+        'validation' => [
+            'Checks run' => 'Searched the codebase for Hello Bar and OneSignal references to confirm one global Hello Bar script include, one OneSignal SDK and init block, one OneSignal custom link container, and synchronised v0.2.0 release records. No local PHP CLI binary was available in this environment for automated php -l checks.',
+            'Manual checks completed' => 'Reviewed the shared header and footer templates by code inspection to confirm the Hello Bar script remains asynchronous, the OneSignal app ID matches the issue requirement, and the OneSignal custom link container remains globally present.',
+            'Known limitations' => 'Live browser verification was not available in this environment, so Hello Bar rendering, OneSignal prompt behaviour, and any console output still need a manual pass on staging or production.',
+            'Rollback notes' => 'Remove the Hello Bar script from the shared header and revert the VERSION file plus both changelog entries to restore the previous v0.1.1 release state.',
+        ],
+    ],
+    [
         'version' => 'v0.1.1',
         'date' => '2026-06-02',
         'title' => 'Chatwoot live chat launcher refresh',
         'status' => 'Stable',
         'statusKey' => 'stable',
-        'current' => true,
+        'current' => false,
         'impact' => 'public-facing operational',
         'types' => 'changed fixed',
         'pills' => [
@@ -432,14 +481,16 @@ require_once $rootPath . '/includes/header.php';
                 </ul>
               </section>
 
-              <section class="release-section">
-                <h3>Fix pills</h3>
-                <ul class="release-section-list">
-                  <?php foreach ($entry['fixPills'] as $pill): ?>
-                    <li><span class="pill <?= apes_escape($pill['class']) ?>"><?= apes_escape($pill['label']) ?></span> <?= apes_escape($pill['description']) ?></li>
-                  <?php endforeach; ?>
-                </ul>
-              </section>
+              <?php if (!empty($entry['fixPills'])): ?>
+                <section class="release-section">
+                  <h3>Fix pills</h3>
+                  <ul class="release-section-list">
+                    <?php foreach ($entry['fixPills'] as $pill): ?>
+                      <li><span class="pill <?= apes_escape($pill['class']) ?>"><?= apes_escape($pill['label']) ?></span> <?= apes_escape($pill['description']) ?></li>
+                    <?php endforeach; ?>
+                  </ul>
+                </section>
+              <?php endif; ?>
 
               <section class="release-section">
                 <h3>Affected areas</h3>

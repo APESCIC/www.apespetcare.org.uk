@@ -1,3 +1,54 @@
+## [v0.2.0] - 2026-06-02
+
+<span class="pill pill-version">Version v0.2.0</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Added</span>
+<span class="pill pill-type">Changed</span>
+
+### Summary
+
+Added the Hello Bar script globally in the shared header and reviewed the website's shared notification integrations so the current OneSignal setup remains aligned with the requested global implementation.
+
+### Detailed changes
+
+- Added the supplied Hello Bar integration script to the shared header so it loads asynchronously across the public website before the closing `</head>` tag.
+- Reviewed the existing OneSignal Web SDK initialisation in the shared header and confirmed it still uses the requested app ID `1526fa8e-132a-46ff-90b2-94386a285bde`.
+- Reviewed the shared footer and confirmed the existing `<div class='onesignal-customlink-container'></div>` remains present once globally for the OneSignal custom link container.
+- Searched the repository to confirm there is only one Hello Bar loader, one OneSignal SDK and init block, and one OneSignal custom link container in the live shared templates.
+- Updated the canonical VERSION file plus both changelog records so the release is synchronised under the new v0.2.0 stable minor entry.
+
+### Type pills
+
+- <span class="pill pill-type">Added</span> Introduced a new shared Hello Bar integration across public website routes.
+- <span class="pill pill-type">Changed</span> Reviewed and documented the shared notification integration baseline so Hello Bar and OneSignal are tracked together in the current release record.
+
+### Fix pills
+
+- None. OneSignal already satisfied the requested global header and footer implementation, so no corrective code change was required during this release.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared global header and footer integrations across all public routes, plus `/changelog/`.
+- Files changed: `includes/header.php`, `VERSION`, `CHANGELOG.md`, and `changelog/index.php`.
+- User groups affected: Public visitors, service users, donors, volunteers, and staff monitoring notification-driven engagement on the website.
+- Public impact: Visitors can now receive the Hello Bar experience globally while the existing OneSignal custom link implementation remains in place.
+- Internal impact: Shared notification integrations are now release-tracked together under one audited version entry.
+
+### Version decision
+
+- Previous version: v0.1.1
+- New version: v0.2.0
+- Version type: Stable minor release
+- Reason for version bump: This release adds a new public-facing global integration across the website without restructuring existing routes or replacing the current OneSignal setup.
+
+### Validation
+
+- Checks run: Searched the codebase for Hello Bar and OneSignal references to confirm one global Hello Bar script include, one OneSignal SDK and init block, one OneSignal custom link container, and synchronised `v0.2.0` release records. No local PHP CLI binary was available in this environment for automated `php -l` checks.
+- Manual checks completed: Reviewed the shared header and footer templates by code inspection to confirm the Hello Bar script remains asynchronous, the OneSignal app ID matches the issue requirement, and the OneSignal custom link container remains globally present.
+- Known limitations: Live browser verification was not available in this environment, so Hello Bar rendering, OneSignal prompt behaviour, and any console output still need a manual pass on staging or production.
+- Rollback notes: Remove the Hello Bar script from the shared header and revert the VERSION file plus both changelog entries to restore the previous v0.1.1 release state.
+
 ## [v0.1.1] - 2026-06-02
 
 <span class="pill pill-version">Version v0.1.1</span>

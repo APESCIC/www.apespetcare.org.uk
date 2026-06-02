@@ -36,6 +36,7 @@
       });
     });
   </script>
+  <script src="https://my.hellobar.com/d3bc15faadce398d8d09ec3c74fbd3bdd10be771.js" type="text/javascript" charset="utf-8" async="async"></script>
 </head>
 <body class="<?= apes_escape($bodyClass) ?>">
   <header class="site-header">
