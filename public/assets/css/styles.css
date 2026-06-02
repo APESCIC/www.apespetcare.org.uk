@@ -455,6 +455,51 @@ a {
   color: var(--sea-900);
 }
 
+.care-plan-pricing-card,
+.care-plan-action-card {
+  display: grid;
+  gap: 14px;
+}
+
+.care-plan-pricing-intro {
+  max-width: 70ch;
+}
+
+.care-plan-pricing-shell {
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(19, 70, 64, 0.12);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(234, 247, 243, 0.98));
+  overflow: hidden;
+}
+
+.care-plan-pricing-shell stripe-pricing-table {
+  display: block;
+  width: 100%;
+}
+
+.care-plan-support-note {
+  margin: 0;
+  color: var(--ink-700);
+  font-size: 0.95rem;
+}
+
+.care-plan-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.care-plan-info-grid .content-card {
+  height: 100%;
+}
+
+.care-plan-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .donation-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

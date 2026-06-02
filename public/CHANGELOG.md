@@ -1,3 +1,60 @@
+## [v0.5.0b] - 2026-06-02
+
+<span class="pill pill-version">Version v0.5.0b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Added</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Integration Fix</span>
+<span class="pill pill-fix">Content Fix</span>
+
+### Summary
+
+Added the supplied Stripe Care Plan Pricing Table to the public Care Plans page and restructured the page into a clearer card-led journey so visitors can compare options, review suitability guidance, and contact the clinic before paying where needed.
+
+### Detailed changes
+
+- Reworked the `/care-plans/` page order so visitors now see a plan overview first, the live pricing table second, supporting plan information in a responsive card grid, and a final safety/contact card at the end of the main content.
+- Embedded the supplied Stripe pricing table directly on `/care-plans/` and kept the script local to that page template rather than moving Stripe into the shared website header.
+- Added pricing-table support copy explaining that the plan chooser is hosted securely by Stripe and that visitors should contact the clinic if the table does not load or if they are unsure whether a plan is suitable.
+- Grouped the `Eligibility and exclusions`, `Flexible options`, and `Multiple pets` content into responsive cards while keeping the existing clinic sidebar layout intact.
+- Updated the Care Plans route metadata and hero lead so the page communicates pricing comparison and next-step guidance more clearly.
+- Updated the canonical `VERSION` file plus both changelog records so the release is synchronised under the new `v0.5.0b` beta minor entry.
+
+### Type pills
+
+- <span class="pill pill-type">Added</span> Introduced the live Care Plan Stripe pricing table and supporting fallback guidance on `/care-plans/`.
+- <span class="pill pill-type">Changed</span> Reordered the page into a clearer pricing-first card journey and refined the Care Plans route copy and metadata.
+- <span class="pill pill-type">Fixed</span> Reduced ambiguity in the plan-join journey by placing pricing, suitability guidance, and contact fallback in a clearer sequence.
+
+### Fix pills
+
+- <span class="pill pill-fix">Integration Fix</span> The supplied Stripe pricing table is now embedded directly on the Care Plans page without adding Stripe scripts to shared site templates.
+- <span class="pill pill-fix">Content Fix</span> Visitors now see plan comparison, exclusions, and next-step guidance in one route instead of needing to infer pricing from generic page copy alone.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `/care-plans/` and `/changelog/`.
+- Files changed: `care-plans/index.php`, `assets/css/styles.css`, `VERSION`, `CHANGELOG.md`, and `changelog/index.php`.
+- User groups affected: Public visitors, low-income pet owners, staff handling care-plan enquiries, and anyone choosing a routine welfare support plan.
+- Public impact: Visitors can now compare live care-plan options on the page, read plan suitability guidance in a clearer order, and use a direct contact fallback if they need help before paying.
+- Internal impact: The Care Plans route now carries a scoped Stripe embed and cleaner content structure without changing shared header behaviour.
+
+### Version decision
+
+- Previous version: `v0.4.0b`
+- New version: `v0.5.0b`
+- Version type: Beta minor release
+- Reason for version bump: This adds a public-facing payment and plan-comparison component while materially restructuring the Care Plans route into a clearer user journey without changing the wider website platform.
+
+### Validation
+
+- Checks run: Reviewed the updated Care Plans template, confirmed the supplied Stripe pricing table ID and publishable key are present only on the `/care-plans/` template, reviewed the new card-layout styles, and synchronised the version and changelog records by code inspection. No local `php` CLI binary was available in this environment for automated `php -l` checks.
+- Manual checks completed: Confirmed by source inspection that the page order now follows overview, pricing table, supporting info cards, and final safety/contact guidance, and that both changelog records plus `VERSION` now reference `v0.5.0b`.
+- Known limitations: Live browser verification, responsive visual QA, and live Stripe pricing-table rendering could not be tested in this environment, so the final embedded-table display still needs a manual browser pass on staging or production.
+- Rollback notes: Revert the Care Plans template restructure, scoped Care Plans stylesheet additions, `VERSION`, and both changelog entries to restore the previous `v0.4.0b` Care Plans release state.
+
 ## [v0.4.0b] - 2026-06-02
 
 <span class="pill pill-version">Version v0.4.0b</span>
