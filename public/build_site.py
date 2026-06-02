@@ -8,8 +8,8 @@ DATA_PATH = Path('crawl/extracted_clean/site_content.json')
 pages = json.loads(DATA_PATH.read_text(encoding='utf-8'))
 
 SITE_TITLE = 'APES Pet Care Clinic'
-SITE_TAGLINE = 'Heart-warming, affordable care for every pet family.'
-NOTICE = 'Please note: We are currently operating from temporary premises while our new premises in Warrington are being prepared. Thank you for bearing with us during this time.'
+SITE_TAGLINE = 'Heart-warming, affordable support for every pet family.'
+NOTICE = 'Please note: We are currently operating from temporary premises. Please do not attend without a confirmed appointment and location instructions. Our future Warrington premises are being prepared, and booking instructions will confirm where your appointment will take place.'
 PHONE = '0300 302 0228'
 EMAIL = 'info@apespetcare.org.uk'
 ADDRESS = '40 Morris Street, St Helens, WA9 3EN'
@@ -42,8 +42,8 @@ services_nav = [
     ('Rabbit Care', 'rabbit-care'),
     ('Guinea Pig Care', 'guinea-care'),
     ('Ferret Care', 'ferret-care'),
-    ('Care Plans', 'Care Plans/care-plans'),
-    ('Lab Services', 'APES Lab Services/apes-lab-services'),
+    ('Care Plans', 'care-plans'),
+    ('Lab Services', 'lab-services'),
 ]
 
 policies_nav = [
@@ -292,7 +292,7 @@ def build_page(route: str, title: str, blocks):
         </div>
       </article>
       <aside class="hero-logo reveal">
-        <img src="{prefix}assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="APES Pet Care Clinic illustrated logo">
+        <img src="{prefix}assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="">
       </aside>
     </section>
 

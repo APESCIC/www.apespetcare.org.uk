@@ -117,10 +117,24 @@ a {
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
+.drop-trigger {
+  background: transparent;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
 .main-nav a:hover,
 .drop:hover .drop-trigger {
   background: rgba(84, 201, 180, 0.2);
   transform: translateY(-1px);
+}
+
+.main-nav a:focus-visible,
+.drop-trigger:focus-visible,
+.menu-toggle:focus-visible {
+  outline: 2px solid rgba(0, 107, 95, 0.35);
+  outline-offset: 2px;
 }
 
 .main-nav a.is-active,
@@ -588,8 +602,42 @@ a {
   border-radius: 14px;
   background: rgba(84, 201, 180, 0.12);
   border: 1px solid rgba(19, 70, 64, 0.12);
-  color: var(--ink-800);
+  color: var(--ink-700);
   line-height: 1.5;
+}
+
+.scope-notice,
+.prepay-warning {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(19, 70, 64, 0.14);
+  background: rgba(255, 247, 226, 0.92);
+  color: #5f4414;
+  line-height: 1.55;
+}
+
+.scope-notice {
+  background: rgba(224, 242, 254, 0.72);
+  color: #0c4a6e;
+}
+
+.prepay-warning h3 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--sea-800);
+  font-size: 1.02rem;
+}
+
+.prepay-warning-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.prepay-warning-list li {
+  margin-bottom: 6px;
 }
 
 .prepay-groups {
@@ -636,6 +684,15 @@ a {
   padding: 14px;
 }
 
+.prepay-card-risk-medium {
+  border-top-color: #d7a63b;
+}
+
+.prepay-card-risk-high {
+  border-top-color: #cc7a29;
+  background: rgba(255, 251, 245, 0.98);
+}
+
 .prepay-card-header {
   display: flex;
   flex-wrap: wrap;
@@ -665,6 +722,29 @@ a {
   margin: 0;
   color: var(--ink-700);
   line-height: 1.55;
+}
+
+.prepay-service-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.prepay-card-warning,
+.prepay-card-note,
+.prepay-cta-note {
+  margin: 0;
+  color: var(--ink-700);
+  line-height: 1.5;
+}
+
+.prepay-card-warning {
+  font-size: 0.95rem;
+}
+
+.prepay-card-note,
+.prepay-cta-note {
+  font-size: 0.9rem;
 }
 
 .prepay-card-actions {

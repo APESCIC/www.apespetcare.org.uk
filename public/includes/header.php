@@ -5,12 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= apes_escape($pageTitle) ?> | <?= apes_escape($siteName) ?></title>
   <meta name="description" content="<?= apes_escape($metaDescription) ?>">
+  <meta name="robots" content="<?= apes_escape($metaRobots) ?>">
+  <link rel="canonical" href="<?= apes_escape($absolutePageUrl) ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="<?= apes_escape($siteName) ?>">
+  <meta property="og:title" content="<?= apes_escape($ogTitle) ?>">
+  <meta property="og:description" content="<?= apes_escape($ogDescription) ?>">
+  <meta property="og:url" content="<?= apes_escape($absolutePageUrl) ?>">
+  <meta property="og:image" content="<?= apes_escape($absoluteOgImageUrl) ?>">
+  <meta name="twitter:card" content="<?= apes_escape($twitterCard) ?>">
+  <meta name="twitter:title" content="<?= apes_escape($ogTitle) ?>">
+  <meta name="twitter:description" content="<?= apes_escape($ogDescription) ?>">
+  <meta name="twitter:image" content="<?= apes_escape($absoluteOgImageUrl) ?>">
   <link rel="icon" type="image/png" sizes="64x64" href="/assets/logos/APES_Pet_Care_Clinic_logo_web_64px.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script defer src="/assets/js/site.js"></script>
+  <?php foreach ($structuredData as $schema): ?>
+    <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+  <?php endforeach; ?>
   <script>
     window.chatwootSettings = {"position":"right","type":"expanded_bubble","launcherTitle":"Speak with an advisor"};
     (function(d,t) {
@@ -52,10 +67,14 @@
       <nav class="main-nav" data-main-nav>
         <a class="<?= trim(apes_is_active($activeNav, 'home')) ?>" href="/">Home</a>
         <div class="drop mega<?= apes_is_active($activeNav, 'services') ?>">
-          <a class="drop-trigger" href="#" aria-haspopup="true">Services</a>
+          <a class="drop-trigger" href="<?= apes_escape($servicesHubPath) ?>" aria-haspopup="true" aria-expanded="false">Services</a>
           <div class="drop-panel mega-panel">
             <p class="mega-heading">Pet Care Services</p>
             <div class="mega-links">
+              <a class="mega-link" href="<?= apes_escape($servicesHubPath) ?>">
+                <span class="mega-link-title">Services hub</span>
+                <span class="mega-link-description">Start with the full services overview, payment guidance, and safer pre-payment steps.</span>
+              </a>
               <?php foreach ($servicesMenu as $service): ?>
                 <a class="mega-link" href="<?= apes_escape($service['path']) ?>">
                   <span class="mega-link-title"><?= apes_escape($service['label']) ?></span>
@@ -66,7 +85,7 @@
           </div>
         </div>
         <div class="drop mega<?= apes_nav_in_group($activeNav, ['about', 'events', 'news', 'policies', 'changelog']) ?>">
-          <a class="drop-trigger" href="#" aria-haspopup="true">Information</a>
+          <button class="drop-trigger" type="button" aria-haspopup="true" aria-expanded="false">Information</button>
           <div class="drop-panel mega-panel">
             <p class="mega-heading">About, News, Policies And Website Updates</p>
             <div class="mega-links">

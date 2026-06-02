@@ -4,7 +4,7 @@ $pageTitle = 'Book An Appointment';
 $metaDescription = 'Book your APES Pet Care Clinic appointment online using our secure booking portal.';
 $pageKicker = 'Appointments';
 $heroTitle = 'Book Your Clinic Visit';
-$heroLead = 'Use our online booking system to reserve your appointment quickly. Appointments are required and help us give each pet the time they need.';
+$heroLead = 'Use our online booking system to request your appointment quickly. Appointments are required and help us give each pet the time they need.';
 $activeNav = 'bookings';
 require_once $rootPath . '/includes/page-init.php';
 require_once $rootPath . '/includes/header.php';
@@ -21,15 +21,15 @@ require_once $rootPath . '/includes/header.php';
       </div>
     </article>
     <aside class="hero-logo reveal">
-      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="APES Pet Care Clinic illustrated logo">
+      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="">
     </aside>
   </section>
 
   <section class="content-layout">
     <article class="article">
       <div class="content-card reveal">
-        <h2>Online Booking Form</h2>
-        <p>Complete your booking in the embedded form below.</p>
+        <h2>Online booking form</h2>
+        <p>Complete your booking request in the embedded form below. Booking instructions will confirm the correct appointment location and any next steps for your pet.</p>
         <iframe
           class="booking-embed"
           src="<?= apes_escape($bookingEmbedUrl) ?>"
@@ -39,13 +39,14 @@ require_once $rootPath . '/includes/header.php';
         </iframe>
       </div>
       <div class="content-card reveal">
-        <h2>Having Trouble With The Embed?</h2>
+        <h2>Having trouble with the embed?</h2>
         <p>If the form does not load on your device, open the full booking page directly.</p>
         <p><a class="btn btn-primary" href="<?= apes_escape($bookingPublicUrl) ?>" target="_blank" rel="noopener noreferrer">Open Full Booking Page</a></p>
       </div>
       <div class="content-card reveal">
-        <h2>Before You Book</h2>
-        <p>APES Pet Care Clinic provides first aid and general health support only. We do not perform operations or invasive veterinary procedures.</p>
+        <h2>Before you book</h2>
+        <?= apes_render_scope_notice() ?>
+        <p>Please do not attend without a confirmed appointment and location instructions. If your pet needs urgent veterinary care, seek help from a registered veterinary surgeon immediately instead of waiting for a clinic slot.</p>
       </div>
     </article>
     <?php require $rootPath . '/includes/clinic-sidebar.php'; ?>

@@ -28,10 +28,20 @@
   document.querySelectorAll(".drop > .drop-trigger").forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
       const isMobile = window.matchMedia("(max-width: 860px)").matches;
-      if (!isMobile) return;
-      event.preventDefault();
       const parent = trigger.closest(".drop");
-      if (parent) parent.classList.toggle("open");
+      if (!parent) return;
+
+      if (!isMobile) {
+        if (trigger.tagName === "BUTTON") {
+          const open = parent.classList.toggle("open");
+          trigger.setAttribute("aria-expanded", String(open));
+        }
+        return;
+      }
+
+      event.preventDefault();
+      const open = parent.classList.toggle("open");
+      trigger.setAttribute("aria-expanded", String(open));
     });
   });
 

@@ -21,7 +21,7 @@ require_once $rootPath . '/includes/header.php';
       </div>
     </article>
     <aside class="hero-logo reveal">
-      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="APES Pet Care Clinic illustrated logo">
+      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="">
     </aside>
   </section>
 

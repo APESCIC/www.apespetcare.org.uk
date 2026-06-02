@@ -21,22 +21,22 @@ require_once $rootPath . '/includes/header.php';
       </div>
     </article>
     <aside class="hero-logo reveal">
-      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="APES Pet Care Clinic illustrated logo">
+      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="">
     </aside>
   </section>
 
   <section class="content-layout">
     <article class="article">
       <div class="content-card reveal">
-        <h2>Service Scope</h2>
-        <p>APES Pet Care Clinic provides first aid and general health support only and is not a veterinary surgery. We do not carry out operations or invasive veterinary procedures.</p>
+        <h2>Service scope</h2>
+        <p>APES Pet Care Clinic provides first aid, routine welfare support, and referral triage only and is not a veterinary surgery. We do not diagnose disease, prescribe veterinary medicines, carry out operations, or perform invasive veterinary procedures.</p>
       </div>
       <div class="content-card reveal">
-        <h2>Website Use</h2>
+        <h2>Website use</h2>
         <p>Content is provided for general information and may be updated at any time. Users must not misuse the website or attempt unlawful activity.</p>
       </div>
       <div class="content-card reveal">
-        <h2>Bookings And Payments</h2>
+        <h2>Bookings and payments</h2>
         <p>Bookings require accurate details and payment as set out in our booking and refund policies.</p>
       </div>
       <div class="content-card reveal">
@@ -44,7 +44,7 @@ require_once $rootPath . '/includes/header.php';
         <p>We aim to provide accurate guidance and compassionate support, but veterinary diagnosis and surgical treatment must be provided by licensed veterinary professionals.</p>
       </div>
       <div class="content-card reveal">
-        <h2>Governing Law</h2>
+        <h2>Governing law</h2>
         <p>These terms are governed by the laws of England and Wales.</p>
       </div>
     </article>

@@ -21,18 +21,18 @@ require_once $rootPath . '/includes/header.php';
       </div>
     </article>
     <aside class="hero-logo reveal">
-      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="APES Pet Care Clinic illustrated logo">
+      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="">
     </aside>
   </section>
 
   <section class="content-layout">
     <article class="article">
       <div class="content-card reveal">
-        <h2>Pet Welfare Education</h2>
+        <h2>Pet welfare education</h2>
         <p>Our events focus on species-aware care, preventive welfare, and practical support for owners in the community.</p>
       </div>
       <div class="content-card reveal">
-        <h2>Want To Collaborate?</h2>
+        <h2>Want to collaborate?</h2>
         <p>If you run a community venue or local project and want to host a pet welfare session, contact our team.</p>
         <p><a class="btn btn-outline js-contact-ticket" href="<?= apes_escape($contactTicketUrl) ?>">Contact Clinic</a></p>
       </div>
