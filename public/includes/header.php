@@ -64,15 +64,19 @@
         <a class="<?= trim(apes_is_active($activeNav, 'about')) ?>" href="/about-us/">About Us</a>
         <a class="<?= trim(apes_is_active($activeNav, 'bookings')) ?>" href="/bookings/">Bookings</a>
         <a class="<?= trim(apes_is_active($activeNav, 'donate')) ?>" href="/donate/">Donate</a>
-        <a class="<?= trim(apes_is_active($activeNav, 'events')) ?>" href="/events/">Events</a>
-        <a class="<?= trim(apes_is_active($activeNav, 'news')) ?>" href="<?= apes_escape($newsUrl) ?>" target="_blank" rel="noopener noreferrer">News</a>
-        <a class="<?= trim(apes_is_active($activeNav, 'changelog')) ?>" href="<?= apes_escape($changelogPath) ?>">Changelog</a>
-        <div class="drop<?= apes_is_active($activeNav, 'policies') ?>">
-          <a class="drop-trigger" href="#" aria-haspopup="true">Policies</a>
-          <div class="drop-panel">
-            <?php foreach ($policiesMenu as $policy): ?>
-              <a href="<?= apes_escape($policy['path']) ?>"><?= apes_escape($policy['label']) ?></a>
-            <?php endforeach; ?>
+        <div class="drop mega<?= apes_nav_in_group($activeNav, ['events', 'news', 'policies', 'changelog']) ?>">
+          <a class="drop-trigger" href="#" aria-haspopup="true">Information</a>
+          <div class="drop-panel mega-panel">
+            <p class="mega-heading">News, Events And Policies</p>
+            <div class="mega-links">
+              <?php foreach ($informationMenu as $item): ?>
+                <a
+                  class="mega-link"
+                  href="<?= apes_escape($item['path']) ?>"
+                  <?php if (!empty($item['external'])): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>
+                ><?= apes_escape($item['label']) ?></a>
+              <?php endforeach; ?>
+            </div>
           </div>
         </div>
         <a class="<?= trim(apes_is_active($activeNav, 'contact')) ?>" href="/contact/">Contact</a>

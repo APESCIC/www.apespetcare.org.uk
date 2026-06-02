@@ -34,7 +34,15 @@ if (!isset($showNotice)) {
 }
 
 $siteName = 'APES Pet Care Clinic';
-$siteVersion = 'APES Pet Care Clinic v0.0.0b';
+$versionFile = dirname(__DIR__) . '/VERSION';
+$siteVersionNumber = 'v0.0.1';
+if (is_file($versionFile)) {
+    $versionValue = trim((string) file_get_contents($versionFile));
+    if ($versionValue !== '') {
+        $siteVersionNumber = $versionValue;
+    }
+}
+$siteVersion = $siteName . ' ' . $siteVersionNumber;
 $noticeText = 'Please note: We are currently operating from temporary premises while our new premises in Warrington are being prepared. Thank you for bearing with us during this time.';
 $scopeText = 'Important: APES Pet Care Clinic provides first aid and general health support. We do not carry out operations or invasive veterinary procedures.';
 
@@ -74,6 +82,19 @@ $policiesMenu = [
     ['label' => 'Terms and Conditions', 'path' => '/policies/terms-and-conditions/'],
 ];
 
+$informationMenu = [
+    ['label' => 'Events', 'path' => '/events/'],
+    ['label' => 'News', 'path' => $newsUrl, 'external' => true],
+    ...array_map(
+        static fn(array $policy): array => [
+            'label' => $policy['label'],
+            'path' => $policy['path'],
+        ],
+        $policiesMenu
+    ),
+    ['label' => 'Changelog', 'path' => $changelogPath],
+];
+
 function apes_escape(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -82,4 +103,9 @@ function apes_escape(string $value): string
 function apes_is_active(string $activeNav, string $expected): string
 {
     return $activeNav === $expected ? ' is-active' : '';
+}
+
+function apes_nav_in_group(string $activeNav, array $expected): string
+{
+    return in_array($activeNav, $expected, true) ? ' is-active' : '';
 }

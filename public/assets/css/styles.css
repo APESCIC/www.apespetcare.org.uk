@@ -449,6 +449,54 @@ a {
   font-weight: 700;
 }
 
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 18px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  margin: 0.1rem 0.15rem 0.1rem 0;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.pill-version {
+  background: #e6f4ea;
+  color: #14532d;
+}
+
+.pill-status {
+  background: #eef6ef;
+  color: #166534;
+}
+
+.pill-type {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.pill-fix {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.pill-security {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.pill-compliance {
+  background: #e0f2fe;
+  color: #075985;
+}
+
 .partner-vet {
   display: flex;
   flex-wrap: wrap;
@@ -489,15 +537,19 @@ a {
 }
 
 .changelog-version {
+  display: grid;
+  gap: 16px;
   margin-top: 2px;
 }
 
 .changelog-section {
+  display: grid;
+  gap: 8px;
   margin-top: 12px;
 }
 
 .changelog-section h3 {
-  margin: 0 0 8px;
+  margin: 0;
   color: var(--sea-800);
 }
 
