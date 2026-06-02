@@ -10,12 +10,62 @@ require_once $rootPath . '/includes/page-init.php';
 
 $releaseEntries = [
     [
+        'version' => 'v0.3.0',
+        'date' => '2026-06-02',
+        'title' => 'Donate page giving options and illustrated support refresh',
+        'status' => 'Stable',
+        'statusKey' => 'stable',
+        'current' => true,
+        'impact' => 'public-facing operational',
+        'types' => 'added changed',
+        'pills' => [
+            ['class' => 'pill-version', 'label' => 'Version v0.3.0'],
+            ['class' => 'pill-status', 'label' => 'Stable'],
+            ['class' => 'pill-type', 'label' => 'Added'],
+            ['class' => 'pill-type', 'label' => 'Changed'],
+        ],
+        'summary' => 'Expanded the public donate page so supporters can now see how to donate practical supplies such as blankets, paper towels, and tea towels, while also getting a clearer funds donation route through a new Donorbox card.',
+        'details' => [
+            'Rebuilt the /donate/ page content into a clearer support journey with separate sections for donating useful supplies and donating funds.',
+            'Added public guidance explaining that supporters can donate clean blankets, paper towels, tea towels, and other practical items that help with hygiene, comfort, feeding, and day-to-day welfare support.',
+            'Added a new funds donation card using the supplied Donorbox button so visitors can donate directly to support the area of greatest need.',
+            'Added lightweight illustrated donation panels and supporting visual styling to make the donate page feel more engaging without relying on extra external image assets.',
+            'Added clearer drop-off and contact guidance so supporters know to check what is most useful before bringing larger or specialist items to the clinic.',
+            'Updated the canonical VERSION file plus both changelog records so the release is synchronised under the new v0.3.0 stable minor entry.',
+        ],
+        'typePills' => [
+            ['class' => 'pill-type', 'label' => 'Added', 'description' => 'Introduced a new public supply-donation section, a new funds support card, and new illustrated content blocks on the donate page.'],
+            ['class' => 'pill-type', 'label' => 'Changed', 'description' => 'Reworked the donate page layout and copy so the donation journey is clearer for supporters and easier to act on.'],
+        ],
+        'fixPills' => [],
+        'affectedAreas' => [
+            'Website' => 'APES Pet Care Clinic public website.',
+            'Page or route' => '/donate/ and /changelog/.',
+            'Files changed' => 'donate/index.php, assets/css/styles.css, VERSION, CHANGELOG.md, and changelog/index.php.',
+            'User groups affected' => 'Public visitors, donors, volunteers, low-income pet owners, and staff coordinating incoming donations.',
+            'Public impact' => 'Visitors can now understand how to donate useful supplies as well as how to donate funds to help support clinic work.',
+            'Internal impact' => 'Donation guidance is now clearer and easier for staff to reference when supporters ask what items are helpful.',
+        ],
+        'versionDecision' => [
+            'Previous version' => 'v0.2.0',
+            'New version' => 'v0.3.0',
+            'Version type' => 'Stable minor release',
+            'Reason for version bump' => 'This release adds new public-facing donation content, a new direct funds support route, and a materially expanded donate-page journey without changing the website structure.',
+        ],
+        'validation' => [
+            'Checks run' => 'Reviewed the updated donate template, new CSS selectors, supplied Donorbox link markup, and synchronised v0.3.0 release records by code inspection. No local PHP CLI binary was available in this environment for automated php -l checks.',
+            'Manual checks completed' => 'Confirmed the donate page now includes supply-donation guidance, the supplied Donorbox button, contact and drop-off instructions, and new illustrated content blocks in the source templates.',
+            'Known limitations' => 'Live browser verification was not available in this environment, so the final rendered spacing, SVG illustration appearance, and external Donorbox button behaviour should still receive a manual browser pass on staging or production.',
+            'Rollback notes' => 'Revert the donate page template, donate-page stylesheet changes, VERSION file, and both changelog entries to restore the previous v0.2.0 donate-page presentation.',
+        ],
+    ],
+    [
         'version' => 'v0.2.0',
         'date' => '2026-06-02',
         'title' => 'Hello Bar global header integration and notification review',
         'status' => 'Stable',
         'statusKey' => 'stable',
-        'current' => true,
+        'current' => false,
         'impact' => 'public-facing operational',
         'types' => 'added changed',
         'pills' => [
