@@ -1,3 +1,53 @@
+## [v2.1.3b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.1.3b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Contrast Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Improved the shared clinic hero contrast so the heading and badge text remain readable on the light panel across the homepage and related route pages.
+
+### Detailed changes
+
+- Updated the final shared hero override in `public/assets/theme/clinic.css` so the light-panel hero now explicitly sets readable dark text colors for the panel, heading, and badge labels instead of inheriting pale text from the earlier dark hero block.
+- Preserved the existing hero layout, background treatment, badges, and imagery while fixing the low-contrast text issue affecting repeated hero sections across the website.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.3b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Corrected the shared hero theme cascade so light-panel hero copy is readable without changing the page structure or content.
+- <span class="pill pill-accessibility">Accessibility</span> Improved text contrast for the shared hero heading and badge labels on repeated public pages.
+
+### Fix pills
+
+- <span class="pill pill-fix">Contrast Fix</span> The shared hero no longer relies on dark-theme inherited text colors that became too faint on the later light-panel variant.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Homepage hero, repeated hero sections on service and information pages, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors, pet owners using service and information pages, and maintainers reviewing release records.
+- Public impact: Hero headings and support badges are easier to read on the light-panel clinic theme.
+- Internal impact: Shared theme behavior and release records remain aligned for future maintenance.
+
+### Version decision
+
+- Previous version: `v2.1.2b`
+- New version: `v2.1.3b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small user-visible accessibility and styling fix to the shared hero presentation.
+
+### Validation
+
+- Checks run: Source review of the final hero cascade, release-record alignment check, and footer version string verification across public HTML files.
+- Manual checks completed: Confirmed by source review that the final light hero override now sets explicit readable colors for the panel, heading, and badge labels without changing routes, navigation, SEO metadata, sitemap entries, robots rules, News routing, footer links, or branded error-page structure.
+- Known limitations: Browser QA with a live local preview still needs a manual visual pass outside this non-interactive workspace.
+- Rollback notes: Revert the shared hero color overrides and restore the previous `v2.1.2b` release records if the contrast fix needs to be undone.
+
 ## [v2.1.2b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.1.2b</span>

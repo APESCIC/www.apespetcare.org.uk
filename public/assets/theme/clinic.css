@@ -1846,6 +1846,7 @@ body {
 
 .hero-panel {
   padding: 2.4rem;
+  color: var(--ink-900);
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 251, 247, 0.95) 100%);
   border: 1px solid rgba(15, 127, 117, 0.08);
@@ -1878,6 +1879,7 @@ body {
 .hero-title {
   font-size: clamp(2.2rem, 4vw, 3.7rem);
   line-height: 1.04;
+  color: var(--sea-900);
 }
 
 .hero-lead {
@@ -1896,6 +1898,7 @@ body {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(15, 127, 117, 0.12);
+  color: var(--sea-800);
   font-weight: 700;
 }
 

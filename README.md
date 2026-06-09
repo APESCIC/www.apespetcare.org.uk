@@ -5,14 +5,14 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
   <img alt="Status: beta" src="https://img.shields.io/badge/status-beta-d88900">
-  <img alt="Version: v2.1.2b" src="https://img.shields.io/badge/version-v2.1.2b-14532d">
+  <img alt="Version: v2.1.3b" src="https://img.shields.io/badge/version-v2.1.3b-14532d">
   <img alt="Runtime: static HTML and Apache" src="https://img.shields.io/badge/runtime-static%20HTML%20%2B%20Apache-245c6b">
   <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
 </p>
 
 ## Current release
 
-- Version: `v2.1.2b`
+- Version: `v2.1.3b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`

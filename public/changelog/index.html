@@ -226,7 +226,26 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed deployment hygiene runtime cleanup" data-impact="changed deployment hygiene runtime cleanup">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed contrast fix accessibility" data-impact="changed contrast fix accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-09</p>
+                <h2>v2.1.3b - Improved the shared clinic hero contrast so the heading and badge text remain readable on the light panel across the homepage and related route pages.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v2.1.3b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Contrast Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Improved the shared clinic hero contrast so the heading and badge text remain readable on the light panel across the homepage and related route pages.</p>
+            <ul>
+            <li>Updated the final shared hero override in <code>public/assets/theme/clinic.css</code> so the light-panel hero now explicitly sets readable dark text colors for the panel, heading, and badge labels instead of inheriting pale text from the earlier dark hero block.</li>
+            <li>Preserved the existing hero layout, background treatment, badges, and imagery while fixing the low-contrast text issue affecting repeated hero sections across the website.</li>
+            <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new <code>v2.1.3b</code> beta patch release.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed deployment hygiene runtime cleanup" data-impact="changed deployment hygiene runtime cleanup">
           <summary>
             <div class="release-card-head">
               <div>
@@ -697,7 +716,7 @@
         </section>
       </div>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.2b</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.3b</span>
         <a class="footer-hub-link" href="../donate/">Donate</a>
         <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
         <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>
