@@ -63,13 +63,17 @@ This repo does not use the `npm` workflow previously documented here.
 
 Important preview note:
 
-- Opening `public/index.html` directly as `file://...` will show broken styling and missing images in VS Code because the website uses root-relative paths such as `/assets/...` and expects `public/` to be the web root.
+- The site now uses relative local asset paths in `public/` so `public/index.html` and nested `public/**/index.html` pages can be previewed directly from VS Code as `file://` URLs.
+- External integrations and absolute web URLs such as `https://...` remain unchanged.
+- Legacy snapshot files under `public/crawl/` are maintenance artifacts and are not part of the runtime file-preview fix.
+- If public HTML route files are updated, re-run `python scripts/fix_vscode_html_paths.py` from the repository root to restore file-preview-compatible relative paths.
 
 Recommended VS Code workflow:
 
-1. Run the workspace task `Start APES Pet Care Clinic preview server`.
-2. Open `http://127.0.0.1:8000/` in VS Code Simple Browser.
-3. Stop the task when you finish previewing.
+1. Open `public/index.html` directly in VS Code and preview it as a local `file://` document.
+2. For broader route testing, run the workspace task `Start APES Pet Care Clinic preview server`.
+3. Open `http://127.0.0.1:8000/` in VS Code Simple Browser.
+4. Stop the task when you finish previewing.
 
 Equivalent static-server workflow in any terminal:
 
