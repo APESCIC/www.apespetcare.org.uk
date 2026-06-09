@@ -1,6 +1,6 @@
 # Maintenance Artifacts
 
-This repository now treats the PHP website under `public/` as the runtime source of truth.
+This repository now treats the static HTML website under `public/` as the runtime source of truth.
 
 Some older files remain because they may still be useful for audit history, manual content reference, or later cleanup work. They are not required for the live Cloudron LAMP runtime unless a future task proves otherwise.
 
@@ -8,8 +8,11 @@ Some older files remain because they may still be useful for audit history, manu
 
 Use these files and directories as the active website architecture:
 
-- `public/*.php` route entrypoints
-- `public/includes/`
+- `public/index.html`
+- `public/**/index.html`
+- `public/403.html`
+- `public/404.html`
+- `public/500.html`
 - `public/assets/`
 - `public/.htaccess`
 - `public/robots.txt`
@@ -38,4 +41,4 @@ These files should be treated as non-runtime unless a task explicitly depends on
 
 - Keep these artifacts unless a later task proves they are safe to remove or relocate.
 - Do not treat them as the deployment contract for the live site.
-- Prefer updating the active PHP routes and shared includes over reviving older generation workflows.
+- Prefer updating the active static HTML routes and shared front-end assets over reviving older generation or PHP helper workflows.
