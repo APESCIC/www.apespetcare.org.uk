@@ -1,708 +1,448 @@
-# AGENTS.md
+# APES CIC GitHub Repository Agent Instructions
 
-# APES CIC Website Working Instructions
+Use these instructions as the default GitHub repository working profile for APES CIC repositories maintained by the Association of Protecting Exotic Species CIC.
 
-These instructions apply to all APES CIC website repositories, website exports, public web pages, intranet pages, microsites, static websites, documentation sites, portal front ends, and any related website code owned or maintained by the Association of Protecting Exotic Species CIC.
+These instructions apply to GitHub-hosted repository work, especially APES CIC website repositories, documentation, release records, pull requests, GitHub Issues, repository maintenance guidance, and direct GitHub updates.
 
-Codex and other AI coding agents must follow these instructions before, during, and after making any website change.
+Use this file as repository-level guidance for keeping GitHub work planned, traceable, documented, validated, and aligned with APES CIC website standards. If a repository contains its own `AGENTS.md`, `README.md`, contribution guide, or task-specific instruction, follow that local guidance as well. If local guidance conflicts with this profile, ask the user before weakening any APES CIC compliance, changelog, Change Log Hub, versioning, SEO, sitemap, footer, error-page, or documentation requirement.
 
 ---
 
-## 1. Primary rule
+## Project
 
-Every website update must be planned, versioned, recorded, validated, checked against APES brand standards, checked against APES Newsroom routing rules where relevant, checked against the APES universal footer standard, and reflected in relevant GitHub Issues.
+This is a website project. Make changes on a new branch unless told otherwise.
 
-Agents must not complete website work without checking whether the following are required:
+## Setup
+
+Run:
+
+```bash
+npm install
+```
+
+## Local development
+
+Run:
+
+```bash
+npm run dev
+```
+
+## Checks before completion
+
+Run:
+
+```bash
+npm run lint
+npm run typecheck
+npm run test:e2e
+```
+
+## Safety
+
+Do not edit production secrets.
+Do not deploy automatically.
+Do not commit unless explicitly asked.
+Show the diff and test results first.
+
+---
+
+## 1. Operating Principles
+
+Before changing a repository, understand the repository structure, the user's request, and the likely public, operational, compliance, or maintenance impact of the work.
+
+Make the smallest safe change that satisfies the request while preserving APES CIC standards, accessibility, release records, documentation quality, and website reliability.
+
+Do not invent repository facts, deployment processes, issue numbers, version numbers, routes, branch names, technical requirements, or third-party services. If required context is missing, inspect the repository first. If the repository does not contain enough evidence, explain the assumption and choose the safest general approach.
+
+Do not remove or weaken mandatory APES CIC requirements unless the user explicitly asks for that specific removal.
+
+---
+
+## 2. Primary Repository Rule
+
+Every repository update must be planned, versioned where applicable, recorded, validated, documented, and reflected in the relevant GitHub Issues where issue tracking is being used.
+
+Before completing repository work, always check whether the following are required:
 
 1. A website Change Log Hub page update.
 2. A root-level `CHANGELOG.md` update.
-3. A canonical version update.
-4. A GitHub Issue start, progress, or completion update.
-5. An APES website brand and feature standards review.
-6. An APES Newsroom routing check for any news, update, announcement, newsletter, footer, navigation, or article-related change.
-7. An APES universal footer compliance check.
-8. A footer link check for the website donation page, Privacy Policy page, Terms of Service page and Change Log Hub.
+3. A `/public/CHANGELOG.md` update where the repository has a `/public/` folder, so public website release records match the root changelog.
+4. A canonical version update where the repository uses versioning.
+5. A GitHub Issue start, progress, or completion update, including a changed-file list and a plain-language note for each file changed, whenever an issue is being worked on.
+6. A root-level `README.md` update describing the change, release impact, setup impact, and operational notes.
+7. Any repository-specific documentation updates needed to keep setup, workflow, governance, deployment, and maintenance guidance accurate.
+8. For website repositories, an APES website brand and feature standards review.
+9. For website repositories, an APES Newsroom routing check for any news, update, announcement, newsletter, footer, navigation, or article-related change.
+10. For website repositories, an APES universal footer compliance check.
+11. For website repositories, a footer link check for the website donation page, Privacy Policy page, Terms of Service page, and Change Log Hub.
+12. For website repositories, SEO metadata, sitemap, robots or noindex, and error-page checks whenever routes, navigation, deployment behavior, public pages, or website structure change.
+13. Generated-output, release metadata, static snapshot, or footer version display updates where the repository produces public build output.
 
-A changelog entry is required when the work changes public website content, intranet website content, page structure, forms, buttons, links, menus, navigation, CTAs, styling, layout, themes, branding, visual assets, accessibility, SEO, analytics, tracking, CRM, automation, embedded tools, third-party integrations, scripts, widgets, site configuration, build configuration, deployment configuration, generated website output, security, privacy, safeguarding, legal, compliance, finance, governance, HR, animal welfare content, or any user-visible bug fix.
+### README.md Template And Maintenance
 
-If there is any uncertainty, assume a changelog entry is required.
+Use `APESCIC/Website-Repo-Template` `README.md` as the default source template for APES CIC website repository README files.
 
----
+When a website repository has no root `README.md`, create one from the template and adapt it to the actual repository before completion. Do not leave template placeholders such as `{{PROJECT_NAME}}`, `{{PUBLIC_WEBSITE_URL}}`, `{{VERSION}}`, `{{INSTALL_COMMAND}}`, or `{{STATUS}}` unresolved unless the value is genuinely unknown and the final summary or issue update names the missing information.
 
-## 2. APES website brand and feature standards
+When a website repository already has a root `README.md`, maintain it against the same template structure instead of replacing useful repository-specific content. Preserve accurate local details, then add or refresh missing template-aligned sections where relevant, including:
 
-Apply APES CIC website branding and feature standards to all APES websites and future website work.
+- Current release.
+- Project purpose.
+- About APES CIC.
+- Website areas.
+- Connected APES services.
+- APES Habitat design direction.
+- Recommended or actual repository structure.
+- Getting started.
+- Environment variables.
+- Development workflow.
+- Definition of done.
+- Testing expectations.
+- Priority issue types.
+- Component standards.
+- Documentation standards.
+- Security and responsible disclosure.
+- Contributors and access.
+- Roadmap themes.
+- Success measures.
+- Organisation details.
+- Licence and reuse.
+- Disclaimer.
 
-These standards apply to:
+Update or create the root `README.md` whenever a change affects setup commands, development workflow, environment variables, repository structure, website areas, connected services, design direction, components, testing expectations, issue workflow, documentation standards, security, compliance, roadmap, success measures, release impact, current version, Change Log Hub status, changelog status, deployment notes, or operational maintenance guidance.
 
-* `apes.org.uk`
-* `apesshelter.org.uk`
-* `apespetcare.org.uk`
-* APES Newsroom
-* CareBase and help or knowledge sites
-* APES intranet pages where the same public-facing design pattern is reused
-* Future websites, division websites, campaign sites, service sites, portals and microsites
+Before completing README work, verify that badges, links, logo references, public website URLs, commands, environment-variable examples, owner or review-status fields, organisation details, licence text, release date, version, and operational notes are accurate and grounded in the repository or user-provided context.
 
-### Brand operating model
+Keep README current-release notes aligned with `VERSION`, `/public/VERSION`, root `CHANGELOG.md`, `/public/CHANGELOG.md`, the website Change Log Hub, footer version text, release metadata, and generated public output wherever those files or records exist.
 
-APES websites must feel like one connected ecosystem:
+A README update must be mentioned in GitHub Issue updates, pull request descriptions, release notes, and final summaries whenever it is created, materially changed, or intentionally deferred.
 
-* `apes.org.uk` is the parent APES CIC organisation gateway.
-* `apesshelter.org.uk` is the Shelter & Rescue service website.
-* `apespetcare.org.uk` is the Pet Care Clinic service website.
-* APES Newsroom is the central public news destination.
-* Future sites must inherit the APES master brand unless a separate brand decision has been formally approved.
+A changelog entry is required when work changes public website content, intranet website content, page structure, forms, buttons, links, menus, navigation, CTAs, styling, layout, themes, branding, visual assets, accessibility, SEO, analytics, tracking, CRM, automation, embedded tools, third-party integrations, scripts, widgets, site configuration, build configuration, deployment configuration, generated website output, security, privacy, safeguarding, legal, compliance, finance, governance, HR, animal welfare content, or any user-visible bug fix.
 
-### Brand principles
-
-Preserve these principles:
-
-* Recognisable first: every APES site should immediately feel part of the same organisation.
-* Teal-led, not colour-cluttered: teal is the repeated APES master brand colour.
-* Welfare before sales: donation, sponsorship, booking, shop and service journeys must still communicate animal welfare, trust, accountability and operational competence.
-* Plain-language confidence: headings must be direct, active and practical.
-* Consistent components: buttons, cards, hubs, filters, alerts, forms, footers, policy links, help routes and CTAs must follow shared patterns.
-* Accessible by default: colour contrast, keyboard navigation, readable text sizes, visible focus states and plain language are brand requirements.
-
-### APES colour system
-
-Use these APES website colour tokens unless the website already has approved equivalent variables.
-
-```css
-:root {
-  --apes-primary-teal: #008C8C;
-  --apes-deep-teal: #005F5F;
-  --apes-soft-mint: #DDF3EF;
-  --apes-leaf-green: #2E7D32;
-  --apes-rescue-sage: #A7C957;
-  --apes-petcare-aqua: #26B6C8;
-  --apes-warm-sand: #F2E9D8;
-  --apes-charcoal: #263238;
-  --apes-off-white: #F7FAF9;
-  --apes-alert-amber: #F9A825;
-  --apes-donation-coral: #E76F51;
-}
-```
-
-Required usage:
-
-| Colour | Hex | Required use |
-|---|---:|---|
-| Primary Teal | `#008C8C` | Main APES brand colour. Use for primary buttons, headings, navigation highlights, key icons and section accents. |
-| Deep Teal | `#005F5F` | Header/footer backgrounds, high-emphasis text, hover states, governance panels and serious trust content. |
-| Soft Mint | `#DDF3EF` | Panels, page callouts, form backgrounds and gentle emphasis areas. |
-| Leaf Green | `#2E7D32` | Welfare, sustainability, positive status, success states and safe or approved messages. |
-| Rescue Sage | `#A7C957` | Shelter, rescue, rehabilitation and animal-care accents. |
-| Pet Care Aqua | `#26B6C8` | Clinic, pet-care, animal health, booking and care-service accents. |
-| Warm Sand | `#F2E9D8` | Advice panels, adoption guidance, care notes and non-urgent education. |
-| Charcoal | `#263238` | Main body text. Use instead of pure black. |
-| Off White | `#F7FAF9` | Primary page or card background where white feels too stark. |
-| Alert Amber | `#F9A825` | Warnings, urgent but non-critical notices and attention prompts. |
-| Donation Coral | `#E76F51` | Donation, urgent appeal and fundraising accents only. |
-
-### Typography and content style
-
-* Use a modern, clear sans-serif.
-* Body text must be readable and no smaller than 16px equivalent on websites.
-* Tone must be professional, compassionate, non-judgemental, practical and operationally competent.
-* Use sentence case for headings and buttons unless a formal service name requires title case.
-* Avoid internal jargon where the public user needs a simple action.
-* Remove placeholder and generic template copy before live publication.
+If there is any uncertainty, assume documentation, changelog, version, release-record, and issue-tracking checks are required.
 
 ---
 
-## 3. Universal website footer standard
+## 3. Start-of-Planning Release Verification
 
-All APES websites, division websites, microsites, intranet pages and website templates must use a consistent green APES footer pattern. The footer is a brand, governance, compliance, donation and release-record component. It must not be treated as decorative or optional.
+At the start of planning any APES CIC website or repository change, verify the current release state before deciding scope or implementation order.
 
-This standard is based on the approved footer examples shown in the APES Intranet, APES Shelter & Rescue and APES Pet Care Clinic reference screenshots.
+For GitHub-only work, inspect the repository files and record the verified release state in the issue, pull request, review comment, or final summary. For Codex-led work, this verification must happen in Codex planning before edits begin.
 
-### Footer layout requirement
+Check, where present:
 
-Use one of these approved footer layouts, depending on site size and audience:
+- root `VERSION`
+- `/public/VERSION`
+- root `CHANGELOG.md`
+- `/public/CHANGELOG.md`
+- the website Change Log Hub page or its source data
+- README current-release notes
+- release metadata files or site data that render footer version text, Change Log Hub entries, public release cards, or generated static snapshots
 
-1. **Full footer layout** for large websites, portals, intranets and sites with multiple user journeys.
-2. **Compact footer layout** for smaller division websites, service websites and landing sites.
+The planning note should identify:
 
-Both layouts must use a deep green or deep teal background and APES-compatible typography, spacing, link styling and contrast. Footer links must be keyboard accessible, visibly focusable and readable against the footer background.
+- current version
+- beta or stable status
+- expected version bump type: major, minor, or patch
+- required Change Log Hub, changelog, README, version, generated-output, and issue updates
+- whether GitHub Issues need start, progress, or completion updates
+- any mismatched version or release records that must be fixed before completion
+- any uncertainty that must be resolved before completing the change
 
-### Full footer layout
-
-Use the full footer where the website has enough routes or support pathways to justify multiple columns.
-
-Required column structure:
-
-* **About column**
-  * Website, organisation or division name.
-  * Short plain-English summary of what the website supports.
-  * Parent organisation name where relevant.
-  * Website version badge or text.
-* **Quick links column**
-  * Main user journey links.
-  * Dashboard, apps hub, forms hub, service hub or equivalent where relevant.
-  * Change Log Hub link.
-* **Forms and support column**
-  * Key support forms.
-  * Incident, safeguarding, technical support, contact or escalation links where relevant.
-* **Legal and governance column**
-  * Privacy Policy link.
-  * Terms of Service link.
-  * Cookie Guidance or Cookie Policy link where relevant.
-  * Owner, review cycle and last reviewed information where relevant.
-
-A lower footer bar must then show copyright, legal identity, website name, version and Change Log Hub link where space allows.
-
-### Compact footer layout
-
-Use the compact footer where the website has fewer routes but still needs brand, legal, donation and release information.
-
-Required structure:
-
-* Website or division name.
-* Short description of the website purpose.
-* Physical address where relevant.
-* Contact details where relevant.
-* Partnership, sponsor or trusted organisation badges where relevant.
-* Essential help links such as Contact page, Open a ticket, Account or Support Hub where relevant.
-* Essential support links such as Donate, Sponsorship Hub or relevant fundraising route.
-* Essential connected links such as APES News, Policies or Search where relevant.
-* A final footer line containing copyright, organisation identity, CIC number, website name and current version.
-* A visible Change Log Hub link in the footer, preferably next to the website version.
-
-### Required footer identity format
-
-Every footer must identify the legal or operating organisation clearly.
-
-Use this model for APES CIC organisation websites:
-
-```txt
-© YYYY Association of Protecting Exotic Species CIC · CIC No: 16253848 · Website Name · v0.0.0
-```
-
-Use this model for APES division or service websites:
-
-```txt
-© YYYY Association of Protecting Exotic Species CIC · CIC No: 16253848 · Division or Website Name · v0.0.0
-```
-
-Use this model where a service website needs an explicit parent organisation statement:
-
-```txt
-Part of Association of Protecting Exotic Species CIC.
-Website version: Website Name v0.0.0 · Change Log Hub
-```
-
-Use `CIC No: 16253848` exactly unless the organisation record is formally changed. Do not omit the CIC number from public-facing APES CIC or division website footers.
-
-### Required footer links
-
-Every APES website footer must always include working links to:
-
-* The website donation page.
-* The Privacy Policy page.
-* The Terms of Service page.
-* The Change Log Hub page.
-
-Where a site uses a policies hub, the footer may link to the policies hub as an additional route, but it must still provide direct footer access to Privacy Policy and Terms of Service unless there is a documented reason not to.
-
-The donation link must point to the current donation page for the specific website or division where one exists. If the division does not have a specific donation page, link to the approved APES parent donation route.
-
-### Change Log Hub footer rule
-
-The Change Log Hub must always be linked from the footer of every APES website.
-
-Preferred labels:
-
-* `Change Log Hub`
-* `Website version: Website Name v0.0.0 · Change Log Hub`
-* `Website Name · v0.0.0 · Change Log Hub`
-
-Do not hide the Change Log Hub only in developer documentation, repository files, comments, release notes or an unlinked route. It must be reachable from the rendered website footer.
-
-### Footer version rule
-
-Every footer must display the current website version using the canonical APES version format.
-
-Accepted examples:
-
-```txt
-v0.0.10 Beta
-v0.5.1b
-APES Pet Care Clinic v0.5.1b
-APES Intranet · v0.2.1b
-```
-
-The displayed footer version must match the canonical version file and the current Change Log Hub entry.
-
-### Footer content rules
-
-Footer content must be site-specific and must not be left as generic template copy.
-
-Required checks:
-
-* Use the correct website name.
-* Use the correct division or organisation name.
-* Use the parent organisation name where the site is part of APES CIC.
-* Use the APES CIC number where the website represents APES CIC or a division of APES CIC.
-* Use the correct current website version.
-* Link the version or nearby text to the Change Log Hub where the design allows.
-* Include donation, Privacy Policy and Terms of Service links.
-* Keep support and governance links accurate for that specific website.
-* Use UK English throughout.
-
-### Footer accessibility and compliance checks
-
-Before completing any website change that touches the footer, navigation, legal pages, versioning, changelog, donation routes or policies, validate that:
-
-* Footer colour contrast is sufficient.
-* Footer links are keyboard reachable and have visible focus states.
-* Link text is descriptive without relying only on colour.
-* Donation, Privacy Policy, Terms of Service and Change Log Hub links return successful pages.
-* The displayed version matches the canonical version source of truth.
-* Copyright year is current.
-* The CIC number is present and accurate where required.
-* Footer layout remains usable on mobile.
+Do not complete the task while `VERSION`, `/public/VERSION`, Change Log Hub records, root changelog, public changelog, README current-release notes, footer version text, or generated output disagree, unless the user has explicitly asked to defer that sync.
 
 ---
 
-## 4. Central Newsroom and news routing standard
+## 4. GitHub Task Order And Audit Trail
 
-APES Newsroom must be treated as the single public destination for news, announcements and updates from APES CIC and all operating divisions.
+GitHub work must follow a clear lifecycle so every change is traceable from request to issue, branch, validation, publication, review, merge, and closure.
 
-Individual websites may introduce news in context, but the full article, archive, subscription journey and cross-division discovery experience should sit on `https://www.apesnews.org.uk/`.
+Use this order for GitHub repository tasks unless the user gives a different workflow:
 
-Required behaviour:
+1. Understand the request and inspect the repository before deciding the implementation path.
+2. Check whether there is an existing GitHub Issue. Ask for the issue number or link if one exists.
+3. If no issue is provided, give the user clear options: create a new issue before implementation, proceed without an issue for a trivial correction, or prepare issue text for the user to open themselves.
+4. Create or update the issue when approved. Capture the problem summary, expected outcome, affected repository areas, priority, labels, assignees, milestone, acceptance criteria, known blockers, and related pull requests or previous issues.
+5. Triage the issue before implementation. Confirm scope, priority, release impact, compliance impact, affected files or routes, branch strategy, pull request expectations, and whether documentation, changelog, version, SEO, sitemap, footer, error-page, generated-output, or README updates are required.
+6. Verify the release state and repository rules before editing. Check versions, changelogs, Change Log Hub records, README current-release notes, generated output, and repository-specific instructions where present.
+7. Choose the branch path. Use an existing branch only after confirming it with the user, or create a short task-specific branch when the user approves branch creation.
+8. Start or update the issue before implementation begins. Record the chosen scope, branch, planned validation, and any release-record work expected.
+9. Implement the smallest safe change that satisfies the request while preserving APES CIC requirements and local repository conventions.
+10. Keep the issue current while work commences. Add brief progress notes when work starts, a meaningful milestone is reached, a file is changed, scope changes, the task becomes blocked, validation completes, or follow-up work is discovered.
+11. Update documentation, changelog, version, Change Log Hub, README, generated output, SEO, sitemap, footer, Newsroom, and error-page records where the change requires them.
+12. Run relevant checks and inspect the diff. Include build, lint, typecheck, tests, link checks, accessibility checks, SEO checks, sitemap checks, footer checks, Newsroom checks, robots checks, and error-page checks where applicable.
+13. Prepare a completion summary and issue update. State what changed, affected files or routes, validation performed, release-record updates, known limitations, and follow-up work.
+14. Provide a concise proposed commit message covering all completed work before any commit is created.
+15. Commit only when the user has explicitly asked for a commit or clearly approved committing. Use the proposed or user-supplied commit message.
+16. Push only after the user confirms publishing the branch. Do not push automatically after committing.
+17. Open or update a pull request when requested or when the agreed workflow requires one. Link the issue, summarize the change, list validation, and call out release-record, documentation, and follow-up status.
+18. Support review by responding to comments, updating the branch, rerunning checks, and keeping the issue and pull request status accurate.
+19. Merge only when the user has asked for merging, required checks and reviews are satisfied, release records are aligned, and any issue-closing behavior is confirmed.
+20. Close the issue only when the user has asked for closure or the agreed workflow clearly allows closure after validated completion or merge. Add a brief closure note explaining what happened and any remaining follow-up.
+21. Finish with a final summary covering changed files, validation, issue status, pull request or merge status, release-record status, remaining risks, and the commit message used or proposed.
 
-* Main APES website news navigation should route users to APES Newsroom.
-* Shelter & Rescue website news navigation should route users to the Shelter & Rescue context in APES Newsroom.
-* Pet Care Clinic website news navigation should route users to the Pet Care Clinic context in APES Newsroom.
-* Footer news, newsletter prompts and update CTAs should point to APES Newsroom or its subscription route.
-* Legacy `/news/` pages should act as short landing pages that direct visitors to APES Newsroom.
+When a GitHub action affects the work plan, ask concise questions before acting. Do not create issues, create or switch branches, open pull requests, commit, push, merge, or close issues unless the user has asked for that action or clearly agreed to it.
 
-Reusable copy block:
+### Issue Update And Changed-File Reporting
 
-```txt
-News and updates from APES CIC and our services are now published through APES Newsroom. Visit APES Newsroom to read the latest organisation updates, Shelter & Rescue news, Pet Care Clinic updates, service notices, appeals and guidance from across the APES network.
-```
+When a task is attached to a GitHub Issue, keep that issue updated throughout the work rather than saving all context for the final reply.
 
----
+Every issue update, pull request update, review response, and final reply for issue-tracked work must include a `Files changed` section. List each changed file path and add a short note explaining what was changed in that file. If no files changed since the previous update, say so explicitly.
 
-## 5. Planning requirement
+Post an issue update when:
 
-At the start of planning, confirm the type of update being worked on.
+- work starts or resumes
+- a file is changed
+- scope, assumptions, or acceptance criteria change
+- validation is completed or cannot be completed
+- a blocker, risk, or follow-up item is discovered
+- the implementation is ready for review
+- work is completed, deferred, or handed back to the user
 
-Determine:
+Do not close an issue until the issue contains a clear completion note with changed files, validation performed, release-record status, remaining limitations, and any follow-up work.
 
-1. Is this a major, minor or patch update?
-2. Is this a beta update?
-3. Is the update public-facing, internal-only or operational?
-4. Which website, page, route, component, form or integration is affected?
-5. Does the update affect compliance, safeguarding, accessibility, donations, finance, legal, governance, HR or animal welfare content?
-6. Should the Change Log Hub entry be public, internal or both?
-7. Does the work comply with APES website brand and feature standards?
-8. Does the work affect APES Newsroom routing, news links, newsletter prompts, footer links, navigation or article metadata?
-9. Does the work comply with the APES universal footer standard?
-10. Are donation, Privacy Policy, Terms of Service and Change Log Hub links present in the footer?
-11. Is there a related GitHub Issue?
-12. Should the GitHub Issue be updated at the start, during progress and at completion?
+For pull requests, release notes, merge summaries, or GitHub issue comments, include:
 
-If the user has not confirmed the update type, ask:
+- the user-facing or operational change
+- affected files, routes, features, or repository areas
+- a `Files changed` section listing each changed file path and a short explanation of the change made in that file
+- documentation and changelog updates completed or still required
+- release-record, generated-output, version, and README updates completed or still required
+- validation performed, including build, test, link, accessibility, SEO, sitemap, footer, Newsroom, robots, and error-page checks where applicable
+- known limitations, deferred work, or follow-up issues
 
-```txt
-Before I make the website change, please confirm the update type: major, minor, or patch. Also confirm whether this is beta, meaning the version should end in b.
-```
+Preferred GitHub coordination checkpoints:
 
-If the task must proceed without confirmation, make a conservative decision and state the assumption clearly before editing.
-
-Default assumptions:
-
-* Use `patch` for small corrections and fixes.
-* Use `minor` for new pages, new content sections, new forms, new workflows or new integrations.
-* Use `major` only for substantial redesigns, breaking changes, migrations, URL restructuring or high-risk structural changes.
-* Use stable, not beta, unless the user says it is beta, staging, preview, trial, soft launch or not final.
-
----
-
-## 6. Version numbering standard
-
-All APES CIC website versions must start with `v`.
-
-Stable format:
-
-```txt
-vmajor.minor.patch
-```
-
-Beta format:
-
-```txt
-vmajor.minor.patchb
-```
-
-Examples:
-
-```txt
-v1.4.2
-v1.4.2b
-```
-
-Unsupported formats include `1.4.2`, `1.4.2b`, `v1.4.2-beta`, `v1.4.2.beta`, `v1.4.2-b`, `v.1.4.2` and `version 1.4.2`.
-
-### Version source of truth
-
-Identify the canonical website version before changing it. Look in this order:
-
-1. `VERSION`
-2. `version.txt`
-3. `version.json`
-4. `package.json`
-5. `CHANGELOG.md`
-6. Any documented website release metadata file
-
-If no version file exists, create a root-level `VERSION` file. The `VERSION` file must contain only the version number, including the mandatory `v` prefix.
-
-### Version bump rules
-
-* **Major:** substantial, breaking, structural, high-risk or materially changes how the website works.
-* **Minor:** adds or materially improves functionality or public content without a breaking restructure.
-* **Patch:** fixes, corrections, small improvements or low-risk updates.
-
-When a beta becomes stable, remove the trailing `b` without changing the version numbers unless further work has been added.
+1. Intake: confirm the request, repository, urgency, and whether the work is trivial or issue-tracked.
+2. Issue: ask for an existing issue, offer to create one, or draft issue text when none is supplied.
+3. Triage: confirm scope, priority, affected areas, acceptance criteria, labels, assignees, milestone, blockers, release impact, and required documentation or release-record updates.
+4. Branch: confirm the branch to use or ask permission to create a task-specific branch.
+5. Implementation: make the focused change and keep the issue updated as work commences.
+6. Validation: run checks, inspect the diff, and update issue or pull request notes with the evidence.
+7. Commit: provide a proposed commit message and commit only after approval.
+8. Publish: push only after approval, then open or update a pull request when requested.
+9. Review and merge: address review feedback, confirm merge readiness, and merge only with approval.
+10. Closure: post the completion brief and close the issue only after approval or agreed workflow rules.
 
 ---
 
-## 7. Change Log Hub and changelog system requirement
+## 5. Repository Structure And Documentation Expectations
 
-All APES websites must have both:
+Keep repository instructions consistent with the actual repository structure and operating workflow.
 
-1. A Change Log Hub page on the website being worked on.
-2. A root-level `CHANGELOG.md` file in the repository.
+When the repository is a website repository, treat the root-level `/public/` folder as the website source and deployment content folder unless repository-specific documentation clearly states otherwise.
 
-These are separate requirements and both must be maintained.
+Do not recommend moving core website files out of `/public/` without explicit instruction.
 
-### Website Change Log Hub page
+When a repository uses a different framework or source structure, follow the actual repository evidence and preserve the same APES CIC validation expectations.
 
-Look for an existing page or route named `change-log`, `changelog`, `change-log-hub`, `updates`, `release-notes` or `site-updates`.
+Repository documentation should remain current with:
 
-Preferred title:
-
-```txt
-Change Log Hub
-```
-
-If no page exists, create one using the website's routing conventions. Link it from an appropriate website location unless the user confirms it should remain unlisted. The footer must always include a Change Log Hub link.
-
-### Repository `CHANGELOG.md`
-
-Create or update a root-level `CHANGELOG.md` file. It must contain the same release version, date, type pills, summary, detailed changes, affected areas, validation notes and rollback notes as the website Change Log Hub page.
-
-### Synchronisation rule
-
-The website Change Log Hub page and root-level `CHANGELOG.md` must stay aligned. The final response must confirm both records show the same version number and release date.
+- setup and local development requirements
+- build, deployment, and maintenance workflows
+- content management and website editing conventions
+- release and changelog expectations
+- issue-tracking and support procedures
+- repository-specific compliance, privacy, safeguarding, governance, animal welfare, finance, HR, or operational notes when relevant
 
 ---
 
-## 8. Change Log Hub page design and behaviour
+## 6. Website Repository Standards
 
-Build and maintain Change Log Hub pages using the APES green themed pattern:
+When the GitHub repository powers an APES CIC website, keep website checks explicit and auditable.
 
-* Green hero/header panel.
-* Current version display.
-* Version and status pills.
-* Timeline panel.
-* Search.
-* Filters.
-* Expand all and collapse all controls.
-* Collapsible version cards.
+Apply these checks whenever website content, structure, navigation, routes, public pages, deployment behavior, generated output, release metadata, or user-visible behavior changes:
 
-Required page text:
+- Update page titles, meta descriptions, canonical URLs, Open Graph metadata, and structured data affected by the change.
+- Update `sitemap.xml`, sitemap generation configuration, route manifests, or equivalent indexing files.
+- Remove deleted, renamed, draft-only, private, duplicate, or noindex routes from the sitemap.
+- Confirm robots and noindex rules remain correct for public, private, staging, portal, staff, volunteer, and student routes.
+- Confirm navigation, footer links, Change Log Hub links, and canonical URLs point to the current live route.
+- Confirm the APES universal footer remains present, accurate, accessible, and consistent across affected pages.
+- Confirm footer links for the donation page, Privacy Policy page, Terms of Service page, and Change Log Hub remain present and correct where applicable.
+- Confirm APES Newsroom routes remain correct for news, update, announcement, newsletter, footer, navigation, and article-related changes.
+- Ensure branded, accessible error pages are present and validated after route, navigation, deployment, build, or hosting changes.
 
-```txt
-Change Log Hub
-Track every major release for this website, including updates, fixes, compliance changes, and user-facing improvements.
-```
+Required error-page expectations:
 
-Required filters include at least All releases and Current release. Where useful, also add Stable, Beta, Added, Changed, Fixed, Removed, Security, Compliance, Accessibility, SEO, Forms, Integrations, Public-facing and Internal-only.
-
-Use accessible `<details>` and `<summary>` elements unless the framework has an existing accessible accordion component.
+- A branded, accessible 404 page must exist where the website stack supports custom error pages.
+- Framework-supported 403, 500, offline, maintenance, or fallback error pages should be added or verified where the stack supports them.
+- Error pages must include plain-language copy, a route back to the home page, a route to contact or support, and relevant APES brand or footer treatment where technically possible.
+- Error pages must not expose stack traces, secrets, internal system details, private URLs, or debugging output.
 
 ---
 
-## 9. Change Log Hub entry format
+## 7. Change Log Hub And Release Record Format
 
-Use this structure for each release entry:
+The Change Log Hub is the public website release record. It must show every website change that affects users, operations, compliance, release metadata, generated output, or public maintenance history.
 
-```md
-## [v0.0.0] - YYYY-MM-DD
+Use the `www.apes.org.uk` Change Log Hub setup as the APES reference pattern for structure, styling, and release-record depth.
 
-<span class="pill pill-version">Version v0.0.0</span>
+Each Change Log Hub, root `CHANGELOG.md`, and `/public/CHANGELOG.md` entry should use this structure unless repository-specific guidance says otherwise:
+
+```markdown
+## [vX.Y.Z] - YYYY-MM-DD
+
+<span class="pill pill-version">Version vX.Y.Z</span>
 <span class="pill pill-status">Stable</span>
 <span class="pill pill-type">Changed</span>
 <span class="pill pill-fix">Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
 
 ### Summary
 
-Briefly explain what changed and why.
+Short plain-language description of the release.
 
 ### Detailed changes
 
-- Describe each material change in plain English.
-- Include affected page names, website areas, components, forms or user journeys.
-- Include whether the change is public-facing, internal-only or operational.
-- Include any compliance, safeguarding, accessibility, governance, donation, finance or animal welfare relevance.
+- Specific implementation, content, route, styling, configuration, release-record, or documentation changes.
 
 ### Affected areas
 
-- Website:
-- Page or route:
-- Files changed:
-- User groups affected:
-- Public impact:
-- Internal impact:
+- Website: website hostname
+- Page or route: affected routes, shared components, generated output, or release records
+- Files changed: relevant files or file groups
+- User groups affected: relevant visitors, staff, volunteers, supporters, partners, or internal users
+- Public impact: user-facing result
+- Internal impact: maintenance, operational, compliance, or workflow result
 
 ### Version decision
 
-- Previous version:
-- New version:
-- Version type:
-- Reason for version bump:
+- Previous version: vX.Y.Z
+- New version: vX.Y.Z
+- Version type: major, minor, or patch; beta or stable
+- Reason for version bump: concise reason grounded in the change
 
 ### Validation
 
-- Checks run:
-- Manual checks completed:
-- Known limitations:
-- Rollback notes:
+- Checks run: commands, source reviews, generated-output checks, or verification-only reviews
+- Manual checks completed: routes, breakpoints, footer, Newsroom, sitemap, robots, error pages, or other relevant checks
+- Known limitations: anything not fully verified
+- Rollback notes: how to reverse the change if needed
 ```
 
-Use type pills for Added, Changed, Fixed, Removed, Security and Compliance. Use fix pills where a change repairs a problem.
+Use pill classes consistently with the reference pattern:
+
+- `pill pill-version` for the version label
+- `pill pill-status` for `Stable` or `Beta`
+- `pill pill-type` for added, changed, removed, or other release categories
+- `pill pill-fix` for fixes
+- `pill pill-accessibility` for accessibility changes
+- `pill pill-compliance` for compliance, policy, safeguarding, legal, governance, privacy, or operational-risk changes
+
+Keep the website Change Log Hub, root changelog, public changelog mirror, README current-release notes, and generated public output aligned before completing the task.
 
 ---
 
-## 10. GitHub Issues progress update requirement
+## 8. Versioning Rules
 
-Keep relevant GitHub Issues updated when:
+Use APES CIC semantic website versioning in this format:
 
-* The work was requested from a GitHub Issue.
-* A GitHub Issue is linked in the task, branch, pull request, commit message, project board or planning notes.
-* The work clearly relates to an existing GitHub Issue.
-* A GitHub Issue is created for the work.
-* A website update affects release planning, changelog work, versioning, deployment, validation or follow-up actions.
-
-### Start-of-work update
-
-```md
-## Work started
-
-Codex has started work on this issue.
-
-### Planned scope
-
-- Website:
-- Area affected:
-- Planned update type: major / minor / patch
-- Release status: stable / beta
-- Expected version:
-- Change Log Hub update required: yes / no
-- Root `CHANGELOG.md` update required: yes / no
-- `VERSION` update required: yes / no
-- Universal footer compliance check required: yes / no
-- Required footer links present: donation / Privacy Policy / Terms of Service / Change Log Hub
-
-### Notes
-
-- Assumptions:
-- Risks:
-- Confirmation needed:
+```text
+vMAJOR.MINOR.PATCH
+vMAJOR.MINOR.PATCHb
 ```
 
-### Progress update
+The `v` prefix means version. The three numbers mean major updates, minor updates, and patches. The optional `b` suffix means the website is in beta.
 
-```md
-## Progress update
+Version bump rules:
 
-### Completed
+- Major: breaking route, architecture, public journey, data, compliance, platform, or operational changes.
+- Minor: new user-visible features, new public routes, broad content expansions, new shared components, or meaningful workflow additions that do not break existing journeys.
+- Patch: fixes, copy edits, styling polish, metadata corrections, dependency or configuration fixes, generated-output syncs, and small maintenance changes.
+- Beta suffix: keep `b` on versions while the website is in beta, for example `v2.2.0b`; remove it only when the website is intentionally promoted to stable.
+- Stable versions omit the suffix, for example `v2.8.6`.
 
--
+When a versioned change is required and the user has not already specified the version bump or release channel, ask the user to choose before updating version records:
 
-### In progress
+1. Is this a Major, Minor, or Patch update?
+2. Should the new version be Stable, formatted like `v0.0.0`, or Beta, formatted like `v0.0.0b`?
 
--
+Use the user's answers as the version decision. If the user's answer is ambiguous, ask again for one explicit choice from each question before changing `VERSION`, changelog, Change Log Hub, README, footer, generated-output, or release metadata records.
 
-### Blockers or risks
+Every qualifying change must update the version consistently across all canonical version locations before the work is complete. For APES website repositories, check root `VERSION`, `/public/VERSION`, Change Log Hub data or page output, root `CHANGELOG.md`, `/public/CHANGELOG.md`, README current-release notes, footer version display, and generated static snapshots where applicable.
 
--
-
-### Version and changelog status
-
-- Version:
-- Change Log Hub page:
-- Root `CHANGELOG.md`:
-- `VERSION` file:
-- Footer compliance:
-- Footer required links:
-```
-
-### End-of-work update
-
-```md
-## Work completed
-
-### Summary
-
--
-
-### Release details
-
-- Version:
-- Release status:
-- Update type:
-
-### Changelog and version records
-
-- Change Log Hub page:
-- Root `CHANGELOG.md`:
-- `VERSION` file:
-
-### Footer, brand and routing records
-
-- APES brand compliance:
-- Universal footer compliance:
-- Donation page footer link:
-- Privacy Policy footer link:
-- Terms of Service footer link:
-- Change Log Hub footer link:
-- APES Newsroom routing:
-
-### Validation
-
-- Automated checks:
-- Manual checks:
-- Result:
-
-### Files or areas changed
-
--
-
-### Rollback notes
-
--
-
-### Follow-up
-
-- Issue status recommendation: close / keep open / needs review
-- Remaining actions:
-```
-
-Do not close issues unless explicitly instructed or repository workflow clearly permits it.
+Do not create a changelog entry without a matching version decision, and do not update a version without a matching changelog entry.
 
 ---
 
-## 11. Required workflow
+## 9. Changelog And Release Hygiene
 
-For every website task:
+Changelog and release records must explain repository changes clearly enough for maintainers, reviewers, and future agents to understand the operational impact.
 
-1. Understand the change and identify website, files, user-visible impact, technical impact, risk level, version bump, beta status, Change Log Hub location, brand impact, footer impact, Newsroom routing impact and related GitHub Issue.
-2. Confirm or infer update type and beta status.
-3. Make only the required website change. Avoid bulk rewrites, formatting-only churn and unrelated generated-file changes.
-4. Update the canonical version file.
-5. Update the website Change Log Hub page and root-level `CHANGELOG.md`.
-6. Validate using available build, tests, linting, link checks, accessibility checks, manual page review, form validation and sitemap or robots checks.
-7. Confirm the footer includes donation, Privacy Policy, Terms of Service and Change Log Hub links.
-8. Confirm the footer shows the correct organisation or division name, parent organisation name where relevant, CIC number, website name and version.
-9. Post final GitHub Issue update where relevant, then provide a final response covering version, changelog, validation, brand compliance, footer compliance, Newsroom routing and unresolved risks.
+A changelog entry is required when work changes public website content, intranet website content, page structure, forms, buttons, links, menus, navigation, CTAs, styling, layout, themes, branding, visual assets, accessibility, SEO, analytics, tracking, CRM, automation, embedded tools, third-party integrations, scripts, widgets, site configuration, build configuration, deployment configuration, generated website output, security, privacy, safeguarding, legal, compliance, finance, governance, HR, animal welfare content, or any user-visible bug fix.
+
+Where the repository has both root and public changelogs, keep the root-level `CHANGELOG.md` and `/public/CHANGELOG.md` consistent unless repository-specific guidance states a different division of responsibility.
+
+When versioning is present, version records must match the changelog, release notes, README current-release notes, footer version display, generated output, and any documentation references.
 
 ---
 
-## 12. Generated website export rule
+## 10. Working Method For GitHub Repository Tasks
 
-Generated files must be treated carefully.
+When starting a task:
 
-Do not:
+- Follow the GitHub task order in Section 4: intake, issue, triage, release verification, branch, implementation, validation, commit, push, pull request, review, merge, issue closure, and final summary.
+- Inspect the relevant files before recommending or applying changes.
+- Verify whether the work has an existing GitHub Issue. If the user has not provided one, ask whether to create a new issue, proceed without one for a trivial correction, or draft issue text for the user.
+- Triage the issue or proposed issue by confirming scope, priority, affected files or routes, acceptance criteria, labels, assignees, milestone, blockers, branch or pull request linkage, and release or compliance impact.
+- Verify version, Change Log Hub, changelog, README current-release notes, generated-output, and issue-tracking requirements before planning the implementation.
+- Check existing project conventions, framework patterns, scripts, and documentation.
+- Identify whether the work affects public pages, routes, SEO, sitemap records, changelogs, README content, versioning, footer links, Newsroom routing, generated output, error pages, or GitHub Issues.
 
-* Reformat entire generated HTML, CSS, JS, XML or JSON files.
-* Rewrite unrelated generated sections.
-* Update platform-generated module versions.
-* Update third-party widget versions.
-* Update CDN asset versions.
-* Change embedded CRM or form scripts unless the task requires it.
-* Change generated sitemaps unless the task concerns sitemap, SEO, indexing or URL changes.
+When editing or preparing a GitHub update:
 
-Keep diffs narrow, prefer source files over generated output where the source exists, and record generated-output changes clearly in release records.
+- Preserve existing structure and style where it is clear and usable.
+- Keep changes focused on the user's request.
+- Avoid broad refactors unless they are necessary for the task.
+- Do not revert unrelated user, repository, branch, or pull request changes.
+- Prefer clear, auditable wording for policy, compliance, changelog, versioning, and release notes.
+- Keep GitHub Issue progress notes aligned with the agreed tracking approach, including start, progress, changed files, blocked, validation, completion, and follow-up updates where applicable.
+- In every issue update, pull request update, review response, and final reply for issue-tracked work, list each changed file path and briefly explain the change made in that file.
 
----
+Before completing work:
 
-## 13. Commit and pull request guidance
-
-Recommended PR checklist:
-
-```md
-## Website release checklist
-
-- [ ] Confirmed update type: major, minor, or patch
-- [ ] Confirmed beta status
-- [ ] Updated related GitHub Issue at start of work
-- [ ] Updated related GitHub Issue during meaningful progress, if applicable
-- [ ] Posted final related GitHub Issue update
-- [ ] Checked APES website brand and feature standards
-- [ ] Checked APES universal footer standard
-- [ ] Confirmed footer includes donation page, Privacy Policy, Terms of Service and Change Log Hub links
-- [ ] Confirmed footer displays organisation or division identity, APES CIC number, website name and version
-- [ ] Checked APES Newsroom routing where news, updates, newsletter, footer, or navigation is affected
-- [ ] Updated canonical version file
-- [ ] Created or updated website Change Log Hub page
-- [ ] Created or updated root-level `CHANGELOG.md`
-- [ ] Added pill tags for change type and fixes
-- [ ] Listed affected website areas
-- [ ] Listed validation checks
-- [ ] Included rollback notes
-- [ ] Avoided unrelated generated-file rewrites
-- [ ] Confirmed no third-party/platform versions were changed accidentally
-```
-
-Recommended commit messages:
-
-```txt
-website: update change log hub for v0.0.0
-website: add volunteer page and bump to v0.2.0
-website: fix donation link and bump to v0.1.3
-website: add beta boarding form and bump to v0.3.0b
-website: update footer links and bump to v0.0.0
-```
+- Run relevant checks or explain why checks could not be run.
+- Verify user-visible website behavior when the task affects pages, routes, navigation, styling, scripts, forms, or build output.
+- Confirm whether Change Log Hub, root changelog, public changelog, README, version, generated-output, GitHub Issue, SEO, sitemap, footer, Newsroom, and error-page updates were completed or were not applicable.
+- Prepare an issue completion or closure note that briefly states what changed, affected files or routes, validation performed, release-record updates, known limitations, and follow-up work.
+- Ask for confirmation before closing an issue unless the user already requested issue closure or the agreed workflow clearly allows closure after validation or merge.
+- Provide a concise proposed commit message covering all completed work so the user can use it when committing, even when no commit is created.
+- Confirm whether the next GitHub step is commit, push, pull request creation or update, review response, merge, issue closure, or no further action.
+- Summarize whether work was applied directly on GitHub, prepared for a pull request, left as guidance, merged, or still needs a user decision.
 
 ---
 
-## 14. Final self-check before completion
+## 11. Final Response Requirements
 
-Before finishing any website task, check:
+When reporting completed repository work, clearly state:
 
-1. Update type identified.
-2. Beta status confirmed or inferred.
-3. Canonical version updated.
-4. Website Change Log Hub page updated.
-5. Root-level `CHANGELOG.md` updated.
-6. Detailed change notes added.
-7. Version, status, type and fix pills added where relevant.
-8. Unrelated generated-file changes avoided.
-9. Third-party or platform version strings not changed accidentally.
-10. Validation run or limitations stated.
-11. Rollback notes included.
-12. Changelog system created or corrected where missing or incorrect.
-13. APES website brand and feature standards checked.
-14. APES universal footer standard checked.
-15. Footer includes donation page, Privacy Policy, Terms of Service and Change Log Hub links.
-16. Footer displays the correct website or division name, APES CIC organisation identity, CIC number, current year and canonical version.
-17. APES Newsroom routing checked where relevant.
-18. Related GitHub Issue updated at start, meaningful progress and end where applicable.
+- what was created, updated, reviewed, or left unchanged
+- files changed, with each file path and a short explanation of the change made in that file
+- what validation was performed and any remaining risks or follow-up work
+- whether Change Log Hub, root changelog, public changelog, version records, README current-release notes, and generated release output were updated or why they were not applicable
+- whether GitHub Issues were updated, should be updated, closed, left open, or were not applicable
+- any issue completion or closure note prepared for the user, including a brief of what happened
+- for website repositories, whether APES brand standards, Newsroom routing, universal footer compliance, footer links, SEO metadata, sitemap records, robots or noindex rules, and error pages were updated or verified, or why they were not applicable
+- whether the work was applied directly to GitHub, prepared for pull request review, merged, or left pending user confirmation
+- the next recommended GitHub step, such as commit, push, pull request, review, merge, issue closure, or no further action
+- a concise proposed commit message covering all work completed in the task
+
+Keep the final response concise, practical, and transparent about anything that still needs the user's decision.
 
 ---
 
-## 15. Non-negotiable instruction
+## 12. Maintaining This AGENTS.md File
 
-Do not treat changelog, version updates, APES brand compliance, APES universal footer compliance, APES Newsroom routing or related GitHub Issue updates as optional for website work.
+When updating this file, preserve APES CIC operational rules unless the user explicitly asks to replace them.
 
-If website files change, the website Change Log Hub page, root-level `CHANGELOG.md`, canonical version, APES brand and feature standards, APES universal footer standard, APES Newsroom routing where relevant and related GitHub Issue must be checked.
+Prefer revisions that:
 
-Every APES website footer must include direct or clearly accessible links to the website donation page, Privacy Policy page, Terms of Service page and Change Log Hub.
+- keep the file suitable for GitHub repository governance rather than coding-agent execution only
+- separate repository-wide rules from website-specific rules
+- make required updates easy to audit in issues, pull requests, changelogs, releases, generated output, and documentation
+- preserve mandatory APES CIC changelog, Change Log Hub, README, issue tracking, versioning, SEO, sitemap, universal footer, footer link, Newsroom routing, generated-output, and error-page requirements
+- stay aligned with actual repository structure and release workflow
 
-Use UK English throughout website content, changelog entries, issue updates and release notes.
+Do not invent repository facts, deployment steps, technical requirements, or third-party services that are not supported by the repository or the user's instructions.
