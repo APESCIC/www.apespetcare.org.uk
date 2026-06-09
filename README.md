@@ -4,7 +4,7 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 
 ## Current release
 
-- Version: `v2.1.0b`
+- Version: `v2.1.1b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
@@ -86,6 +86,14 @@ http://127.0.0.1:8000/
 
 If you are using Apache, Cloudron, or another static web server, point the web root at `public/`.
 
+Optional PHP preview for fallback-style checks in a PHP-enabled environment:
+
+```powershell
+php -S 127.0.0.1:8080 -t public
+```
+
+This repository does not currently depend on PHP to render the public routes, but that command is useful when maintainers want a preview path closer to the wider APES website hosting pattern.
+
 ## HTML-first route architecture
 
 The live website now renders from static HTML route files and shared front-end assets:
@@ -97,13 +105,13 @@ The live website now renders from static HTML route files and shared front-end a
 - `public/assets/css/styles.css`
   Compatibility stylesheet entrypoint that preserves the live asset URL used by the static HTML routes.
 - `public/assets/theme/clinic.css`
-  Canonical shared clinic theme covering layout, buttons, pre-pay cards, navigation, hero patterns, and Change Log Hub styling.
+  Canonical shared clinic theme covering layout, APES design tokens, buttons, pre-pay cards, navigation, hero patterns, and Change Log Hub styling.
 - `public/assets/js/site.js`
-  Mobile navigation, mega-menu controls, popup windows, reveal animation, and optional Change Log Hub filtering.
+  Shared interaction layer for mobile navigation, click-driven desktop mega-menu behaviour, popup windows, reveal animation, and optional Change Log Hub filtering.
 
 Each public page now follows the same maintenance pattern:
 
-1. Keep route content in the route’s `index.html`.
+1. Keep route content in the route's `index.html`.
 2. Preserve canonical URLs, metadata, Open Graph tags, and JSON-LD directly in the page head.
 3. Keep the shared site chrome and navigation patterns consistent across routes.
 4. Update release records whenever public or operational website behaviour changes.
@@ -111,6 +119,8 @@ Each public page now follows the same maintenance pattern:
 ## Brand and asset locations
 
 - The canonical shared clinic theme lives in `public/assets/theme/clinic.css`, with `public/assets/css/styles.css` retained as the public compatibility entrypoint.
+- Treat `public/assets/theme/clinic.css` as the editable source of truth for shared APES Pet Care Clinic theming. `public/assets/css/styles.css` should remain a stable browser-facing import wrapper unless the public asset contract is intentionally migrated.
+- Treat `public/assets/js/site.js` as the single shared interaction file for navigation, popups, reveal states, and Change Log Hub controls.
 - Optimized clinic logos for shared chrome and footer lockups live in `public/assets/logos/optimized/`.
 - Public favicon and app-icon files live in `public/favicons/`.
 - Clinic-specific website imagery lives in `public/assets/images/`.
@@ -199,3 +209,6 @@ For typical maintenance work:
 3. Update release records for qualifying public or operational changes.
 4. Verify footer compliance, News redirects, sitemap, robots, and error-page coverage when relevant.
 5. Show the diff and validation notes before any commit.
+
+
+

@@ -1,4 +1,9 @@
 (function () {
+  const mobileQuery = window.matchMedia("(max-width: 860px)");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const mainNav = document.querySelector("[data-main-nav]");
+  const menuDrops = Array.from(document.querySelectorAll(".drop"));
+
   const openPopupWindow = (url, popupName, width, height) => {
     const left = Math.max(0, Math.floor((window.screen.width - width) / 2));
     const top = Math.max(0, Math.floor((window.screen.height - height) / 2));
@@ -28,25 +33,89 @@
     });
   };
 
-  const menuToggle = document.querySelector("[data-menu-toggle]");
-  const mainNav = document.querySelector("[data-main-nav]");
-  const menuDrops = Array.from(document.querySelectorAll(".drop"));
+  const syncBodyState = () => {
+    document.body.classList.toggle(
+      "nav-open",
+      Boolean(mainNav && mainNav.classList.contains("open") && mobileQuery.matches)
+    );
+  };
 
   const closeDrop = (drop) => {
     if (!drop) return;
     drop.classList.remove("open");
     const trigger = drop.querySelector(".drop-trigger");
+    const panel = drop.querySelector(".drop-panel");
     if (trigger) {
       trigger.setAttribute("aria-expanded", "false");
+    }
+    if (panel) {
+      panel.style.left = "";
+      panel.style.right = "";
+      panel.style.transform = "";
     }
   };
 
   const closeAllDrops = (except) => {
     menuDrops.forEach((drop) => {
-      if (drop !== except) {
-        closeDrop(drop);
-      }
+      if (drop !== except) closeDrop(drop);
     });
+  };
+
+  const positionDesktopPanel = (drop) => {
+    if (!drop || mobileQuery.matches) return;
+    const panel = drop.querySelector(".drop-panel");
+    if (!panel) return;
+
+    if (panel.classList.contains("mega-panel")) {
+      panel.style.left = "50%";
+      panel.style.right = "auto";
+      panel.style.transform = "translateX(-50%)";
+
+      const rect = panel.getBoundingClientRect();
+      let shift = 0;
+      if (rect.left < 16) {
+        shift = 16 - rect.left;
+      } else if (rect.right > window.innerWidth - 16) {
+        shift = window.innerWidth - 16 - rect.right;
+      }
+
+      if (shift !== 0) {
+        panel.style.transform = `translateX(calc(-50% + ${shift}px))`;
+      }
+      return;
+    }
+
+    panel.style.left = "0";
+    panel.style.right = "auto";
+    panel.style.transform = "";
+    const rect = panel.getBoundingClientRect();
+    if (rect.right > window.innerWidth - 16) {
+      panel.style.left = "auto";
+      panel.style.right = "0";
+    }
+  };
+
+  const closeMainNav = ({ restoreFocus = false } = {}) => {
+    if (!mainNav || !menuToggle) return;
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    closeAllDrops();
+    syncBodyState();
+    if (restoreFocus) {
+      menuToggle.focus();
+    }
+  };
+
+  const syncNavMode = () => {
+    if (!mainNav) return;
+    if (!mobileQuery.matches) {
+      mainNav.classList.remove("open");
+      if (menuToggle) {
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    }
+    closeAllDrops();
+    syncBodyState();
   };
 
   if (menuToggle && mainNav) {
@@ -56,68 +125,88 @@
       if (!open) {
         closeAllDrops();
       }
+      syncBodyState();
     });
   }
 
   document.querySelectorAll(".drop > .drop-trigger").forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
-      const isMobile = window.matchMedia("(max-width: 860px)").matches;
       const parent = trigger.closest(".drop");
       if (!parent) return;
 
       event.preventDefault();
+      const opening = !parent.classList.contains("open");
       closeAllDrops(parent);
-      const open = parent.classList.toggle("open");
-      trigger.setAttribute("aria-expanded", String(open));
 
-      if (!isMobile && !open) {
+      if (!opening) {
         closeDrop(parent);
+        return;
       }
+
+      parent.classList.add("open");
+      trigger.setAttribute("aria-expanded", "true");
+      positionDesktopPanel(parent);
     });
   });
 
   document.addEventListener("click", (event) => {
-    if (!mainNav) return;
     const target = event.target;
     if (!(target instanceof Node)) return;
     if (
-      mainNav.contains(target) ||
+      (mainNav && mainNav.contains(target)) ||
       (menuToggle && menuToggle.contains(target))
     ) {
       return;
     }
 
-    if (window.matchMedia("(max-width: 860px)").matches) {
-      mainNav.classList.remove("open");
-      if (menuToggle) {
-        menuToggle.setAttribute("aria-expanded", "false");
-      }
+    if (mobileQuery.matches) {
+      closeMainNav();
+      return;
     }
+
     closeAllDrops();
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
     closeAllDrops();
-    if (mainNav && menuToggle && mainNav.classList.contains("open")) {
-      mainNav.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.focus();
+    if (mainNav && mainNav.classList.contains("open")) {
+      closeMainNav({ restoreFocus: true });
     }
   });
 
   if (mainNav) {
     mainNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        if (!window.matchMedia("(max-width: 860px)").matches) return;
-        mainNav.classList.remove("open");
-        closeAllDrops();
-        if (menuToggle) {
-          menuToggle.setAttribute("aria-expanded", "false");
+        if (!mobileQuery.matches) {
+          closeAllDrops();
+          return;
         }
+
+        closeMainNav();
       });
     });
   }
+
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", syncNavMode);
+  } else if (typeof mobileQuery.addListener === "function") {
+    mobileQuery.addListener(syncNavMode);
+  }
+
+  window.addEventListener("resize", () => {
+    const openDrop = menuDrops.find((drop) => drop.classList.contains("open"));
+    if (openDrop && !mobileQuery.matches) {
+      positionDesktopPanel(openDrop);
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    const openDrop = menuDrops.find((drop) => drop.classList.contains("open"));
+    if (openDrop && !mobileQuery.matches) {
+      positionDesktopPanel(openDrop);
+    }
+  });
 
   bindPopupLinks(".js-popup-window", {
     name: "apes_popup_window",
@@ -220,6 +309,7 @@
       },
       { threshold: 0.12 }
     );
+
     cards.forEach((card, index) => {
       card.style.transitionDelay = `${Math.min(index * 40, 300)}ms`;
       observer.observe(card);

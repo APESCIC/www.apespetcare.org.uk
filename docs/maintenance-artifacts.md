@@ -14,6 +14,8 @@ Use these files and directories as the active website architecture:
 - `public/404.html`
 - `public/500.html`
 - `public/assets/`
+- `public/assets/theme/clinic.css`
+- `public/assets/js/site.js`
 - `public/.htaccess`
 - `public/robots.txt`
 - `public/sitemap.xml`
@@ -42,3 +44,11 @@ These files should be treated as non-runtime unless a task explicitly depends on
 - Keep these artifacts unless a later task proves they are safe to remove or relocate.
 - Do not treat them as the deployment contract for the live site.
 - Prefer updating the active static HTML routes and shared front-end assets over reviving older generation or PHP helper workflows.
+
+## Theme source model
+
+- This repo intentionally mirrors parts of the `www.apes.org.uk` theme pattern without adopting the PHP include and static-export architecture.
+- `public/assets/theme/clinic.css` is the canonical shared theme source for APES Pet Care Clinic.
+- `public/assets/css/styles.css` remains the stable public stylesheet URL and should continue importing the canonical theme file.
+- `public/assets/js/site.js` is the shared interaction layer for navigation, popups, reveal states, and Change Log Hub behaviour.
+- Keep `public/` as the preview and deployment web root so local testing matches deployed asset paths.
