@@ -4,7 +4,7 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 
 ## Current release
 
-- Version: `v2.0.1b`
+- Version: `v2.1.0b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
@@ -33,6 +33,9 @@ The current architecture intentionally stays simple:
 |   |-- VERSION
 |   |-- CHANGELOG.md
 |   |-- assets/
+|   |   |-- css/
+|   |   |-- theme/
+|   |   `-- ...
 |   |-- changelog/
 |   |   `-- index.html
 |   |-- services/
@@ -58,7 +61,17 @@ The current architecture intentionally stays simple:
 
 This repo does not use the `npm` workflow previously documented here.
 
-Recommended local workflow in any static-capable environment:
+Important preview note:
+
+- Opening `public/index.html` directly as `file://...` will show broken styling and missing images in VS Code because the website uses root-relative paths such as `/assets/...` and expects `public/` to be the web root.
+
+Recommended VS Code workflow:
+
+1. Run the workspace task `Start APES Pet Care Clinic preview server`.
+2. Open `http://127.0.0.1:8000/` in VS Code Simple Browser.
+3. Stop the task when you finish previewing.
+
+Equivalent static-server workflow in any terminal:
 
 ```powershell
 cd public
@@ -68,7 +81,7 @@ python -m http.server 8000
 Then open:
 
 ```text
-http://localhost:8000
+http://127.0.0.1:8000/
 ```
 
 If you are using Apache, Cloudron, or another static web server, point the web root at `public/`.
@@ -82,7 +95,9 @@ The live website now renders from static HTML route files and shared front-end a
 - `public/403.html`, `public/404.html`, and `public/500.html`
   Branded public error pages wired through Apache `ErrorDocument`.
 - `public/assets/css/styles.css`
-  Shared visual system, layout, buttons, pre-pay cards, navigation, and Change Log Hub styling.
+  Compatibility stylesheet entrypoint that preserves the live asset URL used by the static HTML routes.
+- `public/assets/theme/clinic.css`
+  Canonical shared clinic theme covering layout, buttons, pre-pay cards, navigation, hero patterns, and Change Log Hub styling.
 - `public/assets/js/site.js`
   Mobile navigation, mega-menu controls, popup windows, reveal animation, and optional Change Log Hub filtering.
 
@@ -95,6 +110,7 @@ Each public page now follows the same maintenance pattern:
 
 ## Brand and asset locations
 
+- The canonical shared clinic theme lives in `public/assets/theme/clinic.css`, with `public/assets/css/styles.css` retained as the public compatibility entrypoint.
 - Optimized clinic logos for shared chrome and footer lockups live in `public/assets/logos/optimized/`.
 - Public favicon and app-icon files live in `public/favicons/`.
 - Clinic-specific website imagery lives in `public/assets/images/`.
