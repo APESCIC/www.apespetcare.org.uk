@@ -1,3 +1,101 @@
+## [v2.1.5b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.1.5b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Navigation Fix</span>
+
+### Summary
+
+Fixed the repeated nested-route header links so the brand and Home navigation reliably return visitors to the homepage instead of reloading the current page.
+
+### Detailed changes
+
+- Updated the repeated header markup across nested first-level routes and nested policy routes so the brand link and Home link now use depth-correct relative paths back to the website root.
+- Preserved the existing Services, Information, Bookings, Donate, and Contact navigation paths along with the shared JavaScript and CSS behavior because the bug was caused by static HTML pathing rather than the menu interaction layer.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.5b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Corrected the shared nested-route header pathing so homepage navigation resolves to `/` from repeated route pages.
+
+### Fix pills
+
+- <span class="pill pill-fix">Navigation Fix</span> The brand and Home links no longer loop visitors back to the current nested route when used from inner pages.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Repeated first-level routes, nested policy routes, Change Log Hub, README current release, branded error-page footer version text, and repeated footer version strings across the public site.
+- Files changed: Repeated `public/**/index.html` header links, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors using nested routes and maintainers reviewing release records.
+- Public impact: Visitors on nested pages can now use the brand and Home links to return to the homepage as expected.
+- Internal impact: Shared static header markup now uses the correct directory depth for homepage navigation while release records remain aligned.
+
+### Version decision
+
+- Previous version: `v2.1.4b`
+- New version: `v2.1.5b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small user-visible navigation bug fix that corrects repeated header behavior without changing routes or introducing a new workflow.
+
+### Validation
+
+- Checks run: Source review of repeated header links, release-record alignment review, and path-audit searches across nested route files.
+- Manual checks completed: Confirmed by source review that only `public/index.html` keeps `href="./"` for the brand and Home links, nested first-level routes now use `../`, nested policy routes now use `../../`, and no SEO metadata, sitemap entries, robots rules, Newsroom routing, footer links, or branded error-page structure were changed by this fix.
+- Known limitations: PHP CLI is not available in this workspace, so the recommended `php -S 127.0.0.1:8080 -t public` preview and full browser-based click testing still need a manual pass outside this non-interactive workspace.
+- Rollback notes: Revert the repeated nested-route header links and restore the previous `v2.1.4b` release records if the navigation fix needs to be undone.
+
+## [v2.1.4b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.1.4b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Fixed the shared help sidebar so both cards float together with clearer spacing across the homepage and repeated route pages.
+
+### Detailed changes
+
+- Updated `public/assets/theme/clinic.css` so the shared sidebar container now handles sticky positioning, the two-column content grid aligns items correctly, and the support cards keep a clearer gap on desktop.
+- Preserved the existing stacked mobile layout by returning the sidebar to normal flow below the desktop breakpoint.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.4b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Corrected the shared sidebar behavior so the help panel and illustration card move together instead of separating during desktop scrolling.
+- <span class="pill pill-accessibility">Accessibility</span> Improved visual separation and reading flow for the repeated support sidebar on shared public pages.
+
+### Fix pills
+
+- <span class="pill pill-fix">Layout Fix</span> Moved sticky behavior from the first sidebar card to the shared sidebar container and increased the inter-card gap.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Homepage, services, bookings, contact, repeated species and policy pages, branded error pages, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors, pet owners using service and information pages, and maintainers reviewing release records.
+- Public impact: The shared support sidebar now reads as two separate cards while floating together more reliably on desktop pages.
+- Internal impact: Shared layout behavior and release records remain aligned for future maintenance.
+
+### Version decision
+
+- Previous version: `v2.1.3b`
+- New version: `v2.1.4b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small user-visible layout and usability fix to a shared repeated sidebar pattern.
+
+### Validation
+
+- Checks run: Source review of the shared sidebar CSS cascade and release-record alignment review.
+- Manual checks completed: Confirmed by source review that the shared sidebar now owns desktop sticky behavior, keeps a larger card gap, and returns to normal flow below `980px` without changing routes, navigation, SEO metadata, sitemap entries, robots rules, Newsroom routing, footer links, or branded error-page structure.
+- Known limitations: PHP CLI is not available in this workspace, so the recommended `php -S 127.0.0.1:8080 -t public` preview and full browser-based visual scrolling QA still need a manual pass outside this non-interactive workspace.
+- Rollback notes: Revert the shared sidebar CSS changes and restore the previous `v2.1.3b` release records if the layout fix needs to be undone.
+
 ## [v2.1.3b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.1.3b</span>
