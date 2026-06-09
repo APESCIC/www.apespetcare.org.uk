@@ -1,3 +1,55 @@
+## [v2.1.1b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.1.1b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Theme Alignment</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Aligned the shared APES Pet Care Clinic theme and navigation behaviour more closely with the wider APES website pattern while keeping this repository's static HTML route model and public URLs unchanged.
+
+### Detailed changes
+
+- Refined the canonical shared clinic theme in `public/assets/theme/clinic.css` with clearer APES-style design tokens, stronger header and footer treatments, improved hero and card surfaces, and more consistent notice styling across the static route set.
+- Updated `public/assets/js/site.js` so navigation behaves more like the APES reference model, including click-driven desktop mega menus, one-open-menu handling, mobile body scroll locking, outside-click close, Escape close, and safer desktop panel positioning.
+- Kept `public/assets/css/styles.css` as the public compatibility entrypoint and documented that `public/assets/theme/clinic.css` remains the editable theme source of truth for maintainers.
+- Synced the mirrored root and public version files, changelog mirrors, Change Log Hub entry, README release notes, and repeated footer version text to the new `v2.1.1b` beta patch release.
+- Preserved the existing route map, SEO metadata, News routing, footer governance links, and HTML-first deployment approach while improving the shared visual system and maintainability guidance.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Brought the shared visual layer and interaction behaviour closer to the wider APES reference pattern without introducing PHP rendering or changing public routes.
+- <span class="pill pill-accessibility">Accessibility</span> Improved contrast-supporting surfaces, focus-visible navigation cues, and mobile menu handling while retaining the existing skip-link and static page structure.
+
+### Fix pills
+
+- <span class="pill pill-fix">Theme Alignment</span> The shared clinic theme, navigation treatment, and maintainer guidance now follow a more deliberate APES-style source model instead of a looser static-only refresh.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared header, footer, hero, card, notice, navigation, Change Log Hub, branded error pages, and repeated footer version text across the static route set.
+- Files changed: `VERSION`, `CHANGELOG.md`, `README.md`, `docs/maintenance-artifacts.md`, `public/VERSION`, `public/CHANGELOG.md`, `public/changelog/index.html`, `public/assets/theme/clinic.css`, `public/assets/js/site.js`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors, pet owners, APES staff, and maintainers working on shared styling and navigation behaviour.
+- Public impact: Visitors see a more consistent APES-aligned presentation and steadier navigation behaviour without any route or content migration.
+- Internal impact: The repository now has clearer theme-source ownership and better shared interaction behaviour while staying within the existing static HTML maintenance model.
+
+### Version decision
+
+- Previous version: `v2.1.0b`
+- New version: `v2.1.1b`
+- Version type: Beta patch release
+- Reason for version bump: This is a user-visible theming and interaction refinement plus release-record sync that preserves routes and deployment structure.
+
+### Validation
+
+- Checks run: Source review of shared CSS and JS, release-record alignment checks, local HTTP preview requests for key routes, and footer version string verification across public HTML files.
+- Manual checks completed: Confirmed by source review that the shared stylesheet and JavaScript paths remain stable, required footer governance links remain present, and the Change Log Hub reflects the new release.
+- Known limitations: Visual browser QA, responsive interaction QA in a real browser, and full keyboard-navigation checks still need a manual pass in an interactive preview session.
+- Rollback notes: Revert the shared theme and navigation script updates, release-record changes, README/docs adjustments, Change Log Hub entry, and repeated footer version sync to restore `v2.1.0b`.
+
 ## [v2.1.0b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.1.0b</span>
@@ -926,3 +978,4 @@ Recorded the beta rebuild baseline for the restored APES Pet Care Clinic website
 - Manual checks completed: Legacy navigation, route, and service content review was performed during the rebuild stage.
 - Known limitations: Historic detail has been preserved from available release notes and may not reflect every rebuild-era file touched.
 - Rollback notes: Restore the pre-rebuild exported site snapshot if the rebuilt shared-template version needs to be withdrawn.
+

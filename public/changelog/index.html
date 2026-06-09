@@ -226,7 +226,28 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed workflow fix documentation" data-impact="changed workflow fix documentation">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed theme alignment accessibility" data-impact="changed theme alignment accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-09</p>
+                <h2>v2.1.1b - Aligned the shared APES Pet Care Clinic theme and navigation behaviour more closely with the wider APES website pattern while keeping the static HTML route model unchanged.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v2.1.1b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Theme Alignment</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Aligned the shared APES Pet Care Clinic theme and navigation behaviour more closely with the wider APES website pattern while keeping the static HTML route model and public URLs unchanged.</p>
+            <ul>
+            <li>Refined the canonical shared clinic theme in <code>public/assets/theme/clinic.css</code> with clearer APES-style design tokens, stronger header and footer treatments, improved hero and card surfaces, and more consistent notice styling.</li>
+            <li>Updated <code>public/assets/js/site.js</code> so navigation behaves more like the APES reference model, including click-driven desktop mega menus, one-open-menu handling, mobile body scroll locking, outside-click close, Escape close, and safer desktop panel positioning.</li>
+            <li>Kept <code>public/assets/css/styles.css</code> as the public compatibility entrypoint while documenting that <code>public/assets/theme/clinic.css</code> remains the editable theme source of truth for maintainers.</li>
+            <li>Synced the mirrored version files, changelog mirrors, README release notes, Change Log Hub entry, and repeated footer version text to the new <code>v2.1.1b</code> beta patch release.</li>
+            <li>Preserved the existing route map, SEO metadata, News routing, footer governance links, and HTML-first deployment approach while improving the shared visual system and maintainability guidance.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed workflow fix documentation" data-impact="changed workflow fix documentation">
           <summary>
             <div class="release-card-head">
               <div>
@@ -655,7 +676,7 @@
         </section>
       </div>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.0b</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.1b</span>
         <a class="footer-hub-link" href="/donate/">Donate</a>
         <a class="footer-hub-link" href="/policies/privacy-policy/">Privacy Policy</a>
         <a class="footer-hub-link" href="/policies/terms-and-conditions/">Terms and Conditions</a>
@@ -666,4 +687,5 @@
   </footer>
 </body>
 </html>
+
 
