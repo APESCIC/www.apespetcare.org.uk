@@ -957,6 +957,23 @@ a {
   align-content: start;
 }
 
+.side-stack-sticky {
+  position: sticky;
+  top: 92px;
+  align-self: start;
+  max-height: calc(100vh - 112px);
+  max-height: calc(100svh - 112px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 6px;
+  scrollbar-gutter: stable;
+}
+
+.side-stack-sticky .side-card {
+  position: static;
+  top: auto;
+}
+
 .side-card {
   position: sticky;
   top: 92px;
@@ -1575,6 +1592,14 @@ a {
 
   .content-layout {
     grid-template-columns: 1fr;
+  }
+
+  .side-stack-sticky {
+    position: static;
+    top: auto;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
   }
 
   .side-card {

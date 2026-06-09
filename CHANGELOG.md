@@ -1,3 +1,53 @@
+## [v2.1.4b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.1.4b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Fixed the floating right-hand sidebar stack so the lower support card no longer overlaps the clinic help card on the affected desktop layouts.
+
+### Detailed changes
+
+- Added a new `side-stack-sticky` shared modifier in `public/assets/theme/clinic.css` so two-card right rails can float as one sticky stack, cap themselves to the available desktop viewport height, and scroll internally when space is limited.
+- Updated the homepage, contact, bookings, and services templates to apply the shared stacked-sidebar modifier without changing CTA copy, button order, support illustration content, routes, or JavaScript behaviour.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.4b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Adjusted the shared sidebar behaviour so affected right-hand card stacks float together instead of pinning only the top card.
+- <span class="pill pill-accessibility">Accessibility</span> Keeps booking and contact actions reachable by preventing the lower sidebar card from sliding underneath the upper support panel on shorter desktop viewports.
+
+### Fix pills
+
+- <span class="pill pill-fix">Layout Fix</span> The floating right-hand column now remains a single readable stack on affected pages.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Homepage, contact page, bookings page, services page, shared clinic sidebar styling, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `public/index.html`, `public/contact/index.html`, `public/bookings/index.html`, `public/services/index.html`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors using desktop and small-laptop layouts, pet owners trying to book or contact the clinic, and maintainers reviewing release records.
+- Public impact: The right-hand help and support cards stay readable and clickable instead of overlapping while visitors scroll.
+- Internal impact: The sidebar pattern now has an explicit shared modifier for stacked sticky behaviour, and the release record remains aligned.
+
+### Version decision
+
+- Previous version: `v2.1.3b`
+- New version: `v2.1.4b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small user-visible layout and accessibility fix to the shared right-hand sidebar pattern.
+
+### Validation
+
+- Checks run: Source review of the stacked sidebar modifier, release-record alignment check, and footer version string verification across public HTML files.
+- Manual checks completed: Confirmed by source review that the affected stacked sidebars now use the shared sticky-stack modifier, the inner help card no longer stays independently sticky inside that modifier, and the existing mobile and tablet breakpoint reset remains in place without route, SEO metadata, sitemap, robots, News routing, footer links, or error-page structure changes.
+- Known limitations: Browser QA with a live local preview still needs a manual visual pass outside this non-interactive workspace.
+- Rollback notes: Revert the shared stacked-sidebar modifier, restore the previous sidebar classes on the four affected templates, and reset the `v2.1.3b` release records if the layout fix needs to be undone.
+
 ## [v2.1.3b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.1.3b</span>
