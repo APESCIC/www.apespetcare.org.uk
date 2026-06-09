@@ -4,7 +4,7 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 
 ## Current release
 
-- Version: `v2.0.0b`
+- Version: `v2.0.1b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
@@ -92,6 +92,13 @@ Each public page now follows the same maintenance pattern:
 2. Preserve canonical URLs, metadata, Open Graph tags, and JSON-LD directly in the page head.
 3. Keep the shared site chrome and navigation patterns consistent across routes.
 4. Update release records whenever public or operational website behaviour changes.
+
+## Brand and asset locations
+
+- Optimized clinic logos for shared chrome and footer lockups live in `public/assets/logos/optimized/`.
+- Public favicon and app-icon files live in `public/favicons/`.
+- Clinic-specific website imagery lives in `public/assets/images/`.
+- Open Graph and social-share images live in `public/assets/social/`.
 
 ## Integrations preserved in this repo
 
