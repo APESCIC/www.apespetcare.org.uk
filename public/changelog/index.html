@@ -226,7 +226,28 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed brand refresh accessibility changed accessibility brand refresh" data-impact="changed brand refresh accessibility changed accessibility brand refresh">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed workflow fix documentation" data-impact="changed workflow fix documentation">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-09</p>
+                <h2>v2.1.0b - Added a VS Code localhost preview workflow for the HTML-first website and reorganised the shared clinic theme into a dedicated theme folder so maintainers can see styling and images correctly during local preview.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v2.1.0b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Workflow Fix</span><span class="pill pill-compliance">Documentation</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Added a VS Code localhost preview workflow for the HTML-first website and reorganised the shared clinic theme into a dedicated theme folder so maintainers can see styling and images correctly during local preview.</p>
+            <ul>
+            <li>Added a workspace task that runs <code>python -m http.server 8000</code> from <code>public/</code>, giving the static site a proper localhost web root for VS Code Simple Browser and other local previews.</li>
+            <li>Documented that direct <code>file://</code> previews show white text-first pages because the website intentionally uses root-relative asset and route paths such as <code>/assets/...</code> and <code>/services/</code>.</li>
+            <li>Moved the canonical shared clinic stylesheet to <code>public/assets/theme/clinic.css</code> and converted <code>public/assets/css/styles.css</code> into a lightweight compatibility entrypoint so live public URLs remain unchanged.</li>
+            <li>Kept the existing route files, image paths, JavaScript path, SEO metadata, sitemap URLs, News routing, and footer governance links intact while improving the repository's local preview ergonomics.</li>
+            <li>Updated the root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and static footer version text so the release record matches the new <code>v2.1.0b</code> beta minor workflow update.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed brand refresh accessibility changed accessibility brand refresh" data-impact="changed brand refresh accessibility changed accessibility brand refresh">
           <summary>
             <div class="release-card-head">
               <div>
@@ -634,7 +655,7 @@
         </section>
       </div>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v2.0.1b</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.0b</span>
         <a class="footer-hub-link" href="/donate/">Donate</a>
         <a class="footer-hub-link" href="/policies/privacy-policy/">Privacy Policy</a>
         <a class="footer-hub-link" href="/policies/terms-and-conditions/">Terms and Conditions</a>
@@ -645,3 +666,4 @@
   </footer>
 </body>
 </html>
+

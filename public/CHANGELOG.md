@@ -1,3 +1,55 @@
+## [v2.1.0b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.1.0b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Workflow Fix</span>
+<span class="pill pill-compliance">Documentation</span>
+
+### Summary
+
+Added a VS Code localhost preview workflow for the HTML-first website and reorganised the shared clinic theme into a dedicated theme folder so maintainers can see styling and images correctly during local preview.
+
+### Detailed changes
+
+- Added a workspace task that runs `python -m http.server 8000` from `public/`, giving the static site a proper localhost web root for VS Code Simple Browser and other local previews.
+- Documented that direct `file://` previews show white text-first pages because the website intentionally uses root-relative asset and route paths such as `/assets/...` and `/services/`.
+- Moved the canonical shared clinic stylesheet to `public/assets/theme/clinic.css` and converted `public/assets/css/styles.css` into a lightweight compatibility entrypoint so live public URLs remain unchanged.
+- Kept the existing route files, image paths, JavaScript path, SEO metadata, sitemap URLs, News routing, and footer governance links intact while improving the repository's local preview ergonomics.
+- Updated the root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and static footer version text so the release record matches the new `v2.1.0b` beta minor workflow update.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Added a repository-level localhost preview workflow without changing the live website routing or asset contract.
+- <span class="pill pill-compliance">Documentation</span> Clarified the supported local preview method in the repository guidance so maintainers do not mistake raw `file://` rendering for a broken deployment.
+
+### Fix pills
+
+- <span class="pill pill-fix">Workflow Fix</span> VS Code previewing now has a first-class localhost path that correctly loads the shared theme, images, and root-relative links.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `/`, `/services/`, `/contact/`, `/changelog/`, shared static footer version text, and local preview workflow documentation.
+- Files changed: `.vscode/tasks.json`, `VERSION`, `CHANGELOG.md`, `README.md`, `public/VERSION`, `public/CHANGELOG.md`, `public/changelog/index.html`, `public/assets/css/styles.css`, `public/assets/theme/clinic.css`, and the repeated `public/**/*.html` footer version strings.
+- User groups affected: Website maintainers, APES staff, and anyone previewing the website locally in VS Code.
+- Public impact: No live route, asset, or content contract changed for visitors.
+- Internal impact: Local previewing is clearer, faster, and more reliable, and the shared theme now has a dedicated canonical home.
+
+### Version decision
+
+- Previous version: `v2.0.1b`
+- New version: `v2.1.0b`
+- Version type: Beta minor release
+- Reason for version bump: This adds a meaningful new maintainer workflow and internal theme organisation improvement without changing live public routes.
+
+### Validation
+
+- Checks run: Started a local Python HTTP server from `public/`, requested `/`, `/services/`, `/contact/`, and `/changelog/` over localhost, and inspected release-record alignment by source.
+- Manual checks completed: Confirmed by source review that the shared stylesheet import preserves the `/assets/css/styles.css` contract, the new canonical theme file exists under `public/assets/theme/`, and required footer governance links remain present.
+- Known limitations: Final visual QA in VS Code Simple Browser, responsive browser QA, and browser-console review still need a manual pass in an interactive browser session.
+- Rollback notes: Revert the VS Code task, stylesheet move, compatibility import, README updates, footer version sync, and aligned release records to restore the previous `v2.0.1b` repository workflow.
+
 ## [v2.0.1b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.0.1b</span>
