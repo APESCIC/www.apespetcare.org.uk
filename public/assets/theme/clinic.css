@@ -473,6 +473,7 @@ a {
   display: grid;
   gap: 24px;
   grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
 }
 
 .article {
@@ -952,14 +953,15 @@ a {
 }
 
 .side {
+  position: sticky;
+  top: 92px;
+  align-self: start;
   display: grid;
-  gap: 18px;
+  gap: 24px;
   align-content: start;
 }
 
 .side-card {
-  position: sticky;
-  top: 92px;
   display: grid;
   gap: 16px;
   background: white;
@@ -1575,6 +1577,11 @@ a {
 
   .content-layout {
     grid-template-columns: 1fr;
+  }
+
+  .side {
+    position: static;
+    gap: 18px;
   }
 
   .side-card {
