@@ -1,3 +1,57 @@
+## [v2.0.0b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.0.0b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Migration</span>
+<span class="pill pill-compliance">Architecture</span>
+
+### Summary
+
+Migrated the APES Pet Care Clinic public website from PHP route templates to an HTML-first runtime, aligned the site chrome with the wider APES navigation pattern, and removed the live dependency on shared PHP includes.
+
+### Detailed changes
+
+- Converted the public route templates into static `index.html` pages, including the homepage, Services Hub, species pages, policies, donate, contact, bookings, and the Change Log Hub.
+- Added static `403.html`, `404.html`, and `500.html` error documents and switched Apache to use them as the active public fallback pages.
+- Rebuilt the shared site chrome as static HTML with a skip link, topbar contact links, APES network social links, a sticky header, accessible menu controls, grouped navigation, and a denser footer layout.
+- Migrated the payment catalogue, route-level metadata, canonical tags, Open Graph tags, and JSON-LD output into static HTML so public pages no longer depend on `public/includes/` PHP helpers at runtime.
+- Switched `.htaccess` to prioritise `index.html`, added redirects from direct `.php` requests to clean folder URLs or HTML error pages, and blocked direct browser access to helper-only directories.
+- Updated the root and public version records, changelog mirrors, README, and maintenance-artifact notes so the repository documents the HTML-first runtime accurately.
+- Removed obsolete route-level PHP entrypoints, PHP error pages, legacy redirect wrappers, and unused include files after generating the verified HTML equivalents.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Replaced the public PHP route runtime with static HTML output while preserving clean folder URLs, external integrations, and the existing welfare-first copy.
+- <span class="pill pill-compliance">Architecture</span> Brought the Pet Care Clinic runtime into line with the APES HTML-first website direction and made the public output easier to audit and host safely.
+
+### Fix pills
+
+- <span class="pill pill-fix">Migration</span> Direct public `.php` requests now redirect to the correct clean routes instead of depending on runtime PHP files that no longer serve the live site.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `/`, service routes, policy routes, `/bookings/`, `/contact/`, `/about-us/`, `/events/`, `/donate/`, `/changelog/`, and the branded error pages.
+- Files changed: `VERSION`, `CHANGELOG.md`, `README.md`, `docs/maintenance-artifacts.md`, `public/VERSION`, `public/CHANGELOG.md`, `public/.htaccess`, `public/assets/css/styles.css`, `public/assets/js/site.js`, generated `public/**/*.html` route files, and removal of obsolete `public/**/*.php` route and include files.
+- User groups affected: Public visitors, staff maintaining the website, donors, and pet owners using the booking, support, payment, and policy routes.
+- Public impact: Visitors now reach an HTML-first website with the same clean public URLs, updated navigation chrome, preserved integrations, and static error pages.
+- Internal impact: The live site no longer depends on PHP includes for headers, footers, metadata, or payment-card output, reducing runtime complexity and making release artefacts easier to inspect.
+
+### Version decision
+
+- Previous version: `v1.0.0b`
+- New version: `v2.0.0b`
+- Version type: Beta major release
+- Reason for version bump: This replaces the public runtime architecture, routing preference, and error-page contract while preserving the existing user journeys and route inventory.
+
+### Validation
+
+- Checks run: Generated the static route set from the current PHP templates, reviewed the produced HTML output, checked for remaining public template markers, and inspected the HTML-first routing rules and release-record alignment by source.
+- Manual checks completed: Confirmed by source inspection that public routes now have `index.html` equivalents, the footer exposes the required governance links and version text, and Apache now prefers HTML with redirects for direct `.php` requests.
+- Known limitations: `php` CLI is unavailable in this workspace, and no live browser or Apache preview was available here, so final visual QA, keyboard QA, external-link behaviour, and real `403`/`404`/`500` server handling still need a manual pass in a running environment.
+- Rollback notes: Revert the generated HTML routes, `.htaccess`, CSS and JS changes, release-record updates, and the removal of runtime PHP files to restore the previous `v1.0.0b` PHP-driven site.
+
 ## [v1.0.0b] - 2026-06-09
 
 <span class="pill pill-version">Version v1.0.0b</span>

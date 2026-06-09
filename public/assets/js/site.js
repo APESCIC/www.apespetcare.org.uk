@@ -30,11 +30,32 @@
 
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const mainNav = document.querySelector("[data-main-nav]");
+  const menuDrops = Array.from(document.querySelectorAll(".drop"));
+
+  const closeDrop = (drop) => {
+    if (!drop) return;
+    drop.classList.remove("open");
+    const trigger = drop.querySelector(".drop-trigger");
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", "false");
+    }
+  };
+
+  const closeAllDrops = (except) => {
+    menuDrops.forEach((drop) => {
+      if (drop !== except) {
+        closeDrop(drop);
+      }
+    });
+  };
 
   if (menuToggle && mainNav) {
     menuToggle.addEventListener("click", () => {
       const open = mainNav.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(open));
+      if (!open) {
+        closeAllDrops();
+      }
     });
   }
 
@@ -44,19 +65,59 @@
       const parent = trigger.closest(".drop");
       if (!parent) return;
 
-      if (!isMobile) {
-        if (trigger.tagName === "BUTTON") {
-          const open = parent.classList.toggle("open");
-          trigger.setAttribute("aria-expanded", String(open));
-        }
-        return;
-      }
-
       event.preventDefault();
+      closeAllDrops(parent);
       const open = parent.classList.toggle("open");
       trigger.setAttribute("aria-expanded", String(open));
+
+      if (!isMobile && !open) {
+        closeDrop(parent);
+      }
     });
   });
+
+  document.addEventListener("click", (event) => {
+    if (!mainNav) return;
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (
+      mainNav.contains(target) ||
+      (menuToggle && menuToggle.contains(target))
+    ) {
+      return;
+    }
+
+    if (window.matchMedia("(max-width: 860px)").matches) {
+      mainNav.classList.remove("open");
+      if (menuToggle) {
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    }
+    closeAllDrops();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    closeAllDrops();
+    if (mainNav && menuToggle && mainNav.classList.contains("open")) {
+      mainNav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.focus();
+    }
+  });
+
+  if (mainNav) {
+    mainNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (!window.matchMedia("(max-width: 860px)").matches) return;
+        mainNav.classList.remove("open");
+        closeAllDrops();
+        if (menuToggle) {
+          menuToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  }
 
   bindPopupLinks(".js-popup-window", {
     name: "apes_popup_window",

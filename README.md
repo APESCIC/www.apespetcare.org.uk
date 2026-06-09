@@ -4,7 +4,7 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 
 ## Current release
 
-- Version: `v1.0.0b`
+- Version: `v2.0.0b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
@@ -15,10 +15,10 @@ This repository powers the APES Pet Care Clinic public website. The site explain
 
 The current architecture intentionally stays simple:
 
-- PHP pages with mostly static HTML markup
-- Shared includes for configuration, metadata, navigation, and layout
-- Apache and `.htaccess` routing under a Cloudron LAMP-style deployment
-- No frontend framework, package manager, or build pipeline required for runtime
+- Static HTML route files under `public/`
+- Shared CSS, JavaScript, images, and third-party client-side integrations only
+- Apache and `.htaccess` routing with `index.html` as the preferred public entrypoint
+- No frontend framework, package manager, PHP runtime, or build pipeline required for the live public site
 
 ## Repository structure
 
@@ -27,24 +27,18 @@ The current architecture intentionally stays simple:
 |-- .github/
 |-- public/
 |   |-- .htaccess
-|   |-- 403.php
-|   |-- 404.php
-|   |-- 500.php
+|   |-- 403.html
+|   |-- 404.html
+|   |-- 500.html
 |   |-- VERSION
 |   |-- CHANGELOG.md
 |   |-- assets/
-|   |-- includes/
-|   |   |-- page-init.php
-|   |   |-- site-config.php
-|   |   |-- site-helpers.php
-|   |   |-- site-metadata.php
-|   |   |-- header.php
-|   |   |-- footer.php
-|   |   |-- clinic-sidebar.php
-|   |   `-- prepay-services.php
 |   |-- changelog/
+|   |   `-- index.html
 |   |-- services/
+|   |   `-- index.html
 |   |-- bookings/
+|   |   `-- index.html
 |   |-- policies/
 |   `-- ...
 |-- VERSION
@@ -56,7 +50,7 @@ The current architecture intentionally stays simple:
 ## Document root and deployment
 
 - Document root: `public/`
-- Expected hosting: Cloudron LAMP, Apache, and PHP
+- Expected hosting: Static-friendly Apache hosting, including Cloudron LAMP where PHP is no longer required for the public routes
 - Primary route pattern: folder-based URLs such as `/services/` and `/contact/`
 - Redirects and error documents are managed in `public/.htaccess`
 
@@ -64,11 +58,11 @@ The current architecture intentionally stays simple:
 
 This repo does not use the `npm` workflow previously documented here.
 
-Recommended local workflow in a PHP-capable environment:
+Recommended local workflow in any static-capable environment:
 
 ```powershell
 cd public
-php -S localhost:8000
+python -m http.server 8000
 ```
 
 Then open:
@@ -77,37 +71,31 @@ Then open:
 http://localhost:8000
 ```
 
-If you are using Cloudron, Apache, or another local PHP stack, point the web root at `public/`.
+If you are using Apache, Cloudron, or another static web server, point the web root at `public/`.
 
-## Shared include architecture
+## HTML-first route architecture
 
-The shared include layer is split to keep page templates simple and maintainable:
+The live website now renders from static HTML route files and shared front-end assets:
 
-- `public/includes/site-config.php`
-  Central site constants, route paths, menu data, contact details, and footer link sources.
-- `public/includes/site-helpers.php`
-  Reusable helpers for escaping, version loading, canonical path detection, active navigation, and schema helpers.
-- `public/includes/site-metadata.php`
-  Page defaults, canonical URL assembly, Open Graph and Twitter values, breadcrumb data, and structured data setup.
-- `public/includes/page-init.php`
-  Thin composition include that loads the shared site configuration, helpers, metadata, and pre-pay catalogue helpers.
-- `public/includes/hero.php`
-  Shared hero partial for the standard page templates so repeated route banner markup stays in one place.
-- `public/includes/header.php` and `public/includes/footer.php`
-  Shared layout partials used by each route template.
+- `public/index.html` and `public/**/index.html`
+  Canonical public routes served as static HTML documents.
+- `public/403.html`, `public/404.html`, and `public/500.html`
+  Branded public error pages wired through Apache `ErrorDocument`.
+- `public/assets/css/styles.css`
+  Shared visual system, layout, buttons, pre-pay cards, navigation, and Change Log Hub styling.
+- `public/assets/js/site.js`
+  Mobile navigation, mega-menu controls, popup windows, reveal animation, and optional Change Log Hub filtering.
 
-Each page should follow the same pattern:
+Each public page now follows the same maintenance pattern:
 
-1. Set page-specific variables.
-2. Require `public/includes/page-init.php`.
-3. Require the shared header.
-4. Require shared partials such as `public/includes/hero.php` where the layout is standard.
-5. Render page-specific HTML.
-6. Require the shared footer.
+1. Keep route content in the route’s `index.html`.
+2. Preserve canonical URLs, metadata, Open Graph tags, and JSON-LD directly in the page head.
+3. Keep the shared site chrome and navigation patterns consistent across routes.
+4. Update release records whenever public or operational website behaviour changes.
 
 ## Integrations preserved in this repo
 
-The current v1 architecture pass preserves existing public integrations:
+The current HTML-first pass preserves existing public integrations:
 
 - Booking form links
 - Stripe payment and plan links
@@ -134,14 +122,14 @@ When a public-facing or operational website change is made:
 2. Update both version files.
 3. Update both changelog files.
 4. Update the Change Log Hub route data.
-5. Confirm footer version output matches the new release.
+5. Confirm footer version output and the static Change Log Hub match the new release.
 
 ## SEO, routing, and compliance notes
 
 - Keep page titles, meta descriptions, canonicals, robots, and structured data intact unless a change requires an update.
 - Keep `/news/`, `/news/newsletters/`, and `/news/tag/news-letters/` redirecting to the APES News site.
 - Keep footer links for Donate, Privacy Policy, Terms and Conditions, and Change Log Hub present and correct.
-- Keep branded error pages available for `403`, `404`, and `500` handling.
+- Keep branded HTML error pages available for `403`, `404`, and `500` handling.
 - Keep `sitemap.xml` and `robots.txt` aligned with the live public routes.
 
 ## Legacy maintenance artifacts
@@ -167,16 +155,17 @@ Before release in a PHP-capable environment:
 - Check browser console and missing assets.
 - Run PHP syntax checks where `php` CLI is available.
 
-Current workspace limitation:
+Current workspace limitations:
 
-- `php` CLI is not available here, so syntax and live browser validation must be completed elsewhere before release.
+- `php` CLI is not available here, but the live site no longer depends on PHP for public route rendering.
+- Browser QA and real Apache error-document testing still need to be completed elsewhere before release.
 
 ## Security and operational notes
 
 - Do not commit secrets or production credentials.
 - Do not deploy automatically from Codex work without explicit approval.
 - Preserve public URLs and visible content unless a task explicitly calls for change.
-- Prefer the smallest safe PHP and Apache change over introducing new complexity.
+- Prefer the smallest safe HTML, CSS, JavaScript, and Apache change over introducing new complexity.
 
 ## Next-step workflow
 
