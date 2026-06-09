@@ -14,29 +14,21 @@ This is a website project. Make changes on a new branch unless told otherwise.
 
 ## Setup
 
-Run:
-
-```bash
-npm install
-```
+No package-manager setup is required for the current static HTML and Cloudron LAMP website model.
 
 ## Local development
 
-Run:
+For a LAMP-aligned local preview where PHP CLI is available, run:
 
 ```bash
-npm run dev
+php -S 127.0.0.1:8080 -t public
 ```
+
+The public website also supports direct static source review from `public/index.html` and route-level `public/**/index.html` files.
 
 ## Checks before completion
 
-Run:
-
-```bash
-npm run lint
-npm run typecheck
-npm run test:e2e
-```
+This repository does not use an npm lint, typecheck, or end-to-end test pipeline. Before completion, run source-review checks appropriate to the change, verify release records, and preview with a LAMP-compatible local or hosted environment when available.
 
 ## Safety
 

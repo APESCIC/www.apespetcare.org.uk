@@ -28,10 +28,8 @@ Use these files and directories as the active website architecture:
 
 These files should be treated as non-runtime unless a task explicitly depends on them:
 
-- `public/build_site.py`
-  Historic helper script from earlier content reconstruction and static generation work.
 - `public/crawl/`
-  Crawl extracts, text snapshots, and intermediate audit content retained for reference.
+  Crawl extracts, text snapshots, and intermediate audit content retained for reference. Python helper scripts have been removed from this folder so it remains a non-executable reference archive for the Cloudron LAMP deployment.
 - `public/crawl_urls.txt`
   Historic route list used by older crawl or extraction workflows.
 - `public/sitemap.html`
@@ -43,7 +41,7 @@ These files should be treated as non-runtime unless a task explicitly depends on
 
 - Keep these artifacts unless a later task proves they are safe to remove or relocate.
 - Do not treat them as the deployment contract for the live site.
-- Prefer updating the active static HTML routes and shared front-end assets over reviving older generation or PHP helper workflows.
+- Prefer updating the active static HTML routes and shared front-end assets over reviving older generation, Python helper, or PHP helper workflows.
 
 ## Theme source model
 

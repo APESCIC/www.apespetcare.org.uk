@@ -226,7 +226,28 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed theme alignment accessibility" data-impact="changed theme alignment accessibility">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed deployment hygiene runtime cleanup" data-impact="changed deployment hygiene runtime cleanup">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-09</p>
+                <h2>v2.1.2b - Removed Python helper usage from the deployable website tree and updated local workflow guidance so the site remains aligned with Cloudron LAMP hosting expectations.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v2.1.2b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-compliance">Deployment Hygiene</span><span class="pill pill-fix">Runtime Cleanup</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Removed Python helper usage from the deployable website tree and updated local workflow guidance so the APES Pet Care Clinic website remains aligned with Cloudron LAMP hosting expectations.</p>
+            <ul>
+            <li>Removed the legacy Python static-generation helper from <code>public/build_site.py</code> and Python crawl helper scripts from <code>public/crawl/</code> so the public document root no longer contains Python executable files.</li>
+            <li>Replaced the Python-based VS Code preview task with a PHP built-in server preview command that points at the <code>public/</code> document root.</li>
+            <li>Updated <code>README.md</code>, <code>AGENTS.md</code>, and <code>docs/maintenance-artifacts.md</code> so setup, preview, validation, and retained-artifact guidance no longer recommends Python or npm workflows for this static Cloudron LAMP website.</li>
+            <li>Synced root and public version files, mirrored changelogs, Change Log Hub output, README current-release notes, and repeated footer version text to the new <code>v2.1.2b</code> beta patch release.</li>
+            <li>Preserved normal browser-side JavaScript, JSON-LD, Stripe, Chatwoot, OneSignal, Hello Bar, Apache <code>.htaccess</code>, sitemap, robots, branded error pages, and static HTML routes.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed theme alignment accessibility" data-impact="changed theme alignment accessibility">
           <summary>
             <div class="release-card-head">
               <div>
@@ -676,7 +697,7 @@
         </section>
       </div>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.1b</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.2b</span>
         <a class="footer-hub-link" href="../donate/">Donate</a>
         <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
         <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>

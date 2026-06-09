@@ -1,3 +1,55 @@
+## [v2.1.2b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.1.2b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-compliance">Deployment Hygiene</span>
+<span class="pill pill-fix">Runtime Cleanup</span>
+
+### Summary
+
+Removed Python helper usage from the deployable website tree and updated local workflow guidance so the APES Pet Care Clinic website remains aligned with Cloudron LAMP hosting expectations.
+
+### Detailed changes
+
+- Removed the legacy Python static-generation helper from `public/build_site.py` and Python crawl helper scripts from `public/crawl/` so the public document root no longer contains Python executable files.
+- Replaced the Python-based VS Code preview task with a PHP built-in server preview command that points at the `public/` document root.
+- Updated `README.md`, `AGENTS.md`, and `docs/maintenance-artifacts.md` so setup, preview, validation, and retained-artifact guidance no longer recommends Python or npm workflows for this static Cloudron LAMP website.
+- Synced root and public version files, mirrored changelogs, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.2b` beta patch release.
+- Preserved normal browser-side JavaScript, JSON-LD, Stripe, Chatwoot, OneSignal, Hello Bar, Apache `.htaccess`, sitemap, robots, branded error pages, and static HTML routes.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> The repository workflow now reflects static HTML, browser JavaScript, Apache, and optional PHP preview instead of Python or npm tooling.
+- <span class="pill pill-compliance">Deployment Hygiene</span> The deployable `public/` tree no longer includes Python executable scripts.
+
+### Fix pills
+
+- <span class="pill pill-fix">Runtime Cleanup</span> Removed non-LAMP helper scripts and stale setup instructions that could confuse Cloudron LAMP maintenance.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Deployment source tree, local preview workflow, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `VERSION`, `CHANGELOG.md`, `README.md`, `AGENTS.md`, `.vscode/tasks.json`, `docs/maintenance-artifacts.md`, `public/VERSION`, `public/CHANGELOG.md`, `public/changelog/index.html`, deleted Python helper scripts under `public/`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Website maintainers, APES staff, and anyone preparing the site for Cloudron LAMP hosting.
+- Public impact: Public routes and visitor journeys remain unchanged.
+- Internal impact: The deployable website source is cleaner and easier to audit for Cloudron LAMP compatibility.
+
+### Version decision
+
+- Previous version: `v2.1.1b`
+- New version: `v2.1.2b`
+- Version type: Beta patch release
+- Reason for version bump: This is a deployment hygiene, documentation, and release-record sync that removes non-LAMP helper scripts without changing public routes.
+
+### Validation
+
+- Checks run: Source review, non-LAMP runtime search, public executable-extension inventory, release-record alignment check, and footer version string verification across public HTML files.
+- Manual checks completed: Confirmed by source review that static HTML routes, browser JavaScript, Apache routing, sitemap, robots, branded error pages, News redirects, and required footer governance links remain present.
+- Known limitations: Browser QA and real Cloudron/Apache preview still need a manual pass outside this non-interactive workspace.
+- Rollback notes: Restore the deleted Python helper scripts and revert the workflow, documentation, version, changelog, Change Log Hub, and footer version updates to return to `v2.1.1b`.
+
 ## [v2.1.1b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.1.1b</span>

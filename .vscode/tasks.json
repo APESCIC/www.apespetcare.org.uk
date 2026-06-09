@@ -4,14 +4,15 @@
     {
       "label": "Start APES Pet Care Clinic preview server",
       "type": "shell",
-      "command": "python",
+      "command": "php",
       "args": [
-        "-m",
-        "http.server",
-        "8000"
+        "-S",
+        "127.0.0.1:8080",
+        "-t",
+        "public"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/public"
+        "cwd": "${workspaceFolder}"
       },
       "presentation": {
         "reveal": "always",

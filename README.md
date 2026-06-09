@@ -2,9 +2,17 @@
 
 Public website repository for <https://www.apespetcare.org.uk/>, maintained by the Association of Protecting Exotic Species CIC.
 
+<p align="center">
+  <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
+  <img alt="Status: beta" src="https://img.shields.io/badge/status-beta-d88900">
+  <img alt="Version: v2.1.2b" src="https://img.shields.io/badge/version-v2.1.2b-14532d">
+  <img alt="Runtime: static HTML and Apache" src="https://img.shields.io/badge/runtime-static%20HTML%20%2B%20Apache-245c6b">
+  <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
+</p>
+
 ## Current release
 
-- Version: `v2.1.1b`
+- Version: `v2.1.2b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
@@ -59,44 +67,37 @@ The current architecture intentionally stays simple:
 
 ## Local development
 
-This repo does not use the `npm` workflow previously documented here.
+This repo does not use the `npm` or Python workflow previously documented here.
 
 Important preview note:
 
 - The site now uses relative local asset paths in `public/` so `public/index.html` and nested `public/**/index.html` pages can be previewed directly from VS Code as `file://` URLs.
 - External integrations and absolute web URLs such as `https://...` remain unchanged.
-- Legacy snapshot files under `public/crawl/` are maintenance artifacts and are not part of the runtime file-preview fix.
-- If public HTML route files are updated, re-run `python scripts/fix_vscode_html_paths.py` from the repository root to restore file-preview-compatible relative paths.
+- Legacy snapshot files under `public/crawl/` are maintenance artifacts and are not part of the runtime website.
+- Keep public routes as static HTML, CSS, browser JavaScript, images, and Apache configuration so the deployable tree remains Cloudron LAMP-compatible.
 
 Recommended VS Code workflow:
 
 1. Open `public/index.html` directly in VS Code and preview it as a local `file://` document.
 2. For broader route testing, run the workspace task `Start APES Pet Care Clinic preview server`.
-3. Open `http://127.0.0.1:8000/` in VS Code Simple Browser.
+3. Open `http://127.0.0.1:8080/` in VS Code Simple Browser.
 4. Stop the task when you finish previewing.
 
-Equivalent static-server workflow in any terminal:
-
-```powershell
-cd public
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://127.0.0.1:8000/
-```
-
-If you are using Apache, Cloudron, or another static web server, point the web root at `public/`.
-
-Optional PHP preview for fallback-style checks in a PHP-enabled environment:
+Equivalent LAMP-aligned preview workflow in any terminal where PHP CLI is available:
 
 ```powershell
 php -S 127.0.0.1:8080 -t public
 ```
 
-This repository does not currently depend on PHP to render the public routes, but that command is useful when maintainers want a preview path closer to the wider APES website hosting pattern.
+Then open:
+
+```text
+http://127.0.0.1:8080/
+```
+
+If you are using Apache, Cloudron, or another static web server, point the web root at `public/`.
+
+This repository does not currently depend on PHP to render the public routes, but the PHP built-in server is useful when maintainers want a preview path closer to the wider APES website hosting pattern.
 
 ## HTML-first route architecture
 
@@ -171,7 +172,7 @@ When a public-facing or operational website change is made:
 
 ## Legacy maintenance artifacts
 
-Some files inside `public/` exist as maintenance or historic migration artifacts rather than runtime dependencies, including crawl snapshots and helper scripts.
+Some files inside `public/` exist as maintenance or historic migration artifacts rather than runtime dependencies, including crawl snapshots and audit records.
 
 Reference note:
 
@@ -179,7 +180,7 @@ Reference note:
 
 Current default:
 
-- Keep them unless a later task proves they are safe to remove or move.
+- Keep retained artifacts unless a later task proves they are safe to remove or move.
 - Treat them as non-authoritative for runtime unless the task specifically uses them.
 
 ## Validation expectations
@@ -194,7 +195,7 @@ Before release in a PHP-capable environment:
 
 Current workspace limitations:
 
-- `php` CLI is not available here, but the live site no longer depends on PHP for public route rendering.
+- `php` CLI may not be available in every local workspace, but the live site no longer depends on PHP for public route rendering.
 - Browser QA and real Apache error-document testing still need to be completed elsewhere before release.
 
 ## Security and operational notes
