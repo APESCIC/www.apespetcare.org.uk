@@ -10,12 +10,67 @@ require_once $rootPath . '/includes/page-init.php';
 
 $releaseEntries = [
     [
+        'version' => 'v1.0.0b',
+        'date' => '2026-06-09',
+        'title' => 'Architecture simplification and Cloudron LAMP maintenance alignment',
+        'status' => 'Beta',
+        'statusKey' => 'beta',
+        'current' => true,
+        'impact' => 'operational compliance architecture',
+        'types' => 'changed maintenance architecture',
+        'pills' => [
+            ['class' => 'pill-version', 'label' => 'Version v1.0.0b'],
+            ['class' => 'pill-status', 'label' => 'Beta'],
+            ['class' => 'pill-type', 'label' => 'Changed'],
+            ['class' => 'pill-fix', 'label' => 'Maintenance'],
+            ['class' => 'pill-compliance', 'label' => 'Architecture'],
+        ],
+        'summary' => 'Simplified the shared PHP architecture for the APES Pet Care Clinic website, added canonical root release records, introduced branded error pages, and aligned the repository documentation with the real Cloudron LAMP deployment pattern.',
+        'details' => [
+            'Split the shared website bootstrap into focused include layers for site configuration, reusable helpers, and metadata assembly while keeping all public routes and visible page content intact.',
+            'Extracted the repeated standard-page hero banner into one shared include so the main route templates now carry less duplicated markup.',
+            'Preserved the existing PHP page pattern and third-party integrations without introducing any frontend build tooling, framework, or dependency pipeline.',
+            'Added branded 403, 404, and 500 PHP error pages and connected them in .htaccess so Cloudron LAMP deployments have safer fallback behaviour.',
+            'Added missing universal footer governance links for the donation page, Privacy Policy, Terms and Conditions, and Change Log Hub.',
+            'Added root-level VERSION and CHANGELOG.md records so the repository now carries canonical release metadata alongside the public mirror files.',
+            'Rewrote the root README.md to document the actual PHP and Apache maintenance workflow, public document root, shared include structure, and retained legacy maintenance artifacts.',
+            'Added a dedicated maintenance-artifact note so older crawl and helper files are clearly documented as non-runtime unless a later task proves otherwise.',
+        ],
+        'typePills' => [
+            ['class' => 'pill-type', 'label' => 'Changed', 'description' => 'Refactored the shared include architecture and repository release record structure without changing public routes or page content.'],
+            ['class' => 'pill-compliance', 'label' => 'Architecture', 'description' => 'Aligned the repository and deployment guidance with the simplified Cloudron LAMP maintenance model used for the live site.'],
+        ],
+        'fixPills' => [
+            ['class' => 'pill-fix', 'label' => 'Maintenance', 'description' => 'Release records, footer governance links, and error-page coverage are now easier to maintain and audit.'],
+        ],
+        'affectedAreas' => [
+            'Website' => 'APES Pet Care Clinic public website.',
+            'Page or route' => 'Shared templates, footer links, branded error pages, release records, and repository documentation.',
+            'Files changed' => 'VERSION, CHANGELOG.md, README.md, docs/maintenance-artifacts.md, public/VERSION, public/CHANGELOG.md, public/.htaccess, public/403.php, public/404.php, public/500.php, public/changelog/index.php, public/index.php, standard route templates, public/includes/hero.php, public/includes/page-init.php, public/includes/site-config.php, public/includes/site-helpers.php, public/includes/site-metadata.php, and public/includes/footer.php.',
+            'User groups affected' => 'Public visitors, staff maintaining the website, and anyone relying on footer governance links or release records.',
+            'Public impact' => 'The visible site contract remains the same while footer compliance and error-page coverage improve.',
+            'Internal impact' => 'The site is easier to maintain in a simple Cloudron LAMP workflow with clearer shared include boundaries, less duplicated page-banner markup, and synchronized release records.',
+        ],
+        'versionDecision' => [
+            'Previous version' => 'v0.5.1b',
+            'New version' => 'v1.0.0b',
+            'Version type' => 'Beta major release',
+            'Reason for version bump' => 'This is a major internal architecture simplification and repository-governance reset that preserves public journeys while materially changing how the site is maintained and released.',
+        ],
+        'validation' => [
+            'Checks run' => 'Reviewed shared include dependencies, route templates, release records, footer links, robots and sitemap references, and Apache error-document wiring by source inspection.',
+            'Manual checks completed' => 'Confirmed the site still uses folder-based public URLs, the footer now exposes donation, privacy, terms, and Change Log Hub links, and release metadata now exists in both root and public records.',
+            'Known limitations' => 'php CLI is not available in this workspace, so automated php -l, browser QA, popup behaviour QA, and Cloudron runtime verification still need to be completed in a PHP-capable environment.',
+            'Rollback notes' => 'Revert the shared include split, footer link additions, new error pages, version files, changelog entries, and README rewrite to restore the previous v0.5.1b maintenance structure.',
+        ],
+    ],
+    [
         'version' => 'v0.5.1b',
         'date' => '2026-06-02',
         'title' => 'Booking popup journey and payment-card layout fixes',
         'status' => 'Beta',
         'statusKey' => 'beta',
-        'current' => true,
+        'current' => false,
         'impact' => 'public-facing operational',
         'types' => 'changed fixed',
         'pills' => [

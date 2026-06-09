@@ -13,21 +13,7 @@ $invertServiceKeys = [
 ];
 require_once $rootPath . '/includes/header.php';
 ?>
-  <section class="hero">
-    <article class="hero-panel reveal">
-      <p class="page-kicker"><?= apes_escape($pageKicker) ?></p>
-      <h1 class="hero-title"><?= apes_escape($heroTitle) ?></h1>
-      <p class="hero-lead"><?= apes_escape($heroLead) ?></p>
-      <div class="hero-badges">
-        <?php foreach ($heroBadges as $badge): ?>
-          <span><?= apes_escape($badge) ?></span>
-        <?php endforeach; ?>
-      </div>
-    </article>
-    <aside class="hero-logo reveal">
-      <img src="/assets/logos/APES_Pet_Care_Clinic_logo_master_transparent.png" alt="">
-    </aside>
-  </section>
+  <?php require $rootPath . '/includes/hero.php'; ?>
 
   <section class="content-layout">
     <article class="article">

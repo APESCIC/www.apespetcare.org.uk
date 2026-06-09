@@ -14,6 +14,9 @@
       </div>
       <div class="footer-meta-links">
         <span class="site-version-line">Website version: <?= apes_escape($siteVersion) ?></span>
+        <a class="footer-hub-link" href="<?= apes_escape($donatePath) ?>">Donate</a>
+        <a class="footer-hub-link" href="<?= apes_escape($privacyPolicyPath) ?>">Privacy Policy</a>
+        <a class="footer-hub-link" href="<?= apes_escape($termsPolicyPath) ?>">Terms and Conditions</a>
         <a class="footer-hub-link" href="<?= apes_escape($changelogPath) ?>">Change Log Hub</a>
       </div>
       <div class='onesignal-customlink-container'></div>

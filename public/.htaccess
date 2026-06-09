@@ -1,6 +1,9 @@
 DirectoryIndex index.php index.html
 
 RewriteEngine On
+ErrorDocument 403 /403.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
 RewriteRule ^news/?$ https://www.apesnews.org.uk [R=301,L]
 RewriteRule ^news/newsletters/?$ https://www.apesnews.org.uk [R=301,L]
 RewriteRule ^news/tag/news-letters/?$ https://www.apesnews.org.uk [R=301,L]
