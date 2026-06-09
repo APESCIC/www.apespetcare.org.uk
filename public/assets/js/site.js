@@ -220,6 +220,30 @@
     height: 760,
   });
 
+  const isLocalFilePreview = window.location.protocol === "file:";
+  const isLocalDirectoryLink = (href) => {
+    if (!href) return false;
+    if (/^(#|mailto:|tel:|javascript:|https?:|\/\/)/.test(href)) return false;
+    return href.endsWith("/") || href === "." || href === "./" || href === ".." || href === "../";
+  };
+
+  if (isLocalFilePreview) {
+    document.querySelectorAll("a").forEach((link) => {
+      if (!(link instanceof HTMLAnchorElement)) return;
+      if (link.classList.contains("js-popup-window")) return;
+      if (link.target && link.target !== "_self") return;
+
+      link.addEventListener("click", (event) => {
+        const href = link.getAttribute("href");
+        if (!isLocalDirectoryLink(href)) return;
+
+        event.preventDefault();
+        link.setAttribute("href", href.replace(/\/?$/, "/") + "index.html");
+        window.location.href = link.getAttribute("href");
+      });
+    });
+  }
+
   const changeLogRoot = document.querySelector("[data-change-log-root]");
   if (changeLogRoot) {
     const search = changeLogRoot.querySelector("#changeLogSearch");
