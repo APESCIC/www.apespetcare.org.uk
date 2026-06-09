@@ -1,3 +1,56 @@
+## [v2.0.1b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.0.1b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Brand Refresh</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Refreshed the APES Pet Care Clinic public website so it now reads clearly as a warm, reassuring pet care clinic while keeping the HTML-first runtime, existing routes, and welfare-first safety messaging intact.
+
+### Detailed changes
+
+- Reworked the shared stylesheet into a softer clinic-led visual system with warmer cards, calmer gradients, stronger CTA hierarchy, improved notice styling, and a more welcoming APES-aligned header and footer treatment.
+- Replaced the repeated logo, favicon, manifest, and social-sharing asset references with the optimized website logo pack, including a new favicon set, updated JSON-LD logo path, refreshed header/footer logo usage, and consistent social image metadata.
+- Added new custom clinic imagery under `public/assets/images/` and integrated the visuals into the shared hero pattern so key public pages now present a more supportive pet-care atmosphere rather than text-led logo-only panels.
+- Added icon-led feature panels and supportive illustration blocks to the homepage, Services Hub, bookings page, and contact page so visitors can scan core guidance, booking expectations, and support routes more easily.
+- Kept the existing route URLs, footer governance links, News redirects, Stripe and booking flows, Chatwoot, OneSignal, Hello Bar, and clinical-scope wording intact while improving the site’s visual clarity and consistency.
+- Updated the root and public version files, changelog mirrors, Change Log Hub output, and README current-release notes so the release record matches the refreshed public presentation.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Applied a full clinic-first visual refresh across the shared site chrome and key public routes without changing the underlying HTML-first route structure.
+- <span class="pill pill-accessibility">Accessibility</span> Improved visual hierarchy, scannability, and focus-friendly component treatments while keeping warning content and navigation patterns easy to locate.
+
+### Fix pills
+
+- <span class="pill pill-fix">Brand Refresh</span> The site no longer feels like a text-first placeholder and now uses clinic-appropriate imagery, iconography, and brand assets throughout the public experience.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `/`, `/services/`, `/bookings/`, `/contact/`, `/changelog/`, shared hero/footer/header patterns, and the repeated public HTML head metadata.
+- Files changed: `VERSION`, `CHANGELOG.md`, `README.md`, `public/VERSION`, `public/CHANGELOG.md`, `public/changelog/index.html`, `public/site.webmanifest`, `public/assets/css/styles.css`, new files under `public/assets/images/`, `public/assets/social/`, `public/assets/logos/optimized/`, `public/favicons/`, and updated `public/**/*.html` route files.
+- User groups affected: Pet owners, donors, public visitors, and staff maintaining the website.
+- Public impact: Visitors now see a warmer, more trustworthy clinic presentation with clearer visual guidance, richer hero media, and stronger route scanning cues.
+- Internal impact: Public brand assets, release records, and head metadata are now more consistent and easier to maintain across the static route set.
+
+### Version decision
+
+- Previous version: `v2.0.0b`
+- New version: `v2.0.1b`
+- Version type: Beta patch release
+- Reason for version bump: This is a significant user-visible branding and presentation refresh that preserves routes, integrations, and runtime architecture while improving the public visual experience.
+
+### Validation
+
+- Checks run: Source inspection across the shared stylesheet, repeated HTML head metadata, shared hero/footer patterns, generated image assets, favicon paths, version files, and changelog mirrors.
+- Manual checks completed: Confirmed by source review that the optimized logos, favicons, social images, manifest, and new clinic imagery are referenced from the public document root and that footer governance links and clinical-scope messaging remain present.
+- Known limitations: Browser QA, keyboard QA, real popup behaviour checks, and final responsive verification in a running `public/` web-root environment still need to be completed manually.
+- Rollback notes: Revert the shared CSS refresh, updated public HTML route files, added clinic image and favicon assets, and synchronized release-record updates to restore the previous `v2.0.0b` presentation.
+
 ## [v2.0.0b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.0.0b</span>

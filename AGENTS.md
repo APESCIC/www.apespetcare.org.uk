@@ -85,6 +85,17 @@ Use `APESCIC/Website-Repo-Template` `README.md` as the default source template f
 
 When a website repository has no root `README.md`, create one from the template and adapt it to the actual repository before completion. Do not leave template placeholders such as `{{PROJECT_NAME}}`, `{{PUBLIC_WEBSITE_URL}}`, `{{VERSION}}`, `{{INSTALL_COMMAND}}`, or `{{STATUS}}` unresolved unless the value is genuinely unknown and the final summary or issue update names the missing information.
 
+Every root `README.md` for an APES CIC website repository must include a centered badge row near the top, directly under the project title or description and before the first horizontal rule, matching the `APESCIC/Website-Repo-Template` pattern. Create or update badges so they are relevant to the actual repository, not copied blindly from another project.
+
+At minimum, include and verify these badges where the repository evidence supports them:
+
+- Website badge: use the public website badge label or hostname and link it to the live public website URL; use `live` only when the site is actually live.
+- Status badge: show the current project or release status, such as beta, stable, active, maintenance, or another status grounded in repository evidence.
+- Theme badge: show the actual APES design theme in use, such as `APES Habitat`, when the repository uses that theme.
+- Accessibility badge: show the actual accessibility target or checked status, such as `WCAG AA target`, only when that target is valid for the repository.
+
+Add any other README badges that are relevant to the repository, such as version, licence, build or CI, deployment host, tests, coverage, framework, package, security, maintenance, documentation, or review status. Do not add badges for services, checks, frameworks, licences, or deployment platforms the repository does not actually use. Do not leave placeholder badge labels such as `{{WEBSITE_BADGE_LABEL}}`, `{{PROJECT_STATUS}}`, or similar unresolved unless the value is genuinely unknown and the final summary or issue update names the missing information.
+
 When a website repository already has a root `README.md`, maintain it against the same template structure instead of replacing useful repository-specific content. Preserve accurate local details, then add or refresh missing template-aligned sections where relevant, including:
 
 - Current release.
