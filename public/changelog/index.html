@@ -78,7 +78,7 @@
   </div>
   <header class="site-header">
     <div class="header-wrap">
-      <a class="brand" href="./">
+      <a class="brand" href="../">
         <img src="../assets/logos/optimized/apes-pet-care-clinic-logo-navbar-72h.webp" alt="APES Pet Care Clinic logo">
                 <div class="brand-copy">
           <span class="brand-network">Part of APES CIC</span>
@@ -88,7 +88,7 @@
       </a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>Menu</button>
       <nav class="main-nav" id="site-navigation" data-main-nav aria-label="Primary navigation">
-        <a class="" href="./">Home</a>
+        <a class="" href="../">Home</a>
         <div class="drop mega">
           <button class="drop-trigger" type="button" aria-haspopup="true" aria-expanded="false">Services</button>
           <div class="drop-panel mega-panel">
@@ -230,17 +230,74 @@
           <summary>
             <div class="release-card-head">
               <div>
+                <p class="release-card-date">2026-06-10</p>
+                <h2>v2.1.7b - Fixed the floating right-hand sidebar stack so the lower support card no longer overlaps the clinic help card while keeping the newer header and navigation fixes already on main.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v2.1.7b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Layout Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Fixed the floating right-hand sidebar stack so the lower support card no longer overlaps the clinic help card while keeping the newer header and navigation fixes already on main.</p>
+            <ul>
+            <li>Added a new <code>side-stack-sticky</code> shared modifier in <code>public/assets/theme/clinic.css</code> so the affected two-card right rails stay sticky as one stack, cap themselves to the available desktop viewport height, and scroll internally when space is limited.</li>
+            <li>Updated the homepage, contact, bookings, and services templates to apply the shared stacked-sidebar modifier while preserving the nested-route Home and brand link path fixes already present on main.</li>
+            <li>Carried forward the existing <code>v2.1.5b</code> navigation fix and <code>v2.1.6b</code> compact top-bar social icon update, then synced the release records and repeated footer version text to <code>v2.1.7b</code>.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed header fix accessibility" data-impact="changed header fix accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-10</p>
+                <h2>v2.1.6b - Replaced the visible top-bar social network names with compact social icons while keeping the shared header links accessible.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v2.1.6b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Header Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Replaced the visible top-bar social network names with compact social icons while keeping the shared header links accessible.</p>
+            <ul>
+            <li>Updated <code>public/assets/theme/clinic.css</code> so the repeated top-bar social links now render as compact icon buttons with shared hover and focus styling instead of visible text labels.</li>
+            <li>Preserved the existing social destination URLs and kept the source link text in the repeated header markup so the links still expose readable names while the visual presentation becomes more compact.</li>
+            <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new <code>v2.1.6b</code> beta patch release.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed navigation fix" data-impact="changed navigation fix">
+          <summary>
+            <div class="release-card-head">
+              <div>
                 <p class="release-card-date">2026-06-09</p>
-                <h2>v2.1.4b - Fixed the floating right-hand sidebar stack so the lower support card no longer overlaps the clinic help card on the affected desktop layouts.</h2>
+                <h2>v2.1.5b - Fixed the repeated nested-route header links so the brand and Home navigation return visitors to the homepage instead of reloading the current page.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v2.1.5b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Navigation Fix</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Fixed the repeated nested-route header links so the brand and Home navigation return visitors to the homepage instead of reloading the current page.</p>
+            <ul>
+            <li>Updated the repeated header markup across nested first-level routes and nested policy routes so the brand link and Home link now use depth-correct relative paths back to the website root.</li>
+            <li>Preserved the existing Services, Information, Bookings, Donate, and Contact navigation paths along with the shared JavaScript and CSS behavior because the bug was caused by static HTML pathing rather than the menu interaction layer.</li>
+            <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new <code>v2.1.5b</code> beta patch release.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed layout fix accessibility" data-impact="changed layout fix accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-09</p>
+                <h2>v2.1.4b - Fixed the shared help sidebar so both cards float together with clearer spacing across the homepage and repeated route pages.</h2>
               </div>
               <div class="release-pill-row"><span class="pill pill-version">Version v2.1.4b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Layout Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
             </div>
           </summary>
           <div class="release-card-body">
-            <p>Fixed the floating right-hand sidebar stack so the lower support card no longer overlaps the clinic help card on the affected desktop layouts.</p>
+            <p>Fixed the shared help sidebar so both cards float together with clearer spacing across the homepage and repeated route pages.</p>
             <ul>
-            <li>Added a new <code>side-stack-sticky</code> shared modifier in <code>public/assets/theme/clinic.css</code> so two-card right rails can float as one sticky stack, cap themselves to the available desktop viewport height, and scroll internally when space is limited.</li>
-            <li>Updated the homepage, contact, bookings, and services templates to apply the shared stacked-sidebar modifier without changing CTA copy, button order, support illustration content, routes, or JavaScript behaviour.</li>
+            <li>Updated <code>public/assets/theme/clinic.css</code> so the shared sidebar container now handles sticky positioning, the two-column content grid aligns items correctly, and the support cards keep a clearer gap on desktop.</li>
+            <li>Preserved the existing stacked mobile layout by returning the sidebar to normal flow below the desktop breakpoint.</li>
             <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new <code>v2.1.4b</code> beta patch release.</li>
             </ul>
           </div>
@@ -459,7 +516,7 @@
             <li>Created the new `/services/` hub, removed the duplicated payment section from `/general-services/`, and moved the homepage away from the full payment catalogue toward a safer route-selection journey.</li>
             <li>Created clean canonical routes for `/care-plans/` and `/lab-services/`, added redirects from the old encoded-space URLs, and updated internal navigation, crawl inputs, source route lists, and sitemap artifacts to use the canonical paths.</li>
             <li>Reworked rabbit, guinea pig, reptile, invertebrate, ferret, dog, and cat wording to avoid implying diagnosis, treatment, surgery, or guaranteed intervention, while preserving clear referral guidance when veterinary care is needed.</li>
-            <li>Fixed the `pet€™s` mojibake issue by replacing the old encoded care-plans route template with the new canonical page and sweeping remaining route/source files for the known encoding artefacts.</li>
+            <li>Fixed the `petâ‚¬â„¢s` mojibake issue by replacing the old encoded care-plans route template with the new canonical page and sweeping remaining route/source files for the known encoding artefacts.</li>
             <li>Extended the shared page head with canonical URLs, Open Graph metadata, Twitter card metadata, and structured data for `Organization`, `WebSite`, `BreadcrumbList`, and safe `Service` pages.</li>
             <li>Added `robots.txt`, `sitemap.xml`, an updated public `sitemap.html`, and a root-level `PAYMENT_LINK_AUDIT.md` file so SEO and payment-link governance are tracked alongside the beta release.</li>
             <li>Updated the canonical `VERSION` file plus both changelog records so the release is synchronised under the new `v0.4.0b` beta minor entry.</li>
@@ -735,7 +792,7 @@
         </section>
       </div>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.4b</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.7b</span>
         <a class="footer-hub-link" href="../donate/">Donate</a>
         <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
         <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>
@@ -746,5 +803,3 @@
   </footer>
 </body>
 </html>
-
-

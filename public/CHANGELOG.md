@@ -1,3 +1,151 @@
+## [v2.1.7b] - 2026-06-10
+
+<span class="pill pill-version">Version v2.1.7b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Fixed the floating right-hand sidebar stack so the lower support card no longer overlaps the clinic help card on the affected desktop layouts while keeping the newer nested-route header and compact top-bar icon updates already on main.
+
+### Detailed changes
+
+- Added a new `side-stack-sticky` shared modifier in `public/assets/theme/clinic.css` so the affected two-card right rails stay sticky as one stack, cap themselves to the available desktop viewport height, and scroll internally when space is limited.
+- Updated the homepage, contact, bookings, and services templates to apply the shared stacked-sidebar modifier while preserving the newer nested-route Home and brand link path fixes already present on main.
+- Carried forward the current `v2.1.5b` nested-route navigation fix and `v2.1.6b` compact top-bar social icon changes, then synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.7b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Adjusted the shared right-hand sidebar behaviour so affected card stacks float together instead of risking overlap during desktop scrolling.
+- <span class="pill pill-accessibility">Accessibility</span> Keeps booking and contact actions readable and reachable on shorter desktop viewports while preserving the accessible header improvements already on main.
+
+### Fix pills
+
+- <span class="pill pill-fix">Layout Fix</span> The floating right-hand column now behaves as a single scroll-safe stack on the affected pages.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Homepage, contact page, bookings page, services page, shared clinic sidebar styling, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `public/index.html`, `public/contact/index.html`, `public/bookings/index.html`, `public/services/index.html`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors using desktop and small-laptop layouts, pet owners trying to book or contact the clinic, and maintainers reviewing release records.
+- Public impact: The right-hand help and support cards stay readable and clickable instead of overlapping while the newer header and navigation fixes remain intact.
+- Internal impact: The sidebar pattern now has an explicit shared modifier for stacked sticky behaviour, and the merged release record remains aligned after integrating newer mainline website changes.
+
+### Version decision
+
+- Previous version: `v2.1.6b`
+- New version: `v2.1.7b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small user-visible layout and accessibility fix applied after the already-released `v2.1.5b` and `v2.1.6b` header and navigation changes.
+
+### Validation
+
+- Checks run: Merge conflict review, source review of the stacked sidebar modifier, release-record alignment check, and footer version string verification across public HTML files.
+- Manual checks completed: Confirmed by source review that the affected stacked sidebars now use the shared sticky-stack modifier, the nested-route Home and brand links remain depth-correct from main, the compact top-bar social icon styling remains present, and no SEO metadata, sitemap entries, robots rules, Newsroom routing, footer links, or branded error-page structure were intentionally changed by this merge resolution.
+- Known limitations: PHP CLI is not available in this workspace, so the recommended `php -S 127.0.0.1:8080 -t public` preview and full browser-based visual QA still need a manual pass outside this non-interactive workspace.
+- Rollback notes: Revert the merged sidebar modifier changes and restore the previous `v2.1.6b` release records if the desktop sidebar layout fix needs to be undone.
+
+## [v2.1.6b] - 2026-06-10
+
+<span class="pill pill-version">Version v2.1.6b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Header Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Replaced the visible top-bar social network names with compact social icons while keeping the existing links accessible across the shared website header.
+
+### Detailed changes
+
+- Updated `public/assets/theme/clinic.css` so the repeated top-bar social links now render as compact icon buttons with shared hover and focus styling instead of visible text labels.
+- Preserved the existing social destination URLs and kept the source link text in the repeated header markup so the links still expose readable names while the visual presentation becomes more compact.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.6b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Updated the shared header top bar so social links display as icons instead of text labels across the static route set.
+- <span class="pill pill-accessibility">Accessibility</span> Retained readable link names in the source and visible focus treatment while reducing header clutter.
+
+### Fix pills
+
+- <span class="pill pill-fix">Header Fix</span> The shared top bar now uses a more compact icon treatment for social links without changing the underlying destinations.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared header top bar across repeated public routes, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors using the shared header and maintainers reviewing release records.
+- Public impact: The header top bar is more compact and visually scannable while the same social links remain available.
+- Internal impact: Shared header styling and release records remain aligned without introducing new runtime dependencies.
+
+### Version decision
+
+- Previous version: `v2.1.5b`
+- New version: `v2.1.6b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small shared UI and accessibility-safe header polish that changes visual presentation without adding new routes or workflows.
+
+### Validation
+
+- Checks run: Source review of the shared top-bar CSS, release-record alignment review, and footer version string verification across public HTML files.
+- Manual checks completed: Confirmed by source review that the shared top-bar social links now render as icon buttons from CSS, keep the existing social URLs, retain focus treatment, and do not change SEO metadata, sitemap entries, robots rules, Newsroom routing, footer links, or branded error-page structure.
+- Known limitations: No browser preview was run in this non-interactive workspace, so final visual QA of icon rendering and spacing across desktop and mobile breakpoints still needs a manual pass.
+- Rollback notes: Revert the shared top-bar CSS icon treatment and restore the previous `v2.1.5b` release records if the header presentation needs to return to text links.
+
+## [v2.1.5b] - 2026-06-09
+
+<span class="pill pill-version">Version v2.1.5b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Navigation Fix</span>
+
+### Summary
+
+Fixed the repeated nested-route header links so the brand and Home navigation reliably return visitors to the homepage instead of reloading the current page.
+
+### Detailed changes
+
+- Updated the repeated header markup across nested first-level routes and nested policy routes so the brand link and Home link now use depth-correct relative paths back to the website root.
+- Preserved the existing Services, Information, Bookings, Donate, and Contact navigation paths along with the shared JavaScript and CSS behavior because the bug was caused by static HTML pathing rather than the menu interaction layer.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.5b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Corrected the shared nested-route header pathing so homepage navigation resolves to `/` from repeated route pages.
+
+### Fix pills
+
+- <span class="pill pill-fix">Navigation Fix</span> The brand and Home links no longer loop visitors back to the current nested route when used from inner pages.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Repeated first-level routes, nested policy routes, Change Log Hub, README current release, branded error-page footer version text, and repeated footer version strings across the public site.
+- Files changed: Repeated `public/**/index.html` header links, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors using nested routes and maintainers reviewing release records.
+- Public impact: Visitors on nested pages can now use the brand and Home links to return to the homepage as expected.
+- Internal impact: Shared static header markup now uses the correct directory depth for homepage navigation while release records remain aligned.
+
+### Version decision
+
+- Previous version: `v2.1.4b`
+- New version: `v2.1.5b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small user-visible navigation bug fix that corrects repeated header behavior without changing routes or introducing a new workflow.
+
+### Validation
+
+- Checks run: Source review of repeated header links, release-record alignment review, and path-audit searches across nested route files.
+- Manual checks completed: Confirmed by source review that only `public/index.html` keeps `href="./"` for the brand and Home links, nested first-level routes now use `../`, nested policy routes now use `../../`, and no SEO metadata, sitemap entries, robots rules, Newsroom routing, footer links, or branded error-page structure were changed by this fix.
+- Known limitations: PHP CLI is not available in this workspace, so the recommended `php -S 127.0.0.1:8080 -t public` preview and full browser-based click testing still need a manual pass outside this non-interactive workspace.
+- Rollback notes: Revert the repeated nested-route header links and restore the previous `v2.1.4b` release records if the navigation fix needs to be undone.
+
 ## [v2.1.4b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.1.4b</span>
@@ -8,45 +156,45 @@
 
 ### Summary
 
-Fixed the floating right-hand sidebar stack so the lower support card no longer overlaps the clinic help card on the affected desktop layouts.
+Fixed the shared help sidebar so both cards float together with clearer spacing across the homepage and repeated route pages.
 
 ### Detailed changes
 
-- Added a new `side-stack-sticky` shared modifier in `public/assets/theme/clinic.css` so two-card right rails can float as one sticky stack, cap themselves to the available desktop viewport height, and scroll internally when space is limited.
-- Updated the homepage, contact, bookings, and services templates to apply the shared stacked-sidebar modifier without changing CTA copy, button order, support illustration content, routes, or JavaScript behaviour.
+- Updated `public/assets/theme/clinic.css` so the shared sidebar container now handles sticky positioning, the two-column content grid aligns items correctly, and the support cards keep a clearer gap on desktop.
+- Preserved the existing stacked mobile layout by returning the sidebar to normal flow below the desktop breakpoint.
 - Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.4b` beta patch release.
 
 ### Type pills
 
-- <span class="pill pill-type">Changed</span> Adjusted the shared sidebar behaviour so affected right-hand card stacks float together instead of pinning only the top card.
-- <span class="pill pill-accessibility">Accessibility</span> Keeps booking and contact actions reachable by preventing the lower sidebar card from sliding underneath the upper support panel on shorter desktop viewports.
+- <span class="pill pill-type">Changed</span> Corrected the shared sidebar behavior so the help panel and illustration card move together instead of separating during desktop scrolling.
+- <span class="pill pill-accessibility">Accessibility</span> Improved visual separation and reading flow for the repeated support sidebar on shared public pages.
 
 ### Fix pills
 
-- <span class="pill pill-fix">Layout Fix</span> The floating right-hand column now remains a single readable stack on affected pages.
+- <span class="pill pill-fix">Layout Fix</span> Moved sticky behavior from the first sidebar card to the shared sidebar container and increased the inter-card gap.
 
 ### Affected areas
 
 - Website: APES Pet Care Clinic public website.
-- Page or route: Homepage, contact page, bookings page, services page, shared clinic sidebar styling, Change Log Hub, README current release, and repeated footer version text.
-- Files changed: `public/assets/theme/clinic.css`, `public/index.html`, `public/contact/index.html`, `public/bookings/index.html`, `public/services/index.html`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
-- User groups affected: Public visitors using desktop and small-laptop layouts, pet owners trying to book or contact the clinic, and maintainers reviewing release records.
-- Public impact: The right-hand help and support cards stay readable and clickable instead of overlapping while visitors scroll.
-- Internal impact: The sidebar pattern now has an explicit shared modifier for stacked sticky behaviour, and the release record remains aligned.
+- Page or route: Homepage, services, bookings, contact, repeated species and policy pages, branded error pages, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors, pet owners using service and information pages, and maintainers reviewing release records.
+- Public impact: The shared support sidebar now reads as two separate cards while floating together more reliably on desktop pages.
+- Internal impact: Shared layout behavior and release records remain aligned for future maintenance.
 
 ### Version decision
 
 - Previous version: `v2.1.3b`
 - New version: `v2.1.4b`
 - Version type: Beta patch release
-- Reason for version bump: This is a small user-visible layout and accessibility fix to the shared right-hand sidebar pattern.
+- Reason for version bump: This is a small user-visible layout and usability fix to a shared repeated sidebar pattern.
 
 ### Validation
 
-- Checks run: Source review of the stacked sidebar modifier, release-record alignment check, and footer version string verification across public HTML files.
-- Manual checks completed: Confirmed by source review that the affected stacked sidebars now use the shared sticky-stack modifier, the inner help card no longer stays independently sticky inside that modifier, and the existing mobile and tablet breakpoint reset remains in place without route, SEO metadata, sitemap, robots, News routing, footer links, or error-page structure changes.
-- Known limitations: Browser QA with a live local preview still needs a manual visual pass outside this non-interactive workspace.
-- Rollback notes: Revert the shared stacked-sidebar modifier, restore the previous sidebar classes on the four affected templates, and reset the `v2.1.3b` release records if the layout fix needs to be undone.
+- Checks run: Source review of the shared sidebar CSS cascade and release-record alignment review.
+- Manual checks completed: Confirmed by source review that the shared sidebar now owns desktop sticky behavior, keeps a larger card gap, and returns to normal flow below `980px` without changing routes, navigation, SEO metadata, sitemap entries, robots rules, Newsroom routing, footer links, or branded error-page structure.
+- Known limitations: PHP CLI is not available in this workspace, so the recommended `php -S 127.0.0.1:8080 -t public` preview and full browser-based visual scrolling QA still need a manual pass outside this non-interactive workspace.
+- Rollback notes: Revert the shared sidebar CSS changes and restore the previous `v2.1.3b` release records if the layout fix needs to be undone.
 
 ## [v2.1.3b] - 2026-06-09
 
