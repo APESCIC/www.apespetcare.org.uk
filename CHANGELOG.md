@@ -1,3 +1,53 @@
+## [v2.1.6b] - 2026-06-10
+
+<span class="pill pill-version">Version v2.1.6b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Header Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Replaced the visible top-bar social network names with compact social icons while keeping the existing links accessible across the shared website header.
+
+### Detailed changes
+
+- Updated `public/assets/theme/clinic.css` so the repeated top-bar social links now render as compact icon buttons with shared hover and focus styling instead of visible text labels.
+- Preserved the existing social destination URLs and kept the source link text in the repeated header markup so the links still expose readable names while the visual presentation becomes more compact.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v2.1.6b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Updated the shared header top bar so social links display as icons instead of text labels across the static route set.
+- <span class="pill pill-accessibility">Accessibility</span> Retained readable link names in the source and visible focus treatment while reducing header clutter.
+
+### Fix pills
+
+- <span class="pill pill-fix">Header Fix</span> The shared top bar now uses a more compact icon treatment for social links without changing the underlying destinations.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared header top bar across repeated public routes, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors using the shared header and maintainers reviewing release records.
+- Public impact: The header top bar is more compact and visually scannable while the same social links remain available.
+- Internal impact: Shared header styling and release records remain aligned without introducing new runtime dependencies.
+
+### Version decision
+
+- Previous version: `v2.1.5b`
+- New version: `v2.1.6b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small shared UI and accessibility-safe header polish that changes visual presentation without adding new routes or workflows.
+
+### Validation
+
+- Checks run: Source review of the shared top-bar CSS, release-record alignment review, and footer version string verification across public HTML files.
+- Manual checks completed: Confirmed by source review that the shared top-bar social links now render as icon buttons from CSS, keep the existing social URLs, retain focus treatment, and do not change SEO metadata, sitemap entries, robots rules, Newsroom routing, footer links, or branded error-page structure.
+- Known limitations: No browser preview was run in this non-interactive workspace, so final visual QA of icon rendering and spacing across desktop and mobile breakpoints still needs a manual pass.
+- Rollback notes: Revert the shared top-bar CSS icon treatment and restore the previous `v2.1.5b` release records if the header presentation needs to return to text links.
+
 ## [v2.1.5b] - 2026-06-09
 
 <span class="pill pill-version">Version v2.1.5b</span>
