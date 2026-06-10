@@ -226,7 +226,26 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed navigation fix" data-impact="changed navigation fix">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed header fix accessibility" data-impact="changed header fix accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-10</p>
+                <h2>v2.1.6b - Replaced the visible top-bar social network names with compact social icons while keeping the shared header links accessible.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v2.1.6b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Header Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Replaced the visible top-bar social network names with compact social icons while keeping the shared header links accessible.</p>
+            <ul>
+            <li>Updated <code>public/assets/theme/clinic.css</code> so the repeated top-bar social links now render as compact icon buttons with shared hover and focus styling instead of visible text labels.</li>
+            <li>Preserved the existing social destination URLs and kept the source link text in the repeated header markup so the links still expose readable names while the visual presentation becomes more compact.</li>
+            <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new <code>v2.1.6b</code> beta patch release.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed navigation fix" data-impact="changed navigation fix">
           <summary>
             <div class="release-card-head">
               <div>
@@ -754,7 +773,7 @@
         </section>
       </div>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.5b</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.6b</span>
         <a class="footer-hub-link" href="../donate/">Donate</a>
         <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
         <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>
