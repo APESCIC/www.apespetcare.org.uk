@@ -1,3 +1,52 @@
+## [v3.1.2b] - 2026-06-11
+
+<span class="pill pill-version">Version v3.1.2b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Navigation Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Separated the desktop/laptop and mobile/tablet primary menus so mobile mega-menu panels open and scroll without flashing.
+
+### Detailed changes
+
+- Updated the repeated public HTML header markup so the desktop navigation and mobile navigation now have separate `desktop-nav` and `mobile-nav` structures with independent ids, aria labels, and JavaScript hooks.
+- Updated `public/assets/js/site.js` so desktop mega-menu positioning, mobile menu open state, mobile submenu taps, Escape handling, outside-click handling, resize handling, and scroll handling no longer share one navigation state.
+- Updated `public/assets/theme/clinic.css` so the desktop menu is hidden on mobile/tablet viewports, the mobile menu is hidden on desktop/laptop viewports, and mobile submenu panels are only controlled inside the mobile navigation.
+- Preserved route paths, SEO metadata, sitemap records, footer links, Newsroom routing, branded error-page structure, public-folder structure, and Cloudron LAMP compatibility.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v3.1.2b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Stops mobile/tablet navigation flicker caused by shared desktop and mobile menu state.
+- <span class="pill pill-fix">Navigation Fix</span> Keeps desktop mega menus and mobile tap menus independently maintainable.
+- <span class="pill pill-accessibility">Accessibility</span> Preserves explicit menu controls, expanded states, focus handling, and Escape close behavior.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared header navigation across public HTML routes, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/**/*.html`, `public/assets/js/site.js`, `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and `README.md`.
+- User groups affected: Mobile and tablet visitors using the menu, desktop visitors using mega menus, keyboard users, and maintainers updating navigation.
+- Public impact: Mobile and tablet users get a dedicated tap-driven menu that stays stable while opening panels and scrolling.
+- Internal impact: The site remains static HTML with shared CSS and JavaScript; no build pipeline, database, or persistent runtime is introduced.
+
+### Version decision
+
+- Previous version: `v3.1.1`
+- New version: `v3.1.2b`
+- Version type: Beta patch release
+- Reason for version bump: This is a user-visible navigation bug fix that changes repeated header markup and shared menu behavior.
+
+### Validation
+
+- Checks run: Source checks for separated menu markup, CSS breakpoint isolation, JavaScript menu-state isolation, version string alignment, public-folder structure, local preview, and smoke tests where the local environment supports them.
+- Manual checks completed: Confirmed by source review that desktop and mobile menus now use independent DOM hooks and that scroll/resize positioning only targets the desktop menu.
+- Known limitations: Browser visual QA and local PHP/shell validation are environment-dependent and should be reported with exact results after the local validation pass.
+- Rollback notes: Revert the separated header markup, menu JavaScript, mobile/desktop navigation CSS, and `v3.1.2b` release-record sync to restore the previous `v3.1.1` menu implementation.
+
 ## [v3.1.1] - 2026-06-11
 
 <span class="pill pill-version">Version v3.1.1</span>

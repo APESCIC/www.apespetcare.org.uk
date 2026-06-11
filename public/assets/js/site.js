@@ -1,8 +1,10 @@
 (function () {
   const mobileQuery = window.matchMedia("(max-width: 860px)");
-  const menuToggle = document.querySelector("[data-menu-toggle]");
-  const mainNav = document.querySelector("[data-main-nav]");
-  const menuDrops = Array.from(document.querySelectorAll(".drop"));
+  const menuToggle = document.querySelector("[data-mobile-menu-toggle]");
+  const desktopNav = document.querySelector("[data-desktop-nav]");
+  const mobileNav = document.querySelector("[data-mobile-nav]");
+  const desktopDrops = desktopNav ? Array.from(desktopNav.querySelectorAll(".drop")) : [];
+  const mobileDrops = mobileNav ? Array.from(mobileNav.querySelectorAll(".drop")) : [];
 
   const openPopupWindow = (url, popupName, width, height) => {
     const left = Math.max(0, Math.floor((window.screen.width - width) / 2));
@@ -36,7 +38,7 @@
   const syncBodyState = () => {
     document.body.classList.toggle(
       "nav-open",
-      Boolean(mainNav && mainNav.classList.contains("open") && mobileQuery.matches)
+      Boolean(mobileNav && mobileNav.classList.contains("open") && mobileQuery.matches)
     );
   };
 
@@ -55,14 +57,14 @@
     }
   };
 
-  const closeAllDrops = (except) => {
-    menuDrops.forEach((drop) => {
+  const closeDrops = (drops, except) => {
+    drops.forEach((drop) => {
       if (drop !== except) closeDrop(drop);
     });
   };
 
   const positionDesktopPanel = (drop) => {
-    if (!drop || mobileQuery.matches) return;
+    if (!drop || mobileQuery.matches || !desktopNav || !desktopNav.contains(drop)) return;
     const panel = drop.querySelector(".drop-panel");
     if (!panel) return;
 
@@ -95,11 +97,11 @@
     }
   };
 
-  const closeMainNav = ({ restoreFocus = false } = {}) => {
-    if (!mainNav || !menuToggle) return;
-    mainNav.classList.remove("open");
+  const closeMobileNav = ({ restoreFocus = false } = {}) => {
+    if (!mobileNav || !menuToggle) return;
+    mobileNav.classList.remove("open");
     menuToggle.setAttribute("aria-expanded", "false");
-    closeAllDrops();
+    closeDrops(mobileDrops);
     syncBodyState();
     if (restoreFocus) {
       menuToggle.focus();
@@ -107,45 +109,67 @@
   };
 
   const syncNavMode = () => {
-    if (!mainNav) return;
     if (!mobileQuery.matches) {
-      mainNav.classList.remove("open");
+      if (mobileNav) {
+        mobileNav.classList.remove("open");
+      }
       if (menuToggle) {
         menuToggle.setAttribute("aria-expanded", "false");
       }
+      closeDrops(mobileDrops);
+    } else {
+      closeDrops(desktopDrops);
     }
-    closeAllDrops();
     syncBodyState();
   };
 
-  if (menuToggle && mainNav) {
+  if (menuToggle && mobileNav) {
     menuToggle.addEventListener("click", () => {
-      const open = mainNav.classList.toggle("open");
+      const open = mobileNav.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(open));
       if (!open) {
-        closeAllDrops();
+        closeDrops(mobileDrops);
       }
       syncBodyState();
     });
   }
 
-  document.querySelectorAll(".drop > .drop-trigger").forEach((trigger) => {
-    trigger.addEventListener("click", (event) => {
-      const parent = trigger.closest(".drop");
-      if (!parent) return;
+  desktopDrops.forEach((drop) => {
+    const trigger = drop.querySelector(":scope > .drop-trigger");
+    if (!trigger) return;
 
+    trigger.addEventListener("click", (event) => {
       event.preventDefault();
-      const opening = !parent.classList.contains("open");
-      closeAllDrops(parent);
+      const opening = !drop.classList.contains("open");
+      closeDrops(desktopDrops, drop);
 
       if (!opening) {
-        closeDrop(parent);
+        closeDrop(drop);
         return;
       }
 
-      parent.classList.add("open");
+      drop.classList.add("open");
       trigger.setAttribute("aria-expanded", "true");
-      positionDesktopPanel(parent);
+      positionDesktopPanel(drop);
+    });
+  });
+
+  mobileDrops.forEach((drop) => {
+    const trigger = drop.querySelector(":scope > .drop-trigger");
+    if (!trigger) return;
+
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      const opening = !drop.classList.contains("open");
+      closeDrops(mobileDrops, drop);
+
+      if (!opening) {
+        closeDrop(drop);
+        return;
+      }
+
+      drop.classList.add("open");
+      trigger.setAttribute("aria-expanded", "true");
     });
   });
 
@@ -153,37 +177,42 @@
     const target = event.target;
     if (!(target instanceof Node)) return;
     if (
-      (mainNav && mainNav.contains(target)) ||
+      (desktopNav && desktopNav.contains(target)) ||
+      (mobileNav && mobileNav.contains(target)) ||
       (menuToggle && menuToggle.contains(target))
     ) {
       return;
     }
 
     if (mobileQuery.matches) {
-      closeMainNav();
+      closeMobileNav();
       return;
     }
 
-    closeAllDrops();
+    closeDrops(desktopDrops);
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
-    closeAllDrops();
-    if (mainNav && mainNav.classList.contains("open")) {
-      closeMainNav({ restoreFocus: true });
+    closeDrops(desktopDrops);
+    closeDrops(mobileDrops);
+    if (mobileNav && mobileNav.classList.contains("open")) {
+      closeMobileNav({ restoreFocus: true });
     }
   });
 
-  if (mainNav) {
-    mainNav.querySelectorAll("a").forEach((link) => {
+  if (desktopNav) {
+    desktopNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        if (!mobileQuery.matches) {
-          closeAllDrops();
-          return;
-        }
+        closeDrops(desktopDrops);
+      });
+    });
+  }
 
-        closeMainNav();
+  if (mobileNav) {
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileNav();
       });
     });
   }
@@ -195,14 +224,14 @@
   }
 
   window.addEventListener("resize", () => {
-    const openDrop = menuDrops.find((drop) => drop.classList.contains("open"));
+    const openDrop = desktopDrops.find((drop) => drop.classList.contains("open"));
     if (openDrop && !mobileQuery.matches) {
       positionDesktopPanel(openDrop);
     }
   });
 
   window.addEventListener("scroll", () => {
-    const openDrop = menuDrops.find((drop) => drop.classList.contains("open"));
+    const openDrop = desktopDrops.find((drop) => drop.classList.contains("open"));
     if (openDrop && !mobileQuery.matches) {
       positionDesktopPanel(openDrop);
     }

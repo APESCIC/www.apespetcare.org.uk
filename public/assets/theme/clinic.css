@@ -248,6 +248,10 @@ a {
   flex-wrap: wrap;
 }
 
+.mobile-nav {
+  display: none;
+}
+
 .main-nav a,
 .drop-trigger {
   font-weight: 700;
@@ -266,7 +270,7 @@ a {
 }
 
 .main-nav a:hover,
-.drop:hover .drop-trigger {
+.desktop-nav .drop:hover .drop-trigger {
   background: rgba(84, 201, 180, 0.2);
   transform: translateY(-1px);
 }
@@ -302,8 +306,8 @@ a {
   z-index: 45;
 }
 
-.drop:hover .drop-panel,
-.drop:focus-within .drop-panel {
+.desktop-nav .drop:hover .drop-panel,
+.desktop-nav .drop:focus-within .drop-panel {
   display: block;
 }
 
@@ -1819,7 +1823,11 @@ a {
     display: inline-block;
   }
 
-  .main-nav {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
     display: none;
     position: absolute;
     top: 84px;
@@ -1833,16 +1841,18 @@ a {
     gap: 6px;
   }
 
-  .main-nav.open {
+  .mobile-nav.open {
     display: grid;
   }
 
-  .main-nav > a,
-  .drop-trigger {
+  .mobile-nav > a,
+  .mobile-nav .drop-trigger {
     width: 100%;
+    display: block;
+    text-align: left;
   }
 
-  .drop-panel {
+  .mobile-nav .drop-panel {
     position: static;
     display: none;
     box-shadow: none;
@@ -1851,18 +1861,18 @@ a {
     margin: 4px 0 8px;
   }
 
-  .drop.open .drop-panel {
+  .mobile-nav .drop.open .drop-panel {
     display: block;
   }
 
-  .mega-panel {
+  .mobile-nav .mega-panel {
     min-width: 0;
     transform: none;
     left: auto;
     padding: 10px;
   }
 
-  .mega-links {
+  .mobile-nav .mega-links {
     grid-template-columns: 1fr;
   }
 
@@ -1995,7 +2005,7 @@ body {
 }
 
 .main-nav a:hover,
-.drop:hover .drop-trigger {
+.desktop-nav .drop:hover .drop-trigger {
   background: rgba(76, 184, 173, 0.18);
 }
 
@@ -2455,11 +2465,8 @@ body {
 }
 
 @media (min-width: 861px) {
-  .drop:hover > .drop-panel,
-  .drop:focus-within > .drop-panel {
-    display: none;
-  }
-
+  .desktop-nav .drop:hover > .drop-panel,
+  .desktop-nav .drop:focus-within > .drop-panel,
   .drop.open:focus-within > .drop-panel {
     display: block;
   }
@@ -2505,15 +2512,15 @@ body {
     min-height: 300px;
   }
 
-  .main-nav {
+  .mobile-nav {
     top: 92px;
     max-height: calc(100vh - 116px);
     overflow-y: auto;
     overscroll-behavior: contain;
   }
 
-  .main-nav a::after,
-  .drop-trigger::after {
+  .mobile-nav a::after,
+  .mobile-nav .drop-trigger::after {
     left: 12px;
     right: auto;
     bottom: 3px;
