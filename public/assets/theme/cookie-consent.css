@@ -111,8 +111,7 @@
   gap: 12px;
 }
 
-.cookie-consent__close,
-.footer-cookie-link {
+.cookie-consent__close {
   appearance: none;
   border: 0;
   background: none;
@@ -131,9 +130,7 @@
 }
 
 .cookie-consent__close:hover,
-.cookie-consent__close:focus-visible,
-.footer-cookie-link:hover,
-.footer-cookie-link:focus-visible {
+.cookie-consent__close:focus-visible {
   text-decoration: underline;
   outline: none;
 }
@@ -216,10 +213,6 @@
   font-size: 1.8rem;
   line-height: 1;
   transform: translateY(1px);
-}
-
-button.footer-cookie-link {
-  font-weight: 800;
 }
 
 @media (max-width: 760px) {

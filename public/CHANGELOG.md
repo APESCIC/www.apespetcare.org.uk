@@ -1,50 +1,53 @@
-## [v3.2.5b] - 2026-06-11
+## [v3.2.6b] - 2026-06-11
 
-<span class="pill pill-version">Version v3.2.5b</span>
+<span class="pill pill-version">Version v3.2.6b</span>
 <span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
 <span class="pill pill-type">Fixed</span>
 <span class="pill pill-compliance">Compliance</span>
 <span class="pill pill-accessibility">Accessibility</span>
 
 ### Summary
 
-Centered the cookie consent panel so it opens as a compact modal with enough room for the consent copy and actions without internal scrolling.
+Moved the governance links into the relevant footer columns, added Cookies Policy to the Information menu, and added the centered CIC legal line while keeping the version label visible.
 
 ### Detailed changes
 
-- Reworked the consent wrapper so the panel centers in the viewport while the launcher remains available at the bottom-left corner.
-- Expanded the modal size and tightened its copy so the banner and preferences panel fit without internal scrolling at the supported desktop and mobile sizes.
-- Kept the shared consent model, policy route, consent storage, launcher button, and consent-gated third-party loaders unchanged.
-- Synced root and public version files, README release badges/current-release text, the public changelog hub output, and repeated footer version text to `v3.2.5b`.
+- Added Cookies Policy to the shared Information mega menu so the policy sits with the rest of the public navigation.
+- Moved Donate into a new Support Us footer column and left the policies column to carry the policy links and cookie controls.
+- Removed the extra footer governance links from the meta row so the version line is the only item left there.
+- Added a centered CIC legal line at the bottom of the footer to satisfy the requested compliance wording.
+- Synced the shared footer/version text and the mirrored release files to `v3.2.6b`.
 
 ### Type pills
 
-- <span class="pill pill-type">Fixed</span> Repairs the dialog close control and adds a fast accept-all path.
-- <span class="pill pill-compliance">Compliance</span> Keeps the consent model and optional script gating aligned with the existing policy route.
-- <span class="pill pill-accessibility">Accessibility</span> Keeps the controls keyboard reachable and screen-reader friendly.
+- <span class="pill pill-type">Changed</span> Adjusts the shared footer structure and the Information navigation.
+- <span class="pill pill-fix">Content Fix</span> Moves duplicated governance links into the relevant footer columns.
+- <span class="pill pill-compliance">Compliance</span> Adds the CIC notice and keeps the release record aligned with the public site.
+- <span class="pill pill-accessibility">Accessibility</span> Keeps the footer grouped so the version line and controls remain easy to scan.
 
 ### Affected areas
 
 - Website: APES Pet Care Clinic public website.
-- Page or route: home, privacy policy, cookie policy, footer governance links, shared HTML route templates, sitemap records, and the Change Log Hub.
-- Files changed: `public/assets/js/site.js`, `public/assets/theme/cookie-consent.css`, `VERSION`, `public/VERSION`, `README.md`, `CHANGELOG.md`, `public/CHANGELOG.md`, and `public/changelog/index.html`.
-- User groups affected: visitors adjusting cookie preferences, maintainers checking release records, and privacy/compliance reviewers.
-- Public impact: Visitors can close the dialog reliably and accept all optional cookies from the settings panel in one step.
+- Page or route: Shared header navigation, shared footer columns, cookies policy route, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/js/site.js`, `public/assets/theme/clinic.css`, `public/assets/theme/cookie-consent.css`, `VERSION`, `public/VERSION`, `README.md`, `CHANGELOG.md`, `public/CHANGELOG.md`, and `public/changelog/index.html`.
+- User groups affected: Public visitors using the main navigation, footer links, cookie preferences, and release records.
+- Public impact: Visitors can find Cookies Policy in the Information menu and the footer now groups governance links in the relevant footer columns.
 - Internal impact: The site remains a static HTML deployment with PHP support tooling only, preserving Cloudron LAMP compatibility.
 
 ### Version decision
 
-- Previous version: `v3.2.4b`
-- New version: `v3.2.5b`
-- Version type: Beta minor release
-- Reason for version bump: This is a user-visible layout and copy fix for the consent experience that preserves the same policy route, storage model, and static hosting approach.
+- Previous version: `v3.2.5b`
+- New version: `v3.2.6b`
+- Version type: Beta patch release
+- Reason for version bump: This is a public-facing navigation and footer-structure update with compliance and accessibility impact.
 
 ### Validation
 
-- Checks run: PowerShell public-root structure check, loopback static-preview route checks, and browser inspection in Edge with Playwright against `http://127.0.0.1:8080/`.
-- Manual checks completed: Confirmed the consent banner is centered on desktop at 672x350, the mobile preferences panel renders at 366x668 without internal scrolling, and the main public routes return 200 while a missing route returns 404.
-- Known limitations: `php -l dev/router.php` and the documented `sh` smoke tests could not be run in this Windows session because PHP and WSL/sh are unavailable; Apache-only `/crawl/` blocking was not exercised by the fallback static server.
-- Rollback notes: Revert the consent layout changes and `v3.2.5b` release-record sync if the release needs to return to `v3.2.2b`.
+- Checks run: Source review of the shared footer and navigation logic, plus planned local preview and browser inspection for the public homepage and policy routes.
+- Manual checks completed: Pending the final browser pass after the file updates are in place.
+- Known limitations: The footer and menu changes are shared through the front-end script, so the rendered result must be checked across the main public routes.
+- Rollback notes: Revert the footer/navigation script and theme updates plus the `v3.2.6b` release-record sync to restore the previous `v3.2.5b` layout.
 
 ## [v3.1.2] - 2026-06-11
 
