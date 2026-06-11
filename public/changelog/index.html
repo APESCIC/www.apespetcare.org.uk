@@ -226,7 +226,27 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed layout fix accessibility" data-impact="changed layout fix accessibility">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed tooling accessibility" data-impact="changed tooling accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-11</p>
+                <h2>v3.0.0b - Migrated the repository contract to an HTML website with PHP support tools while keeping public routes static.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v3.0.0b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-type">Tooling</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Migrated the repository contract to an HTML website with PHP support tools, keeping public routes static while adding APES-standard local preview routing, public-root validation, smoke tests, and dedicated preview documentation.</p>
+            <ul>
+            <li>Added <code>dev/router.php</code> so maintainers can preview the static HTML site through the PHP built-in server with routing parity, blocked maintenance folders, and branded 403/404 handling.</li>
+            <li>Added <code>dev/check-public-root.sh</code> and <code>dev/smoke-test.sh</code> to verify the <code>public/</code> web-root contract and key local-preview routes.</li>
+            <li>Added <code>docs/local-preview.md</code> and <code>docs/preview-checklist.md</code> so future work has a clear HTTP loopback preview workflow and release QA checklist.</li>
+            <li>Updated README architecture notes, version records, changelog mirrors, Change Log Hub output, and repeated footer version text to <code>v3.0.0b</code>.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed layout fix accessibility" data-impact="changed layout fix accessibility">
           <summary>
             <div class="release-card-head">
               <div>
@@ -792,7 +812,7 @@
         </section>
       </div>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v2.1.7b</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v3.0.0b</span>
         <a class="footer-hub-link" href="../donate/">Donate</a>
         <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
         <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>

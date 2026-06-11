@@ -1,6 +1,6 @@
 # Maintenance Artifacts
 
-This repository now treats the static HTML website under `public/` as the runtime source of truth.
+This repository treats the HTML website under `public/` as the runtime source of truth, with PHP limited to support tooling for local preview and validation.
 
 Some older files remain because they may still be useful for audit history, manual content reference, or later cleanup work. They are not required for the live Cloudron LAMP runtime unless a future task proves otherwise.
 
@@ -23,6 +23,11 @@ Use these files and directories as the active website architecture:
 - `CHANGELOG.md`
 - `public/VERSION`
 - `public/CHANGELOG.md`
+- `dev/router.php`
+- `dev/check-public-root.sh`
+- `dev/smoke-test.sh`
+- `docs/local-preview.md`
+- `docs/preview-checklist.md`
 
 ## Legacy or maintenance-only artifacts
 
@@ -41,7 +46,8 @@ These files should be treated as non-runtime unless a task explicitly depends on
 
 - Keep these artifacts unless a later task proves they are safe to remove or relocate.
 - Do not treat them as the deployment contract for the live site.
-- Prefer updating the active static HTML routes and shared front-end assets over reviving older generation, Python helper, or PHP helper workflows.
+- Prefer updating the active static HTML routes and shared front-end assets over reviving older generation or Python helper workflows.
+- Keep PHP helper use limited to preview routing, public-root validation, and smoke testing unless a future approved task changes the architecture.
 
 ## Theme source model
 

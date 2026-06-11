@@ -5,14 +5,14 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
   <img alt="Status: beta" src="https://img.shields.io/badge/status-beta-d88900">
-  <img alt="Version: v2.1.7b" src="https://img.shields.io/badge/version-v2.1.7b-14532d">
-  <img alt="Runtime: static HTML and Apache" src="https://img.shields.io/badge/runtime-static%20HTML%20%2B%20Apache-245c6b">
+  <img alt="Version: v3.0.0b" src="https://img.shields.io/badge/version-v3.0.0b-14532d">
+  <img alt="Runtime: HTML with PHP support tools" src="https://img.shields.io/badge/runtime-HTML%20%2B%20PHP%20tools-245c6b">
   <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
 </p>
 
 ## Current release
 
-- Version: `v2.1.7b`
+- Version: `v3.0.0b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
@@ -26,13 +26,22 @@ The current architecture intentionally stays simple:
 - Static HTML route files under `public/`
 - Shared CSS, JavaScript, images, and third-party client-side integrations only
 - Apache and `.htaccess` routing with `index.html` as the preferred public entrypoint
-- No frontend framework, package manager, PHP runtime, or build pipeline required for the live public site
+- PHP support tools for local preview routing, public-root checks, and smoke testing
+- No frontend framework, package manager, database, persistent PHP application, or build pipeline required for the live public site
 
 ## Repository structure
 
 ```text
 .
 |-- .github/
+|-- dev/
+|   |-- router.php
+|   |-- check-public-root.sh
+|   `-- smoke-test.sh
+|-- docs/
+|   |-- local-preview.md
+|   |-- maintenance-artifacts.md
+|   `-- preview-checklist.md
 |-- public/
 |   |-- .htaccess
 |   |-- 403.html
@@ -61,32 +70,32 @@ The current architecture intentionally stays simple:
 ## Document root and deployment
 
 - Document root: `public/`
-- Expected hosting: Static-friendly Apache hosting, including Cloudron LAMP where PHP is no longer required for the public routes
+- Expected hosting: HTML-first Apache hosting, including Cloudron LAMP, with PHP limited to preview/support tooling unless a future approved task expands the scope
 - Primary route pattern: folder-based URLs such as `/services/` and `/contact/`
 - Redirects and error documents are managed in `public/.htaccess`
 
 ## Local development
 
-This repo does not use the `npm` or Python workflow previously documented here.
+This repo does not use the `npm` or Python workflow previously documented here. The supported local workflow is an HTML website previewed through PHP support tooling.
 
 Important preview note:
 
-- The site now uses relative local asset paths in `public/` so `public/index.html` and nested `public/**/index.html` pages can be previewed directly from VS Code as `file://` URLs.
+- The site uses relative local asset paths in `public/`, but the preferred preview path is the HTTP loopback URL served from `public/`.
 - External integrations and absolute web URLs such as `https://...` remain unchanged.
 - Legacy snapshot files under `public/crawl/` are maintenance artifacts and are not part of the runtime website.
 - Keep public routes as static HTML, CSS, browser JavaScript, images, and Apache configuration so the deployable tree remains Cloudron LAMP-compatible.
 
 Recommended VS Code workflow:
 
-1. Open `public/index.html` directly in VS Code and preview it as a local `file://` document.
-2. For broader route testing, run the workspace task `Start APES Pet Care Clinic preview server`.
-3. Open `http://127.0.0.1:8080/` in VS Code Simple Browser.
-4. Stop the task when you finish previewing.
+1. Start the PHP local preview server from the repository root.
+2. Open `http://127.0.0.1:8080/` in VS Code Simple Browser, Codex browser, or a normal browser.
+3. Use `docs/preview-checklist.md` for route, footer, sitemap, error-page, and hosting checks.
+4. Stop the server when you finish previewing.
 
-Equivalent LAMP-aligned preview workflow in any terminal where PHP CLI is available:
+LAMP-aligned preview workflow in any terminal where PHP CLI is available:
 
 ```powershell
-php -S 127.0.0.1:8080 -t public
+php -S 127.0.0.1:8080 -t public dev/router.php
 ```
 
 Then open:
@@ -97,7 +106,9 @@ http://127.0.0.1:8080/
 
 If you are using Apache, Cloudron, or another static web server, point the web root at `public/`.
 
-This repository does not currently depend on PHP to render the public routes, but the PHP built-in server is useful when maintainers want a preview path closer to the wider APES website hosting pattern.
+This repository does not depend on PHP to render the public routes in production. PHP is used for support tooling: the local router, public-root checks, and smoke-test workflow.
+
+See `docs/local-preview.md` for the full local preview workflow.
 
 ## HTML-first route architecture
 
@@ -192,10 +203,11 @@ Before release in a PHP-capable environment:
 - Check booking, Stripe, contact, and News redirect behaviour.
 - Check browser console and missing assets.
 - Run PHP syntax checks where `php` CLI is available.
+- Run `dev/check-public-root.sh` and `dev/smoke-test.sh` where shell support is available.
 
 Current workspace limitations:
 
-- `php` CLI may not be available in every local workspace, but the live site no longer depends on PHP for public route rendering.
+- `php` CLI may not be available in every local workspace, but the live site does not depend on PHP for public route rendering.
 - Browser QA and real Apache error-document testing still need to be completed elsewhere before release.
 
 ## Security and operational notes
