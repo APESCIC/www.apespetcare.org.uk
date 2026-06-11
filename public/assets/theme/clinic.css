@@ -1024,8 +1024,6 @@ a {
 }
 
 .side {
-  position: sticky;
-  top: 92px;
   align-self: start;
   display: grid;
   gap: 24px;
@@ -1033,15 +1031,7 @@ a {
 }
 
 .side-stack-sticky {
-  position: sticky;
-  top: 92px;
   align-self: start;
-  max-height: calc(100vh - 112px);
-  max-height: calc(100svh - 112px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding-right: 6px;
-  scrollbar-gutter: stable;
 }
 
 .side-card {

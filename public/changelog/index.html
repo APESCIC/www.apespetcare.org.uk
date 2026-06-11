@@ -226,7 +226,26 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed tooling accessibility" data-impact="changed tooling accessibility">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed layout fix accessibility" data-impact="changed layout fix accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-11</p>
+                <h2>v3.0.1b - Stopped the repeated right-hand clinic help sidebars from floating on desktop layouts.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v3.0.1b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Layout Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Stopped the repeated right-hand clinic help sidebars from floating on desktop layouts so the support panels now scroll naturally with each page.</p>
+            <ul>
+            <li>Updated <code>public/assets/theme/clinic.css</code> so the shared <code>.side</code> sidebar container no longer uses desktop sticky positioning.</li>
+            <li>Simplified the <code>side-stack-sticky</code> modifier so homepage, services, bookings, and contact sidebar stacks no longer cap themselves to the viewport or scroll internally.</li>
+            <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to <code>v3.0.1b</code>.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="changed tooling accessibility" data-impact="changed tooling accessibility">
           <summary>
             <div class="release-card-head">
               <div>
@@ -812,7 +831,7 @@
         </section>
       </div>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v3.0.0b</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v3.0.1b</span>
         <a class="footer-hub-link" href="../donate/">Donate</a>
         <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
         <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>

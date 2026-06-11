@@ -1,3 +1,53 @@
+## [v3.0.1b] - 2026-06-11
+
+<span class="pill pill-version">Version v3.0.1b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Stopped the repeated right-hand clinic help sidebars from floating on desktop layouts so the support panels now scroll naturally with each page.
+
+### Detailed changes
+
+- Updated `public/assets/theme/clinic.css` so the shared `.side` sidebar container no longer uses desktop sticky positioning.
+- Simplified the `side-stack-sticky` modifier so homepage, services, bookings, and contact sidebar stacks no longer cap themselves to the viewport or scroll internally.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v3.0.1b` beta patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Returned repeated clinic sidebars to normal page flow across desktop and mobile layouts.
+- <span class="pill pill-accessibility">Accessibility</span> Improves reading flow by avoiding a floating sidebar region with its own scroll area.
+
+### Fix pills
+
+- <span class="pill pill-fix">Layout Fix</span> The “Need Help Fast?” sidebar and matching support cards now scroll with the rest of the page.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Homepage, services page, bookings page, contact page, shared clinic sidebar styling, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors using desktop and small-laptop layouts, pet owners reviewing help and booking guidance, and maintainers reviewing release records.
+- Public impact: Repeated sidebars no longer float or create an internal scrolling panel; public routes, content, metadata, footer links, Newsroom routing, sitemap, robots, and branded error pages are otherwise unchanged.
+- Internal impact: The existing sidebar classes remain in markup, but the shared CSS now treats the sidebar as normal page content.
+
+### Version decision
+
+- Previous version: `v3.0.0b`
+- New version: `v3.0.1b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small user-visible layout and accessibility fix to a shared repeated sidebar pattern.
+
+### Validation
+
+- Checks run: `rg` source checks for sidebar and sticky CSS usage, PowerShell public-folder structure checks equivalent to `dev/check-public-root.sh`, release-record alignment review, and footer version string verification across public HTML files.
+- Manual checks completed: Confirmed by source review that `.side` and `side-stack-sticky` no longer apply desktop sticky positioning, viewport height caps, or internal sidebar scrolling; the remaining sticky CSS is limited to the site header, and the remaining max-height/overflow rule is for the mobile navigation menu.
+- Known limitations: PHP CLI, Bash, and the in-app browser bridge are not available in this Windows workspace, so `php -l dev/router.php`, `dev/check-public-root.sh`, `php -S 127.0.0.1:8080 -t public dev/router.php`, `dev/smoke-test.sh`, and browser visual QA still need a local pass in an environment with those tools available.
+- Rollback notes: Restore the previous sticky sidebar CSS and `v3.0.0b` release records if this layout fix needs to be undone.
+
 ## [v3.0.0b] - 2026-06-11
 
 <span class="pill pill-version">Version v3.0.0b</span>
