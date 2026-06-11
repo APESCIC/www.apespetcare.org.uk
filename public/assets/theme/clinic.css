@@ -309,11 +309,6 @@ a {
   z-index: 45;
 }
 
-.desktop-nav .drop:hover .drop-panel,
-.desktop-nav .drop:focus-within .drop-panel {
-  display: block;
-}
-
 .drop-panel a {
   display: block;
   padding: 9px 12px;
@@ -2640,8 +2635,7 @@ body {
 }
 
 @media (min-width: 861px) {
-  .desktop-nav .drop:hover > .drop-panel,
-  .desktop-nav .drop:focus-within > .drop-panel,
+  .drop.open > .drop-panel,
   .drop.open:focus-within > .drop-panel {
     display: block;
   }

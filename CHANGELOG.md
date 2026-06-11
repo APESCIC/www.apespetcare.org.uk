@@ -1,3 +1,51 @@
+## [v3.2.7b] - 2026-06-11
+
+<span class="pill pill-version">Version v3.2.7b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Navigation Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Stopped the desktop mega menus from opening on hover so they now open only on click and close cleanly when visitors move to another top-level item or click elsewhere on the page.
+
+### Detailed changes
+
+- Removed desktop hover-only mega-menu panel display rules so shared desktop navigation panels no longer open before a click.
+- Kept the shared desktop menu state driven by the existing `open` class, preserving click-to-open, click-to-close, outside-click close, and `Escape` close behavior.
+- Preserved the mobile/tap navigation model, route structure, SEO metadata, sitemap records, footer links, Newsroom routing, branded error pages, and Cloudron LAMP compatibility.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to `v3.2.7b`.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Changes the shared desktop mega menu interaction from hover-open to click-open only.
+- <span class="pill pill-fix">Navigation Fix</span> Keeps top-level desktop menu switching and outside-click close behavior predictable.
+- <span class="pill pill-accessibility">Accessibility</span> Prevents accidental desktop mega-menu opening while preserving explicit trigger control.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared desktop header navigation, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `public/assets/js/site.js`, `VERSION`, `public/VERSION`, `README.md`, `CHANGELOG.md`, `public/CHANGELOG.md`, and `public/changelog/index.html`.
+- User groups affected: Desktop and laptop visitors using the shared mega menus, keyboard users, and maintainers reviewing release records.
+- Public impact: Desktop mega menus stay closed until clicked and close again when visitors click outside or move to another top-level navigation item.
+- Internal impact: The site remains a static HTML deployment with PHP support tooling only, preserving Cloudron LAMP compatibility.
+
+### Version decision
+
+- Previous version: `v3.2.6b`
+- New version: `v3.2.7b`
+- Version type: Beta patch release
+- Reason for version bump: This is a small public-facing desktop navigation interaction fix with accessibility impact.
+
+### Validation
+
+- Checks run: Source review of the shared navigation CSS/JavaScript, version alignment checks, and static release-record alignment checks.
+- Manual checks completed: Confirmed by source review that desktop mega-menu panels no longer have hover-open CSS and the shared click-driven open state remains intact in the navigation script.
+- Known limitations: PHP CLI is unavailable in this workspace and browser automation was not available here, so local preview commands and an interactive desktop/mobile browser pass still need to be completed after reload.
+- Rollback notes: Revert the shared navigation CSS/version updates plus the `v3.2.7b` release-record sync to restore the previous `v3.2.6b` menu behavior.
+
 ## [v3.2.6b] - 2026-06-11
 
 <span class="pill pill-version">Version v3.2.6b</span>

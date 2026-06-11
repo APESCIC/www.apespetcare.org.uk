@@ -9,7 +9,7 @@
   const consentSchemaVersion = "1";
   const consentStorageKey = "apes-cookie-consent-v1";
   const cookiePolicyHref = "/policies/cookies-policy/";
-  const siteVersionLabel = "APES Pet Care Clinic v3.2.6b";
+  const siteVersionLabel = "APES Pet Care Clinic v3.2.7b";
   const footerLegalLine =
     "© 2026 Association of Protecting Exotic Species CIC. CIC No: 16253848. We are regulated by the CIC Commission for non-profit organisations.";
   const footerLegalParts = [
