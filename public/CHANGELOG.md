@@ -1,22 +1,21 @@
-## [v3.2.2b] - 2026-06-11
+## [v3.2.5b] - 2026-06-11
 
-<span class="pill pill-version">Version v3.2.2b</span>
+<span class="pill pill-version">Version v3.2.5b</span>
 <span class="pill pill-status">Beta</span>
-<span class="pill pill-type">Changed</span>
+<span class="pill pill-type">Fixed</span>
 <span class="pill pill-compliance">Compliance</span>
 <span class="pill pill-accessibility">Accessibility</span>
 
 ### Summary
 
-Fixed the cookie preferences close button and added a fast `Accept all` action inside the settings panel.
+Centered the cookie consent panel so it opens as a compact modal with enough room for the consent copy and actions without internal scrolling.
 
 ### Detailed changes
 
-- Added an explicit close-button click handler so the settings dialog now closes through the same dismiss path used by Escape.
-- Added a panel-level `Accept all` action that stores the full optional consent payload with one click.
-- Kept the shared consent model, policy route, consent storage, left-side launcher, and consent-gated third-party loaders unchanged.
-- Preserved footer access paths and the cookies policy link so visitors can reopen preferences from multiple routes.
-- Synced root and public version files, README release badges/current-release text, and the public changelog hub output to `v3.2.2b`.
+- Reworked the consent wrapper so the panel centers in the viewport while the launcher remains available at the bottom-left corner.
+- Expanded the modal size and tightened its copy so the banner and preferences panel fit without internal scrolling at the supported desktop and mobile sizes.
+- Kept the shared consent model, policy route, consent storage, launcher button, and consent-gated third-party loaders unchanged.
+- Synced root and public version files, README release badges/current-release text, the public changelog hub output, and repeated footer version text to `v3.2.5b`.
 
 ### Type pills
 
@@ -35,17 +34,17 @@ Fixed the cookie preferences close button and added a fast `Accept all` action i
 
 ### Version decision
 
-- Previous version: `v3.2.1b`
-- New version: `v3.2.2b`
+- Previous version: `v3.2.4b`
+- New version: `v3.2.5b`
 - Version type: Beta minor release
-- Reason for version bump: This is a user-visible interaction fix and quick-action improvement to the consent experience that preserves the same policy route, storage model, and static hosting approach.
+- Reason for version bump: This is a user-visible layout and copy fix for the consent experience that preserves the same policy route, storage model, and static hosting approach.
 
 ### Validation
 
-- Checks run: Pending the local verification pass for the cookie dialog close button, accept-all action, and preview route checks.
-- Manual checks completed: Pending.
-- Known limitations: Validation details will be updated once the local preview and browser behaviour checks finish.
-- Rollback notes: Revert the consent UI interaction fixes and version sync if the release needs to return to `v3.2.1b`.
+- Checks run: PowerShell public-root structure check, loopback static-preview route checks, and browser inspection in Edge with Playwright against `http://127.0.0.1:8080/`.
+- Manual checks completed: Confirmed the consent banner is centered on desktop at 672x350, the mobile preferences panel renders at 366x668 without internal scrolling, and the main public routes return 200 while a missing route returns 404.
+- Known limitations: `php -l dev/router.php` and the documented `sh` smoke tests could not be run in this Windows session because PHP and WSL/sh are unavailable; Apache-only `/crawl/` blocking was not exercised by the fallback static server.
+- Rollback notes: Revert the consent layout changes and `v3.2.5b` release-record sync if the release needs to return to `v3.2.2b`.
 
 ## [v3.1.2] - 2026-06-11
 
@@ -1615,4 +1614,6 @@ Recorded the beta rebuild baseline for the restored APES Pet Care Clinic website
 - Manual checks completed: Legacy navigation, route, and service content review was performed during the rebuild stage.
 - Known limitations: Historic detail has been preserved from available release notes and may not reflect every rebuild-era file touched.
 - Rollback notes: Restore the pre-rebuild exported site snapshot if the rebuilt shared-template version needs to be withdrawn.
+
+
 

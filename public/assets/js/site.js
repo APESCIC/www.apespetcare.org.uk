@@ -25,15 +25,15 @@
 
   const consentDescriptions = {
     necessary:
-      "Needed to keep the consent record, page navigation, and basic security controls working.",
+      "Keeps consent records and security working.",
     preferences:
-      "Remembers your cookie choices and any optional settings you save for the site.",
+      "Remembers cookie choices and settings.",
     analytics:
-      "Helps us understand how people use the site so we can improve content and journeys.",
+      "Helps us improve content.",
     marketing:
-      "Supports promotional content and campaign tools that are not needed for core site use.",
+      "Supports campaign tools.",
     thirdParty:
-      "Loads chat, notifications, message bars, and similar external services when you choose to allow them.",
+      "Loads chat and notifications.",
   };
 
   const consentLoaders = {
@@ -259,7 +259,7 @@
         <div class="cookie-consent__banner-copy">
           <p class="cookie-consent__eyebrow">Cookie choices</p>
           <h2 class="cookie-consent__title">We use cookies to support the site and your preferences.</h2>
-          <p class="cookie-consent__text">Strictly necessary cookies keep the website working. Optional cookies support preferences, analytics, marketing, and third-party services only after you choose to allow them.</p>
+          <p class="cookie-consent__text">Strictly necessary cookies keep the website working. Optional cookies are only used if you choose to allow them.</p>
           <p class="cookie-consent__links"><a href="${cookiePolicyHref}">Read the cookies policy</a></p>
         </div>
         <div class="cookie-consent__actions">
@@ -276,7 +276,7 @@
           </div>
           <button class="cookie-consent__close" type="button" data-cookie-close aria-label="Close cookie preferences">Close</button>
         </div>
-        <p class="cookie-consent__text">You can update your preferences at any time. Strictly necessary cookies stay on because the site needs them to work.</p>
+        <p class="cookie-consent__text">You can update your preferences any time. Strictly necessary cookies stay on because the site needs them to work.</p>
         <div class="cookie-consent__choices" role="group" aria-label="Cookie categories">
           ${Object.keys(consentLabels)
             .map(
@@ -797,3 +797,4 @@
 
   initCookieConsent();
 })();
+

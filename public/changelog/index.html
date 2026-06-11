@@ -298,23 +298,23 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed compliance accessibility" data-impact="changed compliance accessibility">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="fixed compliance accessibility" data-impact="fixed compliance accessibility">
           <summary>
             <div class="release-card-head">
               <div>
                 <p class="release-card-date">2026-06-11</p>
-                <h2>v3.2.2b - Fixed the cookie dialog close button and added a fast accept-all action.</h2>
+                <h2>v3.2.5b - Centered the cookie consent panel as a compact modal without internal scrolling.</h2>
               </div>
-              <div class="release-pill-row"><span class="pill pill-version">Version v3.2.2b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Fixed</span><span class="pill pill-compliance">Compliance</span><span class="pill pill-accessibility">Accessibility</span></div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v3.2.5b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Fixed</span><span class="pill pill-compliance">Compliance</span><span class="pill pill-accessibility">Accessibility</span></div>
             </div>
           </summary>
           <div class="release-card-body">
-            <p>Fixed the cookie preferences close button and added a fast `Accept all` action inside the settings panel while keeping the site static, consent-gated, and Cloudron LAMP compatible.</p>
+            <p>Centered the cookie consent panel so it opens as a compact modal without internal scrolling while keeping the site static, consent-gated, and Cloudron LAMP compatible.</p>
             <ul>
-            <li>Added an explicit click handler so the close button now dismisses the settings dialog through the same path used by Escape.</li>
-            <li>Added a panel-level `Accept all` button so visitors can enable every optional consent category in one step.</li>
-            <li>Kept the shared consent model, policy route, left-side launcher, footer links, and consent-gated loaders unchanged.</li>
-            <li>Synced the root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and footer version text to <code>v3.2.2b</code>.</li>
+            <li>Reworked the consent wrapper so the panel centers in the viewport while the launcher remains available at the bottom-left corner.</li>
+            <li>Expanded the modal size and tightened its copy so the banner and preferences panel fit without internal scrolling at the supported desktop and mobile sizes.</li>
+            <li>Kept the shared consent model, policy route, consent storage, launcher button, footer links, and consent-gated loaders unchanged.</li>
+            <li>Synced the root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and footer version text to <code>v3.2.5b</code>.</li>
             </ul>
           </div>
         </details>
@@ -1001,7 +1001,7 @@
           </section>
         </div>
         <div class="footer-meta-links" aria-label="Website governance links">
-          <span class="site-version-line">Website version: APES Pet Care Clinic v3.2.2b</span>
+          <span class="site-version-line">Website version: APES Pet Care Clinic v3.2.5b</span>
           <a class="footer-hub-link" href="../donate/">Donate</a>
           <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
           <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>
@@ -1013,6 +1013,8 @@
   </footer>
 </body>
 </html>
+
+
 
 
 
