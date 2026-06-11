@@ -16,6 +16,10 @@ Use these files and directories as the active website architecture:
 - `public/assets/`
 - `public/assets/theme/clinic.css`
 - `public/assets/js/site.js`
+- `public/includes/header.html`
+- `public/includes/menu-desktop.html`
+- `public/includes/menu-mobile.html`
+- `public/includes/footer.html`
 - `public/.htaccess`
 - `public/robots.txt`
 - `public/sitemap.xml`
@@ -24,6 +28,7 @@ Use these files and directories as the active website architecture:
 - `public/VERSION`
 - `public/CHANGELOG.md`
 - `dev/router.php`
+- `dev/sync-site-chrome.php`
 - `dev/check-public-root.sh`
 - `dev/smoke-test.sh`
 - `docs/local-preview.md`
@@ -54,5 +59,7 @@ These files should be treated as non-runtime unless a task explicitly depends on
 - This repo intentionally mirrors parts of the `www.apes.org.uk` theme pattern without adopting the PHP include and static-export architecture.
 - `public/assets/theme/clinic.css` is the canonical shared theme source for APES Pet Care Clinic.
 - `public/assets/css/styles.css` remains the stable public stylesheet URL and should continue importing the canonical theme file.
-- `public/assets/js/site.js` is the shared interaction layer for navigation, popups, reveal states, and Change Log Hub behaviour.
+- `public/assets/js/site.js` is the shared interaction layer for navigation, popups, reveal states, cookie consent, and Change Log Hub behaviour.
+- `public/includes/` holds the source-of-truth fragments for the header, desktop menu, mobile menu, and footer.
+- `dev/sync-site-chrome.php` injects those source fragments into the runtime HTML routes while preserving route-specific heads and page content.
 - Keep `public/` as the preview and deployment web root so local testing matches deployed asset paths.

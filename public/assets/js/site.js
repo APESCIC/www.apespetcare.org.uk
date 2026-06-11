@@ -9,26 +9,6 @@
   const consentSchemaVersion = "1";
   const consentStorageKey = "apes-cookie-consent-v1";
   const cookiePolicyHref = "/policies/cookies-policy/";
-  const siteVersionLabel = "APES Pet Care Clinic v3.2.7b";
-  const footerLegalLine =
-    "© 2026 Association of Protecting Exotic Species CIC. CIC No: 16253848. We are regulated by the CIC Commission for non-profit organisations.";
-  const footerLegalParts = [
-    "Copyright © 2026 Association of Protecting Exotic Species CIC.",
-    "CIC No: 16253848.",
-    "We are regulated by the CIC Commission for non-profit organisations."
-  ];
-  const cookiesPolicyTitle = "Cookies Policy";
-  const cookiesPolicyDescription = "How cookies, similar tools, and preferences are used on the website.";
-  const supportUsHeading = "Support Us";
-  const footerSectionDescriptions = {
-    "footer-about-heading": "Clinic overview, contact details, and who APES Pet Care supports.",
-    "footer-services-heading": "Explore core clinic routes and species-specific care support.",
-    "footer-information-heading": "Find updates, key pages, and public-facing clinic information.",
-    "footer-policies-heading": "Review booking, privacy, cookies, refund, and website terms.",
-    "footer-support-heading": "Support welfare-first care and help fund APES community work.",
-    "footer-partner-heading": "Trusted organisations and services we work alongside.",
-    "footer-social-heading": "Stay connected and follow APES updates across our channels."
-  };
   const analyticsId = "G-FKGRRCJ0QE";
   const oneSignalAppId = "1526fa8e-132a-46ff-90b2-94386a285bde";
   const chatwootBaseUrl = "https://chatwoot.workspace.apes.org.uk";
@@ -417,192 +397,11 @@
     }
   };
 
-  const createMegaLink = (href, title, description) => {
-    const link = document.createElement("a");
-    link.className = "mega-link";
-    link.href = href;
-    link.innerHTML = `
-      <span class="mega-link-title">${title}</span>
-      <span class="mega-link-description">${description}</span>
-    `;
-    return link;
-  };
-
-  const hasPathMatch = (elements, matcher) =>
-    Array.from(elements).some((element) => matcher.test(element.getAttribute("href") || ""));
-
-  const cookiesPolicyMatcher = /\/policies\/cookies-policy\/?$/;
-  const createFooterDescription = (text) => {
-    const description = document.createElement("p");
-    description.className = "footer-section-description";
-    description.textContent = text;
-    return description;
-  };
-
-  const ensureFooterDescriptions = () => {
-    Object.entries(footerSectionDescriptions).forEach(([headingId, text]) => {
-      const heading = document.getElementById(headingId);
-      if (!heading) return;
-
-      const nextElement = heading.nextElementSibling;
-      if (nextElement?.classList.contains("footer-section-description")) return;
-      heading.insertAdjacentElement("afterend", createFooterDescription(text));
-    });
-  };
-
-  const createFooterLegalLine = () => {
-    const legalLine = document.createElement("p");
-    legalLine.className = "footer-legal-line";
-    legalLine.replaceChildren(
-      ...footerLegalParts.flatMap((part, index) => {
-        const span = document.createElement("span");
-        span.textContent = part;
-        return index === footerLegalParts.length - 1 ? [span] : [span, document.createElement("br")];
-      })
-    );
-    return legalLine;
-  };
-
-  const enhanceInformationMenus = () => {
-    document.querySelectorAll(".main-nav .drop.mega").forEach((drop) => {
-      const trigger = drop.querySelector(".drop-trigger");
-      if (!trigger || trigger.textContent.trim() !== "Information") return;
-
-      const links = drop.querySelector(".mega-links");
-      if (!links || hasPathMatch(links.querySelectorAll(".mega-link"), cookiesPolicyMatcher)) return;
-
-      const privacyLink = Array.from(links.querySelectorAll(".mega-link")).find((link) =>
-        (link.getAttribute("href") || "").includes("/policies/privacy-policy/")
-      );
-      const cookieLink = createMegaLink(cookiePolicyHref, cookiesPolicyTitle, cookiesPolicyDescription);
-
-      if (privacyLink && privacyLink.parentElement === links) {
-        privacyLink.insertAdjacentElement("afterend", cookieLink);
-      } else {
-        links.appendChild(cookieLink);
-      }
-    });
-  };
-
-  const ensureFooterSupportColumn = (footerGrid) => {
-    const policiesColumn = footerGrid.querySelector("#footer-policies-heading")?.closest(".footer-column");
-    if (!policiesColumn) return null;
-
-    let supportColumn = footerGrid.querySelector("#footer-support-heading")?.closest(".footer-column");
-    if (!supportColumn) {
-      supportColumn = document.createElement("section");
-      supportColumn.className = "footer-column footer-column-support";
-      supportColumn.setAttribute("aria-labelledby", "footer-support-heading");
-      supportColumn.innerHTML = `
-        <h2 id="footer-support-heading">${supportUsHeading}</h2>
-        <ul class="footer-support-list"></ul>
-      `;
-      policiesColumn.insertAdjacentElement("afterend", supportColumn);
-    }
-
-    return supportColumn;
-  };
-
-  const ensureFooterLinks = () => {
-    document.querySelectorAll(".page-footer").forEach((footer) => {
-      const footerGrid = footer.querySelector(".footer-grid");
-      const footerLower = footer.querySelector(".footer-lower");
-      const footerMeta = footer.querySelector(".footer-meta-links");
-      const versionLine = footer.querySelector(".site-version-line");
-      const policiesColumn = footer.querySelector("#footer-policies-heading")?.closest(".footer-column");
-
-      if (versionLine) {
-        versionLine.textContent = `Website version: ${siteVersionLabel}`;
-      }
-
-      if (footerMeta) {
-        footerMeta.removeAttribute("aria-label");
-        footerMeta
-          .querySelectorAll("a, button")
-          .forEach((element) => element.remove());
-      }
-
-      if (!footerGrid || !policiesColumn) return;
-
-      const supportColumn = ensureFooterSupportColumn(footerGrid);
-      const policyList = policiesColumn.querySelector("ul");
-      const supportList = supportColumn?.querySelector("ul");
-
-      const cookiePolicyLinks = policyList
-        ? Array.from(policyList.querySelectorAll("a")).filter((link) =>
-            cookiesPolicyMatcher.test(link.getAttribute("href") || "")
-          )
-        : [];
-      if (cookiePolicyLinks.length > 1) {
-        cookiePolicyLinks.slice(1).forEach((link) => link.closest("li")?.remove());
-      }
-
-      if (policyList && !hasPathMatch(policyList.querySelectorAll("a"), cookiesPolicyMatcher)) {
-        const cookiePolicyItem = document.createElement("li");
-        cookiePolicyItem.innerHTML = `<a href="${cookiePolicyHref}">${cookiesPolicyTitle}</a>`;
-
-        const refundLink = Array.from(policyList.querySelectorAll("a")).find((link) =>
-          (link.getAttribute("href") || "").includes("/refund-policy/")
-        );
-        if (refundLink?.closest("li")) {
-          refundLink.closest("li").insertAdjacentElement("beforebegin", cookiePolicyItem);
-        } else {
-          policyList.appendChild(cookiePolicyItem);
-        }
-      }
-
-      if (policyList) {
-        const donateItem = Array.from(policyList.querySelectorAll("a")).find((link) =>
-          (link.getAttribute("href") || "").includes("/donate/")
-        )?.closest("li");
-        if (donateItem && supportList) {
-          supportList.appendChild(donateItem);
-        }
-      }
-
-      let cookieControls = policiesColumn.querySelector(".footer-cookie-controls");
-      if (!cookieControls) {
-        cookieControls = document.createElement("div");
-        cookieControls.className = "footer-cookie-controls";
-        policiesColumn.appendChild(cookieControls);
-      }
-
-      if (!cookieControls.querySelector("[data-cookie-settings-trigger]")) {
-        const settingsButton = document.createElement("button");
-        settingsButton.type = "button";
-        settingsButton.className = "footer-cookie-control";
-        settingsButton.textContent = "Cookie settings";
-        settingsButton.dataset.cookieSettingsTrigger = "true";
-        settingsButton.addEventListener("click", openCookiePanel);
-        cookieControls.appendChild(settingsButton);
-      }
-
-      if (footerLower && !footerLower.querySelector(".footer-legal-line")) {
-        footerLower.appendChild(createFooterLegalLine());
-      } else if (footerLower) {
-        const legalLine = footerLower.querySelector(".footer-legal-line");
-        if (legalLine && legalLine.textContent?.trim() === footerLegalLine) {
-          legalLine.replaceWith(createFooterLegalLine());
-        }
-      }
-
-      if (footerLower && footerMeta) {
-        const legalLine = footerLower.querySelector(".footer-legal-line");
-        if (legalLine) {
-          legalLine.insertAdjacentElement("afterend", footerMeta);
-        }
-      }
-    });
-  };
-
   const initCookieConsent = () => {
     state.record = readStoredConsent();
     document.documentElement.dataset.cookieConsent = state.record ? "true" : "false";
     document.documentElement.dataset.cookieConsentVersion = consentSchemaVersion;
     createCookieControls();
-    ensureFooterDescriptions();
-    enhanceInformationMenus();
-    ensureFooterLinks();
     syncConsentUI();
     loadApprovedIntegrations();
     if (!state.record) {
@@ -820,6 +619,15 @@
       });
     });
   }
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target instanceof Element
+      ? event.target.closest("[data-cookie-settings-trigger]")
+      : null;
+    if (!trigger) return;
+    event.preventDefault();
+    openCookiePanel();
+  });
 
   if (typeof mobileQuery.addEventListener === "function") {
     mobileQuery.addEventListener("change", syncNavMode);

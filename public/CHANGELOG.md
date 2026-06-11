@@ -1,3 +1,52 @@
+## [v3.2.8b] - 2026-06-11
+
+<span class="pill pill-version">Version v3.2.8b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Maintenance</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Split the shared site chrome into independent header, desktop menu, mobile menu, and footer source files, then added a sync workflow so those areas can be updated without manually editing every route.
+
+### Detailed changes
+
+- Added blocked source fragments in `public/includes/` for the header, desktop menu, mobile menu, and footer.
+- Added `dev/sync-site-chrome.php` to inject the source fragments into every runtime HTML route with route-depth-aware relative links and page metadata for active navigation states.
+- Updated runtime HTML routes to use bounded header/footer marker blocks and `data-nav-section` plus `data-nav-page` metadata on `<body>`.
+- Removed footer and menu content mutation from `public/assets/js/site.js` so it now keeps interaction behavior only.
+- Updated README and maintenance docs to document the new sync workflow, then synced the root/public version files, changelog mirrors, Change Log Hub output, and repeated footer version text to `v3.2.8b`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Refactors the shared site chrome into separately maintained source fragments.
+- <span class="pill pill-fix">Maintenance</span> Replaces repeated manual route edits with a deterministic sync workflow.
+- <span class="pill pill-accessibility">Accessibility</span> Preserves current navigation and footer behavior while making future updates less error-prone.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared header navigation, mobile navigation, shared footer, error pages, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/includes/*.html`, `dev/sync-site-chrome.php`, `public/assets/js/site.js`, runtime `public/**/*.html` routes, `README.md`, `docs/local-preview.md`, `docs/maintenance-artifacts.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, and `public/changelog/index.html`.
+- User groups affected: Site maintainers updating shared chrome, plus public visitors using the shared navigation and footer.
+- Public impact: Public routes keep the same destinations and behavior while the shared site chrome becomes independently maintainable.
+- Internal impact: The live site remains static HTML under `public/`, and PHP stays a maintenance-time tool rather than a production rendering dependency.
+
+### Version decision
+
+- Previous version: `v3.2.7b`
+- New version: `v3.2.8b`
+- Version type: Beta patch release
+- Reason for version bump: This is a maintenance-focused public chrome refactor that changes shared route generation without changing the site architecture or public URL model.
+
+### Validation
+
+- Checks run: Generated-route source review, marker and metadata spot checks, Git diff review, and a workspace-runtime sync pass equivalent to the new fragment injection workflow because `php` CLI is not installed in this local environment.
+- Manual checks completed: Confirmed by source review that runtime pages now use bounded header/footer sync markers, route-aware relative links, separate desktop/mobile menu fragments, footer cookie-settings controls, and body metadata for active navigation states.
+- Known limitations: `php` CLI is unavailable in this workspace, so `php -l`, `php dev/sync-site-chrome.php`, and the standard PHP local-preview smoke checks still need to be run in a PHP-enabled environment before release.
+- Rollback notes: Revert the fragment files, sync tool, generated route updates, documentation sync, and the `v3.2.8b` release-record updates to restore the previous repeated inline chrome structure.
+
 ## [v3.2.7b] - 2026-06-11
 
 <span class="pill pill-version">Version v3.2.7b</span>

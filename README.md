@@ -5,14 +5,14 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
   <img alt="Status: Beta" src="https://img.shields.io/badge/status-beta-0f7f75">
-  <img alt="Version: v3.2.7b" src="https://img.shields.io/badge/version-v3.2.7b-0f7f75">
+  <img alt="Version: v3.2.8b" src="https://img.shields.io/badge/version-v3.2.8b-0f7f75">
   <img alt="Runtime: HTML with PHP support tools" src="https://img.shields.io/badge/runtime-HTML%20%2B%20PHP%20tools-245c6b">
   <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
 </p>
 
 ## Current release
 
-- Version: `v3.2.7b`
+- Version: `v3.2.8b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
@@ -124,6 +124,10 @@ The live website now renders from static HTML route files and shared front-end a
   Canonical shared clinic theme covering layout, APES design tokens, buttons, pre-pay cards, navigation, hero patterns, and Change Log Hub styling.
 - `public/assets/js/site.js`
   Shared interaction layer for mobile navigation, click-driven desktop mega-menu behaviour, popup windows, reveal animation, and optional Change Log Hub filtering.
+- `public/includes/header.html`, `public/includes/menu-desktop.html`, `public/includes/menu-mobile.html`, and `public/includes/footer.html`
+  Source-of-truth site chrome fragments used for independent header, desktop menu, mobile menu, and footer maintenance.
+- `dev/sync-site-chrome.php`
+  Maintenance sync tool that injects the site chrome fragments into every runtime HTML route and keeps route-relative links aligned by page depth.
 
 Each public page now follows the same maintenance pattern:
 
@@ -131,6 +135,7 @@ Each public page now follows the same maintenance pattern:
 2. Preserve canonical URLs, metadata, Open Graph tags, and JSON-LD directly in the page head.
 3. Keep the shared site chrome and navigation patterns consistent across routes.
 4. Update release records whenever public or operational website behaviour changes.
+5. Run `dev/sync-site-chrome.php` whenever a site chrome fragment changes so the generated runtime HTML stays in sync.
 
 ## Brand and asset locations
 
