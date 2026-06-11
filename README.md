@@ -4,16 +4,16 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
-  <img alt="Status: Stable" src="https://img.shields.io/badge/status-stable-0f7f75">
-  <img alt="Version: v3.1.2" src="https://img.shields.io/badge/version-v3.1.2-0f7f75">
+  <img alt="Status: Beta" src="https://img.shields.io/badge/status-beta-0f7f75">
+  <img alt="Version: v3.2.2b" src="https://img.shields.io/badge/version-v3.2.2b-0f7f75">
   <img alt="Runtime: HTML with PHP support tools" src="https://img.shields.io/badge/runtime-HTML%20%2B%20PHP%20tools-245c6b">
   <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
 </p>
 
 ## Current release
 
-- Version: `v3.1.2`
-- Status: Stable
+- Version: `v3.2.2b`
+- Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
 
@@ -24,7 +24,7 @@ This repository powers the APES Pet Care Clinic public website. The site explain
 The current architecture intentionally stays simple:
 
 - Static HTML route files under `public/`
-- Shared CSS, JavaScript, images, and third-party client-side integrations only
+- Shared CSS, JavaScript, images, and consent-gated third-party client-side integrations only
 - Apache and `.htaccess` routing with `index.html` as the preferred public entrypoint
 - PHP support tools for local preview routing, public-root checks, and smoke testing
 - No frontend framework, package manager, database, persistent PHP application, or build pipeline required for the live public site
