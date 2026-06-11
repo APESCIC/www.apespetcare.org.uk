@@ -1,3 +1,49 @@
+## [v3.1.0] - 2026-06-11
+
+<span class="pill pill-version">Version v3.1.0</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Updated the repeated Pet Care Clinic footer to follow the standard APES footer structure while preserving clinic-specific content, contact details, partner information, governance links, and version output.
+
+### Detailed changes
+
+- Reworked every shared `footer.page-footer` instance across the runtime public HTML routes into APES-style grouped link cards with lower partnership, social, and governance bands.
+- Preserved Pet Care Clinic service, information, policy, donation, News, Change Log Hub, contact, Bold Vets, OneSignal, and version content while cleaning spacing, contrast, wrapping, and responsive behavior.
+- Updated `public/assets/theme/clinic.css` with the card-style footer layout, lower-band styling, focus states, and mobile stacking rules.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v3.1.0` stable minor release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Standardises the site-wide footer presentation against the APES footer pattern.
+- <span class="pill pill-accessibility">Accessibility</span> Improves footer scanability, keyboard focus treatment, and mobile wrapping while preserving existing link destinations.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Repeated footer across homepage, service routes, information routes, policy routes, Change Log Hub, branded error pages, README current release, and release records.
+- Files changed: `public/assets/theme/clinic.css`, repeated `public/**/*.html` footer blocks, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and `README.md`.
+- User groups affected: Public visitors using footer navigation, mobile users, keyboard users, and maintainers reviewing release records.
+- Public impact: Footer content remains intact but is now grouped and formatted more consistently with APES CIC standards.
+- Internal impact: The site remains static HTML with shared CSS; no build pipeline, database, or persistent runtime is introduced.
+
+### Version decision
+
+- Previous version: `v3.0.1b`
+- New version: `v3.1.0`
+- Version type: Stable minor release
+- Reason for version bump: This is a site-wide public footer standardisation and formatting improvement.
+
+### Validation
+
+- Checks run: Footer/source checks for repeated footer blocks, version text alignment, required governance links, News and Bold Vets links, public-folder structure, release-record alignment, local preview, and smoke tests where the local environment supports them.
+- Manual checks completed: Confirmed by source review that Pet Care Clinic content, contact details, Bold Vets partner content, Newsroom link, OneSignal footer container, donation link, Privacy Policy, Terms and Conditions, and Change Log Hub remain present with depth-correct relative links.
+- Known limitations: Browser visual QA and local PHP/shell validation are environment-dependent and should be reported with exact results after the local validation pass.
+- Rollback notes: Revert the repeated footer HTML, footer CSS updates, and `v3.1.0` release-record sync to restore the previous `v3.0.1b` beta footer.
+
 ## [v3.0.1b] - 2026-06-11
 
 <span class="pill pill-version">Version v3.0.1b</span>

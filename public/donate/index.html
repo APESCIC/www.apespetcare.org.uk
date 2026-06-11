@@ -327,7 +327,8 @@
   <footer class="page-footer">
     <div class="footer-wrap">
       <div class="footer-grid">
-                <section class="footer-column footer-column-brand">
+        <section class="footer-column footer-column-brand" aria-labelledby="footer-about-heading">
+          <h2 id="footer-about-heading">About APES Pet Care</h2>
           <div class="footer-brand-lockup">
             <img src="../assets/logos/optimized/apes-pet-care-clinic-logo-header-440w.webp" alt="APES Pet Care Clinic">
             <div>
@@ -337,21 +338,21 @@
           </div>
           <p>Warm, affordable welfare-first support for pet owners who need clear next steps, practical reassurance, and safe referral guidance.</p>
           <p>40 Morris Street, St Helens, WA9 3EN</p>
-          <p><a href="tel:03003020228">0300 302 0228</a><br><a href="mailto:info@apespetcare.org.uk">info@apespetcare.org.uk</a></p>
+          <p><a href="tel:03003020228">0300 302 0228</a><a href="mailto:info@apespetcare.org.uk">info@apespetcare.org.uk</a></p>
         </section>
-        <section class="footer-column">
-          <h2>Services</h2>
+        <section class="footer-column" aria-labelledby="footer-services-heading">
+          <h2 id="footer-services-heading">Services</h2>
           <ul>
-          <li><a href="../general-services/">General Services</a></li>
-          <li><a href="../dog-care/">Dog Care</a></li>
-          <li><a href="../cat-care/">Cat Care</a></li>
-          <li><a href="../reptile-care/">Reptile Care</a></li>
-          <li><a href="../invert-care/">Invert Care</a></li>
-          <li><a href="../rabbit-care/">Rabbit Care</a></li>
+            <li><a href="../general-services/">General Services</a></li>
+            <li><a href="../dog-care/">Dog Care</a></li>
+            <li><a href="../cat-care/">Cat Care</a></li>
+            <li><a href="../reptile-care/">Reptile Care</a></li>
+            <li><a href="../invert-care/">Invert Care</a></li>
+            <li><a href="../rabbit-care/">Rabbit Care</a></li>
           </ul>
         </section>
-        <section class="footer-column">
-          <h2>Information</h2>
+        <section class="footer-column" aria-labelledby="footer-information-heading">
+          <h2 id="footer-information-heading">Information</h2>
           <ul>
             <li><a href="../about-us/">About Us</a></li>
             <li><a href="../events/">Events</a></li>
@@ -359,29 +360,48 @@
             <li><a href="../changelog/">Change Log Hub</a></li>
           </ul>
         </section>
-        <section class="footer-column">
-          <h2>Policies And Support</h2>
+        <section class="footer-column" aria-labelledby="footer-policies-heading">
+          <h2 id="footer-policies-heading">Policies And Support</h2>
           <ul>
-          <li><a href="../policies/booking-policy/">Booking Policy</a></li>
-          <li><a href="../policies/privacy-policy/">Privacy Policy</a></li>
-          <li><a href="../policies/refund-policy/">Refund Policy</a></li>
-          <li><a href="../policies/terms-and-conditions/">Terms and Conditions</a></li>
+            <li><a href="../policies/booking-policy/">Booking Policy</a></li>
+            <li><a href="../policies/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="../policies/refund-policy/">Refund Policy</a></li>
+            <li><a href="../policies/terms-and-conditions/">Terms and Conditions</a></li>
             <li><a href="../donate/">Donate</a></li>
           </ul>
-          <div class="partner-vet">
-            <span>We work with Bold Vets in St Helens.</span>
-            <a href="https://boldvets.co.uk/" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/logos/bold-vets-logo.webp" alt="Bold Vets logo">
-            </a>
-          </div>
         </section>
       </div>
-      <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v3.0.1b</span>
-        <a class="footer-hub-link" href="../donate/">Donate</a>
-        <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
-        <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>
-        <a class="footer-hub-link" href="../changelog/">Change Log Hub</a>
+      <div class="footer-lower">
+        <div class="footer-lower-grid">
+          <section class="footer-band" aria-labelledby="footer-partner-heading">
+            <h2 id="footer-partner-heading">Working in partnership with</h2>
+            <ul class="footer-partner-list">
+              <li>
+                <a href="https://boldvets.co.uk/" target="_blank" rel="noopener noreferrer">
+                  <img src="../assets/logos/bold-vets-logo.webp" alt="Bold Vets logo">
+                  <span>Bold Vets in St Helens</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-band" aria-labelledby="footer-social-heading">
+            <h2 id="footer-social-heading">Follow Us</h2>
+            <ul class="footer-social-list">
+              <li><a href="https://www.facebook.com/apesorguk" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="visually-hidden">Facebook</span></a></li>
+              <li><a href="https://www.instagram.com/apesorguk" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="visually-hidden">Instagram</span></a></li>
+              <li><a href="https://twitter.com/apesorguk" target="_blank" rel="noopener noreferrer" aria-label="X"><span class="visually-hidden">X</span></a></li>
+              <li><a href="https://bsky.app/profile/apesorguk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><span class="visually-hidden">Bluesky</span></a></li>
+              <li><a href="https://social.apes.org.uk/" target="_blank" rel="noopener noreferrer" aria-label="APES Social"><span class="visually-hidden">APES Social</span></a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="footer-meta-links" aria-label="Website governance links">
+          <span class="site-version-line">Website version: APES Pet Care Clinic v3.1.0</span>
+          <a class="footer-hub-link" href="../donate/">Donate</a>
+          <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
+          <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>
+          <a class="footer-hub-link" href="../changelog/">Change Log Hub</a>
+        </div>
       </div>
       <div class="onesignal-customlink-container"></div>
     </div>
