@@ -1,3 +1,50 @@
+## [v3.3.0] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.0</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Completed the pre-live responsive optimisation pass across the APES Pet Care Clinic website and promoted the release from beta to stable.
+
+### Detailed changes
+
+- Consolidated shared responsive spacing, card padding, hero stacking, content/sidebar balance, and footer grid behavior in the clinic theme so repeated layout patterns stay consistent across desktop, tablet, and mobile widths.
+- Tightened topbar, header, mobile navigation, service grid, feature-card, notice, and footer action-link behavior to reduce wrapping, crowding, and overflow risks across the runtime public routes and branded error pages.
+- Promoted the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text from `v3.2.11b` beta to stable `v3.3.0`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Refines shared responsive presentation and spacing across the live website.
+- <span class="pill pill-fix">Layout Fix</span> Reduces breakpoint-specific crowding, stacking, and card-spacing inconsistencies before go-live.
+- <span class="pill pill-accessibility">Accessibility</span> Improves small-screen readability and reduces overflow risk for long headings, notices, and action links.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared clinic theme, all runtime public routes under `public/` excluding retained `public/crawl/` maintenance artifacts, branded `403`, `404`, and `500` pages, Change Log Hub, README current release, and mirrored version files.
+- Files changed: `public/assets/theme/clinic.css`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML routes carrying the repeated footer version text.
+- User groups affected: Public visitors using desktop, laptop, tablet, and mobile devices, plus staff reviewing launch readiness.
+- Public impact: Visitors now get more consistent card spacing, section rhythm, header/footer behavior, and small-screen presentation across the site.
+- Internal impact: Shared responsive decisions are now concentrated in the clinic theme layer while release records move to the first stable website release.
+
+### Version decision
+
+- Previous version: `v3.2.11b`
+- New version: `v3.3.0`
+- Version type: Stable minor release
+- Reason for version bump: This release completes the planned responsive optimisation pass, improves shared public presentation across multiple routes, and intentionally promotes the website from beta to stable ahead of go-live.
+
+### Validation
+
+- Checks run: Runtime route inventory review excluding `public/crawl/`, source review of shared responsive CSS and shared route patterns, local static preview fallback setup on `127.0.0.1:8080`, and release-record alignment review.
+- Manual checks completed: Confirmed by source review that the responsive pass is concentrated in shared theme rules covering navigation, hero layout, content/sidebar balance, shared cards, notices, service grids, footer grids, and release cards, with runtime footer version text aligned to `v3.3.0`.
+- Known limitations: `php` CLI is unavailable in this workspace, so `php -l dev/router.php`, the documented PHP preview command, and shell-based smoke checks could not be run here; the in-app browser runtime also failed to attach in this sandboxed session, so rendered QA remains source-led in this environment.
+- Rollback notes: Revert the shared clinic theme responsive pass, repeated footer version text, README current release note, mirrored version files, and changelog/Change Log Hub updates to return to `v3.2.11b`.
+
 ## [v3.2.11b] - 2026-06-12
 
 <span class="pill pill-version">Version v3.2.11b</span>
