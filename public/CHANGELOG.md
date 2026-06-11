@@ -1,3 +1,50 @@
+## [v3.1.1] - 2026-06-11
+
+<span class="pill pill-version">Version v3.1.1</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Navigation Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Fixed inconsistent top-level header menu font weights so plain links and dropdown menu triggers present with the same visual emphasis.
+
+### Detailed changes
+
+- Updated `public/assets/theme/clinic.css` so `.main-nav a` and `.drop-trigger` explicitly share the same font weight in the final navigation override block.
+- Preserved the existing header order, active states, hover treatment, focus treatment, dropdown panels, mobile menu behavior, route paths, SEO metadata, sitemap records, footer links, Newsroom routing, and branded error-page structure.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v3.1.1` stable patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Aligns the visual weight of top-level header menu items across link and button elements.
+- <span class="pill pill-fix">Navigation Fix</span> Keeps the shared primary navigation visually consistent without changing destinations or interaction behavior.
+- <span class="pill pill-accessibility">Accessibility</span> Improves navigation scanability by removing unintended emphasis differences between adjacent menu items.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared header navigation across public HTML routes, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, `README.md`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Public visitors using the primary navigation, mobile users, keyboard users, and maintainers reviewing release records.
+- Public impact: Header menu labels now present with consistent emphasis while all links and dropdowns continue to behave as before.
+- Internal impact: The site remains static HTML with shared CSS; no build pipeline, database, or persistent runtime is introduced.
+
+### Version decision
+
+- Previous version: `v3.1.0`
+- New version: `v3.1.1`
+- Version type: Stable patch release
+- Reason for version bump: This is a small user-visible navigation presentation and accessibility polish.
+
+### Validation
+
+- Checks run: Source checks for the final navigation CSS cascade, version string alignment, public-folder structure, local preview, and smoke tests where the local environment supports them.
+- Manual checks completed: Confirmed by source review that plain header links and dropdown trigger buttons now share an explicit `font-weight: 700` in the final override block without changing routes, SEO metadata, sitemap entries, Newsroom links, footer governance links, or branded error-page structure.
+- Known limitations: Browser visual QA and local PHP/shell validation are environment-dependent and should be reported with exact results after the local validation pass.
+- Rollback notes: Revert the shared navigation CSS weight override and `v3.1.1` release-record sync to restore the previous `v3.1.0` header presentation.
+
 ## [v3.1.0] - 2026-06-11
 
 <span class="pill pill-version">Version v3.1.0</span>

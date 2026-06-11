@@ -1990,6 +1990,7 @@ body {
 .main-nav a,
 .drop-trigger {
   color: var(--sea-900);
+  font-weight: 700;
   position: relative;
 }
 

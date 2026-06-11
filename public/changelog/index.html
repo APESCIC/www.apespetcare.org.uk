@@ -226,7 +226,26 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="stable" data-types="changed accessibility" data-impact="changed accessibility">
+        <details class="release-card reveal" data-current="true" data-status="stable" data-types="fixed navigation fix accessibility" data-impact="fixed navigation fix accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-11</p>
+                <h2>v3.1.1 - Fixed inconsistent top-level header menu font weights.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v3.1.1</span><span class="pill pill-status">Stable</span><span class="pill pill-type">Fixed</span><span class="pill pill-fix">Navigation Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Fixed inconsistent top-level header menu font weights so plain links and dropdown menu triggers present with the same visual emphasis.</p>
+            <ul>
+            <li>Updated <code>public/assets/theme/clinic.css</code> so <code>.main-nav a</code> and <code>.drop-trigger</code> explicitly share the same font weight in the final navigation override block.</li>
+            <li>Preserved the existing header order, active states, hover treatment, focus treatment, dropdown panels, mobile menu behavior, route paths, SEO metadata, sitemap records, footer links, Newsroom routing, and branded error-page structure.</li>
+            <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to <code>v3.1.1</code>.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="stable" data-types="changed accessibility" data-impact="changed accessibility">
           <summary>
             <div class="release-card-head">
               <div>
@@ -870,7 +889,7 @@
           </section>
         </div>
         <div class="footer-meta-links" aria-label="Website governance links">
-          <span class="site-version-line">Website version: APES Pet Care Clinic v3.1.0</span>
+          <span class="site-version-line">Website version: APES Pet Care Clinic v3.1.1</span>
           <a class="footer-hub-link" href="../donate/">Donate</a>
           <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
           <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>
