@@ -1,3 +1,50 @@
+## [v3.2.10b] - 2026-06-11
+
+<span class="pill pill-version">Version v3.2.10b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Content Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Rolled the approved clinic-scope statement across the live website so visitors now see the same non-veterinary wording wherever clinic limitations are shown.
+
+### Detailed changes
+
+- Replaced the older clinic-scope alert wording across the live route pages with the approved statement covering partner-lab supported investigation and diagnosis support, non-veterinary boundaries, and suitable over-the-counter alternatives after consultation.
+- Updated repeated inline `Clinical scope:` notices and the small number of nearby live paragraphs that still used the older `do not diagnose disease` or `non-diagnostic observation` wording.
+- Synced the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text to `v3.2.10b`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Rolls the approved clinic-scope wording out across the live website.
+- <span class="pill pill-fix">Content Fix</span> Removes conflicting older limitation wording from repeated service and policy page notices.
+- <span class="pill pill-accessibility">Accessibility</span> Keeps the clinic boundary wording consistent and easier to understand wherever visitors encounter it.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Live runtime route disclaimers, inline clinic-scope notices, Change Log Hub, README current release, mirrored version files, and repeated footer version text.
+- Files changed: `public/**/*.html` runtime routes excluding `public/crawl/`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, and `public/changelog/index.html`.
+- User groups affected: Public visitors checking clinic scope, carers comparing support routes, and staff sharing public clinic-limit wording.
+- Public impact: Visitors now see the same approved clinic-scope statement across service, policy, information, booking, donation, and changelog routes.
+- Internal impact: Release records and repeated footer version labels stay aligned with the wording rollout while the site remains HTML-first with PHP support tooling only.
+
+### Version decision
+
+- Previous version: `v3.2.9b`
+- New version: `v3.2.10b`
+- Version type: Beta patch release
+- Reason for version bump: This is a public-facing wording and compliance clarification that updates repeated live content without changing routes, architecture, or hosting assumptions.
+
+### Validation
+
+- Checks run: Source-level search before and after the wording rollout, Git diff review, and release-record alignment review.
+- Manual checks completed: Confirmed by source review that the approved clinic-scope statement now appears across the repeated live disclaimer patterns and that conflicting nearby wording was aligned on the affected pages.
+- Known limitations: `php` CLI is unavailable in this workspace, so `php -l`, `php -S`, `dev/check-public-root.sh`, and `dev/smoke-test.sh` still need to be run in a PHP-enabled environment before release.
+- Rollback notes: Revert the clinic-scope wording rollout, mirrored version updates, Change Log Hub entry, README release note, and repeated footer version text sync to return to `v3.2.9b`.
+
 ## [v3.2.9b] - 2026-06-11
 
 <span class="pill pill-version">Version v3.2.9b</span>
