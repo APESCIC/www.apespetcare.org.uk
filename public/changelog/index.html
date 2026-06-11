@@ -324,7 +324,27 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="beta" data-types="fixed navigation fix accessibility" data-impact="fixed navigation fix accessibility">
+        <details class="release-card reveal" data-current="true" data-status="stable" data-types="fixed content fix accessibility" data-impact="fixed content fix accessibility">
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-11</p>
+                <h2>v3.1.2 - Replaced visible GBP price labels with the pound sign.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v3.1.2</span><span class="pill pill-status">Stable</span><span class="pill pill-type">Fixed</span><span class="pill pill-fix">Content Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Replaced visible <code>GBP</code> price labels with the pound sign <code>£</code> across the public service pricing routes and public payment-link audit record.</p>
+            <ul>
+            <li>Updated the public service route cards and inline price summaries so visible sterling prices now use <code>£</code> instead of the text prefix <code>GBP</code>.</li>
+            <li>Updated <code>public/PAYMENT_LINK_AUDIT.md</code> so the public governance record matches the visitor-facing sterling formatting now shown on the live pricing routes.</li>
+            <li>Preserved numeric prices, Stripe destinations, payment behaviour, SEO metadata, sitemap records, footer governance links, Newsroom routing, branded error pages, and Cloudron LAMP compatibility.</li>
+            <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to <code>v3.1.2</code>.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="beta" data-types="fixed navigation fix accessibility" data-impact="fixed navigation fix accessibility">
           <summary>
             <div class="release-card-head">
               <div>
@@ -1007,7 +1027,7 @@
           </section>
         </div>
         <div class="footer-meta-links" aria-label="Website governance links">
-          <span class="site-version-line">Website version: APES Pet Care Clinic v3.1.1</span>
+          <span class="site-version-line">Website version: APES Pet Care Clinic v3.1.2</span>
           <a class="footer-hub-link" href="../donate/">Donate</a>
           <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
           <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>

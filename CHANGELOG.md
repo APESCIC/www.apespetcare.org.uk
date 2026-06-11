@@ -1,3 +1,51 @@
+## [v3.1.2] - 2026-06-11
+
+<span class="pill pill-version">Version v3.1.2</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Content Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Replaced visible `GBP` price labels with the pound sign `£` across the public service pricing routes and public payment-link audit record.
+
+### Detailed changes
+
+- Updated the public service route cards and inline price summaries so visible sterling prices now use `£` instead of the text prefix `GBP`.
+- Updated `public/PAYMENT_LINK_AUDIT.md` so the public governance record matches the visitor-facing sterling formatting now shown on the live pricing routes.
+- Preserved numeric prices, Stripe destinations, payment behaviour, SEO metadata, sitemap records, footer governance links, Newsroom routing, branded error pages, and Cloudron LAMP compatibility.
+- Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to the new `v3.1.2` stable patch release.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Replaces visible `GBP` price prefixes with `£` across public pricing content.
+- <span class="pill pill-fix">Content Fix</span> Keeps pricing display consistent without changing any actual amounts or Stripe payment links.
+- <span class="pill pill-accessibility">Accessibility</span> Uses the familiar sterling symbol visitors expect when scanning service prices.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Public pricing content across the services hub, general services, species care routes, lab services, the Change Log Hub, README current release, repeated footer version text, and the public payment-link audit record.
+- Files changed: `public/services/index.html`, `public/general-services/index.html`, `public/dog-care/index.html`, `public/cat-care/index.html`, `public/ferret-care/index.html`, `public/rabbit-care/index.html`, `public/guinea-care/index.html`, `public/reptile-care/index.html`, `public/invert-care/index.html`, `public/lab-services/index.html`, `public/PAYMENT_LINK_AUDIT.md`, `public/**/*.html` footer version lines, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and `README.md`.
+- User groups affected: Visitors reviewing service prices, pet owners opening Stripe payment links, and maintainers checking public release records.
+- Public impact: Visitors now see sterling prices formatted with `£` across the public pricing routes and matching public governance content.
+- Internal impact: The site remains static HTML with shared CSS and JavaScript; no build pipeline, database, or persistent runtime is introduced.
+
+### Version decision
+
+- Previous version: `v3.1.2b`
+- New version: `v3.1.2`
+- Version type: Stable patch release
+- Reason for version bump: This is a small public-facing content and formatting correction that preserves existing pricing values and payment behaviour.
+
+### Validation
+
+- Checks run: Source checks for public `GBP` price labels, version string alignment, footer version text alignment, public-folder structure, local preview support files, and targeted route content review where the local environment supports them.
+- Manual checks completed: Confirmed by source review that the affected public price labels now use `£` while the numeric values and Stripe links remain unchanged.
+- Known limitations: Browser visual QA and local PHP/shell validation are environment-dependent and should be reported with exact results after the local validation pass.
+- Rollback notes: Revert the public price-label text replacements and `v3.1.2` release-record sync to restore the previous `v3.1.2b` beta release state.
+
 ## [v3.1.2b] - 2026-06-11
 
 <span class="pill pill-version">Version v3.1.2b</span>
