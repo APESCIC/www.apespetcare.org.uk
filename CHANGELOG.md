@@ -1,3 +1,51 @@
+## [v3.0.0b] - 2026-06-11
+
+<span class="pill pill-version">Version v3.0.0b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-type">Tooling</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Migrated the repository contract to an HTML website with PHP support tools, keeping public routes static while adding APES-standard local preview routing, public-root validation, smoke tests, and dedicated preview documentation.
+
+### Detailed changes
+
+- Added `dev/router.php` so maintainers can preview the static HTML site through the PHP built-in server with routing parity, blocked maintenance folders, and branded 403/404 handling.
+- Added `dev/check-public-root.sh` and `dev/smoke-test.sh` to verify the `public/` web-root contract and key local-preview routes.
+- Added `docs/local-preview.md` and `docs/preview-checklist.md` so future work has a clear HTTP loopback preview workflow and release QA checklist.
+- Updated README architecture notes, version records, changelog mirrors, Change Log Hub output, and repeated footer version text to the new `v3.0.0b` Major Beta release.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Formalised the repository as an HTML website with PHP support tools rather than a PHP-rendered public site.
+- <span class="pill pill-type">Tooling</span> Added local preview, public-root validation, and smoke-test tooling.
+- <span class="pill pill-accessibility">Accessibility</span> Keeps branded error pages, footer links, and route QA in the release checklist.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: No public route content changed intentionally; local preview covers `/`, `/index.html`, `/robots.txt`, `/sitemap.xml`, `/changelog/`, and branded error pages.
+- Files changed: `dev/router.php`, `dev/check-public-root.sh`, `dev/smoke-test.sh`, `docs/local-preview.md`, `docs/preview-checklist.md`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Maintainers, reviewers, and future Codex agents validating website changes.
+- Public impact: Public pages remain static HTML with existing URLs, metadata, footer links, News routing, sitemap, robots, and branded error pages preserved.
+- Internal impact: Local preview and validation now match the APES CIC `public/` web-root and Cloudron LAMP compatibility standard more closely.
+
+### Version decision
+
+- Previous version: `v2.1.7b`
+- New version: `v3.0.0b`
+- Version type: Major Beta release
+- Reason for version bump: This formalises the site architecture and support-tooling workflow while preserving the HTML public route model.
+
+### Validation
+
+- Checks run: Repository status check before editing, source review of the new PHP router and shell support scripts, public-folder structure review, and release-record alignment check.
+- Manual checks completed: Confirmed by source review that `public/index.html` remains the production entrypoint, `public/.htaccess` remains present, PHP is limited to support tooling, and no database, CMS, persistent runtime, forms, uploads, payments, sitemap routes, robots rules, News redirects, or branded error-page content were intentionally changed.
+- Known limitations: PHP CLI is not available in this workspace, so `php -l dev/router.php`, `php -S 127.0.0.1:8080 -t public dev/router.php`, and `dev/smoke-test.sh` need a PHP-capable local pass before release. Codex browser access was blocked by the Windows sandbox during planning, so final visual QA still needs an interactive browser pass.
+- Rollback notes: Remove the `dev/` PHP support tooling and the two preview docs, then restore the `v2.1.7b` release records if this architecture/tooling migration needs to be undone.
+
 ## [v2.1.7b] - 2026-06-10
 
 <span class="pill pill-version">Version v2.1.7b</span>
