@@ -5,14 +5,14 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
   <img alt="Status: Beta" src="https://img.shields.io/badge/status-beta-0f7f75">
-  <img alt="Version: v3.2.10b" src="https://img.shields.io/badge/version-v3.2.10b-0f7f75">
+  <img alt="Version: v3.2.11b" src="https://img.shields.io/badge/version-v3.2.11b-0f7f75">
   <img alt="Runtime: HTML with PHP support tools" src="https://img.shields.io/badge/runtime-HTML%20%2B%20PHP%20tools-245c6b">
   <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
 </p>
 
 ## Current release
 
-- Version: `v3.2.10b`
+- Version: `v3.2.11b`
 - Status: Beta
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
@@ -155,7 +155,7 @@ The current HTML-first pass preserves existing public integrations:
 - Stripe payment and plan links
 - Chatwoot
 - OneSignal
-- Hello Bar
+- Donorbox sticky widget
 - External APES News redirects
 
 These integrations remain runtime dependencies of the live website even though the site itself no longer depends on a frontend build toolchain.

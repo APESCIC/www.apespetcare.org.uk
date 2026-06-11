@@ -1,4 +1,5 @@
 {
     "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "Visual Studio Light"
+    "workbench.colorTheme": "Visual Studio Light",
+    "phpSwitcher.detectedApps": []
 }

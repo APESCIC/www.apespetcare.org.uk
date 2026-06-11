@@ -1,3 +1,48 @@
+## [v3.2.11b] - 2026-06-12
+
+<span class="pill pill-version">Version v3.2.11b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Integration Fix</span>
+
+### Summary
+
+Replaced Hello Bar with the requested consent-gated Donorbox, OneSignal, Chatwoot, and Mastodon integration refresh across the live website.
+
+### Detailed changes
+
+- Removed the shared Hello Bar loader from the live runtime integration script so the old marketing bar no longer loads after consent.
+- Updated the shared consent-gated runtime integrations to load the requested OneSignal SDK and app ID, replace the Chatwoot widget token and launcher settings, and add the sticky Donorbox popup widget.
+- Added the Mastodon verification link once in the shared footer source and synced the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text to `v3.2.11b`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Refreshes the shared third-party integration setup used across live website routes.
+- <span class="pill pill-fix">Integration Fix</span> Removes the old Hello Bar dependency and replaces it with the requested consent-gated donation and messaging setup.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared footer source, shared runtime integration script, live runtime HTML routes, Change Log Hub, README current release, and mirrored version files.
+- Files changed: `public/assets/js/site.js`, `public/includes/footer.html`, `public/**/*.html` runtime routes excluding `public/crawl/`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, and `public/changelog/index.html`.
+- User groups affected: Public visitors, donors, supporters subscribing to notifications, and staff relying on the live chat and footer verification links.
+- Public impact: Visitors now receive the requested sticky Donorbox widget, refreshed OneSignal setup, refreshed Chatwoot launcher settings, and the Mastodon verification link without loading Hello Bar.
+- Internal impact: Shared source fragments, live runtime HTML, and release records stay aligned while the site remains HTML-first with PHP support tooling only.
+
+### Version decision
+
+- Previous version: `v3.2.10b`
+- New version: `v3.2.11b`
+- Version type: Beta patch release
+- Reason for version bump: This is a public-facing third-party integration refresh that changes live donation, chat, notification, and footer verification behaviour without changing routes, architecture, or hosting assumptions.
+
+### Validation
+
+- Checks run: Source-level integration search before and after the update, shared chrome sync, Git diff review, and release-record alignment review.
+- Manual checks completed: Confirmed by source review that live runtime pages now contain the synced shared footer, the Donorbox widget path, the refreshed OneSignal loader, a single active Chatwoot bootstrap path, and the Mastodon verification link while Hello Bar references were removed from the live integration sources.
+- Known limitations: `php` CLI availability still needs to be confirmed for `php -l`, local preview, public-root checks, and smoke tests in this workspace, and the supplied dual Chatwoot snippet was normalised to one consent-gated widget bootstrap to avoid duplicate loader conflicts.
+- Rollback notes: Revert the shared integration refresh, footer sync, mirrored version updates, Change Log Hub entry, and README release note to return to `v3.2.10b`.
+
 ## [v3.2.10b] - 2026-06-11
 
 <span class="pill pill-version">Version v3.2.10b</span>

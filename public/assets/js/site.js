@@ -12,8 +12,8 @@
   const analyticsId = "G-FKGRRCJ0QE";
   const oneSignalAppId = "1526fa8e-132a-46ff-90b2-94386a285bde";
   const chatwootBaseUrl = "https://chatwoot.workspace.apes.org.uk";
-  const chatwootToken = "wtYALUsWmdbQXWnXgy42Kpxz";
-  const helloBarSrc = "https://my.hellobar.com/d3bc15faadce398d8d09ec3c74fbd3bdd10be771.js";
+  const chatwootToken = "tumZummeGRYAFXGaUW6EDTAV";
+  const donorboxWidgetSrc = "https://donorbox.org/widgets.js";
 
   const consentLabels = {
     necessary: "Strictly necessary",
@@ -132,23 +132,46 @@
     window.gtag("config", analyticsId, { anonymize_ip: true });
   };
 
-  const loadHelloBar = () => {
+  const loadDonorboxWidget = () => {
     if (consentLoaders.marketing || !consentAllows("marketing")) return;
     consentLoaders.marketing = true;
-    createScript(helloBarSrc, { async: true, charset: "utf-8" });
+
+    createScript(donorboxWidgetSrc, {
+      async: true,
+      type: "module",
+    });
+
+    if (document.querySelector('dbox-widget[data-apes-donorbox="sticky-popup"]')) {
+      return;
+    }
+
+    const widget = document.createElement("dbox-widget");
+    widget.dataset.apesDonorbox = "sticky-popup";
+    widget.setAttribute("interval", "1 M");
+    widget.setAttribute("campaign", "donations-909664");
+    widget.setAttribute("type", "popup");
+    widget.setAttribute("button-label", "Donate Now!");
+    widget.setAttribute("button-type", "sticky");
+    widget.setAttribute("button-color", "#008000");
+    widget.setAttribute("button-size", "medium");
+    widget.setAttribute("sticky-position", "left");
+    widget.setAttribute("show-icon", "");
+    document.body.appendChild(widget);
   };
 
   const loadOneSignal = () => {
     if (consentLoaders.thirdParty || !consentAllows("thirdParty")) return;
     consentLoaders.thirdParty = true;
 
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    createScript("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js", {
+    window.OneSignal = window.OneSignal || [];
+    createScript("https://cdn.onesignal.com/sdks/OneSignalSDK.js", {
       defer: true,
     });
 
-    window.OneSignalDeferred.push(async function (OneSignal) {
-      await OneSignal.init({ appId: oneSignalAppId });
+    window.OneSignal.push(function () {
+      window.OneSignal.init({
+        appId: oneSignalAppId,
+      });
     });
   };
 
@@ -157,8 +180,8 @@
 
     window.chatwootSettings = {
       position: "right",
-      type: "expanded_bubble",
-      launcherTitle: "Speak with an advisor",
+      type: "standard",
+      launcherTitle: "",
     };
 
     const script = createScript(`${chatwootBaseUrl}/packs/js/sdk.js`, { async: true });
@@ -179,7 +202,7 @@
     }
 
     if (consentAllows("marketing")) {
-      loadHelloBar();
+      loadDonorboxWidget();
     }
 
     if (consentAllows("thirdParty")) {
