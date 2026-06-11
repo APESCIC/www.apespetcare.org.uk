@@ -1,3 +1,50 @@
+## [v3.2.9b] - 2026-06-11
+
+<span class="pill pill-version">Version v3.2.9b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Content Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Clarified the homepage clinic-scope wording so it explains the clinic's non-veterinary boundaries, OTC recommendation guidance, and partner-lab support more accurately.
+
+### Detailed changes
+
+- Updated the homepage scope alert to state that the clinic does not prescribe veterinary medicines, may recommend suitable over-the-counter alternatives after consultation, and can sometimes offer lower-cost options where appropriate.
+- Revised the homepage "What we do not do" section to match the same non-veterinary scope wording and to mention partner-lab support for investigating certain illnesses and diseases.
+- Synced the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text to `v3.2.9b`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Updates public-facing clinic-scope wording on the homepage.
+- <span class="pill pill-fix">Content Fix</span> Aligns repeated homepage limitation copy with the clinic's intended wording.
+- <span class="pill pill-accessibility">Accessibility</span> Keeps the warning content clear and consistent wherever visitors encounter it on the homepage.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Homepage scope alert, homepage clinic-limits content card, Change Log Hub, README current release, and repeated footer version text.
+- Files changed: `public/index.html`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime `public/**/*.html` files for footer version sync.
+- User groups affected: Public visitors reviewing clinic scope, limitations, and next-step guidance.
+- Public impact: Visitors now see clearer wording about non-veterinary boundaries, OTC recommendation support after consultation, and partner-lab investigation support.
+- Internal impact: Release records stay aligned with the homepage copy update while the site remains a static HTML website with PHP support tooling.
+
+### Version decision
+
+- Previous version: `v3.2.8b`
+- New version: `v3.2.9b`
+- Version type: Beta patch release
+- Reason for version bump: This is a public-facing wording clarification that changes homepage service-scope messaging without altering routes, architecture, or the hosting model.
+
+### Validation
+
+- Checks run: Source-level regression check before and after the edit, Git diff review, and release-record alignment review.
+- Manual checks completed: Confirmed by source review that both homepage limitation statements now describe the same clinic scope, OTC recommendation guidance, partner-lab investigation wording, and non-emergency boundaries.
+- Known limitations: `php` CLI is unavailable in this workspace, so `php -l`, `php -S`, `dev/check-public-root.sh`, and `dev/smoke-test.sh` still need to be run in a PHP-enabled environment before release.
+- Rollback notes: Revert the homepage wording, mirrored release-record updates, Change Log Hub entry, and repeated footer version text sync to return to `v3.2.8b`.
+
 ## [v3.2.8b] - 2026-06-11
 
 <span class="pill pill-version">Version v3.2.8b</span>
