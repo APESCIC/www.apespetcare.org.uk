@@ -32,32 +32,6 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"APES Pet Care Clinic","url":"https://www.apespetcare.org.uk/","email":"mailto:info@apespetcare.org.uk","telephone":"0300 302 0228","logo":"https://www.apespetcare.org.uk/assets/logos/optimized/apes-pet-care-clinic-logo-header-440w.webp","sameAs":["https://www.apes.org.uk/","https://www.facebook.com/apesorguk","https://www.instagram.com/apesorguk","https://twitter.com/apesorguk","https://bsky.app/profile/apesorguk.bsky.social"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"APES Pet Care Clinic","url":"https://www.apespetcare.org.uk/"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.apespetcare.org.uk/"},{"@type":"ListItem","position":2,"name":"Change Log Hub","item":"https://www.apespetcare.org.uk/changelog/"}]}</script>
-  <script>
-    window.chatwootSettings = {"position":"right","type":"expanded_bubble","launcherTitle":"Speak with an advisor"};
-    (function(d,t) {
-      var BASE_URL="https://chatwoot.workspace.apes.org.uk";
-      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=BASE_URL+"/packs/js/sdk.js";
-      g.async = true;
-      s.parentNode.insertBefore(g,s);
-      g.onload=function(){
-        window.chatwootSDK.run({
-          websiteToken: 'wtYALUsWmdbQXWnXgy42Kpxz',
-          baseUrl: BASE_URL
-        })
-      }
-    })(document,"script");
-  </script>
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-  <script>
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(async function(OneSignal) {
-      await OneSignal.init({
-        appId: "1526fa8e-132a-46ff-90b2-94386a285bde",
-      });
-    });
-  </script>
-  <script src="https://my.hellobar.com/d3bc15faadce398d8d09ec3c74fbd3bdd10be771.js" type="text/javascript" charset="utf-8" async="async"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -324,23 +298,23 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="stable" data-types="fixed content fix accessibility" data-impact="fixed content fix accessibility">
+        <details class="release-card reveal" data-current="true" data-status="beta" data-types="changed compliance accessibility" data-impact="changed compliance accessibility">
           <summary>
             <div class="release-card-head">
               <div>
                 <p class="release-card-date">2026-06-11</p>
-                <h2>v3.1.2 - Replaced visible GBP price labels with the pound sign.</h2>
+                <h2>v3.2.2b - Fixed the cookie dialog close button and added a fast accept-all action.</h2>
               </div>
-              <div class="release-pill-row"><span class="pill pill-version">Version v3.1.2</span><span class="pill pill-status">Stable</span><span class="pill pill-type">Fixed</span><span class="pill pill-fix">Content Fix</span><span class="pill pill-accessibility">Accessibility</span></div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v3.2.2b</span><span class="pill pill-status">Beta</span><span class="pill pill-type">Fixed</span><span class="pill pill-compliance">Compliance</span><span class="pill pill-accessibility">Accessibility</span></div>
             </div>
           </summary>
           <div class="release-card-body">
-            <p>Replaced visible <code>GBP</code> price labels with the pound sign <code>£</code> across the public service pricing routes and public payment-link audit record.</p>
+            <p>Fixed the cookie preferences close button and added a fast `Accept all` action inside the settings panel while keeping the site static, consent-gated, and Cloudron LAMP compatible.</p>
             <ul>
-            <li>Updated the public service route cards and inline price summaries so visible sterling prices now use <code>£</code> instead of the text prefix <code>GBP</code>.</li>
-            <li>Updated <code>public/PAYMENT_LINK_AUDIT.md</code> so the public governance record matches the visitor-facing sterling formatting now shown on the live pricing routes.</li>
-            <li>Preserved numeric prices, Stripe destinations, payment behaviour, SEO metadata, sitemap records, footer governance links, Newsroom routing, branded error pages, and Cloudron LAMP compatibility.</li>
-            <li>Synced root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and repeated footer version text to <code>v3.1.2</code>.</li>
+            <li>Added an explicit click handler so the close button now dismisses the settings dialog through the same path used by Escape.</li>
+            <li>Added a panel-level `Accept all` button so visitors can enable every optional consent category in one step.</li>
+            <li>Kept the shared consent model, policy route, left-side launcher, footer links, and consent-gated loaders unchanged.</li>
+            <li>Synced the root and public version files, changelog mirrors, Change Log Hub output, README current-release notes, and footer version text to <code>v3.2.2b</code>.</li>
             </ul>
           </div>
         </details>
@@ -1027,7 +1001,7 @@
           </section>
         </div>
         <div class="footer-meta-links" aria-label="Website governance links">
-          <span class="site-version-line">Website version: APES Pet Care Clinic v3.1.2</span>
+          <span class="site-version-line">Website version: APES Pet Care Clinic v3.2.2b</span>
           <a class="footer-hub-link" href="../donate/">Donate</a>
           <a class="footer-hub-link" href="../policies/privacy-policy/">Privacy Policy</a>
           <a class="footer-hub-link" href="../policies/terms-and-conditions/">Terms and Conditions</a>
@@ -1039,3 +1013,6 @@
   </footer>
 </body>
 </html>
+
+
+

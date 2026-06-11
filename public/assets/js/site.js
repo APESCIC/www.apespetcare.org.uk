@@ -6,6 +6,430 @@
   const desktopDrops = desktopNav ? Array.from(desktopNav.querySelectorAll(".drop")) : [];
   const mobileDrops = mobileNav ? Array.from(mobileNav.querySelectorAll(".drop")) : [];
 
+  const consentSchemaVersion = "1";
+  const consentStorageKey = "apes-cookie-consent-v1";
+  const cookiePolicyHref = "/policies/cookies-policy/";
+  const analyticsId = "G-FKGRRCJ0QE";
+  const oneSignalAppId = "1526fa8e-132a-46ff-90b2-94386a285bde";
+  const chatwootBaseUrl = "https://chatwoot.workspace.apes.org.uk";
+  const chatwootToken = "wtYALUsWmdbQXWnXgy42Kpxz";
+  const helloBarSrc = "https://my.hellobar.com/d3bc15faadce398d8d09ec3c74fbd3bdd10be771.js";
+
+  const consentLabels = {
+    necessary: "Strictly necessary",
+    preferences: "Preferences and functionality",
+    analytics: "Analytics",
+    marketing: "Marketing",
+    thirdParty: "Third-party services",
+  };
+
+  const consentDescriptions = {
+    necessary:
+      "Needed to keep the consent record, page navigation, and basic security controls working.",
+    preferences:
+      "Remembers your cookie choices and any optional settings you save for the site.",
+    analytics:
+      "Helps us understand how people use the site so we can improve content and journeys.",
+    marketing:
+      "Supports promotional content and campaign tools that are not needed for core site use.",
+    thirdParty:
+      "Loads chat, notifications, message bars, and similar external services when you choose to allow them.",
+  };
+
+  const consentLoaders = {
+    analytics: false,
+    marketing: false,
+    thirdParty: false,
+  };
+
+  const state = {
+    record: null,
+    controls: null,
+    banner: null,
+    panel: null,
+    closeButton: null,
+    savedFocus: null,
+  };
+
+  const canUseStorage = () => {
+    try {
+      const testKey = "__apes_cookie_test__";
+      window.localStorage.setItem(testKey, "1");
+      window.localStorage.removeItem(testKey);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const normaliseChoices = (choices = {}) => ({
+    necessary: true,
+    preferences: Boolean(choices.preferences),
+    analytics: Boolean(choices.analytics),
+    marketing: Boolean(choices.marketing),
+    thirdParty: Boolean(choices.thirdParty),
+  });
+
+  const createRecord = (choices, updatedAt = new Date().toISOString()) => ({
+    version: consentSchemaVersion,
+    updatedAt,
+    choices: normaliseChoices(choices),
+  });
+
+  const readStoredConsent = () => {
+    if (!canUseStorage()) return null;
+
+    try {
+      const raw = window.localStorage.getItem(consentStorageKey);
+      if (!raw) return null;
+
+      const parsed = JSON.parse(raw);
+      if (!parsed || parsed.version !== consentSchemaVersion || !parsed.choices) {
+        return null;
+      }
+
+      return createRecord(parsed.choices, parsed.updatedAt || new Date().toISOString());
+    } catch {
+      return null;
+    }
+  };
+
+  const consentAllows = (category) => Boolean(state.record && state.record.choices[category]);
+
+  const createScript = (src, attributes = {}) => {
+    if (document.querySelector(`script[data-apes-consent-src="${src}"]`)) {
+      return null;
+    }
+
+    const script = document.createElement("script");
+    script.src = src;
+    Object.entries(attributes).forEach(([name, value]) => {
+      if (value === null || value === undefined || value === false) return;
+      if (name === "text") return;
+      script.setAttribute(name, String(value));
+    });
+    script.dataset.apesConsentSrc = src;
+    document.head.appendChild(script);
+    return script;
+  };
+
+  const loadAnalytics = () => {
+    if (consentLoaders.analytics || !consentAllows("analytics")) return;
+    consentLoaders.analytics = true;
+
+    if (window.gtag) return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+
+    createScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(analyticsId)}`, {
+      async: true,
+    });
+
+    window.gtag("js", new Date());
+    window.gtag("config", analyticsId, { anonymize_ip: true });
+  };
+
+  const loadHelloBar = () => {
+    if (consentLoaders.marketing || !consentAllows("marketing")) return;
+    consentLoaders.marketing = true;
+    createScript(helloBarSrc, { async: true, charset: "utf-8" });
+  };
+
+  const loadOneSignal = () => {
+    if (consentLoaders.thirdParty || !consentAllows("thirdParty")) return;
+    consentLoaders.thirdParty = true;
+
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    createScript("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js", {
+      defer: true,
+    });
+
+    window.OneSignalDeferred.push(async function (OneSignal) {
+      await OneSignal.init({ appId: oneSignalAppId });
+    });
+  };
+
+  const loadChatwoot = () => {
+    if (!consentAllows("thirdParty") || window.chatwootSDK) return;
+
+    window.chatwootSettings = {
+      position: "right",
+      type: "expanded_bubble",
+      launcherTitle: "Speak with an advisor",
+    };
+
+    const script = createScript(`${chatwootBaseUrl}/packs/js/sdk.js`, { async: true });
+    if (!script) return;
+
+    script.addEventListener("load", () => {
+      if (window.chatwootSDK) {
+        window.chatwootSDK.run({ websiteToken: chatwootToken, baseUrl: chatwootBaseUrl });
+      }
+    });
+  };
+
+  const loadApprovedIntegrations = () => {
+    if (!state.record) return;
+
+    if (consentAllows("analytics")) {
+      loadAnalytics();
+    }
+
+    if (consentAllows("marketing")) {
+      loadHelloBar();
+    }
+
+    if (consentAllows("thirdParty")) {
+      loadChatwoot();
+      loadOneSignal();
+    }
+  };
+
+  const hideCookieBanner = () => {
+    if (state.banner) state.banner.hidden = true;
+  };
+
+  const closeCookiePanel = () => {
+    if (!state.panel) return;
+    state.panel.hidden = true;
+    if (!state.record && state.banner) state.banner.hidden = false;
+    if (state.savedFocus instanceof HTMLElement) {
+      state.savedFocus.focus();
+    }
+  };
+
+  const acceptAllConsent = () => {
+    saveConsent({
+      preferences: true,
+      analytics: true,
+      marketing: true,
+      thirdParty: true,
+    });
+    hideCookieBanner();
+    closeCookiePanel();
+  };
+
+  const syncConsentUI = () => {
+    if (!state.panel) return;
+
+    Object.keys(consentLabels).forEach((category) => {
+      const toggle = state.panel.querySelector(`[data-cookie-toggle="${category}"]`);
+      if (!toggle) return;
+      toggle.checked = Boolean(state.record && state.record.choices[category]);
+      toggle.disabled = category === "necessary";
+    });
+
+    if (!state.record) {
+      if (state.banner) state.banner.hidden = false;
+    } else {
+      hideCookieBanner();
+    }
+  };
+
+  const saveConsent = (choices) => {
+    state.record = createRecord(choices);
+
+    if (canUseStorage()) {
+      window.localStorage.setItem(consentStorageKey, JSON.stringify(state.record));
+    }
+
+    document.documentElement.dataset.cookieConsent = "true";
+    document.documentElement.dataset.cookieConsentVersion = consentSchemaVersion;
+    syncConsentUI();
+    loadApprovedIntegrations();
+    window.dispatchEvent(
+      new CustomEvent("apes-cookie-consent-change", { detail: { record: state.record } })
+    );
+    return state.record;
+  };
+
+  const createCookieControls = () => {
+    if (state.controls) return state.controls;
+
+    const root = document.createElement("section");
+    root.className = "cookie-consent";
+    root.dataset.cookieConsentRoot = "true";
+    root.setAttribute("aria-live", "polite");
+
+    root.innerHTML = `
+      <div class="cookie-consent__banner" data-cookie-banner hidden>
+        <div class="cookie-consent__banner-copy">
+          <p class="cookie-consent__eyebrow">Cookie choices</p>
+          <h2 class="cookie-consent__title">We use cookies to support the site and your preferences.</h2>
+          <p class="cookie-consent__text">Strictly necessary cookies keep the website working. Optional cookies support preferences, analytics, marketing, and third-party services only after you choose to allow them.</p>
+          <p class="cookie-consent__links"><a href="${cookiePolicyHref}">Read the cookies policy</a></p>
+        </div>
+        <div class="cookie-consent__actions">
+          <button class="btn btn-outline" type="button" data-cookie-reject>Reject non-essential</button>
+          <button class="btn btn-outline" type="button" data-cookie-manage>Manage preferences</button>
+          <button class="btn btn-primary" type="button" data-cookie-accept>Accept all</button>
+        </div>
+      </div>
+      <div class="cookie-consent__panel" data-cookie-panel hidden role="dialog" aria-modal="true" aria-labelledby="cookie-panel-title">
+        <div class="cookie-consent__panel-header">
+          <div>
+            <p class="cookie-consent__eyebrow">Cookie preferences</p>
+            <h2 class="cookie-consent__title" id="cookie-panel-title">Manage your choices</h2>
+          </div>
+          <button class="cookie-consent__close" type="button" data-cookie-close aria-label="Close cookie preferences">Close</button>
+        </div>
+        <p class="cookie-consent__text">You can update your preferences at any time. Strictly necessary cookies stay on because the site needs them to work.</p>
+        <div class="cookie-consent__choices" role="group" aria-label="Cookie categories">
+          ${Object.keys(consentLabels)
+            .map(
+              (category) => `
+                <label class="cookie-consent__choice${category === "necessary" ? " is-required" : ""}">
+                  <span>
+                    <strong>${consentLabels[category]}</strong>
+                    <span>${consentDescriptions[category]}</span>
+                  </span>
+                  <input type="checkbox" data-cookie-toggle="${category}" ${
+                category === "necessary" ? "checked disabled" : ""
+              }>
+                </label>
+              `
+            )
+            .join("")}
+        </div>
+        <div class="cookie-consent__actions cookie-consent__actions--panel">
+          <button class="btn btn-outline" type="button" data-cookie-reject>Reject non-essential</button>
+          <button class="btn btn-outline" type="button" data-cookie-accept-all>Accept all</button>
+          <button class="btn btn-primary" type="button" data-cookie-save>Save preferences</button>
+        </div>
+      </div>
+      <button class="cookie-consent__settings" type="button" data-cookie-open aria-label="Cookie settings" title="Cookie settings">
+        <span class="cookie-consent__settings-icon" aria-hidden="true">🍪</span>
+      </button>
+    `;
+
+    document.body.appendChild(root);
+    state.controls = root;
+    state.banner = root.querySelector("[data-cookie-banner]");
+    state.panel = root.querySelector("[data-cookie-panel]");
+    state.closeButton = root.querySelector("[data-cookie-close]");
+
+    root.querySelectorAll("[data-cookie-accept]").forEach((button) => {
+      button.addEventListener("click", () => {
+        acceptAllConsent();
+      });
+    });
+
+    root.querySelectorAll("[data-cookie-accept-all]").forEach((button) => {
+      button.addEventListener("click", () => {
+        acceptAllConsent();
+      });
+    });
+
+    root.querySelectorAll("[data-cookie-reject]").forEach((button) => {
+      button.addEventListener("click", () => {
+        saveConsent({ preferences: false, analytics: false, marketing: false, thirdParty: false });
+        hideCookieBanner();
+        closeCookiePanel();
+      });
+    });
+
+    root.querySelectorAll("[data-cookie-manage], [data-cookie-open]").forEach((button) => {
+      button.addEventListener("click", () => {
+        openCookiePanel();
+      });
+    });
+
+    if (state.closeButton) {
+      state.closeButton.addEventListener("click", () => {
+        closeCookiePanel();
+      });
+    }
+
+    root.querySelectorAll("[data-cookie-save]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const nextChoices = {
+          preferences: Boolean(root.querySelector('[data-cookie-toggle="preferences"]')?.checked),
+          analytics: Boolean(root.querySelector('[data-cookie-toggle="analytics"]')?.checked),
+          marketing: Boolean(root.querySelector('[data-cookie-toggle="marketing"]')?.checked),
+          thirdParty: Boolean(root.querySelector('[data-cookie-toggle="thirdParty"]')?.checked),
+        };
+
+        saveConsent(nextChoices);
+        hideCookieBanner();
+        closeCookiePanel();
+      });
+    });
+
+    root.querySelectorAll("[data-cookie-toggle]").forEach((input) => {
+      input.addEventListener("change", () => {
+        if (input.dataset.cookieToggle === "necessary") {
+          input.checked = true;
+        }
+      });
+    });
+
+    root.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      if (state.panel && !state.panel.hidden) {
+        closeCookiePanel();
+      }
+    });
+
+    syncConsentUI();
+    return root;
+  };
+
+  const showCookieBanner = () => {
+    createCookieControls();
+    if (state.banner) state.banner.hidden = false;
+  };
+
+  const openCookiePanel = () => {
+    createCookieControls();
+    if (!state.panel) return;
+
+    state.savedFocus = document.activeElement;
+    syncConsentUI();
+    state.panel.hidden = false;
+    hideCookieBanner();
+
+    const firstFocusable = state.panel.querySelector("button:not([disabled]), input:not([disabled])");
+    if (firstFocusable instanceof HTMLElement) {
+      firstFocusable.focus();
+    }
+  };
+
+  const enhanceFooterControls = () => {
+    document.querySelectorAll(".footer-meta-links").forEach((footerMeta) => {
+      if (footerMeta.querySelector("[data-cookie-settings-trigger]")) return;
+
+      const settingsButton = document.createElement("button");
+      settingsButton.type = "button";
+      settingsButton.className = "footer-hub-link footer-cookie-link";
+      settingsButton.textContent = "Cookie settings";
+      settingsButton.dataset.cookieSettingsTrigger = "true";
+      settingsButton.addEventListener("click", openCookiePanel);
+
+      const policyLink = document.createElement("a");
+      policyLink.className = "footer-hub-link";
+      policyLink.href = cookiePolicyHref;
+      policyLink.textContent = "Cookie Policy";
+
+      footerMeta.append(settingsButton, policyLink);
+    });
+  };
+
+  const initCookieConsent = () => {
+    state.record = readStoredConsent();
+    document.documentElement.dataset.cookieConsent = state.record ? "true" : "false";
+    document.documentElement.dataset.cookieConsentVersion = consentSchemaVersion;
+    createCookieControls();
+    enhanceFooterControls();
+    syncConsentUI();
+    loadApprovedIntegrations();
+    if (!state.record) {
+      showCookieBanner();
+    }
+  };
+
   const openPopupWindow = (url, popupName, width, height) => {
     const left = Math.max(0, Math.floor((window.screen.width - width) / 2));
     const top = Math.max(0, Math.floor((window.screen.height - height) / 2));
@@ -370,4 +794,6 @@
   } else {
     cards.forEach((card) => card.classList.add("is-visible"));
   }
+
+  initCookieConsent();
 })();

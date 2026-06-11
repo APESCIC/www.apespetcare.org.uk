@@ -1,3 +1,52 @@
+## [v3.2.2b] - 2026-06-11
+
+<span class="pill pill-version">Version v3.2.2b</span>
+<span class="pill pill-status">Beta</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-compliance">Compliance</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Fixed the cookie preferences close button and added a fast `Accept all` action inside the settings panel.
+
+### Detailed changes
+
+- Added an explicit close-button click handler so the settings dialog now closes through the same dismiss path used by Escape.
+- Added a panel-level `Accept all` action that stores the full optional consent payload with one click.
+- Kept the shared consent model, policy route, consent storage, left-side launcher, and consent-gated third-party loaders unchanged.
+- Preserved footer access paths and the cookies policy link so visitors can reopen preferences from multiple routes.
+- Synced root and public version files, README release badges/current-release text, and the public changelog hub output to `v3.2.2b`.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Repairs the dialog close control and adds a fast accept-all path.
+- <span class="pill pill-compliance">Compliance</span> Keeps the consent model and optional script gating aligned with the existing policy route.
+- <span class="pill pill-accessibility">Accessibility</span> Keeps the controls keyboard reachable and screen-reader friendly.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: home, privacy policy, cookie policy, footer governance links, shared HTML route templates, sitemap records, and the Change Log Hub.
+- Files changed: `public/assets/js/site.js`, `public/assets/theme/cookie-consent.css`, `VERSION`, `public/VERSION`, `README.md`, `CHANGELOG.md`, `public/CHANGELOG.md`, and `public/changelog/index.html`.
+- User groups affected: visitors adjusting cookie preferences, maintainers checking release records, and privacy/compliance reviewers.
+- Public impact: Visitors can close the dialog reliably and accept all optional cookies from the settings panel in one step.
+- Internal impact: The site remains a static HTML deployment with PHP support tooling only, preserving Cloudron LAMP compatibility.
+
+### Version decision
+
+- Previous version: `v3.2.1b`
+- New version: `v3.2.2b`
+- Version type: Beta minor release
+- Reason for version bump: This is a user-visible interaction fix and quick-action improvement to the consent experience that preserves the same policy route, storage model, and static hosting approach.
+
+### Validation
+
+- Checks run: Pending the local verification pass for the cookie dialog close button, accept-all action, and preview route checks.
+- Manual checks completed: Pending.
+- Known limitations: Validation details will be updated once the local preview and browser behaviour checks finish.
+- Rollback notes: Revert the consent UI interaction fixes and version sync if the release needs to return to `v3.2.1b`.
+
 ## [v3.1.2] - 2026-06-11
 
 <span class="pill pill-version">Version v3.1.2</span>
