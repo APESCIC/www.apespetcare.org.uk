@@ -5,16 +5,16 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
   <img alt="Status: Stable" src="https://img.shields.io/badge/status-stable-0f7f75">
-  <img alt="Version: v3.3.5" src="https://img.shields.io/badge/version-v3.3.5-0f7f75">
+  <img alt="Version: v3.3.6" src="https://img.shields.io/badge/version-v3.3.6-0f7f75">
   <img alt="Runtime: HTML with PHP support tools" src="https://img.shields.io/badge/runtime-HTML%20%2B%20PHP%20tools-245c6b">
   <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
 </p>
 
 ## Current release
 
-- Version: `v3.3.5`
+- Version: `v3.3.6`
 - Status: Stable
-- Summary: Products and service content has been reconciled with the old live site, including the APES Pet Shop products route, species-service details, and lab-service examples.
+- Summary: Repo-aligned VS Code recommendations, validation tasks, and minimal ESLint setup have been added while keeping the site HTML-first with PHP preview tooling.
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
 
@@ -88,10 +88,13 @@ Important preview note:
 
 Recommended VS Code workflow:
 
+0. Accept the recommended workspace extensions for ESLint and PHP support when VS Code prompts, or review `.vscode/extensions.json`.
 1. Start the PHP local preview server from the repository root.
 2. Open `http://127.0.0.1:8080/` in VS Code Simple Browser, Codex browser, or a normal browser.
 3. Use `docs/preview-checklist.md` for route, footer, sitemap, error-page, and hosting checks.
 4. Stop the server when you finish previewing.
+
+The repo-level `eslint.config.js` only covers the browser JavaScript under `public/assets/js/` and exists to support local editor validation rather than a production build pipeline.
 
 LAMP-aligned preview workflow in any terminal where PHP CLI is available:
 

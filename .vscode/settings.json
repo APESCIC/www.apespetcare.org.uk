@@ -1,5 +1,8 @@
 {
     "window.autoDetectColorScheme": true,
     "workbench.colorTheme": "Visual Studio Light",
-    "phpSwitcher.detectedApps": []
+    "eslint.useFlatConfig": true,
+    "eslint.validate": [
+        "javascript"
+    ]
 }

@@ -1,3 +1,51 @@
+## [v3.3.6] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.6</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Workflow</span>
+<span class="pill pill-accessibility">Developer Tooling</span>
+
+### Summary
+
+Added repo-aligned VS Code extension recommendations, validation tasks, and a minimal ESLint setup for the existing browser JavaScript without changing the HTML-first website runtime model.
+
+### Detailed changes
+
+- Added `.vscode/extensions.json` with recommended ESLint and PHP editor support extensions for the repo's documented workflow.
+- Replaced the stale `phpSwitcher.detectedApps` workspace setting with ESLint flat-config validation settings and expanded `.vscode/tasks.json` with PHP lint and chrome-sync check tasks that match existing repo commands.
+- Added a minimal `eslint.config.js` that targets `public/assets/js/**/*.js`, then ran `npm install` to reconcile the declared ESLint dependency without adding new packages or changing the site's production runtime.
+- Synced the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text to `v3.3.6`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Updates developer workflow files without changing public routes, hosting assumptions, or runtime architecture.
+- <span class="pill pill-fix">Workflow</span> Aligns VS Code recommendations, validation tasks, and lint setup with the repo's PHP-preview and HTML-first maintenance workflow.
+- <span class="pill pill-accessibility">Developer Tooling</span> Makes editor feedback and repeatable checks easier to use for maintainers working in VS Code.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website repository.
+- Page or route: Workspace tooling files, mirrored release records, Change Log Hub, README current release, and runtime HTML pages carrying repeated footer version text.
+- Files changed: `.vscode/extensions.json`, `.vscode/settings.json`, `.vscode/tasks.json`, `eslint.config.js`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and repeated `public/**/*.html` footer version strings.
+- User groups affected: Maintainers and contributors working in VS Code or reviewing repo-supported validation tasks.
+- Public impact: No visitor-facing route or content behavior changes.
+- Internal impact: Workspace recommendations, linting coverage, and validation task discovery now match the current repo workflow more closely.
+
+### Version decision
+
+- Previous version: `v3.3.5`
+- New version: `v3.3.6`
+- Version type: Stable patch release
+- Reason for version bump: This is a repo-tracked workflow and release-record alignment update that changes developer tooling and operational maintenance surfaces without changing public architecture.
+
+### Validation
+
+- Checks run: `npm install`, `npx eslint public/assets/js/site.js`, git diff review, git status review, and task/workspace source review.
+- Manual checks completed: Confirmed the preview-server task still uses `php -S 127.0.0.1:8080 -t public dev/router.php`, extension recommendations are limited to ESLint and PHP support, and the ESLint config is scoped to the existing browser JavaScript only.
+- Known limitations: `php` CLI is not available in this workspace, so `php -l dev/router.php`, `php -l dev/sync-site-chrome.php`, `php dev/sync-site-chrome.php --check`, and local preview startup could not be executed here.
+- Rollback notes: Revert the workspace files, ESLint config, README current-release note, mirrored version files, changelog entries, Change Log Hub entry, and repeated footer version text to return to `v3.3.5`.
+
 ## [v3.3.5] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.5</span>

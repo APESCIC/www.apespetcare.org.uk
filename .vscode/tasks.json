@@ -2,6 +2,60 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "PHP lint dev/router.php",
+      "type": "shell",
+      "command": "php",
+      "args": [
+        "-l",
+        "dev/router.php"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "PHP lint dev/sync-site-chrome.php",
+      "type": "shell",
+      "command": "php",
+      "args": [
+        "-l",
+        "dev/sync-site-chrome.php"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Check synced site chrome",
+      "type": "shell",
+      "command": "php",
+      "args": [
+        "dev/sync-site-chrome.php",
+        "--check"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Start APES Pet Care Clinic preview server",
       "type": "shell",
       "command": "php",
