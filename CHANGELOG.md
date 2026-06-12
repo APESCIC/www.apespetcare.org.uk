@@ -1,3 +1,50 @@
+## [v3.3.1] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.1</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">SEO Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Brought the public `sitemap.html` route into line with the live website's shared chrome, release governance, and SEO metadata standards.
+
+### Detailed changes
+
+- Rebuilt `public/sitemap.html` as a fully aligned public route with canonical metadata, Open Graph and Twitter metadata, structured data, the shared header and footer, cookie settings access, and footer version text.
+- Added the standard temporary-premises notice, clinic-scope alert, support sidebar, and governance links so the sitemap route matches the rest of the launch-ready site experience instead of acting like a detached utility page.
+- Synced the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text to `v3.3.1`.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Repairs a public route that was missing the site's standard governance and metadata layer.
+- <span class="pill pill-fix">SEO Fix</span> Adds the missing canonical, description, Open Graph, and Twitter metadata to the sitemap route.
+- <span class="pill pill-accessibility">Accessibility</span> Restores the shared skip link, navigation, footer, and cookie settings access on the sitemap page.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `public/sitemap.html`, mirrored release records, Change Log Hub, README current release, and runtime HTML pages carrying repeated footer version text.
+- Files changed: `public/sitemap.html`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML routes carrying the repeated footer version text.
+- User groups affected: Public visitors using the sitemap route, search and sharing surfaces that read sitemap page metadata, and staff checking launch readiness.
+- Public impact: Visitors now get a consistent branded route with working governance links, shared navigation, footer controls, and proper metadata on `/sitemap.html`.
+- Internal impact: The sitemap route now follows the same release-record and launch-governance pattern as the rest of the HTML-first site.
+
+### Version decision
+
+- Previous version: `v3.3.0`
+- New version: `v3.3.1`
+- Version type: Stable patch release
+- Reason for version bump: This is a user-facing route fix that corrects missing metadata and shared site chrome on an existing public page without changing architecture, routes, or hosting assumptions.
+
+### Validation
+
+- Checks run: Source-led QA review of the public route set, metadata and footer-governance inspection, route/reference verification, and release-record alignment review.
+- Manual checks completed: Confirmed by source review that `public/sitemap.html` now carries the same shared header, footer, cookie settings control, version text, governance links, and public metadata pattern used by the rest of the runtime site.
+- Known limitations: `php` CLI remains unavailable in this workspace, so `php -l dev/router.php`, `php -l dev/sync-site-chrome.php`, `php dev/sync-site-chrome.php --check`, the documented PHP local-preview command, `dev/check-public-root.sh`, and `dev/smoke-test.sh` still need to be run in a PHP-enabled environment; the in-app browser connector also failed to attach in this sandboxed session, so rendered browser QA remains partially environment-limited here.
+- Rollback notes: Revert the sitemap route rebuild, mirrored release-record updates, Change Log Hub entry, README release note, and repeated footer version text sync to return to `v3.3.0`.
+
 ## [v3.3.0] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.0</span>
