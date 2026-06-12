@@ -1,3 +1,50 @@
+## [v3.3.3] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.3</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Completed the shared hero-to-content alignment follow-up so the lower two-column section now matches the hero's desktop container and column flow.
+
+### Detailed changes
+
+- Updated the shared `public/assets/theme/clinic.css` desktop layout contract so both `.hero` and `.content-layout` use the same explicit container width, column tracks, and inter-column gap.
+- Kept the existing tablet and mobile single-column collapse behavior unchanged while removing the desktop mismatch that still left the lower band looking narrower than the hero.
+- Synced the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text to `v3.3.3`.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Corrects the incomplete follow-up from the previous shared layout release without changing routes, content, or runtime architecture.
+- <span class="pill pill-fix">Layout Fix</span> Ensures the lower shared two-column band visually mates with the hero above it on desktop-width layouts.
+- <span class="pill pill-accessibility">Accessibility</span> Preserves the existing responsive stacking behavior while improving scan consistency across repeated page templates.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared hero and `content-layout` styling used by the homepage, About Us, Services Hub, and other routes that follow the same pattern.
+- Files changed: `public/assets/theme/clinic.css`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML routes carrying repeated footer version text.
+- User groups affected: Public visitors viewing desktop and large-tablet layouts, plus staff maintaining synced release records.
+- Public impact: The content band beneath the hero now lines up with the same column geometry and width as the hero itself on shared layouts.
+- Internal impact: Shared layout tokens now drive both sections together, reducing the chance of future alignment drift.
+
+### Version decision
+
+- Previous version: `v3.3.2`
+- New version: `v3.3.3`
+- Version type: Stable patch release
+- Reason for version bump: This is a small user-visible corrective layout fix that preserves the site's routes, architecture, and hosting assumptions.
+
+### Validation
+
+- Checks run: Shared CSS source review, release-record alignment review, shared footer sync, PHP syntax checks, and local preview support checks where available.
+- Manual checks completed: Confirmed by source review that the final active desktop `.hero` and `.content-layout` rules now share the same width, track, and gap tokens while the existing responsive collapse rules remain in place.
+- Known limitations: Visual confirmation for the shared routes still depends on local browser preview after the static HTML files are refreshed.
+- Rollback notes: Revert the shared layout token update, mirrored release-record updates, Change Log Hub entry, and footer version sync to return to `v3.3.2`.
+
 ## [v3.3.2] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.2</span>

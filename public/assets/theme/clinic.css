@@ -17,6 +17,8 @@
   --container-max: 1200px;
   --container: min(var(--container-max), calc(100vw - (2 * var(--gutter))));
   --gutter: clamp(16px, 4vw, 40px);
+  --shared-two-column-gap: clamp(1rem, 0.5rem + 1.4vw, 1.75rem);
+  --shared-two-column-tracks: minmax(0, 1.08fr) minmax(280px, 0.92fr);
 }
 
 * {
@@ -2214,8 +2216,8 @@ body {
 .hero {
   width: var(--container);
   margin: 2rem auto 1.5rem;
-  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
-  gap: 28px;
+  grid-template-columns: var(--shared-two-column-tracks);
+  gap: var(--shared-two-column-gap);
   align-items: stretch;
 }
 
@@ -2734,7 +2736,7 @@ body {
 }
 
 .hero {
-  gap: clamp(1rem, 0.5rem + 1.4vw, 1.75rem);
+  gap: var(--shared-two-column-gap);
   margin: clamp(1.2rem, 0.8rem + 1.2vw, 2rem) auto clamp(1.2rem, 0.85rem + 0.9vw, 1.7rem);
 }
 
@@ -2781,8 +2783,9 @@ body {
 }
 
 .content-layout {
-  gap: clamp(1.1rem, 0.85rem + 1vw, 1.8rem);
-  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  width: var(--container);
+  gap: var(--shared-two-column-gap);
+  grid-template-columns: var(--shared-two-column-tracks);
 }
 
 .side-stack,
