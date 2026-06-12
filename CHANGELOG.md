@@ -1,3 +1,51 @@
+## [v3.3.10] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.10</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-content">Sidebar Content</span>
+
+### Summary
+
+Extended the reassurance-card sidebar rollout across the matching service-detail routes and synced the README back to the canonical version records.
+
+### Detailed changes
+
+- Moved the final informational cards from the main article flow into the right-hand sidebar stack on `public/general-services/index.html`, `public/dog-care/index.html`, `public/cat-care/index.html`, `public/lab-services/index.html`, `public/rabbit-care/index.html`, `public/guinea-care/index.html`, and `public/ferret-care/index.html`.
+- Reused the existing `.side-card-reassurance` pattern and upgraded each affected sidebar to the sticky stack variant so the right rail matches the already-migrated routes.
+- Left primary service and priced offer cards in the main article column on other service pages, including routes such as `reptile-care` and `invert-care`.
+- Synced mirrored version files, markdown changelog records, the Change Log Hub entry, repeated footer version text, and the previously stale `README.md` release version to `v3.3.10`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Reorders informational content on existing service-detail routes without changing routing, forms, or payment flows.
+- <span class="pill pill-fix">Layout Fix</span> Keeps low-priority reassurance content out of the main article column once the primary service content has ended.
+- <span class="pill pill-content">Sidebar Content</span> Uses the established right-rail reading order so help, payment guidance, and reassurance content stay grouped together.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: General Services, Dog Care, Cat Care, Lab Services, Rabbit Care, Guinea Pig Care, Ferret Care, mirrored release records, Change Log Hub, repeated footer version text, and README current-release metadata.
+- Files changed: `public/general-services/index.html`, `public/dog-care/index.html`, `public/cat-care/index.html`, `public/lab-services/index.html`, `public/rabbit-care/index.html`, `public/guinea-care/index.html`, `public/ferret-care/index.html`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML pages carrying repeated footer version text.
+- User groups affected: Public visitors using the affected service-detail routes and maintainers reading repo release metadata.
+- Public impact: Informational service-route reassurance now appears in the right-hand information rail instead of as the last article card on the affected service-detail pages.
+- Internal impact: Release records, footer version text, and README release notes now agree on the live version.
+
+### Version decision
+
+- Previous version: `v3.3.9`
+- New version: `v3.3.10`
+- Version type: Stable patch release
+- Reason for version bump: This is a visitor-facing layout adjustment plus release-record sync on existing routes with no hosting, runtime, or route changes.
+
+### Validation
+
+- Checks run: `php -l dev/router.php`, repo public-root validation, local preview via `php -S 127.0.0.1:8080 -t public dev/router.php`, preview smoke requests for `/general-services/`, `/dog-care/`, `/cat-care/`, `/lab-services/`, `/rabbit-care/`, `/guinea-care/`, `/ferret-care/`, `/changelog/`, `/robots.txt`, `/sitemap.xml`, `/403.html`, `/404.html`, and `/500.html`.
+- Manual checks completed: Source review confirmed the moved cards now live in the affected sidebars after the primary help and payment guidance cards where applicable, and the selected article columns no longer end with those reassurance blocks.
+- Known limitations: Browser automation is still limited in this environment, so visual confirmation depends on local preview checks and direct browser review rather than scripted UI capture.
+- Rollback notes: Restore the moved informational cards to the article flow on the four affected routes and revert mirrored release records and repeated version text to return to `v3.3.9`.
+
 ## [v3.3.9] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.9</span>
