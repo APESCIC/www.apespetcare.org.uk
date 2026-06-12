@@ -1,3 +1,51 @@
+## [v3.3.9] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.9</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-content">Sidebar Content</span>
+
+### Summary
+
+Moved the low-priority reassurance cards out of the main article column and into the right-hand sidebar stack on the shared sticky-sidebar routes.
+
+### Detailed changes
+
+- Added a dedicated `.side-card-reassurance` variant in `public/assets/theme/clinic.css` so moved reassurance blocks use the existing sidebar card system without inheriting the article-card width and spacing.
+- Moved the reassurance and attendance guidance cards from the bottom of the main article flow into the right rail on `public/index.html`, `public/services/index.html`, `public/bookings/index.html`, and `public/contact/index.html`.
+- Kept the reassurance copy intact while changing the placement so the content now appears after the primary help card and before the support illustration, with the Services route preserving its existing payment-guidance side card.
+- Synced mirrored version files, markdown changelog records, the Change Log Hub entry, and repeated footer version text to `v3.3.9`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Reorders low-priority informational content on the shared two-column layout without changing routes, forms, or public metadata.
+- <span class="pill pill-fix">Layout Fix</span> Prevents reassurance cards from extending the main article column after the primary page content has ended.
+- <span class="pill pill-content">Sidebar Content</span> Keeps the informational copy available on the affected routes while aligning it with the existing sidebar reading order.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Home, Services Hub, Bookings, Contact, shared sidebar theme CSS, mirrored release records, Change Log Hub, and repeated footer version text.
+- Files changed: `public/index.html`, `public/services/index.html`, `public/bookings/index.html`, `public/contact/index.html`, `public/assets/theme/clinic.css`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML pages carrying repeated footer version text.
+- User groups affected: Public visitors using the homepage, service payment guidance, bookings, and contact routes.
+- Public impact: Reassurance and attendance guidance now sits in the right-hand information rail instead of appearing as a final article card on the affected pages.
+- Internal impact: Shared sidebar styling now supports a reusable reassurance-card variant for sticky-right-rail pages.
+
+### Version decision
+
+- Previous version: `v3.3.8`
+- New version: `v3.3.9`
+- Version type: Stable patch release
+- Reason for version bump: This is a visitor-facing layout adjustment on existing routes with no route, hosting, or runtime changes.
+
+### Validation
+
+- Checks run: `C:\xampp\php\php.exe -l dev\router.php`, PowerShell equivalent of `dev/check-public-root.sh`, and preview smoke requests against `http://127.0.0.1:8080/` for `/`, `/index.html`, `/robots.txt`, `/sitemap.xml`, `/changelog/`, `/403.html`, `/404.html`, `/500.html`, `/crawl/`, and `/missing-smoke-test-route/`.
+- Manual checks completed: Source review confirmed the moved cards now live inside the sidebar stack on the Home, Services, Bookings, and Contact pages and no longer remain at the bottom of the main article markup.
+- Known limitations: Browser-level automation against the local preview could not run in this environment because Playwright is installed without its Chromium binary, so visual verification is limited to source review plus the passing preview smoke checks.
+- Rollback notes: Restore the final article cards on the affected routes, remove `.side-card-reassurance`, and revert mirrored version and changelog records to return to `v3.3.8`.
+
 ## [v3.3.8] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.8</span>

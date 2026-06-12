@@ -1071,6 +1071,24 @@ a {
   line-height: 1.6;
 }
 
+.side-card-reassurance {
+  gap: 12px;
+}
+
+.side-card-reassurance h2,
+.side-card-reassurance h3 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--sea-800);
+  font-size: clamp(1.35rem, 1.12rem + 0.72vw, 1.9rem);
+  line-height: 1.18;
+}
+
+.side-card-reassurance p {
+  margin: 0;
+  line-height: 1.7;
+}
+
 .side-card-payment-guidance {
   gap: 14px;
 }

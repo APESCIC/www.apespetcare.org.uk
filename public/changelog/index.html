@@ -316,7 +316,27 @@
       </div>
     </div>
     <div class="change-log-list">
-        <details class="release-card reveal" data-current="true" data-status="stable" data-types="changed workflow developer tooling" data-impact="changed workflow developer tooling" open>
+        <details class="release-card reveal" data-current="true" data-status="stable" data-types="changed layout fix sidebar content" data-impact="changed layout fix sidebar content" open>
+          <summary>
+            <div class="release-card-head">
+              <div>
+                <p class="release-card-date">2026-06-12</p>
+                <h2>v3.3.9 - Moved reassurance cards into the right-hand sidebar stack.</h2>
+              </div>
+              <div class="release-pill-row"><span class="pill pill-version">Version v3.3.9</span><span class="pill pill-status">Stable</span><span class="pill pill-type">Changed</span><span class="pill pill-fix">Layout Fix</span><span class="pill pill-content">Sidebar Content</span></div>
+            </div>
+          </summary>
+          <div class="release-card-body">
+            <p>Moved the low-priority reassurance cards out of the main article column and into the right-hand sidebar stack on the shared sticky-sidebar routes.</p>
+            <ul>
+              <li>Added a reusable <code>.side-card-reassurance</code> style in <code>public/assets/theme/clinic.css</code> so moved informational cards align with the existing sidebar layout.</li>
+              <li>Moved the reassurance and attendance guidance cards from the main article flow into the sidebar stack on the Home, Services, Bookings, and Contact pages.</li>
+              <li>Kept the existing copy intact while changing the placement so the cards now appear after the primary help card and before the support illustration, with the Services route preserving its payment-guidance side card.</li>
+              <li>Synced mirrored version files, markdown changelog records, the Change Log Hub, and repeated footer version text to <code>v3.3.9</code>.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="release-card reveal" data-current="false" data-status="stable" data-types="changed workflow developer tooling" data-impact="changed workflow developer tooling">
           <summary>
             <div class="release-card-head">
               <div>
@@ -1313,7 +1333,7 @@
       </div>
       <p class="footer-legal-line">&copy; 2026 Association of Protecting Exotic Species CIC. CIC No: 16253848. We are regulated by the CIC Commission for non-profit organisations.</p>
       <div class="footer-meta-links">
-        <span class="site-version-line">Website version: APES Pet Care Clinic v3.3.8</span>
+        <span class="site-version-line">Website version: APES Pet Care Clinic v3.3.9</span>
       </div>
     </div>
     <div class="onesignal-customlink-container"></div>
