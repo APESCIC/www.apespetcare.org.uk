@@ -5,16 +5,16 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
   <img alt="Status: Stable" src="https://img.shields.io/badge/status-stable-0f7f75">
-  <img alt="Version: v3.3.6" src="https://img.shields.io/badge/version-v3.3.6-0f7f75">
+  <img alt="Version: v3.3.7" src="https://img.shields.io/badge/version-v3.3.7-0f7f75">
   <img alt="Runtime: HTML with PHP support tools" src="https://img.shields.io/badge/runtime-HTML%20%2B%20PHP%20tools-245c6b">
   <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
 </p>
 
 ## Current release
 
-- Version: `v3.3.6`
+- Version: `v3.3.7`
 - Status: Stable
-- Summary: Repo-aligned VS Code recommendations, validation tasks, and minimal ESLint setup have been added while keeping the site HTML-first with PHP preview tooling.
+- Summary: Flea and worming payment cards now use the updated Flea Control and Worming Control labels with the revised `£3 + Cost of Product Used` pricing across the affected service routes.
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
 

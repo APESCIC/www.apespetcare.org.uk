@@ -1,3 +1,50 @@
+## [v3.3.7] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.7</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-content">Content Accuracy</span>
+<span class="pill pill-fix">Pricing Copy</span>
+
+### Summary
+
+Renamed the flea and worming payment cards and aligned their displayed pricing copy across the affected dog, cat, ferret, and Services Hub routes.
+
+### Detailed changes
+
+- Renamed the payment options from `Flea control support` to `Flea Control` and from `Parasite control guidance` to `Worming Control` on the dog, cat, ferret, and Services Hub runtime pages.
+- Updated the affected routine-support pricing text to `£3 + Cost of Product Used` on the runtime cards and the species-page summary price lines so the sections stay internally consistent.
+- Synced the matching `aria-label` text, `public/PAYMENT_LINK_AUDIT.md`, mirrored version files, changelog records, Change Log Hub entry, README current-release note, and repeated footer version text to `v3.3.7`.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Corrects public-facing service labels and pricing copy without changing routes, payment destinations, or hosting assumptions.
+- <span class="pill pill-content">Content Accuracy</span> Keeps the flea and worming payment wording aligned across the affected species pages, the Services Hub, and the payment audit record.
+- <span class="pill pill-fix">Pricing Copy</span> Replaces the old `£3.00` card wording with the requested `£3 + Cost of Product Used` display text.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `public/dog-care/index.html`, `public/cat-care/index.html`, `public/ferret-care/index.html`, `public/services/index.html`, `public/PAYMENT_LINK_AUDIT.md`, README current-release notes, version files, changelog records, Change Log Hub, and repeated footer version text.
+- Files changed: affected runtime service pages, `public/PAYMENT_LINK_AUDIT.md`, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML pages carrying repeated footer version text.
+- User groups affected: Public visitors comparing routine flea and worming support options before pre-paying or booking with APES.
+- Public impact: Visitors now see the requested Flea Control and Worming Control labels together with the updated pricing copy across the affected service routes.
+- Internal impact: Payment-label audit records and release metadata remain aligned with the visitor-facing pages.
+
+### Version decision
+
+- Previous version: `v3.3.6`
+- New version: `v3.3.7`
+- Version type: Stable patch release
+- Reason for version bump: This is a user-visible content and pricing-copy correction that updates public runtime pages and mirrored release records without changing runtime architecture.
+
+### Validation
+
+- Checks run: repo text search for affected labels/prices, `npx eslint public/assets/js/site.js`, and git diff review.
+- Manual checks completed: Planned for `/dog-care/`, `/cat-care/`, `/ferret-care/`, and `/services/` once local preview is available.
+- Known limitations: `php` CLI availability must be confirmed before PHP router, public-root, and local preview checks can be run in this workspace.
+- Rollback notes: Revert the affected service-page copy, payment audit record, version files, README current-release note, changelog records, Change Log Hub entry, and repeated footer version text to return to `v3.3.6`.
+
 ## [v3.3.6] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.6</span>
