@@ -1,3 +1,52 @@
+## [v3.3.5] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.5</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-content">Content Accuracy</span>
+<span class="pill pill-compliance">Service Scope</span>
+
+### Summary
+
+Reconciled the beta website's products and services content against the old live APES Pet Care Clinic website so public service routes, pricing guidance, lab examples, and the APES Pet Shop products route better match the services APES offers.
+
+### Detailed changes
+
+- Added the missing Products/APES Pet Shop route to the shared desktop menu, mobile menu, footer services list, homepage service cards, and Services Hub cards.
+- Added an old-site services summary to the Services Hub and a general-services note covering consultations, microchipping, and care plans.
+- Updated dog, cat, rabbit, guinea pig, ferret, reptile, and invertebrate service descriptions so flea, worming, nail/claw clipping, teeth and ear cleaning, shedding aid, parasite support, fang support, respiratory concern support, and moult support reflect the old website while retaining beta suitability warnings.
+- Expanded Lab Services with the missing reptile test examples from the old site and corrected mojibake currency symbols across runtime HTML.
+- Synced shared site chrome and repeated footer version text to `v3.3.5`.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Corrects public service and product information without changing runtime architecture or routes.
+- <span class="pill pill-content">Content Accuracy</span> Aligns beta service pages with the old website's listed products, services, and example prices.
+- <span class="pill pill-compliance">Service Scope</span> Keeps veterinary-scope, suitability, emergency, and refund warnings visible while restoring missing service information.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `public/index.html`, `public/services/index.html`, `public/general-services/index.html`, species service pages, `public/lab-services/index.html`, shared menu and footer includes, runtime HTML pages synced from shared chrome, README, version files, changelog records, and Change Log Hub.
+- Files changed: shared chrome includes, homepage, Services Hub, General Services, Dog Care, Cat Care, Rabbit Care, Guinea Pig Care, Ferret Care, Reptile Care, Invert Care, Lab Services, runtime HTML routes carrying the shared header/footer, README, version files, changelog records, and Change Log Hub.
+- User groups affected: Public visitors comparing service options, products, care plans, lab testing support, and pre-payment suitability before contacting or booking with APES.
+- Public impact: Visitors can now see the products link and old-site service coverage while still seeing beta safety, scope, and referral guidance.
+- Internal impact: Shared navigation and footer fragments now carry the Products route consistently across generated runtime pages.
+
+### Version decision
+
+- Previous version: `v3.3.4`
+- New version: `v3.3.5`
+- Version type: Stable patch release
+- Reason for version bump: This is a user-visible content-correction release that fixes service/product information, example pricing, and shared navigation without adding new runtime dependencies or changing hosting assumptions.
+
+### Validation
+
+- Checks run: Old-site source review via web crawl/open, local source review, shared chrome sync, public-root check, PHP router syntax check, ESLint, PHP local preview smoke test, and git diff review.
+- Manual checks completed: Confirmed Products appears in shared menus/footer, old-site service categories are represented on the Services Hub and relevant species routes, lab examples include the missing old-site reptile tests, and currency mojibake is removed from runtime HTML.
+- Known limitations: Old-site text was used as a content reference, but final beta copy intentionally keeps APES veterinary-scope and suitability wording rather than copying older wording verbatim.
+- Rollback notes: Revert the service-content updates, shared Products navigation/footer addition, Lab Services examples, version files, README release note, changelog records, Change Log Hub entry, and synced footer version text to return to `v3.3.4`.
+
 ## [v3.3.4] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.4</span>
