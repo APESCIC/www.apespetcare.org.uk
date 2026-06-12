@@ -1,3 +1,50 @@
+## [v3.3.2] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.2</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Aligned the shared two-column content layout with the hero layout so the desktop page structure now lines up cleanly across the site.
+
+### Detailed changes
+
+- Updated the shared `public/assets/theme/clinic.css` desktop `content-layout` grid to use the same left and right track proportions as the shared hero layout.
+- Preserved the existing tablet and mobile single-column collapse behavior so the fix only changes desktop-width alignment.
+- Synced the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text to `v3.3.2`.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Refines the existing shared desktop layout without altering routes, structure, or runtime behavior.
+- <span class="pill pill-fix">Layout Fix</span> Brings the hero and the two-column section below it into visual alignment across shared page templates.
+- <span class="pill pill-accessibility">Accessibility</span> Keeps the established responsive stacking behavior intact while improving layout consistency for content scanning.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: Shared hero and `content-layout` styling used by the homepage, About Us, Services Hub, and other routes that follow the same layout pattern.
+- Files changed: `public/assets/theme/clinic.css`, `README.md`, `VERSION`, `public/VERSION`, `public/CHANGELOG.md`, `CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML routes carrying the repeated footer version text.
+- User groups affected: Public visitors viewing desktop and large-tablet layouts, plus staff maintaining synced release records.
+- Public impact: Hero sections and the two-column content band beneath them now align more neatly on desktop-width pages.
+- Internal impact: The shared layout system is more consistent and easier to maintain because both sections now use the same desktop column geometry.
+
+### Version decision
+
+- Previous version: `v3.3.1`
+- New version: `v3.3.2`
+- Version type: Stable patch release
+- Reason for version bump: This is a user-facing visual polish to an existing shared layout pattern that preserves routes, hosting assumptions, and runtime architecture.
+
+### Validation
+
+- Checks run: Shared CSS source review, release-record alignment review, and targeted visual QA on the shared route pattern.
+- Manual checks completed: Confirmed by source review that `.hero` and `.content-layout` now use matching desktop column proportions while the existing responsive single-column collapse rules remain in place.
+- Known limitations: The documented PHP syntax, local-preview, public-root, and smoke-test commands still depend on the local environment supporting `php` CLI and repository shell scripts; those results should be confirmed from the fresh verification step after the code changes.
+- Rollback notes: Revert the shared layout rule, mirrored release-record updates, Change Log Hub entry, README release note, and repeated footer version text sync to return to `v3.3.1`.
+
 ## [v3.3.1] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.1</span>

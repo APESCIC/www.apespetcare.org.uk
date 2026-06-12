@@ -2782,7 +2782,7 @@ body {
 
 .content-layout {
   gap: clamp(1.1rem, 0.85rem + 1vw, 1.8rem);
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.88fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
 }
 
 .side-stack,
