@@ -1,3 +1,50 @@
+## [v3.3.4] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.4</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Fixed</span>
+<span class="pill pill-fix">Layout Fix</span>
+<span class="pill pill-accessibility">Accessibility</span>
+
+### Summary
+
+Tidied the service-page payment layout so service-specific cards stay in the main content while shared Stripe guidance now sits consistently in the right-hand column.
+
+### Detailed changes
+
+- Removed the repeated late `Pre-pay from this...` article panels from the species-detail service routes while keeping the smaller in-context service cards in place.
+- Moved the shared `Before you pay` warning and Stripe process note into the sidebar on the Services Hub, General Services, and the affected species-detail routes.
+- Added a small shared sidebar-guidance styling pass in `public/assets/theme/clinic.css` and synced the mirrored version files, changelog records, Change Log Hub entry, README current-release notes, and repeated footer version text to `v3.3.4`.
+
+### Type pills
+
+- <span class="pill pill-type">Fixed</span> Consolidates duplicated payment guidance without changing service routes, payment links, or runtime architecture.
+- <span class="pill pill-fix">Layout Fix</span> Keeps service-specific payment cards in the main column and relocates shared payment guidance to the right-hand support column.
+- <span class="pill pill-accessibility">Accessibility</span> Reduces repeated payment content and makes the sidebar guidance easier to scan across the affected service pages.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website.
+- Page or route: `public/services/index.html`, `public/general-services/index.html`, `public/dog-care/index.html`, `public/cat-care/index.html`, `public/rabbit-care/index.html`, `public/guinea-care/index.html`, `public/ferret-care/index.html`, `public/reptile-care/index.html`, `public/invert-care/index.html`, mirrored release records, Change Log Hub, README current release, and runtime HTML pages carrying repeated footer version text.
+- Files changed: `public/assets/theme/clinic.css`, the nine affected service routes, `README.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML routes carrying the repeated footer version text.
+- User groups affected: Public visitors comparing services and payment options, plus staff maintaining service-route release records.
+- Public impact: Visitors now see one clearer payment-guidance location in the sidebar while the main content stays focused on the relevant service options for each page.
+- Internal impact: Shared service-page structure is more consistent, which reduces repeated payment-content maintenance across the service route set.
+
+### Version decision
+
+- Previous version: `v3.3.3`
+- New version: `v3.3.4`
+- Version type: Stable patch release
+- Reason for version bump: This is a user-visible service-page tidy-up that changes layout and content placement without changing routes, hosting assumptions, or payment-link behavior.
+
+### Validation
+
+- Checks run: Source review of the affected service routes, duplicate-payment-section removal checks, sidebar-guidance placement checks, release-record alignment review, and footer version sync checks.
+- Manual checks completed: Confirmed by source review that the affected service routes now keep their service-specific cards in the article column, move the shared Stripe guidance into the sidebar, and remove the repeated `Pre-pay from this...` article sections from the species-detail pages.
+- Known limitations: Full rendered browser QA and the documented PHP preview and smoke-test commands still depend on local environment support and need to be re-run after the source changes.
+- Rollback notes: Revert the service-route HTML tidy-up, the shared sidebar-guidance styling update, mirrored release-record updates, Change Log Hub entry, README release note, and footer version sync to return to `v3.3.3`.
+
 ## [v3.3.3] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.3</span>

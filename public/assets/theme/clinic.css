@@ -1071,6 +1071,20 @@ a {
   line-height: 1.6;
 }
 
+.side-card-payment-guidance {
+  gap: 14px;
+}
+
+.side-card-payment-guidance .prepay-warning {
+  padding: 14px 16px;
+}
+
+.side-card-payment-guidance .prepay-note {
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
 .cta-group {
   display: grid;
   gap: 12px;
