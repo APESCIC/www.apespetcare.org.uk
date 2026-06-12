@@ -1,3 +1,51 @@
+## [v3.3.8] - 2026-06-12
+
+<span class="pill pill-version">Version v3.3.8</span>
+<span class="pill pill-status">Stable</span>
+<span class="pill pill-type">Changed</span>
+<span class="pill pill-fix">Workflow</span>
+<span class="pill pill-accessibility">Developer Tooling</span>
+
+### Summary
+
+Documented the XAMPP-backed PHP CLI fallback for Windows maintainers and re-verified the repo's recommended VS Code extensions, npm dependency state, and local preview validation workflow.
+
+### Detailed changes
+
+- Verified the existing workspace recommendations still match the repo workflow, then installed the recommended VS Code ESLint and Intelephense extensions locally through the VS Code CLI.
+- Re-ran `npm install` to confirm the declared ESLint dependency and lockfile were already current without changing the repo's production runtime model.
+- Updated `README.md` and `docs/local-preview.md` to show the `C:\xampp\php\php.exe` fallback when Windows maintainers do not have `php` on `PATH`.
+- Re-verified the XAMPP PHP CLI, PHP syntax checks, ESLint validation, public-root check, local preview server, and smoke tests against the documented HTML-first workflow.
+
+### Type pills
+
+- <span class="pill pill-type">Changed</span> Updates maintainer setup guidance and validation evidence without changing public routes or runtime architecture.
+- <span class="pill pill-fix">Workflow</span> Documents the XAMPP-backed PHP path that is already suitable for local preview and repo checks on Windows.
+- <span class="pill pill-accessibility">Developer Tooling</span> Keeps local setup instructions aligned with the recommended VS Code extensions and the existing ESLint and PHP support workflow.
+
+### Affected areas
+
+- Website: APES Pet Care Clinic public website repository.
+- Page or route: README current-release notes, local preview documentation, mirrored release records, Change Log Hub, and repeated footer version text.
+- Files changed: `README.md`, `docs/local-preview.md`, `VERSION`, `public/VERSION`, `CHANGELOG.md`, `public/CHANGELOG.md`, `public/changelog/index.html`, and runtime HTML pages carrying repeated footer version text.
+- User groups affected: Maintainers setting up the repo locally on Windows.
+- Public impact: No visitor-facing route, content, SEO, sitemap, footer links, or hosting behavior changes.
+- Internal impact: The documented Windows setup path now matches the validated XAMPP-based PHP workflow used to run the repo checks.
+
+### Version decision
+
+- Previous version: `v3.3.7`
+- New version: `v3.3.8`
+- Version type: Stable patch release
+- Reason for version bump: This is a maintainer-facing documentation and workflow clarification that updates release records without changing the public website runtime.
+
+### Validation
+
+- Checks run: VS Code CLI extension install for `dbaeumer.vscode-eslint` and `bmewburn.vscode-intelephense-client`, `npm install`, `npx eslint public/assets/js/site.js`, `C:\xampp\php\php.exe -l dev/router.php`, `C:\xampp\php\php.exe -l dev/sync-site-chrome.php`, `C:\xampp\php\php.exe dev/sync-site-chrome.php --check`, `sh dev/check-public-root.sh`, `C:\xampp\php\php.exe -S 127.0.0.1:8080 -t public dev/router.php`, and `sh dev/smoke-test.sh`.
+- Manual checks completed: Confirmed the local preview server responded at `http://127.0.0.1:8080/` and the documented smoke-test routes returned the expected statuses.
+- Known limitations: `C:\xampp\php\php.exe dev/sync-site-chrome.php --check` still reports pre-existing out-of-sync runtime HTML pages versus the shared include fragments; this setup refresh documented the validated PHP path but did not widen scope into a full chrome resync.
+- Rollback notes: Revert the XAMPP workflow notes, mirrored release records, Change Log Hub entry, and repeated footer version text to return to `v3.3.7`.
+
 ## [v3.3.7] - 2026-06-12
 
 <span class="pill pill-version">Version v3.3.7</span>

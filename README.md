@@ -5,16 +5,16 @@ Public website repository for <https://www.apespetcare.org.uk/>, maintained by t
 <p align="center">
   <a href="https://www.apespetcare.org.uk/"><img alt="Website: www.apespetcare.org.uk live" src="https://img.shields.io/badge/website-www.apespetcare.org.uk%20live-0f7f75"></a>
   <img alt="Status: Stable" src="https://img.shields.io/badge/status-stable-0f7f75">
-  <img alt="Version: v3.3.7" src="https://img.shields.io/badge/version-v3.3.7-0f7f75">
+  <img alt="Version: v3.3.8" src="https://img.shields.io/badge/version-v3.3.8-0f7f75">
   <img alt="Runtime: HTML with PHP support tools" src="https://img.shields.io/badge/runtime-HTML%20%2B%20PHP%20tools-245c6b">
   <img alt="Hosting: Cloudron LAMP compatible" src="https://img.shields.io/badge/hosting-Cloudron%20LAMP%20compatible-55423d">
 </p>
 
 ## Current release
 
-- Version: `v3.3.7`
+- Version: `v3.3.8`
 - Status: Stable
-- Summary: Flea and worming payment cards now use the updated Flea Control and Worming Control labels with the revised `£3 + Cost of Product Used` pricing across the affected service routes.
+- Summary: The repo's local setup workflow now documents the XAMPP-backed PHP CLI fallback for Windows maintainers, while the recommended VS Code extensions, npm dependency state, and preview checks have been re-verified against the current HTML-first workflow.
 - Public Change Log Hub: `/changelog/`
 - Canonical release records: root `VERSION`, root `CHANGELOG.md`, `public/VERSION`, and `public/CHANGELOG.md`
 
@@ -100,6 +100,12 @@ LAMP-aligned preview workflow in any terminal where PHP CLI is available:
 
 ```powershell
 php -S 127.0.0.1:8080 -t public dev/router.php
+```
+
+If `php` is not on `PATH` on Windows, use the XAMPP PHP CLI directly:
+
+```powershell
+C:\xampp\php\php.exe -S 127.0.0.1:8080 -t public dev/router.php
 ```
 
 Then open:

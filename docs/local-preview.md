@@ -12,6 +12,12 @@ Use the PHP built-in server from the repository root:
 php -S 127.0.0.1:8080 -t public dev/router.php
 ```
 
+If `php` is not on `PATH` on Windows, use the XAMPP PHP CLI directly instead:
+
+```powershell
+C:\xampp\php\php.exe -S 127.0.0.1:8080 -t public dev/router.php
+```
+
 Open:
 
 ```text
@@ -22,7 +28,7 @@ The router serves `public/index.html` and `public/**/index.html` routes, blocks 
 
 ## Fallback Preview
 
-If PHP CLI is unavailable, a static server can be used only for quick visual inspection. Record that limitation in validation notes because Apache-style redirects, blocked folders, and branded error handling are not fully exercised.
+If PHP CLI is unavailable on Windows but XAMPP is installed, prefer `C:\xampp\php\php.exe` before falling back to a static server. Use a static server only for quick visual inspection, and record that limitation in validation notes because Apache-style redirects, blocked folders, and branded error handling are not fully exercised.
 
 ## Validation
 
@@ -36,6 +42,15 @@ php dev/sync-site-chrome.php --check
 sh dev/check-public-root.sh
 php -S 127.0.0.1:8080 -t public dev/router.php
 sh dev/smoke-test.sh
+```
+
+The same commands can be run with the XAMPP PHP executable when `php` is not on `PATH`, for example:
+
+```powershell
+C:\xampp\php\php.exe -l dev/router.php
+C:\xampp\php\php.exe -l dev/sync-site-chrome.php
+C:\xampp\php\php.exe dev/sync-site-chrome.php --check
+C:\xampp\php\php.exe -S 127.0.0.1:8080 -t public dev/router.php
 ```
 
 Keep `public/` as the web root. Do not add `public/index.php` unless a future approved task changes the architecture.
