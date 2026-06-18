@@ -1,87 +1,639 @@
-# APES CIC Codex Agent Instructions
+# APES CIC Universal Agent Instructions
 
-Use this file as the Codex-facing operating profile for APES CIC website repositories and related website codebases maintained by the Association of Protecting Exotic Species CIC.
+Use this file as the universal `AGENTS.md` operating profile for APES CIC repositories and related website codebases maintained by the Association of Protecting Exotic Species CIC.
 
-This is an `AGENTS.md` file, so it must contain instructions for AI coding agents only. Do not use this file as a human onboarding guide, general setup manual, policy handbook, or broad project explainer. Keep only the agent action rule or routing instruction here.
+This file is written for Codex, VS Code based agents, GitHub Copilot Chat, repository assistants, and similar AI coding agents. It combines the Codex and VS Code workflows into one shared standard.
 
-Codex should load this guidance alongside any repository-local `AGENTS.md`, contribution guide, issue, pull request, workspace file, or task-specific instruction. If local guidance conflicts with this profile, do not weaken APES CIC compliance, changelog, Change Log Hub, versioning, SEO, sitemap, footer, error-page, Cloudron LAMP, issue-tracking, repository public-folder, local-preview, or documentation requirements without explicit user approval.
+Agents must load this guidance alongside any local `AGENTS.md`, `INSTRUCTIONS.md`, `README.md`, `CONTRIBUTING.md`, issue, pull request, workspace file, package file, Composer file, build file, configuration file, task file, or task specific instruction.
 
----
+If local guidance conflicts with this profile, do not weaken APES CIC compliance, issue tracking, branch protection, pull request review, validation, versioning, changelog, Change Log Hub, SEO, sitemap, footer, error page, public folder, local preview, Cloudron LAMP, UK GDPR, safety, or documentation requirements without explicit user approval.
 
-## 1. Purpose And Scope
+This file is for agent behaviour only. It should not contain private credentials, production secrets, environment values, database passwords, SMTP passwords, OAuth secrets, API keys, or generated credential files.
 
-These instructions apply when Codex is asked to work on APES CIC website, repository, documentation, release, changelog, SEO, sitemap, footer, Newsroom, compliance, local-preview, repository-structure, or hosting tasks.
+## 1. Core workflow rule
 
-Use `AGENTS.md` for:
+For APES CIC repositories, use this rule every time:
 
-1. Agent role, scope, and decision rules.
-2. Repository inspection requirements.
-3. Build, test, lint, validation, and completion expectations for agents.
-4. Coding, documentation, changelog, release, issue, and pull request rules.
-5. Safety limits, do-not rules, and verification requirements.
-6. Routing guidance to more detailed files.
+```text
+No issue, no branch, no work on main, no merge without pull request review.
+```
 
-Do not use `AGENTS.md` for:
+Default universal workflow order:
 
-1. Human onboarding or training material.
-2. Long setup tutorials.
-3. General project background that is not needed for agent execution.
-4. Secrets, credentials, private personal data, or deployment keys.
+```text
+Issue -> Branch -> Open or inspect workspace -> Inspect repository -> Start or reuse local preview -> Plan -> User approval -> Implementation -> Validation -> Diff review -> Commit -> Push or publish branch -> Pull request -> Review -> Merge after approval -> Branch cleanup -> Pull latest main
+```
 
-Where detailed guidance is needed, reference the owning document instead of copying it into this file.
+This protects `main`, gives each update a clear audit trail, supports review, and makes work easier to audit, undo, continue, or hand over.
 
----
+Do not skip a stage unless the user explicitly approves the skip, or the task is clearly trivial and the agent records the safe assumption.
 
-## 2. Operating Principles
+## 2. Supported agent contexts
 
-Before making changes, inspect the repository and identify:
+This guidance applies to:
 
-1. The user's requested outcome.
-2. The current branch and working-tree state, when a local clone is available.
-3. Repository-local instructions and documentation.
-4. The target site, package, route, or file area.
-5. Issue or pull request context, where applicable.
-6. Release, changelog, documentation, SEO, sitemap, footer, Newsroom, error-page, hosting, local-preview, repository-structure, and compliance impact.
+1. Codex working in a GitHub repository.
+2. Codex working in planning mode or implementation mode.
+3. VS Code based agents using Source Control, integrated terminal, workspace search, tasks, extensions, browser preview, GitHub integration, or agent chat.
+4. GitHub Copilot Chat or similar coding agents working inside a local repository.
+5. Repository assistants preparing issues, branch plans, pull request text, release notes, validation summaries, or implementation handoffs.
 
-Make the smallest safe change that satisfies the request while preserving APES CIC standards, accessibility, release records, website reliability, issue traceability, and the approved website repository structure.
+When a rule is tool specific, follow the relevant tool section. All common safety, branch, issue, validation, Cloudron LAMP, documentation, UK GDPR, and pull request rules apply in every tool.
 
-Do not invent repository facts, deployment processes, issue numbers, version numbers, routes, hosting support, runtimes, branch names, or technical requirements. Inspect first. If evidence is still missing, state the assumption and choose the safest general approach.
+## 3. Universal operating rules
 
-Do not remove or weaken mandatory APES CIC requirements unless the user explicitly asks for that specific removal.
+Before planning or editing, the agent must:
 
----
+1. Confirm the active repository.
+2. Confirm the current branch.
+3. Check whether the current branch is protected, shared, production, staging, release, `main`, or `master`.
+4. Check for uncommitted changes before making changes.
+5. Never overwrite user work.
+6. Read relevant repository guidance before editing.
+7. Read relevant source files before changing them.
+8. Use workspace search, repository search, or file search before editing files.
+9. Prefer repository scripts, documented commands, VS Code tasks, and existing tooling over inventing new commands.
+10. Keep implementation inside the approved scope.
+11. Stop and ask before expanding scope.
+12. Provide changed file summaries and validation results before any commit.
+13. Never commit private configuration or private data.
+14. Never deploy automatically.
+15. Never edit `main`, `master`, `production`, `staging`, release branches, or shared long lived branches directly.
 
-## 3. Planning-Stage Questions Codex Must Ask
+If the agent is unsure whether a change is safe, pause and explain the options.
 
-Use the planning stage to ask only questions that materially affect scope, risk, implementation route, release records, or validation. Ask these before implementation, branch creation, file edits, issue-start updates, commits, pushes, or pull requests unless the user has already provided the answer or explicitly authorises a stated assumption.
+## 4. VS Code specific operating rules
 
-During planning, identify and ask for any missing decision on:
+When working in VS Code, the agent must:
 
-1. **Work type:** whether the change is Major, Minor, or Patch.
-2. **Release status:** whether the release should be Beta or Stable.
-3. **Versioning:** the expected version bump, whether existing version records should be updated, and whether beta suffixes are required.
-4. **Changelog scope:** whether the root changelog, `/public/CHANGELOG.md`, Change Log Hub, release metadata, or public release cards must be updated.
-5. **Website type:** for new websites or migrations, whether the target is the default HTML website model, campaign or landing page, information hub, knowledge hub, form-led site, built frontend-only single page application, or an exceptional PHP-backed feature that is needed for support tooling, routing, forms, search, maintenance, or light server-side processing.
-6. **Hosting target:** whether the site is expected to run on Cloudron LAMP, another static/PHP host, or a runtime that requires further hosting review.
-7. **Target site and path:** for multi-site or monorepo work, which site, package, folder, route, or public path is in scope.
-8. **Issue workflow:** whether to create a new issue, start an existing issue, update progress, link a pull request, or defer issue updates.
-9. **Branch and pull request route:** whether to use an existing branch, create a short task branch, open a draft pull request, or stop after preparing changes locally.
-10. **Documentation scope:** whether `README.md`, local-preview notes, hosting notes, repository structure guidance, generated output, or operational notes must be updated.
-11. **Compliance and data handling:** whether the task touches UK GDPR, consent, retention, safeguarding, finance, client-record, animal-welfare, form, upload, email, or payment implications.
-12. **Validation expectations:** which repository-supported build, lint, typecheck, test, smoke-test, local-preview, SEO, sitemap, footer, error-page, or hosting checks must be run before completion.
-13. **Deferrals:** whether any release-record, documentation, version, hosting, issue, or validation requirement may be deferred and how that deferral should be recorded.
+1. Confirm the active workspace and repository before planning.
+2. Check Source Control before making changes.
+3. Use workspace search before editing.
+4. Use the integrated terminal only for commands that are needed and safe.
+5. Prefer VS Code tasks and documented repository commands where available.
+6. Never install VS Code extensions, global tools, packages, dependencies, formatters, linters, or CLIs without approval.
+7. Never change VS Code user settings, workspace settings, extension settings, recommended extensions, task files, or launch profiles unless the task requires it and the user approves it.
+8. Never pull, reset, rebase, stash, force push, delete files, delete branches, or run database destructive commands without explicit approval.
+9. Show the diff, validation results, risks, and recommended next step before state changing Git actions where practical.
+10. For website repositories, open the website in the VS Code browser preview, Simple Browser, or approved local view at `http://127.0.0.1:8080/` where preview support exists.
+11. For website repositories, confirm direct `file:///` access for browser served static pages and public assets, and record any justified server required blocker.
 
-When several missing decisions are related, ask them as one concise planning prompt instead of scattering them across implementation updates.
+## 5. Codex specific operating rules
 
-If the user gives no answer and asks Codex to proceed, record the assumption in the plan, use the safest compliant option, and continue only within the user's approved scope.
+When working in Codex, the agent must:
 
----
+1. Start in planning mode unless the user has explicitly approved implementation.
+2. Confirm the current branch before planning.
+3. Confirm the related GitHub issue number or recorded issue deferral.
+4. Read repository guidance, package files, configuration files, source files, and task relevant files before planning.
+5. Identify the website stack, limitations, website type, and hosting target.
+6. Start or reuse the local preview server for website repositories before planning implementation or editing files, where preview support exists, using `http://127.0.0.1:8080/` unless repository guidance requires another local HTTP URL.
+7. Use the Codex browser or available preview tool to inspect the current site state at the local preview URL where supported.
+8. Confirm direct `file:///` access for browser served static pages and public assets, and record any justified server required blocker.
+9. Do not edit files until the plan is approved.
+10. During implementation, work only on the approved task branch.
+11. After implementation, provide a concise handoff with changed files, validation, risks, release record status, GitHub status, and next steps.
 
-## 4. Setup, Build, And Validation Commands
+## 6. User checkpoints
 
-Use repository-defined commands first. Inspect `package.json`, lockfiles, build scripts, framework configuration, Makefiles, CI files, and local documentation before choosing commands.
+Ask the user before these state changing actions unless the user already clearly requested or approved the action:
 
-For Node-based APES CIC website repositories, common commands may include:
+1. Creating or linking a GitHub issue.
+2. Creating a branch.
+3. Starting implementation.
+4. Expanding scope beyond the approved plan.
+5. Installing tools, extensions, packages, dependencies, formatters, linters, CLIs, or development servers.
+6. Changing workspace, editor, extension, task, launch, or recommended extension settings.
+7. Committing changes.
+8. Pushing or publishing a branch.
+9. Opening a pull request.
+10. Marking a pull request ready for review.
+11. Merging a pull request.
+12. Enabling auto merge.
+13. Deleting a remote branch.
+14. Pulling latest `main` locally.
+15. Deleting a local branch.
+16. Closing an issue manually.
+17. Running destructive commands such as reset, force push, rebase, stash, file deletion, database migration, database reset, or irreversible cleanup.
+
+If the user has already provided the answer, record it in the plan and do not ask again.
+
+If the user asks the agent to proceed without every answer, use the safest compliant default:
+
+1. Create a new task branch from the default branch.
+2. Defer issue tracking only where no issue details exist and record the reason.
+3. Produce a plan before implementation.
+4. Use a draft pull request when review is still needed.
+5. Run repository default validation checks where available.
+6. Do not merge or delete branches without explicit approval.
+7. Do not install tools or dependencies without approval.
+8. Do not change private configuration.
+
+## 7. Required planning prompt
+
+When starting a new GitHub task and the user has not already provided the details, ask one grouped prompt before implementation:
+
+```text
+Before I start, please choose:
+
+1. Update type: feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, urgent hotfix, or other.
+2. Website type: static website, PHP website, MySQL database website, content management system, custom portal, small web application, migration, merge, documentation only, or other.
+3. Issue: create a new GitHub issue, use an existing issue, prepare issue text only, or defer issue tracking with a reason.
+4. Branch: create a new branch from main, or provide another new branch name and base branch.
+5. Pull request: draft PR, ready for review PR, prepare PR text only, or no PR yet.
+6. Scope: files, folders, routes, or areas that are in scope.
+7. Non scope: files, folders, routes, or areas that must not be changed.
+8. Environment: any Cloudron, MySQL, Redis, email, LDAP, rewrite, private configuration, Windows, Linux, deployment, or local development setting to consider.
+9. Local preview server: command to start or reuse before planning implementation or editing files, defaulting to http://127.0.0.1:8080/ where supported, plus file:/// compatibility checks for browser served static files.
+10. Validation: repository default checks, named checks, manual checks, browser preview, file:/// static page check, or validation deferred with a reason.
+```
+
+After the user answers, produce a plan only. Do not edit files until the user approves the plan.
+
+When creating a new website, merging websites, or migrating an existing website, agents must ask what type of website setup the user wants unless the type is already clear from the user request. The selected website type must control the stack, folder structure, runtime assumptions, routing, validation, documentation, and hosting notes.
+
+## 8. Required planning response
+
+Before editing, the agent must answer with this structure:
+
+```text
+Issue:
+Branch:
+Update type:
+Website type:
+Hosting target:
+Local preview server:
+Environment notes:
+Files likely to change:
+Implementation plan:
+Risks:
+Validation:
+Questions before implementation:
+```
+
+The plan must confirm:
+
+1. Current branch.
+2. Related issue number or recorded issue deferral.
+3. Selected website type or documentation only status.
+4. Target hosting where relevant.
+5. Local preview URL or blocker.
+6. Direct file:/// access status or justified blocker for browser served static files.
+7. Private configuration protection.
+8. Expected files to change.
+9. Checks to run.
+10. Documentation, changelog, version, public folder, SEO, sitemap, footer, error page, and release impact where relevant.
+11. GitHub issue, branch, pull request, and merge expectations.
+
+## 9. Issue first workflow
+
+Create or link a GitHub issue before starting real work when the task is non trivial, public facing, operationally relevant, compliance relevant, release relevant, hosting relevant, migration relevant, or likely to need an audit trail.
+
+The issue must define:
+
+1. Title.
+2. Type.
+3. Website type or documentation only status.
+4. Reason.
+5. Scope.
+6. Non scope.
+7. Requirements.
+8. Acceptance criteria.
+9. Testing.
+10. Release impact.
+11. Hosting impact.
+12. Local preview impact.
+13. Public folder impact where relevant.
+14. Metadata such as labels, milestone, assignees, project, priority, and status where available.
+
+Issue title examples:
+
+```text
+Migrate MyAPES Portal to PHP LAMP structure
+Fix portal login redirect issue
+Create missing privacy and terms pages
+Add Cloudron LAMP hosting guidance
+```
+
+Issue body template:
+
+```text
+## Summary
+Describe the change needed.
+
+## Reason
+Explain why this work is needed.
+
+## Website type
+State the selected website type and why it fits the repository.
+
+## Scope
+The agent may change:
+1.
+2.
+3.
+
+The agent must not change:
+1.
+2.
+3.
+
+## Requirements
+1.
+2.
+3.
+
+## Acceptance criteria
+1. The change works locally where applicable.
+2. The change does not break existing pages or workflows.
+3. The selected website type is followed.
+4. No private configuration or private data is committed.
+5. The pull request explains what changed.
+6. The branch can be safely merged into main.
+
+## Testing required
+1.
+2.
+3.
+```
+
+Creating or drafting an issue is an issue filing action only. Do not treat issue creation as approval to start implementation, create a branch, assign yourself, post a work started update, change issue status, edit files, commit, push, open a pull request, or begin work unless the user explicitly asks for that next action.
+
+When starting from an existing issue, read it before planning and identify missing scope, acceptance criteria, website type, branch expectations, release impact, hosting impact, local preview requirements, validation requirements, metadata alignment, and blockers.
+
+When updating an issue, include a `Files changed` section. List each changed file path with a short note. If no files changed, say so explicitly.
+
+Do not close an issue until it has a completion note covering changed files, validation, release record status, hosting status, local preview status, remaining limitations, and follow up work.
+
+## 10. Branch workflow
+
+Create a branch for every update. Do not work directly on `main`.
+
+All repository updates must be done on a new task specific branch. Do not edit `main`, `master`, `production`, `staging`, release branches, or shared long lived branches directly.
+
+Create the new branch from the approved base branch after repository inspection and after the planning questions have been answered or a safe assumption has been recorded.
+
+Branch naming structure:
+
+```text
+type/short-description
+```
+
+Preferred branch types:
+
+1. `feature/` for new functionality.
+2. `fix/` for bug repairs.
+3. `cleanup/` for removing unused files or improving structure.
+4. `docs/` for documentation only.
+5. `migration/` for larger structural changes.
+6. `refactor/` for improving code without changing behaviour.
+7. `security/` for security fixes.
+8. `hotfix/` for urgent production fixes.
+9. `hosting/` for hosting and platform guidance.
+
+Examples:
+
+```text
+feature/myapes-portal-login
+fix/portal-rewrite-rules
+cleanup/remove-old-framework-files
+docs/update-agent-guidance
+migration/php-lamp-structure
+hosting/cloudron-lamp-rules
+```
+
+Before creating a branch in VS Code, Codex, GitHub Desktop, or a local clone, check:
+
+1. Current branch.
+2. Working tree state.
+3. Whether local changes are present.
+4. Whether the base branch needs pulling.
+5. Whether the requested branch already exists locally or remotely.
+
+Pulling before branching:
+
+1. Ask the user whether to pull latest changes before branching when working in a local clone.
+2. Prefer `git pull --ff-only` after checking branch and working tree state.
+3. If fast forward pull is not possible, stop and explain options before merge, rebase, stash, reset, or conflict resolution.
+4. Never pull over uncommitted user work.
+5. Never use hard reset, force push, rebase, or stash unless the user explicitly approves the exact action.
+
+## 11. Local preview standard
+
+For website repositories, always start or reuse the local preview server before planning implementation or editing files where preview support exists.
+
+The required default local HTTP preview URL is:
+
+```text
+http://127.0.0.1:8080/
+```
+
+Agents must open the website at `http://127.0.0.1:8080/` in the VS Code browser preview, VS Code Simple Browser, Codex browser, or the available local preview tool before planning implementation or editing files where supported.
+
+Agents must also confirm direct `file:///` access for browser served static pages and public assets. A typical direct file check is:
+
+```text
+file:///absolute/path/to/public/index.html
+```
+
+Use `http://127.0.0.1:8080/` as the primary website preview and validation route. Use `file:///` as an additional compatibility check for static HTML, CSS, JavaScript, images, downloads, and other public assets.
+
+Do not use `file:///` as a replacement for the local HTTP preview. If a page depends on PHP, server routing, Apache rewrite rules, MySQL, Redis, authenticated sessions, email, form submission, or another server side feature and cannot fully work through `file:///`, record the limitation clearly and continue to validate the server side behaviour through `http://127.0.0.1:8080/`.
+
+For APES CIC website repositories using `public/` as the public web root, typical local preview commands may include:
+
+```bash
+php -S 127.0.0.1:8080 -t public
+```
+
+or, where the repository includes a router:
+
+```bash
+php -S 127.0.0.1:8080 -t public dev/router.php
+```
+
+For Node based repositories, use repository documented commands first. Common examples may include:
+
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+Use repository documented commands first. If no preview command exists, record the blocker before continuing.
+
+Treat local preview as inspection and validation only. It is not deployment evidence.
+
+Before final handoff, inspect changed public pages again through `http://127.0.0.1:8080/` where preview support exists, and repeat the `file:///` check for affected static pages and public assets where applicable.
+
+## 12. Implementation approval gate
+
+Do not implement until the user approves the plan or explicitly says to start implementation.
+
+Approved implementation prompt shape:
+
+```text
+The plan is approved with the following constraints:
+
+1. Stay on the current branch.
+2. Do not edit main directly.
+3. Do not commit private configuration, private data, or generated credential files.
+4. Only change files required for this issue.
+5. Keep the project compatible with the approved website type, hosting target, and Cloudron LAMP limitations where relevant.
+6. Start or reuse the local preview server before implementation work continues, open http://127.0.0.1:8080/ in the VS Code or Codex local browser view where supported, and record the preview URL or blocker.
+7. Check file:/// access for affected browser served static pages and public assets where applicable, and record any justified blocker.
+8. After implementation, provide a summary, changed files list, test results, and follow up tasks.
+
+Start implementation now.
+```
+
+During implementation, make changes on the task branch only.
+
+If scope changes are required, stop and ask for approval before proceeding.
+
+If the agent becomes blocked, confused, or uncertain, pause and provide:
+
+```text
+Pause and summarise:
+
+1. What files have changed so far?
+2. What remains to be done?
+3. Are there any errors, blockers, or uncertain assumptions?
+4. Is the work still inside the issue scope?
+5. Is the selected website type and hosting target still being followed?
+```
+
+## 13. Diff review before commit
+
+Before any commit, inspect every changed file and ask for review unless the user has clearly authorised automated commits.
+
+Required pre commit summary:
+
+```text
+Before committing, here is the review summary:
+
+1. File by file summary of all changes.
+2. Files created.
+3. Files deleted.
+4. Configuration changes.
+5. Website type and hosting impact.
+6. Possible security concerns.
+7. Manual checks recommended.
+8. Confirmation that no private configuration or private data is included.
+
+Please confirm whether I should commit these changes.
+```
+
+The agent must check:
+
+1. Only expected files changed.
+2. Nothing important was deleted.
+3. No private configuration or private data is included.
+4. Formatting is not broken.
+5. Routes and key pages load where validation is possible.
+6. Login or portal areas still work where in scope.
+7. Privacy, terms, cookies, donation, and Change Log Hub links work where relevant.
+8. Local only files are not committed.
+9. The selected website type is still followed.
+10. Cloudron LAMP assumptions remain valid where applicable.
+11. No generated credential files, local database dumps, or temporary debugging files are included.
+12. The website has been checked through `http://127.0.0.1:8080/` in the VS Code or Codex local browser view where supported.
+13. Direct `file:///` access has been checked for affected browser served static pages and public assets where applicable, or a justified blocker has been recorded.
+
+## 14. Commit rules
+
+Commit only after the diff has been reviewed and relevant validation has been run or intentionally deferred.
+
+Commit message format:
+
+```text
+type: short summary
+```
+
+Examples:
+
+```text
+feature: add portal login structure
+fix: correct portal rewrite routing
+docs: update agent guidance
+cleanup: remove unused framework files
+hosting: document Cloudron LAMP limits
+```
+
+When preparing a commit message, use this shape:
+
+```text
+type: short summary
+
+Body:
+1. What changed
+2. Why it changed
+3. Related issue number
+4. Website type or hosting impact where relevant
+```
+
+Do not commit if:
+
+1. The branch is wrong.
+2. The diff contains unrelated changes.
+3. Validation failed and the user has not approved deferral.
+4. Private configuration or private data is present.
+5. The selected website type is not followed.
+6. The user has not approved the commit where approval is required.
+7. The work was done on `main`, `master`, `production`, `staging`, a release branch, or a shared long lived branch.
+
+## 15. Push and publish branch rules
+
+After the first clean commit, push or publish the branch only when collaboration, review, CI, or pull request work is needed and the user has requested or approved that workflow.
+
+Do not push or publish a branch unless:
+
+1. The user requested the repository update and push is part of the agreed workflow.
+2. The commit is clean.
+3. The branch name and base branch are correct.
+4. The agent has summarised what will be pushed.
+5. Private configuration and private data are not included.
+
+Terminal command shape:
+
+```bash
+git push -u origin feature/myapes-portal-login
+```
+
+GitHub Desktop route:
+
+```text
+1. Select the branch.
+2. Click Publish branch.
+3. Confirm it appears on GitHub.
+```
+
+## 16. Pull request rules
+
+Open a pull request from the task branch into the approved base branch, normally `main`.
+
+Do not open a pull request until:
+
+1. The branch has been published.
+2. The diff has been reviewed.
+3. Validation has run or the deferral is recorded.
+4. The issue is linked or issue deferral is recorded.
+5. The website type and hosting impact are recorded where relevant.
+6. The user has approved opening a pull request, or the agreed workflow requires it.
+
+Use draft pull requests when implementation is not fully ready for review.
+
+Use ready for review pull requests only when validation is complete or any validation deferral has been intentionally recorded.
+
+Pull request title example:
+
+```text
+Feature: add portal login structure
+```
+
+Pull request body template:
+
+```text
+## Summary
+Explain what changed.
+
+## Related issue
+Closes #
+
+## Type of change
+Feature / Bug fix / Clean up / Migration / Documentation / Refactor / Security / Compliance / Hosting / Hotfix
+
+## Website type
+Static website / PHP website / MySQL database website / CMS / Custom portal / Small web application / Migration / Merge / Documentation only / Other
+
+## Files changed
+1.
+2.
+3.
+
+## Testing completed
+1.
+2.
+3.
+
+## Screenshots
+Add screenshots if relevant.
+
+## Risks
+List any known risks or say none known.
+
+## Deployment notes
+Add any required environment, database, cache, Cloudron, rewrite, LDAP, or email notes.
+
+## Follow up
+List follow up tasks or say none.
+```
+
+Use `Closes #123`, `Fixes #123`, or `Resolves #123` when the pull request should close the issue after merge.
+
+## 17. Pull request review rules
+
+Before merge, review the pull request against the issue, approved scope, selected website type, and approved hosting target.
+
+Universal pull request review prompt:
+
+```text
+Review this pull request before merge.
+
+Check:
+
+1. Does the PR fully satisfy the issue?
+2. Are there any unrelated changes?
+3. Is the selected website type followed?
+4. Are there any security risks?
+5. Is private configuration protected?
+6. Are there any broken routes, links, forms, redirects, or login issues?
+7. Are there any Cloudron LAMP compatibility problems?
+8. Are there any missing tests or manual checks?
+9. Is the PR safe to merge?
+
+Give me:
+1. Pass or fail.
+2. Required fixes before merge.
+3. Recommended improvements.
+4. Final merge recommendation.
+```
+
+If fixes are required, keep using the same branch and commit fixes to that branch.
+
+Fix prompt:
+
+```text
+The pull request review found these issues:
+
+1.
+2.
+3.
+
+Fix only these issues on the current branch.
+
+Do not introduce unrelated changes.
+
+After fixing, provide:
+1. Files changed.
+2. What was fixed.
+3. Testing completed.
+4. Any remaining risks.
+```
+
+Then commit and push to the same branch so the pull request updates automatically, after user approval where required.
+
+```bash
+git add .
+git commit -m "fix: address pull request review findings"
+git push
+```
+
+## 18. Validation before merge
+
+Run repository supported checks first. Inspect `package.json`, lockfiles, build scripts, framework configuration, Makefiles, CI files, Composer files, PHP files, dev scripts, and local documentation before choosing commands.
+
+For Node based APES CIC website repositories, common commands may include:
 
 ```bash
 npm install
@@ -91,138 +643,170 @@ npm run test:e2e
 npm run build
 ```
 
-For generic APES CIC HTML website repositories using the standard `public/` website folder and PHP support tools, local preview should usually support:
+For PHP or Cloudron LAMP compatible repositories, common checks may include:
 
 ```bash
+php -l path/to/file.php
+php -S 127.0.0.1:8080 -t public
 php -S 127.0.0.1:8080 -t public dev/router.php
 ```
 
-Run only commands supported by the repository. If a script is missing, run the closest documented validation command and report the gap. Do not add temporary tools, dependencies, or deployment scripts unless the user approves.
+Minimum manual checks where applicable:
 
-Treat development-server commands such as `npm run dev` or `php -S` as local inspection and validation tools, not deployment evidence.
+1. Site loads through `http://127.0.0.1:8080/`.
+2. The website is opened in the VS Code browser preview, VS Code Simple Browser, Codex browser, or available local preview tool where supported.
+3. Direct `file:///` access works for browser served static pages and public assets where applicable, or a justified server required blocker is recorded.
+4. Home page, portal, and key pages load.
+5. Registration, login, contact, and other forms work.
+6. MySQL queries work where database features are in scope.
+7. Email sending still works where email is in scope.
+8. Redis cache or sessions work where Redis is included.
+9. Rewrites work for public front end and portal routing.
+10. Privacy, terms, cookies, donation, and Change Log Hub links work where relevant.
+11. Private configuration is protected.
+12. Mobile view is usable.
+13. Public folder and local preview rules are satisfied.
+14. SEO, sitemap, footer, Newsroom, and error page checks are completed where relevant.
+15. The selected website type and hosting target are followed.
+16. No stack trace, debug dump, private URL, credential, or environment value is exposed.
 
----
+For documentation only repositories, validation may be limited to Markdown review, link review where links exist, scope review, and secret scanning by inspection.
 
-## 5. Safety Rules
+Treat development server commands such as `npm run dev` or `php -S` as local inspection and validation tools, not deployment evidence.
 
-Do not edit production secrets, credentials, API keys, private tokens, or unrelated environment files.
+## 19. Merge rules
 
-Do not deploy automatically.
+Merge only when:
 
-Do not commit, push, open pull requests, merge, close issues, rewrite history, force-push, or delete branches unless the user explicitly asks or clearly approves that action.
+1. The pull request satisfies the issue.
+2. Checks pass or deferrals are approved and recorded.
+3. The diff has been reviewed.
+4. There are no unresolved merge conflicts.
+5. Private configuration and private data are protected.
+6. The site works locally or in preview where applicable.
+7. README, changelog, version, Change Log Hub, generated output, and issue updates are aligned or deferral is approved.
+8. Website type and hosting impact are recorded where relevant.
+9. The user explicitly approves merge.
 
-Before any state-changing GitHub or Git action, show the relevant diff, validation result, risk, and recommended next step where practical.
+For most small or medium APES CIC website updates, prefer squash merge where repository settings allow it, because it keeps `main` tidy.
 
-Never overwrite local user work. If uncommitted or unrelated changes exist, stop and explain the safest options.
+Do not merge automatically. Do not enable auto merge unless the user explicitly asks.
 
----
+## 20. Branch cleanup after merge
 
-## 6. Primary Website Rule
+After merge, ask before deleting branches unless repository settings automatically delete head branches.
 
-Every APES CIC website update must be assessed for release, documentation, compliance, website quality, repository public-folder, local-preview, and hosting impact.
+Remote branch cleanup:
 
-For new websites or migrations, resolve the website type during planning using Section 3 unless the request already clearly specifies it. Use the answer to assess Cloudron LAMP suitability before planning implementation or migration.
+1. Delete the remote task branch only after the pull request is merged or closed and the user approves deletion.
+2. Do not delete a branch linked to an open pull request unless the user explicitly confirms they want to abandon that pull request.
+3. If GitHub reports the branch is not merged, stop and explain the risk.
 
-When working on any repository, update the repository being worked on so its documentation and release records stay aligned with the change. This includes updating `README.md`, `CHANGELOG.md`, `/public/CHANGELOG.md` where present, version files, generated release metadata, local-preview documentation, hosting notes, public-facing release pages, and any other file that is affected by the work or required to keep the repository accurate. If a file exists but does not need a change, state why. If an expected file is missing, state that clearly and do not invent one unless the user approves or repository conventions require it.
+Recommended repository setting:
 
-Before completion, check whether the task requires:
+```text
+Settings -> General -> Pull Requests -> Automatically delete head branches
+```
 
-1. Website Change Log Hub update.
-2. Repository `README.md` update.
-3. Root `CHANGELOG.md` update.
-4. `/public/CHANGELOG.md` update where a `/public/` folder exists.
-5. Version update where the repository uses versioning.
-6. GitHub Issue start, progress, completion, or closure update where issue tracking is used.
-7. APES website brand and feature standards review.
-8. APES Newsroom routing check.
-9. APES universal footer check.
-10. Donation, Privacy Policy, Terms of Service, and Change Log Hub footer link check.
-11. SEO metadata and sitemap update.
-12. Branded error-page check, including 404 and any supported 403, 500, offline, maintenance, or fallback pages.
-13. Repository `public/` folder structure and local-preview compatibility check.
-14. Cloudron LAMP compatibility review where the site is expected to run in the Cloudron LAMP app.
-15. Any repository-specific documentation, configuration, generated output, index, manifest, metadata, or operational note affected by the change.
+Local cleanup after merge:
 
-If uncertain, assume changelog, README, documentation, hosting compatibility, release-record, local-preview, repository-structure, and issue-tracking checks are required, then explain what evidence supports or limits that decision.
+```bash
+git checkout main
+git pull origin main
+git branch -d feature/myapes-portal-login
+```
 
----
+If Git says the branch is not fully merged, stop and check before forcing deletion.
 
-## 7. Issue-Tracked Work
+GitHub Desktop cleanup route:
 
-Use an issue-first workflow when work is non-trivial, public-facing, operationally relevant, compliance relevant, or likely to need an audit trail.
+```text
+1. Switch to main.
+2. Click Fetch origin.
+3. Click Pull origin if available.
+4. Use Branch -> Delete only after the PR is merged or safely closed.
+```
 
-Creating or drafting a new issue is an issue-filing action only. Do not treat issue creation as approval to start implementation, create a branch, assign yourself, post a work-started update, change issue status, edit files, commit, push, open a pull request, or otherwise begin work on that issue unless the user explicitly asks you to start work or the existing instruction clearly requires both actions.
+## 21. Issue closure after merge
 
-Before starting work, resolve the planning-stage release classification in Section 3: Work type must be Major, Minor, or Patch, and release status must be Beta or Stable.
+If the pull request body used `Closes #123`, `Fixes #123`, or `Resolves #123`, confirm whether GitHub closed the issue automatically after merge.
 
-Do not begin implementation, create a work branch, change files, commit, push, open a pull request, or mark an issue as started until the user has confirmed both the work type and release status, unless the user explicitly instructs you to proceed using a stated assumption.
+If the issue is not automatically closed and the work is complete, ask before closing it manually.
 
-When opening or drafting a new issue, include:
+Closing comment shape:
 
-1. Summary.
-2. Expected outcome.
-3. Scope and non-scope.
-4. Acceptance criteria.
-5. Release impact.
-6. Hosting impact.
-7. Local-preview and repository-structure impact where relevant.
-8. Validation plan.
-9. Relevant labels, assignees, milestone, blockers, related issues, or pull requests where known.
+```text
+Completed in PR #456.
 
-When starting an existing issue, read it before planning and identify missing scope, acceptance criteria, branch expectations, release impact, hosting impact, local-preview requirements, validation requirements, and blockers.
+Summary:
+1.
+2.
+3.
 
-When updating an issue, include a `Files changed` section. List each changed file path with a short note. If no files changed, say so explicitly.
+The branch has been merged and deleted.
+```
 
-Post or prepare issue updates when work starts, files change, scope changes, validation completes or fails, blockers appear, implementation is ready for review, or work is completed or deferred.
+Do not close an issue if validation, release records, hosting notes, local preview, or follow up work remain unresolved unless the user approves closure with limitations recorded.
 
-Do not close an issue until it has a clear completion note covering changed files, validation, release-record status, hosting status, local-preview status, remaining limitations, and follow-up work.
+## 22. Full workflow checklist
 
----
+Agents must track this checklist during GitHub tasks:
 
-## 8. Git And Pull Request Rules
+```text
+1. Create or link GitHub issue.
+2. Add scope and acceptance criteria.
+3. Confirm website type and hosting target.
+4. Confirm repository and current branch.
+5. Confirm working tree state.
+6. Create branch from main or approved base branch.
+7. Start or reuse local preview server before planning implementation or editing files.
+8. Open http://127.0.0.1:8080/ in the VS Code or Codex local browser view where supported.
+9. Check file:/// access for browser served static pages and public assets where applicable, or record a justified blocker.
+10. Produce planning response.
+11. Wait for user approval.
+12. Implement on the task branch only.
+13. Review file changes and diff.
+14. Run validation.
+15. Commit locally after approval.
+16. Push or publish branch after approval.
+17. Open pull request after approval.
+18. Link pull request to issue.
+19. Run checks and manual testing.
+20. Fix review issues on the same branch.
+21. Merge pull request only after approval.
+22. Delete remote branch after merge where approved.
+23. Pull latest main locally where approved.
+24. Delete local branch where safe and approved.
+25. Confirm issue is closed or update it with remaining work.
+```
 
-Use a short task-specific branch for non-trivial work unless the user tells you to use an existing branch.
+## 23. Repository documentation, version, and release records
 
-Prefer `git pull --ff-only` when pulling latest changes in a local clone, after checking branch and working-tree state.
+During planning for repository work, verify the repository documentation, version, and release state where files exist:
 
-Commit only after inspecting the diff and running relevant validation.
-
-Push only after user approval.
-
-Open or update a pull request only after user approval or when the agreed workflow requires it.
-
-Pull request text must summarise:
-
-1. Change made.
-2. Files or routes affected.
-3. Validation completed or not completed.
-4. README, changelog, version, release-record, and generated-output status.
-5. Hosting status.
-6. Local-preview and public-folder status where relevant.
-7. Known limitations.
-8. Linked issue status.
-
-Merge only after explicit user approval, passing or intentionally waived checks, satisfied review requirements, aligned release records, and confirmed issue-closing behaviour.
-
----
-
-## 9. Repository Documentation, Version, And Release Records
-
-During planning for repository work, use Section 3 to verify the repository's current documentation, version, and release state where files exist:
-
-1. Repository `README.md`.
+1. `README.md`.
 2. Root `VERSION`.
 3. `/public/VERSION`.
 4. Root `CHANGELOG.md`.
 5. `/public/CHANGELOG.md`.
 6. Website Change Log Hub source page or data.
 7. Release metadata files or generated output that render footer version text, public release cards, or static snapshots.
-8. Hosting and local-preview notes.
-9. Any repository-specific documentation, generated output, package metadata, manifest, sitemap, index, configuration, or operational note affected by the change.
+8. Hosting and local preview notes.
+9. Repository specific documentation, generated output, package metadata, manifest, sitemap, index, configuration, or operational notes affected by the change.
 
-Record the verified release state in the plan, issue update, or working notes: current version, beta or stable status, expected version bump type, required README and release-record updates, hosting assumptions, local-preview assumptions, and mismatches.
+Record the verified release state in the plan, issue update, or working notes:
 
-Do not complete work while `README.md`, version records, changelogs, Change Log Hub records, footer version text, generated output, or documented hosting/local-preview requirements disagree unless the user explicitly approves deferral.
+1. Current version.
+2. Beta or stable status.
+3. Expected version bump type.
+4. Required README updates.
+5. Required changelog updates.
+6. Required Change Log Hub updates.
+7. Required generated output updates.
+8. Hosting assumptions.
+9. Local preview assumptions.
+10. Selected website type.
+11. Any mismatch or deferral.
 
 Use APES CIC semantic website versioning:
 
@@ -233,329 +817,530 @@ vMAJOR.MINOR.PATCHb
 
 Use the `b` suffix while a site is in beta. Stable versions omit it.
 
-Major changes are breaking route, architecture, public journey, data, compliance, platform, hosting, or operational changes. Minor changes add user-visible features, public routes, broad content expansions, shared components, or meaningful workflow additions. Patch changes are fixes, copy edits, styling polish, metadata corrections, dependency or configuration fixes, hosting clarifications, local-preview clarifications, generated-output syncs, and small maintenance changes.
+Major changes are breaking route, architecture, public journey, data, compliance, platform, hosting, or operational changes.
+
+Minor changes add user visible features, public routes, broad content expansions, shared components, or meaningful workflow additions.
+
+Patch changes are fixes, copy edits, styling polish, metadata corrections, dependency or configuration fixes, hosting clarifications, local preview clarifications, generated output syncs, and small maintenance changes.
 
 Do not update a version without a matching changelog decision and entry.
 
----
+## 24. APES website public folder and website type rules
 
-## 10. Change Log Hub And Changelog Entries
+For applicable APES CIC website repositories, `public/` is the website folder and public web root.
 
-The Change Log Hub is the public website release record. Update it for every website change affecting users, operations, compliance, release metadata, generated output, public maintenance history, hosting assumptions, local-preview assumptions, or user-visible behaviour.
+When creating APES CIC websites, set them up as HTML websites by default unless the user selects another website type. Use `public/index.html`, static HTML, CSS, browser JavaScript, images, downloads, and other public assets served from `public/`, with PHP available where it supports the HTML site through local preview routing, form handling, reusable includes, lightweight server side helpers, search or sitemap helpers, maintenance scripts, or documented support tools.
 
-Use the `www.apes.org.uk` Change Log Hub pattern unless repository-specific guidance says otherwise.
+Do not make PHP the primary website model unless the repository, issue, selected website type, or user explicitly requires a PHP backed feature.
 
-Each Change Log Hub, root `CHANGELOG.md`, and `/public/CHANGELOG.md` entry should include:
+Do not create WordPress style, CMS backed, custom database backed, or persistent runtime applications by default.
 
-1. Version and date.
-2. Status and change-type pills where supported.
-3. Summary.
-4. Detailed changes.
-5. Affected areas.
-6. Version decision.
-7. Validation.
-8. Known limitations.
-9. Rollback notes.
+All browser served website files must live inside `public/`.
 
-Do not create a changelog entry without a grounded version decision.
+Do not use `content/` as the public web root. Do not scatter website files across the repository root. Do not create nested public folders such as `public/public/`.
 
----
-
-## 11. Generic APES CIC Website Public Folder And Local Preview Standard
-
-Apply this generic standard to any APES CIC public website, microsite, landing page, campaign site, service site, static website, PHP-backed public website, frontend-only website, or website intended to be previewed locally by Codex or another coding agent.
-
-Do not describe this section as applying only to the current website. It is a reusable template for all APES CIC website repositories.
-
-### Core Standard
-
-For every applicable APES CIC website repository, `public/` is the website folder and public web root.
-
-Set up APES CIC websites as HTML websites by default: static HTML, CSS, browser JavaScript, images, downloads, and other public assets served from `public/`, with PHP available only where it supports the HTML site through local preview routing, form handling, reusable includes, lightweight server-side helpers, search or sitemap helpers, maintenance scripts, or other documented support tools.
-
-Do not make PHP the primary website model unless the repository, issue, or user explicitly requires a PHP-backed feature. Do not create WordPress-style, CMS-backed, custom database-backed, or persistent runtime applications by default.
-
-All files intended to be served by the browser must be stored inside `public/`.
-
-Do not use `content/` as the public web root, do not scatter website files across the repository root, and do not create nested public folders such as `public/public/`.
-
-### Files That Belong Inside `public/`
-
-Store all browser-served website files inside `public/`, including where applicable:
+For custom portal projects, prefer this structure when approved:
 
 ```text
-index.html
-index.php
-.htaccess
-robots.txt
-sitemap.xml
-sitemap-cms.xml
-site-conf.json
-favicon.ico
-favicon.png
-logo files
-CSS files
-JavaScript files
-images
-fonts
-uploads
-downloads
-search assets
-page HTML files
-page PHP files
-public assets
-embedded widget assets
-form assets
-service-worker.js
-OneSignalSDKWorker.js
-manifest.json
+/public
+/public/portal
 ```
 
-### Files That Stay Outside `public/`
+The public front end can sit in `/public`, and the portal can sit in `/public/portal`. Apache rewrite rules may serve the portal from a subdomain such as `portal.apes.org.uk` or another approved portal domain.
 
-Keep repository, development, documentation, and tooling files outside `public/`, including:
+## 25. Website type rules
+
+When creating, merging, migrating, or refactoring a website, agents must confirm the selected website type and ensure the repository structure, language stack, routes, validation, documentation, and hosting notes comply with that setup.
+
+Agents must not assume that every APES CIC website should be Laravel, WordPress, Node.js, or a full application. Match the implementation to the approved website type.
+
+### Static websites
+
+Good for simple public websites with pages such as:
+
+1. Home.
+2. About.
+3. Contact.
+4. Services.
+5. Policies.
+6. Terms.
+7. Privacy.
+8. Donation information.
+9. Basic landing pages.
+
+Languages used:
+
+1. HTML.
+2. CSS.
+3. JavaScript.
+
+This works well for brochure websites, public information websites, campaign pages, simple front ends, and content based public websites.
+
+### PHP websites
+
+Good for custom websites that need server side logic, such as:
+
+1. Contact forms.
+2. Login systems.
+3. User dashboards.
+4. Staff portals.
+5. Public registration forms.
+6. Admin panels.
+7. Resource libraries.
+8. Booking request forms.
+9. Case tracking portals.
+10. Internal tools.
+
+Languages used:
+
+1. PHP.
+2. HTML.
+3. CSS.
+4. JavaScript.
+5. SQL for MySQL queries.
+
+This is the main intended use of the Cloudron LAMP app.
+
+### MySQL database websites
+
+The LAMP app includes MySQL access. Cloudron gives each app its own non root MySQL credentials, while the MySQL server itself is shared across Cloudron apps. MySQL credentials are exposed as environment variables and may rotate, so production code must use `getenv()` rather than hard coded credential values.
+
+Good for:
+
+1. User accounts.
+2. Registrations.
+3. Enquiries.
+4. Form submissions.
+5. Membership systems.
+6. Ticket systems.
+7. Basic CRM style tools.
+8. Client portals.
+9. Content management systems.
+10. Animal records only where the approved project includes the required access control and data protection design.
+
+Languages used:
+
+1. PHP.
+2. SQL.
+3. JavaScript for front end interaction.
+
+### Content management systems
+
+Cloudron LAMP can host PHP based CMS platforms where their server requirements match the LAMP environment.
+
+Examples include:
+
+1. WordPress.
+2. Joomla.
+3. Drupal.
+4. Grav.
+5. ClassicPress.
+6. ProcessWire.
+7. October CMS.
+8. Custom PHP CMS systems.
+
+Cloudron has dedicated apps for some platforms. For something like WordPress, the dedicated Cloudron WordPress app may be easier and safer than the generic LAMP app.
+
+### Custom portals
+
+A Cloudron LAMP container is suitable for a custom portal such as:
+
+1. Public front end website.
+2. Login area.
+3. Client portal.
+4. Student portal.
+5. Volunteer portal.
+6. Staff tools area.
+7. Admin dashboard.
+
+For APES CIC style portal projects, this structure is preferred unless repository evidence or user instructions require another structure:
 
 ```text
-README.md
-.gitignore
-.gitattributes
-.github/
-dev/
-docs/
-tests/
-package.json
-package-lock.json
-composer.json
-composer.lock
-node_modules/
-vendor/
-.env
-*.local
+/public
+/public/portal
 ```
 
-### Required Repository Pattern
+The public site can sit in `/public`, and the portal can sit in `/public/portal`, with Apache rewrite rules used to serve a subdomain such as `portal.apes.org.uk` or another approved portal domain.
 
-A compliant generic website repository should have this pattern where applicable:
+For MyAPES Portal style projects, the usual LAMP compatible pattern is:
+
+1. Public front end in HTML, CSS, and JavaScript.
+2. Portal area in PHP.
+3. MySQL for public registrations.
+4. Cloudron LDAP for staff, volunteer, and student login where LDAP is available and approved.
+5. Redis for cache, sessions, or rate limiting.
+6. Cloudron email variables for sending messages.
+7. Apache rewrite rules for clean URLs and subdomains.
+
+### Small web applications
+
+Good examples:
+
+1. Appointment request system.
+2. Public registration system.
+3. Volunteer application form.
+4. Donation tracking interface.
+5. Simple support ticket tool.
+6. Knowledgebase.
+7. Document request portal.
+8. Contact centre forms.
+9. Internal reporting tool.
+
+For heavier applications, a dedicated app container or custom Cloudron packaged app may be better.
+
+## 26. Cloudron LAMP compatibility rules
+
+A Cloudron LAMP container is suitable for websites that run on:
 
 ```text
-website-repository/
-  public/
-    index.html
-    .htaccess
-    robots.txt
-    sitemap.xml
-    css/
-    js/
-    images/
-  dev/
-    router.php
-    apache-vhost.conf
-    smoke-test.sh
-    check-public-root.sh
-  docs/
-    local-preview.md
-    preview-checklist.md
-  README.md
-  .gitignore
+Linux
+Apache
+MySQL
+PHP
 ```
 
-Use `public/index.html` as the default website entry point. Use `public/index.php` only when a documented PHP-backed support feature needs PHP at the entry point and the release, changelog, hosting, and validation notes record that decision.
+Cloudron LAMP works like traditional shared hosting. Website files are served by Apache and PHP. Cloudron also handles DNS, SSL certificates, MySQL, Redis, email integration, backups, restore, updates, and app isolation for the LAMP app.
 
-If certain public files are not applicable, do not create dummy files unless the project requires them.
-
-### Local Preview Requirements
-
-Applicable repositories should support local preview with:
-
-```bash
-php -S 127.0.0.1:8080 -t public dev/router.php
-```
-
-Preview URL:
+For APES CIC style projects, the safest Cloudron LAMP stack is:
 
 ```text
-http://127.0.0.1:8080/
+HTML
+CSS
+JavaScript
+PHP 8.3 or PHP 8.4
+MySQL
+Redis
+Apache .htaccess
 ```
 
-Local preview must use the HTTP loopback URL. Do not preview by opening `index.html` directly using `file://`.
+Use PHP 8.3 or PHP 8.4 unless repository evidence or user approval requires another supported version.
 
-Maintain `dev/router.php`, `public/.htaccess`, `docs/local-preview.md`, `docs/preview-checklist.md`, `dev/smoke-test.sh`, and `dev/check-public-root.sh` where applicable. Use `Guidance/Repository-Structure-And-Contents.md`, `Guidance/cloudron-lamp-container-website-types.md`, `Guidance/Cloudron-LAMP-Container-Guidance.md`, and repository-local instructions for the full reusable templates.
+Languages and formats suitable inside a LAMP container:
 
-### Validation Commands
+| Area | Languages and formats |
+| --- | --- |
+| Front end structure | HTML |
+| Styling | CSS |
+| Browser interaction | JavaScript |
+| Server side logic | PHP |
+| Database queries | SQL |
+| Apache configuration | `.htaccess` rules |
+| Configuration | `.ini`, `.env`, JSON |
 
-After implementation, run where supported:
+Cloudron LAMP is a good fit for:
 
-```bash
-php -l dev/router.php
-dev/check-public-root.sh
-php -S 127.0.0.1:8080 -t public dev/router.php
-dev/smoke-test.sh
-```
+1. HTML, CSS, JavaScript, and PHP websites.
+2. Custom PHP portals.
+3. MySQL backed public registration systems.
+4. Simple dashboards.
+5. Contact forms and enquiry handling.
+6. CMS websites where the server requirements fit.
+7. Internal admin tools.
+8. Small to medium web applications.
+9. Websites needing SMTP email sending.
+10. Websites needing Redis caching or sessions.
 
-Also manually verify where applicable:
+Cloudron LAMP is less suitable for:
 
-```text
-http://127.0.0.1:8080/
-http://127.0.0.1:8080/index.html
-http://127.0.0.1:8080/robots.txt
-http://127.0.0.1:8080/sitemap.xml
-```
+1. Large Node.js applications.
+2. Python Django or Flask applications.
+3. Ruby, Go, Rust, Java, or .NET live server applications.
+4. WebSocket heavy systems.
+5. Heavy background workers.
+6. Microservice architecture.
+7. Large API platforms.
+8. Applications needing root level server control.
+9. High traffic transactional systems requiring horizontal scaling.
+10. Sensitive case management, safeguarding, HR, finance, client record, or animal welfare record systems unless access control, audit logging, retention, backup, incident response, and UK GDPR controls are explicitly designed and approved.
+11. Payment heavy systems, where hosted Stripe or payment provider flows are usually safer.
 
-### Final Acceptance Criteria For This Template
+Tools such as Node.js may still be used locally for building CSS or JavaScript assets, but the deployed Cloudron LAMP app should normally serve the final built files through Apache and PHP.
 
-The work is complete when:
+For apps written in Node.js, Python, Ruby, Go, Rust, Java, or similar, the better route is usually a custom Cloudron app package. Cloudron apps are packaged as Docker images and can use platform addons where declared in `CloudronManifest.json`.
 
-1. The repository uses `public/` as the browser-served website folder.
-2. All browser-served website files are stored inside `public/`.
-3. The website is set up as an HTML website by default, with PHP limited to documented support tools or explicitly approved server-side features.
-4. Repository support files remain outside `public/`.
-5. The repository can run locally with the standard PHP local-preview command.
-6. The repository includes `public/.htaccess` where Apache compatibility is required.
-7. The repository documents local preview and the `public/` folder rule.
-8. Public-folder validation and local smoke tests pass where present.
-9. The local preview checklist is available.
-10. No nested `public/public/` structure is created.
-11. No browser-served website files are left in the repository root.
-12. No provider-specific platform names are added to the generic public-folder standard.
-13. No secrets, local-only files, or development-only debug pages are exposed under `public/`.
+Required Cloudron LAMP checks before completion:
 
----
+1. Browser served files live under `public/`.
+2. The entry point is `public/index.html`, or `public/index.php` is justified by a documented PHP feature.
+3. The selected website type is recorded.
+4. `.htaccess` is present and Apache compatible where required.
+5. Clean URLs work through Apache fallback rules or PHP routing.
+6. No route requires a persistent Node, Python, Ruby, Go, Java, WebSocket, worker, scheduler, or daemon process unless approved.
+7. Database use is PHP compatible and documented.
+8. Cloudron environment variables are used for MySQL and email rather than hard coded credentials.
+9. Forms, email, uploads, and third party integrations protect private configuration.
+10. UK GDPR, consent, retention, security, and audit implications are noted for forms or stored personal data.
+11. README, changelog, Change Log Hub, version records, generated output, and issue updates reflect the hosting impact.
+12. Local preview remains aligned with Cloudron LAMP assumptions.
+13. `http://127.0.0.1:8080/` has been used as the primary local HTTP preview where supported.
+14. Direct `file:///` access has been checked for browser served static pages and public assets where applicable, or a justified server required blocker has been recorded.
 
-## 12. Repository Structure And Cloudron LAMP Hosting
+## 27. Security, safety, and UK GDPR rules
 
-For APES CIC website repositories, treat root-level `/public/` as the browser-served website folder unless repository-specific documentation clearly states otherwise.
+Do not edit private production configuration or unrelated environment files.
 
-For multi-site or monorepo repositories, confirm the target site and path during planning before assuming the first `public/` folder is correct.
+Do not deploy automatically.
 
-Use `Guidance/cloudron-lamp-container-website-types.md` as the source guidance for Cloudron LAMP website-type suitability. Keep this section operational and defer extended explanation to that guidance file.
+Do not commit, push, open pull requests, merge, close issues, rewrite history, force push, reset, rebase, stash, or delete branches unless the user explicitly asks or clearly approves that action.
 
-For websites expected to run on Cloudron LAMP, treat the Cloudron LAMP app as a traditional Linux, Apache, and PHP-capable hosting environment for HTML-first websites. MySQL or MariaDB may be available where the repository explicitly requires it, but APES CIC websites should not become database-backed applications by default. Cloudron LAMP is not a general-purpose application runtime for persistent non-PHP services.
+Before any state changing GitHub or Git action, show the relevant diff, validation result, risk, and recommended next step where practical.
 
-When creating a website or migrating a website, resolve the website type during planning using Section 3 unless the website type is already explicit in the request, issue, repository documentation, or migration source. Record the selected website type in the plan, issue update, pull request summary, or final response where relevant.
+Never overwrite local user work. If uncommitted or unrelated changes exist, stop and explain the safest options.
 
-### Cloudron LAMP Decision Rule
+Do not add temporary tools, dependencies, deployment scripts, extension recommendations, or workspace settings unless the user approves.
 
-Use the Cloudron LAMP container when the website can run from `public/` as an HTML website using `index.html`, static assets, Apache, `.htaccess`, and optional PHP support tools. Use `index.php` or MySQL or MariaDB only when the repository evidence or user-approved scope requires that extra server-side support.
+Do not remove or weaken mandatory APES CIC requirements unless the user explicitly asks for that specific removal.
 
-Do not approve a Cloudron LAMP hosting assumption until repository inspection confirms that production routes do not depend on an unsupported runtime server.
+Do not store secrets, database passwords, SMTP passwords, OAuth secrets, API keys, private keys, generated credential files, local database dumps, or private configuration in the repository.
 
-### Website Types To Identify Before Creation Or Migration
+For UK GDPR relevant work, identify and record where applicable:
 
-Before planning a new website or website migration, identify which category best describes the requested site:
+1. Personal data being collected or processed.
+2. Lawful basis.
+3. Data minimisation.
+4. Consent requirements.
+5. Privacy notice impact.
+6. Retention period.
+7. Access control.
+8. Audit logging.
+9. Deletion and correction rights.
+10. Incident response.
+11. Security measures.
+12. Processor or third party sharing implications.
 
-1. HTML website using static HTML, CSS, browser JavaScript, and public assets.
-2. HTML website with PHP support tools, such as routing, forms, includes, search helpers, sitemap helpers, or maintenance scripts.
-3. Public information website.
-4. Microsite, campaign site, appeal page, or landing page.
-5. Exceptional WordPress-style or CMS-backed PHP website that has explicit approval.
-6. Exceptional custom PHP and MySQL or MariaDB application that has explicit approval.
-7. Knowledge base or help centre.
-8. Simple form-led website.
-9. Built frontend-only single page application served as static files.
-10. Application requiring a persistent non-PHP runtime or real-time service.
-11. High-traffic transactional, large media, sensitive records, or payment-heavy system requiring further hosting review.
+Sensitive case management, safeguarding, HR, finance, client record, or animal welfare record systems require explicit access control, audit logging, retention, backup, incident response, and UK GDPR design before implementation.
 
-### Good Fits For Cloudron LAMP
-
-Cloudron LAMP is suitable for:
-
-1. HTML websites using static HTML, CSS, and browser JavaScript.
-2. Browser-served single page application builds where the built static files are deployed into `public/`.
-3. HTML websites with PHP support tools, including local preview routing, lightweight includes, forms, search helpers, sitemap helpers, or maintenance scripts.
-4. Apache-served public websites, microsites, campaign sites, service sites, landing pages, information hubs, and knowledge hubs.
-5. WordPress-style or CMS-style PHP websites only when explicitly approved, subject to plugin security, update, and maintenance controls.
-6. Custom PHP and MySQL or MariaDB applications only when explicitly approved and documented.
-7. Modest public directories, listings, resource hubs, adoption listings, care article indexes, or service directories.
-8. PHP form handlers, provided UK GDPR, consent, email handling, retention, and security requirements are designed and documented.
-9. Composer-based PHP dependencies where the repository and Cloudron LAMP deployment process support them.
-10. PHP CLI maintenance scripts where they are part of the documented deployment or maintenance workflow.
-11. Redis-backed PHP features where repository evidence confirms support.
-12. SMTP email through application libraries where credentials and production configuration are handled securely outside the repository.
-13. `.htaccess` rules and Apache-compatible configuration supported by the Cloudron LAMP app.
-
-### Poor Fits For Cloudron LAMP
-
-Cloudron LAMP is not suitable as the primary production runtime for:
-
-1. Node.js applications that require a persistent Node server.
-2. Python, Django, Flask, Ruby, Rails, Go, Java, or similar non-PHP server applications.
-3. WebSocket-heavy or real-time applications.
-4. Queue workers, schedulers, daemons, or arbitrary long-running background processes unless repository and hosting evidence confirms a supported mechanism.
-5. High-traffic transactional platforms that require horizontal scaling, dedicated services, or specialised infrastructure.
-6. Large file or media platforms where storage, backup, upload limits, bandwidth, and retention controls are the core workload.
-7. Sensitive case-management, safeguarding, HR, finance, client-record, or animal-welfare record systems unless access control, audit logging, retention, backup, incident response, and UK GDPR controls are explicitly designed and approved.
-8. Payment-heavy systems or any implementation that stores card data. Prefer hosted Stripe/payment-provider flows where possible.
-
-### Build-Time Tooling Rule
-
-Treat Node, Python, Ruby, Go, Java, and similar tools as build-time or local-development tooling only unless repository evidence confirms they are supported in production.
-
-A React, Vue, Vite, Astro, Eleventy, or similar frontend project may be Cloudron LAMP-compatible only when the production output is static files served from `public/` and no production Node server is required.
-
-### APES CIC Preferred Cloudron LAMP Use Cases
-
-Prefer Cloudron LAMP for APES CIC:
-
-1. HTML-first public information websites.
-2. Division, service, and campaign microsites.
-3. Fundraising, appeal, volunteer, adoption, rescue, and sponsorship landing pages.
-4. HTML-first care guides, policy pages, FAQs, and welfare knowledge hubs, with PHP support tools only where useful.
-5. Modest searchable resource directories or listing pages.
-6. Form-led public journeys where privacy, consent, validation, spam protection, and retention are documented.
-
-Avoid Cloudron LAMP for complex staff systems, sensitive operational records, real-time applications, high-risk booking systems, payment-heavy systems, or services that require persistent non-PHP runtimes.
-
-### Required Cloudron LAMP Compatibility Checks
-
-Before completing Cloudron LAMP-targeted work, Codex must check and report:
-
-1. Whether browser-served files live under `public/`.
-2. Whether the site entry point is the default `public/index.html`, or whether `public/index.php` is explicitly justified by a documented PHP support feature.
-3. Whether `.htaccess` is present and Apache-compatible where required.
-4. Whether clean URLs work through Apache fallback rules or PHP routing.
-5. Whether any route requires a persistent Node, Python, Ruby, Go, Java, WebSocket, worker, or daemon process.
-6. Whether database use is PHP-compatible and documented.
-7. Whether forms, email, uploads, and third-party integrations avoid exposing secrets in `public/` or the repository.
-8. Whether UK GDPR, consent, retention, security, and audit implications are noted for forms or stored personal data.
-9. Whether README, changelog, Change Log Hub, version records, generated output, and issue updates reflect the hosting impact.
-10. Whether local preview remains aligned with Cloudron LAMP assumptions.
-
-If evidence is missing, state the missing evidence and use the safest assumption: static/PHP-only content is acceptable; persistent non-PHP production services are not acceptable.
-
----
-
-## 13. SEO, Sitemap, Footer, Newsroom, And Error Pages
+## 28. SEO, sitemap, footer, Newsroom, and error pages
 
 Update SEO and sitemap records whenever public pages are added, removed, renamed, moved, or materially changed.
 
-Check page titles, meta descriptions, canonical URLs, Open Graph metadata, structured data, robots rules, noindex rules, navigation, footer links, Change Log Hub links, and canonical URLs.
+Check:
+
+1. Page titles.
+2. Meta descriptions.
+3. Canonical URLs.
+4. Open Graph metadata.
+5. Structured data.
+6. Robots rules.
+7. Noindex rules.
+8. Navigation.
+9. Footer links.
+10. Change Log Hub links.
+11. Canonical URL consistency.
+12. Sitemap entries.
 
 Confirm the APES universal footer remains present, accurate, accessible, and consistent.
 
-Confirm donation, Privacy Policy, Terms of Service, and Change Log Hub footer links.
+Confirm donation, Privacy Policy, Terms of Service, and Change Log Hub footer links where relevant.
 
-Confirm APES Newsroom routing for news, updates, announcements, newsletters, footer, navigation, and article-related changes.
+Confirm APES Newsroom routing for news, updates, announcements, newsletters, footer, navigation, and article related changes.
 
 Verify branded, accessible 404 pages and any supported 403, 500, offline, maintenance, or fallback pages.
 
-Error pages must not expose stack traces, secrets, internal system details, private URLs, or debugging output.
+Error pages must not expose stack traces, internal system details, private URLs, credentials, environment values, or debugging output.
 
----
+## 29. Final response requirements
 
-## 14. Final Response Requirements
+For every APES CIC website or repository task, the final response must state:
 
-For every APES CIC website task, the final response must state:
-
-1. What changed.
-2. Files changed, with each path and a short explanation.
-3. Checks run.
-4. README, Change Log Hub, root changelog, public changelog, version-record, and generated-output status.
-5. Public-folder and local-preview status.
-6. Cloudron LAMP and hosting status where relevant.
-7. GitHub Issue status where relevant.
-8. SEO, sitemap, footer, Newsroom, and error-page status where relevant.
-9. Whether work remains uncommitted or unpushed, or what commit and push action was completed after user approval.
-10. Next recommended GitHub step.
-11. Proposed commit message.
+1. Progress summary.
+2. What changed.
+3. Files changed, with each path and a short explanation.
+4. Checks run.
+5. README, Change Log Hub, root changelog, public changelog, version record, and generated output status.
+6. Public folder and local preview status, including whether `http://127.0.0.1:8080/` was started or reused where applicable, whether it was opened in the VS Code or Codex local browser view where supported, and whether `file:///` access was checked for affected browser served static pages and public assets.
+7. Website type status.
+8. Cloudron LAMP and hosting status where relevant.
+9. GitHub issue status where relevant.
+10. SEO, sitemap, footer, Newsroom, and error page status where relevant.
+11. Branch name, base branch, commit status, push status, and pull request status.
+12. Pull or sync status, including whether the task branch is up to date with the base branch.
+13. Options for what the user wants to do about pulling next, such as pull latest into the task branch, update from the base branch, prepare local pull commands, leave the branch unchanged, or stop for review.
+14. Next recommended GitHub step.
+15. Proposed commit message.
 
 Keep final responses concise, practical, and transparent about outstanding user decisions.
+
+## 30. Best universal starter prompt for new tasks
+
+Use this starter prompt when the user begins a new GitHub task and has not already provided the needed details:
+
+```text
+I want to start a new GitHub task using the correct issue, branch, pull request, and cleanup workflow.
+
+Before doing any implementation, ask me:
+
+1. What type of update is this?
+Feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, or urgent hotfix.
+
+2. What type of website setup should this use?
+Static website, PHP website, MySQL database website, CMS, custom portal, small web application, migration, merge, documentation only, or other.
+
+3. Should a GitHub issue be created or linked?
+If yes, ask for the issue title and description, or the existing issue number.
+
+4. What branch should be used?
+Recommend a branch name using feature/, fix/, cleanup/, migration/, refactor/, docs/, security/, hotfix/, or hosting/.
+
+5. What is the base branch?
+Default to main unless I say otherwise.
+
+6. What files or areas are in scope?
+
+7. What files or areas are out of scope?
+
+8. Are there any environment variables, Cloudron settings, MySQL settings, Redis settings, LDAP settings, email settings, rewrite rules, private configuration, Windows settings, VS Code settings, local development settings, or deployment settings that must be considered?
+
+9. What local preview server command should be used before planning implementation or editing files?
+Default to http://127.0.0.1:8080/ where the repository supports website preview, then open the website in the VS Code or Codex local browser view where supported.
+
+10. Should direct file:/// access be required for browser served static pages and public assets?
+Default to yes for static HTML, CSS, JavaScript, images, downloads, and public assets. Record a justified blocker where server side routing, PHP, database, sessions, forms, email, Redis, or rewrite rules prevent full file:/// behaviour.
+
+11. What validation should be completed before pull request?
+
+After I answer, produce a plan only.
+
+Start or reuse the local preview server before planning implementation or editing files where preview support exists.
+Open http://127.0.0.1:8080/ in the VS Code or Codex local browser view where supported.
+Check file:/// access for browser served static pages and public assets where applicable, or record a justified blocker.
+Do not edit files until I approve the plan.
+Do not work directly on main.
+Do not commit private configuration or generated credential files.
+After implementation, prepare a commit summary and pull request description.
+```
+
+## 31. Universal planning prompt for agents
+
+Use this prompt inside Codex, VS Code, GitHub Copilot Chat, or similar tools when asking an agent to plan work:
+
+```text
+You are working in this APES CIC GitHub repository.
+
+Before editing files, do the following:
+
+1. Confirm the current repository and branch.
+2. Confirm the related GitHub issue number or recorded issue deferral.
+3. Check the working tree for uncommitted changes.
+4. Read README.md, AGENTS.md, INSTRUCTIONS.md, package files, Composer files, configuration files, build files, and relevant source files.
+5. Identify the website stack and limitations.
+6. Identify the website type: static website, PHP website, MySQL database website, CMS, custom portal, small web application, migration, merge, documentation only, or other.
+7. Confirm whether this is a feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, or hotfix update.
+8. Confirm whether the target hosting is Cloudron LAMP or another platform.
+9. Start or reuse the local preview server for website repositories before planning implementation or editing files where preview support exists. Use http://127.0.0.1:8080/ unless repository instructions require another local HTTP URL. Open the website in the VS Code browser preview, VS Code Simple Browser, Codex browser, or available local preview tool where supported. If the server cannot be started, stop and record the blocker.
+10. Check direct file:/// access for browser served static pages and public assets where applicable. If server side routing, PHP, database features, sessions, forms, email, Redis, rewrite rules, or browser security restrictions prevent full file:/// behaviour, record the justified blocker.
+11. Produce an implementation plan.
+12. List the files you expect to change.
+13. List any risks.
+14. List validation steps.
+15. Do not edit files until the plan is approved.
+
+Answer with:
+
+Issue:
+Branch:
+Update type:
+Website type:
+Hosting target:
+Local preview server:
+Environment notes:
+Files likely to change:
+Implementation plan:
+Risks:
+Validation:
+Questions before implementation:
+```
+
+## 32. Universal implementation approval prompt
+
+Use this prompt when approving an agent to move from planning into implementation:
+
+```text
+The plan is approved with the following constraints:
+
+1. Stay on the current task branch.
+2. Do not edit main directly.
+3. Do not commit private configuration, private data, generated credential files, local database dumps, or secrets.
+4. Only change files required for this issue.
+5. Keep the project compatible with the approved website type, approved hosting target, and Cloudron LAMP limitations where relevant.
+6. Start or reuse the local preview server before implementation work continues, open http://127.0.0.1:8080/ in the VS Code or Codex local browser view where supported, and record the preview URL or blocker.
+7. Check file:/// access for affected browser served static pages and public assets where applicable, and record any justified blocker.
+8. Do not install tools, dependencies, packages, extensions, formatters, linters, or CLIs without approval.
+9. Do not change workspace, editor, task, launch, or extension settings without approval.
+10. After implementation, provide a summary, changed files list, validation results, risks, release record status, GitHub status, and follow up tasks.
+
+Start implementation now.
+```
+
+## 33. Universal pre commit review prompt
+
+Use this prompt before any commit:
+
+```text
+Before committing, provide:
+
+1. File by file summary of all changes.
+2. Files created.
+3. Files deleted.
+4. Configuration changes.
+5. Website type and hosting impact.
+6. Security concerns.
+7. UK GDPR concerns where relevant.
+8. Validation completed, including http://127.0.0.1:8080/ local browser view status where supported.
+9. file:/// static page and public asset access status where applicable, or justified blocker.
+10. Manual checks recommended.
+11. Confirmation that no private configuration, private data, local database dump, generated credential file, or secret is included.
+12. Proposed commit message.
+
+Do not commit until I confirm.
+```
+
+## 34. Universal pull request review prompt
+
+Use this prompt before merge:
+
+```text
+Review this pull request before merge.
+
+Check:
+
+1. Does the pull request fully satisfy the issue?
+2. Are there any unrelated changes?
+3. Is the selected website type followed?
+4. Are there any security risks?
+5. Is private configuration protected?
+6. Are there any UK GDPR issues?
+7. Are there any broken routes, links, forms, redirects, or login issues?
+8. Are there any Cloudron LAMP compatibility problems?
+9. Are README, changelog, Change Log Hub, version records, generated output, and issue updates aligned?
+10. Are SEO, sitemap, footer, Newsroom, and error page requirements satisfied where relevant?
+11. Was http://127.0.0.1:8080/ opened in the VS Code or Codex local browser view where supported?
+12. Was file:/// access checked for browser served static pages and public assets where applicable, or was a justified blocker recorded?
+13. Are there any missing tests or manual checks?
+14. Is the pull request safe to merge?
+
+Give me:
+1. Pass or fail.
+2. Required fixes before merge.
+3. Recommended improvements.
+4. Final merge recommendation.
+```
+
+## 35. Reference topics for agents
+
+When repository guidance is unclear, agents may use official documentation for clarification, but repository instructions and user approved scope take priority.
+
+Useful reference topics:
+
+1. Creating GitHub issues.
+2. Creating and deleting branches.
+3. Managing branches in VS Code and GitHub Desktop.
+4. Creating, linking, reviewing, and merging pull requests.
+5. Using closing keywords such as `Closes`, `Fixes`, and `Resolves`.
+6. Managing protected branch rules.
+7. OpenAI Codex and GitHub connection guidance.
+8. GitHub Copilot Chat repository workflows.
+9. Cloudron LAMP package documentation.
+10. Cloudron custom app packaging documentation.
+11. PHP local development with the built in server.
+12. UK GDPR and privacy notice requirements.
