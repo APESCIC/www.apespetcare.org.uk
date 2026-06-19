@@ -2,26 +2,26 @@
 
 Use this file as the universal `AGENTS.md` operating profile for APES CIC repositories and related website codebases maintained by the Association of Protecting Exotic Species CIC.
 
-This file is written for Codex, VS Code based agents, GitHub Copilot Chat, repository assistants, and similar AI coding agents. It combines the Codex and VS Code workflows into one shared standard.
+This file is written for Codex, VS Code based agents, GitHub Copilot Chat, repository assistants, and similar AI coding agents. It combines Codex, VS Code, GitHub, local preview, issue tracking, branch, pull request, validation, Cloudron LAMP, UK GDPR, and APES CIC documentation rules into one shared standard.
 
 Agents must load this guidance alongside any local `AGENTS.md`, `INSTRUCTIONS.md`, `README.md`, `CONTRIBUTING.md`, issue, pull request, workspace file, package file, Composer file, build file, configuration file, task file, or task specific instruction.
 
 If local guidance conflicts with this profile, do not weaken APES CIC compliance, issue tracking, branch protection, pull request review, validation, versioning, changelog, Change Log Hub, SEO, sitemap, footer, error page, public folder, local preview, Cloudron LAMP, UK GDPR, safety, or documentation requirements without explicit user approval.
 
-This file is for agent behaviour only. It should not contain private credentials, production secrets, environment values, database passwords, SMTP passwords, OAuth secrets, API keys, or generated credential files.
+This file is for agent behaviour only. It must not contain private credentials, production secrets, environment values, database passwords, SMTP passwords, OAuth secrets, API keys, private keys, or generated credential files.
 
 ## 1. Core workflow rule
 
 For APES CIC repositories, use this rule every time:
 
 ```text
-No issue, no branch, no work on main, no merge without pull request review.
+No issue decision, no branch decision, no work on main, no merge without pull request review and explicit merge approval.
 ```
 
 Default universal workflow order:
 
 ```text
-Issue -> Branch -> Open or inspect workspace -> Inspect repository -> Start or reuse local preview -> Plan -> User approval -> Implementation -> Validation -> Diff review -> Commit -> Push or publish branch -> Pull request -> Review -> Merge after approval -> Branch cleanup -> Pull latest main
+Understand request -> Ask only the right grouped questions -> Issue decision -> Branch decision -> Open or inspect workspace -> Inspect repository -> Start or reuse local preview -> Plan -> User approval -> Implementation -> Work updates -> Validation -> Diff review -> Commit approval -> Commit -> Publish branch decision -> Pull request decision -> Pull request review -> Merge decision -> Branch cleanup decision -> Pull latest main decision -> Completion update
 ```
 
 This protects `main`, gives each update a clear audit trail, supports review, and makes work easier to audit, undo, continue, or hand over.
@@ -59,10 +59,42 @@ Before planning or editing, the agent must:
 13. Never commit private configuration or private data.
 14. Never deploy automatically.
 15. Never edit `main`, `master`, `production`, `staging`, release branches, or shared long lived branches directly.
+16. Ask decision questions at the correct workflow point, not randomly.
+17. Give the user clear options, including a recommended option and a custom option, whenever asking them to choose.
 
 If the agent is unsure whether a change is safe, pause and explain the options.
 
-## 4. VS Code specific operating rules
+## 4. Clear user choice standard
+
+Every user question that asks for a decision must be practical, ordered, and easy to answer.
+
+When asking the user to choose, the agent must:
+
+1. Explain why the decision is being asked now.
+2. Ask at the correct workflow stage.
+3. Give clear numbered options.
+4. Mark the recommended option where one is safe to recommend.
+5. Include a custom option.
+6. Avoid asking the same question twice when the user has already answered it.
+7. Avoid asking future stage questions too early unless grouping them prevents interruption.
+8. Record the answer in the plan, work notes, issue, pull request, or final summary where relevant.
+
+Use this default option shape:
+
+```text
+Please choose one option:
+
+1. Recommended: [safe default and reason].
+2. [Alternative option and when to use it].
+3. [Defer or do nothing option and consequence].
+4. Custom: tell me exactly what you want instead.
+```
+
+Do not ask vague questions such as `What do you want me to do?` when clear choices can be provided.
+
+Do not ask branch, pull request, merge, or cleanup questions before repository inspection unless the user is explicitly setting workflow preferences at the start.
+
+## 5. VS Code specific operating rules
 
 When working in VS Code, the agent must:
 
@@ -78,7 +110,7 @@ When working in VS Code, the agent must:
 10. For website repositories, open the website in the VS Code browser preview, Simple Browser, or approved local view at `http://127.0.0.1:8080/` where preview support exists.
 11. For website repositories, confirm direct `file:///` access for browser served static pages and public assets, and record any justified server required blocker.
 
-## 5. Codex specific operating rules
+## 6. Codex specific operating rules
 
 When working in Codex, the agent must:
 
@@ -94,53 +126,72 @@ When working in Codex, the agent must:
 10. During implementation, work only on the approved task branch.
 11. After implementation, provide a concise handoff with changed files, validation, risks, release record status, GitHub status, and next steps.
 
-## 6. User checkpoints
+## 7. User checkpoints
 
 Ask the user before these state changing actions unless the user already clearly requested or approved the action:
 
-1. Creating or linking a GitHub issue.
-2. Creating a branch.
-3. Starting implementation.
-4. Expanding scope beyond the approved plan.
-5. Installing tools, extensions, packages, dependencies, formatters, linters, CLIs, or development servers.
-6. Changing workspace, editor, extension, task, launch, or recommended extension settings.
-7. Committing changes.
-8. Pushing or publishing a branch.
-9. Opening a pull request.
-10. Marking a pull request ready for review.
-11. Merging a pull request.
-12. Enabling auto merge.
-13. Deleting a remote branch.
-14. Pulling latest `main` locally.
-15. Deleting a local branch.
-16. Closing an issue manually.
-17. Running destructive commands such as reset, force push, rebase, stash, file deletion, database migration, database reset, or irreversible cleanup.
+1. Creating a GitHub issue.
+2. Updating a GitHub issue.
+3. Linking work to an existing GitHub issue.
+4. Recording that no issue will be used.
+5. Creating a branch.
+6. Starting implementation.
+7. Expanding scope beyond the approved plan.
+8. Installing tools, extensions, packages, dependencies, formatters, linters, CLIs, or development servers.
+9. Changing workspace, editor, extension, task, launch, or recommended extension settings.
+10. Committing changes.
+11. Pushing or publishing a branch.
+12. Opening a pull request.
+13. Marking a pull request ready for review.
+14. Merging a pull request.
+15. Enabling auto merge.
+16. Deleting a remote branch.
+17. Pulling latest `main` locally.
+18. Deleting a local branch.
+19. Closing an issue manually.
+20. Running destructive commands such as reset, force push, rebase, stash, file deletion, database migration, database reset, or irreversible cleanup.
 
 If the user has already provided the answer, record it in the plan and do not ask again.
 
 If the user asks the agent to proceed without every answer, use the safest compliant default:
 
-1. Create a new task branch from the default branch.
-2. Defer issue tracking only where no issue details exist and record the reason.
-3. Produce a plan before implementation.
-4. Use a draft pull request when review is still needed.
-5. Run repository default validation checks where available.
-6. Do not merge or delete branches without explicit approval.
-7. Do not install tools or dependencies without approval.
-8. Do not change private configuration.
+1. Ask for an issue decision only when the task is significant enough to need an audit trail.
+2. Create a new task branch from the default branch when work will change repository files.
+3. Defer issue tracking only where no issue details exist and record the reason.
+4. Produce a plan before implementation.
+5. Use a draft pull request when review is still needed.
+6. Run repository default validation checks where available.
+7. Do not merge or delete branches without explicit approval.
+8. Do not install tools or dependencies without approval.
+9. Do not change private configuration.
 
-## 7. Required planning prompt
+## 8. Required planning prompt
 
-When starting a new GitHub task and the user has not already provided the details, ask one grouped prompt before implementation:
+When starting a new GitHub task and the user has not already provided the details, ask one grouped prompt before implementation. Ask only what is needed for the stage and the task.
 
 ```text
 Before I start, please choose:
 
-1. Update type: feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, urgent hotfix, or other.
-2. Website type: static website, PHP website, MySQL database website, content management system, custom portal, small web application, migration, merge, documentation only, or other.
-3. Issue: create a new GitHub issue, use an existing issue, prepare issue text only, or defer issue tracking with a reason.
-4. Branch: create a new branch from main, or provide another new branch name and base branch.
-5. Pull request: draft PR, ready for review PR, prepare PR text only, or no PR yet.
+1. Update type: feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, urgent hotfix, or custom.
+2. Website type: static website, PHP website, MySQL database website, content management system, custom portal, small web application, migration, merge, documentation only, or custom.
+3. Issue decision:
+   1. Recommended for non trivial work: create a new GitHub issue.
+   2. Use an existing issue and provide the issue number.
+   3. Update an existing issue and provide the issue number.
+   4. Do not record an issue for this task and record the reason.
+   5. Custom issue option.
+4. Branch decision:
+   1. Recommended: create a new task branch from main.
+   2. Create a new task branch from another approved base branch.
+   3. Use an existing task branch after confirming it is safe.
+   4. Do not create a branch because this is planning or text only.
+   5. Custom branch option.
+5. Pull request decision:
+   1. Recommended for repository changes: open a draft PR after the first clean commit and validation.
+   2. Open a ready for review PR after validation is complete.
+   3. Prepare PR text only.
+   4. No PR yet because the work is not ready or the user only wants local changes.
+   5. Custom PR option.
 6. Scope: files, folders, routes, or areas that are in scope.
 7. Non scope: files, folders, routes, or areas that must not be changed.
 8. Environment: any Cloudron, MySQL, Redis, email, LDAP, rewrite, private configuration, Windows, Linux, deployment, or local development setting to consider.
@@ -152,13 +203,13 @@ After the user answers, produce a plan only. Do not edit files until the user ap
 
 When creating a new website, merging websites, or migrating an existing website, agents must ask what type of website setup the user wants unless the type is already clear from the user request. The selected website type must control the stack, folder structure, runtime assumptions, routing, validation, documentation, and hosting notes.
 
-## 8. Required planning response
+## 9. Required planning response
 
 Before editing, the agent must answer with this structure:
 
 ```text
-Issue:
-Branch:
+Issue decision:
+Branch decision:
 Update type:
 Website type:
 Hosting target:
@@ -166,6 +217,7 @@ Local preview server:
 Environment notes:
 Files likely to change:
 Implementation plan:
+Work update plan:
 Risks:
 Validation:
 Questions before implementation:
@@ -174,7 +226,7 @@ Questions before implementation:
 The plan must confirm:
 
 1. Current branch.
-2. Related issue number or recorded issue deferral.
+2. Related issue number, planned issue creation, planned issue update, or recorded issue deferral.
 3. Selected website type or documentation only status.
 4. Target hosting where relevant.
 5. Local preview URL or blocker.
@@ -183,11 +235,58 @@ The plan must confirm:
 8. Expected files to change.
 9. Checks to run.
 10. Documentation, changelog, version, public folder, SEO, sitemap, footer, error page, and release impact where relevant.
-11. GitHub issue, branch, pull request, and merge expectations.
+11. GitHub issue, branch, pull request, merge, and cleanup expectations.
+12. When progress updates will be provided if working with an issue.
 
-## 9. Issue first workflow
+## 10. Issue workflow
 
-Create or link a GitHub issue before starting real work when the task is non trivial, public facing, operationally relevant, compliance relevant, release relevant, hosting relevant, migration relevant, or likely to need an audit trail.
+Create, link, update, or explicitly defer a GitHub issue before starting real work when the task is non trivial, public facing, operationally relevant, compliance relevant, release relevant, hosting relevant, migration relevant, or likely to need an audit trail.
+
+At the issue decision stage, provide these options when appropriate:
+
+```text
+Issue options:
+
+1. Recommended: create a new GitHub issue for this work.
+2. Use an existing issue and provide the issue number.
+3. Update an existing issue and provide the issue number.
+4. Do not record an issue for this task, with a short reason.
+5. Custom: tell me another issue workflow.
+```
+
+Create an issue when:
+
+1. The change is non trivial.
+2. The change affects public pages, forms, portals, workflows, hosting, compliance, security, data, releases, or governance.
+3. The task may need audit trail, review, handover, or follow up.
+4. Multiple commits or a pull request are likely.
+5. The task has acceptance criteria or testing requirements.
+
+Updating an issue is appropriate when:
+
+1. The issue already exists and covers the task.
+2. The issue scope needs clarifying before implementation.
+3. Work has started and progress needs recording.
+4. Files changed, validation results, blockers, or follow up tasks need recording.
+5. The issue should remain the central work log.
+
+Choosing not to record an issue is acceptable when:
+
+1. The task is trivial.
+2. The task is planning only.
+3. The user only wants wording, advice, or a local note.
+4. The work is exploratory and no repository change will be made.
+5. The user explicitly chooses no issue and the reason is recorded.
+
+When working with an issue, provide issue updates at sensible points:
+
+1. After the plan is approved, summarise the agreed scope and acceptance criteria.
+2. After the branch is created, record the branch name.
+3. During work, post or prepare updates when meaningful progress, blockers, scope changes, or validation results occur.
+4. Before opening a pull request, record changed files and testing completed.
+5. After pull request creation, link the pull request.
+6. After merge, record completion, merge status, branch cleanup status, release record status, and remaining follow up work.
+7. Do not spam the issue with low value updates for tiny edits.
 
 The issue must define:
 
@@ -205,15 +304,6 @@ The issue must define:
 12. Local preview impact.
 13. Public folder impact where relevant.
 14. Metadata such as labels, milestone, assignees, project, priority, and status where available.
-
-Issue title examples:
-
-```text
-Migrate MyAPES Portal to PHP LAMP structure
-Fix portal login redirect issue
-Create missing privacy and terms pages
-Add Cloudron LAMP hosting guidance
-```
 
 Issue body template:
 
@@ -261,17 +351,46 @@ Creating or drafting an issue is an issue filing action only. Do not treat issue
 
 When starting from an existing issue, read it before planning and identify missing scope, acceptance criteria, website type, branch expectations, release impact, hosting impact, local preview requirements, validation requirements, metadata alignment, and blockers.
 
-When updating an issue, include a `Files changed` section. List each changed file path with a short note. If no files changed, say so explicitly.
+When updating an issue, include a `Files changed` section where files have changed. List each changed file path with a short note. If no files changed, say so explicitly.
 
 Do not close an issue until it has a completion note covering changed files, validation, release record status, hosting status, local preview status, remaining limitations, and follow up work.
 
-## 10. Branch workflow
+## 11. Branch workflow
 
-Create a branch for every update. Do not work directly on `main`.
+Create a branch for every repository update unless the work is planning only, issue text only, PR review only, or the user explicitly chooses not to make repository changes.
+
+Do not work directly on `main`.
 
 All repository updates must be done on a new task specific branch. Do not edit `main`, `master`, `production`, `staging`, release branches, or shared long lived branches directly.
 
-Create the new branch from the approved base branch after repository inspection and after the planning questions have been answered or a safe assumption has been recorded.
+Ask about branch creation after the issue decision and repository inspection, but before implementation.
+
+Branch creation options:
+
+```text
+Branch options:
+
+1. Recommended: create a new task branch from main.
+2. Create a new task branch from another approved base branch.
+3. Use an existing task branch after checking it is safe.
+4. Do not create a branch because this is planning, review, or text only.
+5. Custom: provide a branch name and base branch.
+```
+
+Create a branch when:
+
+1. Any repository file will be changed.
+2. The task needs validation, commit, or pull request review.
+3. The work relates to an issue.
+4. The task may require more than one change.
+5. The change must be auditable or reversible.
+
+Do not create a branch when:
+
+1. No repository file will be changed.
+2. The user only wants advice, a plan, or issue text.
+3. The task is only to review an existing pull request or issue.
+4. The user explicitly chooses to defer implementation.
 
 Branch naming structure:
 
@@ -291,17 +410,6 @@ Preferred branch types:
 8. `hotfix/` for urgent production fixes.
 9. `hosting/` for hosting and platform guidance.
 
-Examples:
-
-```text
-feature/myapes-portal-login
-fix/portal-rewrite-rules
-cleanup/remove-old-framework-files
-docs/update-agent-guidance
-migration/php-lamp-structure
-hosting/cloudron-lamp-rules
-```
-
 Before creating a branch in VS Code, Codex, GitHub Desktop, or a local clone, check:
 
 1. Current branch.
@@ -310,15 +418,88 @@ Before creating a branch in VS Code, Codex, GitHub Desktop, or a local clone, ch
 4. Whether the base branch needs pulling.
 5. Whether the requested branch already exists locally or remotely.
 
-Pulling before branching:
+Ask about publishing the branch after a clean commit exists and before opening a pull request.
 
-1. Ask the user whether to pull latest changes before branching when working in a local clone.
-2. Prefer `git pull --ff-only` after checking branch and working tree state.
-3. If fast forward pull is not possible, stop and explain options before merge, rebase, stash, reset, or conflict resolution.
-4. Never pull over uncommitted user work.
-5. Never use hard reset, force push, rebase, or stash unless the user explicitly approves the exact action.
+Publish branch options:
 
-## 11. Local preview standard
+```text
+Publish branch options:
+
+1. Recommended: publish the task branch so a pull request can be opened.
+2. Keep the branch local for now.
+3. Prepare the push command only.
+4. Stop before publishing.
+5. Custom: provide another publishing instruction.
+```
+
+Publish a branch when:
+
+1. A pull request will be opened.
+2. Collaboration, review, CI, or handover is needed.
+3. The user asked for changes to be pushed.
+4. The work needs to be visible on GitHub.
+
+Do not publish a branch when:
+
+1. The diff has not been reviewed.
+2. Validation has not run or been deferred.
+3. The branch contains private configuration or unrelated changes.
+4. The user only wants local work.
+5. The user has not approved publishing where approval is required.
+
+Ask about branch deletion only after merge or when abandoning a branch.
+
+Branch deletion options:
+
+```text
+Branch cleanup options:
+
+1. Recommended after merge: delete the remote task branch.
+2. Keep the remote branch for now.
+3. Delete the local branch after pulling latest main and confirming it is safe.
+4. Keep the local branch for now.
+5. Custom: provide another cleanup instruction.
+```
+
+Delete a remote branch only when:
+
+1. The pull request is merged or safely closed.
+2. There is no unmerged work to preserve.
+3. The user approves deletion or repository settings automatically delete merged branches.
+
+Do not delete a branch when:
+
+1. The pull request is still open.
+2. The branch has unmerged work.
+3. The branch is shared and still needed.
+4. The branch contains work that may need to be recovered.
+5. The user has not approved deletion where approval is required.
+
+## 12. Pulling before branching or cleanup
+
+Ask the user whether to pull latest changes before branching when working in a local clone.
+
+Pull options:
+
+```text
+Pull options:
+
+1. Recommended when safe: pull latest using fast forward only.
+2. Do not pull yet.
+3. Prepare the pull command only.
+4. Stop and let the user pull manually.
+5. Custom: provide another sync instruction.
+```
+
+Prefer `git pull --ff-only` after checking branch and working tree state.
+
+If fast forward pull is not possible, stop and explain options before merge, rebase, stash, reset, or conflict resolution.
+
+Never pull over uncommitted user work.
+
+Never use hard reset, force push, rebase, or stash unless the user explicitly approves the exact action.
+
+## 13. Local preview standard
 
 For website repositories, always start or reuse the local preview server before planning implementation or editing files where preview support exists.
 
@@ -366,7 +547,7 @@ Treat local preview as inspection and validation only. It is not deployment evid
 
 Before final handoff, inspect changed public pages again through `http://127.0.0.1:8080/` where preview support exists, and repeat the `file:///` check for affected static pages and public assets where applicable.
 
-## 12. Implementation approval gate
+## 14. Implementation approval gate
 
 Do not implement until the user approves the plan or explicitly says to start implementation.
 
@@ -375,14 +556,17 @@ Approved implementation prompt shape:
 ```text
 The plan is approved with the following constraints:
 
-1. Stay on the current branch.
+1. Stay on the current task branch.
 2. Do not edit main directly.
-3. Do not commit private configuration, private data, or generated credential files.
+3. Do not commit private configuration, private data, generated credential files, local database dumps, or secrets.
 4. Only change files required for this issue.
-5. Keep the project compatible with the approved website type, hosting target, and Cloudron LAMP limitations where relevant.
+5. Keep the project compatible with the approved website type, approved hosting target, and Cloudron LAMP limitations where relevant.
 6. Start or reuse the local preview server before implementation work continues, open http://127.0.0.1:8080/ in the VS Code or Codex local browser view where supported, and record the preview URL or blocker.
 7. Check file:/// access for affected browser served static pages and public assets where applicable, and record any justified blocker.
-8. After implementation, provide a summary, changed files list, test results, and follow up tasks.
+8. Do not install tools, dependencies, packages, extensions, formatters, linters, or CLIs without approval.
+9. Do not change workspace, editor, task, launch, or extension settings without approval.
+10. Provide issue updates at meaningful milestones if this task is linked to an issue.
+11. After implementation, provide a summary, changed files list, validation results, risks, release record status, GitHub status, and follow up tasks.
 
 Start implementation now.
 ```
@@ -401,9 +585,10 @@ Pause and summarise:
 3. Are there any errors, blockers, or uncertain assumptions?
 4. Is the work still inside the issue scope?
 5. Is the selected website type and hosting target still being followed?
+6. What options does the user have next?
 ```
 
-## 13. Diff review before commit
+## 15. Diff review before commit
 
 Before any commit, inspect every changed file and ask for review unless the user has clearly authorised automated commits.
 
@@ -418,10 +603,18 @@ Before committing, here is the review summary:
 4. Configuration changes.
 5. Website type and hosting impact.
 6. Possible security concerns.
-7. Manual checks recommended.
-8. Confirmation that no private configuration or private data is included.
+7. UK GDPR concerns where relevant.
+8. Validation completed.
+9. Manual checks recommended.
+10. Confirmation that no private configuration, private data, local database dump, generated credential file, or secret is included.
+11. Proposed commit message.
 
-Please confirm whether I should commit these changes.
+Commit options:
+
+1. Recommended if the diff is acceptable: commit these changes.
+2. Make more changes before committing.
+3. Do not commit yet.
+4. Custom: provide a different commit instruction.
 ```
 
 The agent must check:
@@ -440,7 +633,7 @@ The agent must check:
 12. The website has been checked through `http://127.0.0.1:8080/` in the VS Code or Codex local browser view where supported.
 13. Direct `file:///` access has been checked for affected browser served static pages and public assets where applicable, or a justified blocker has been recorded.
 
-## 14. Commit rules
+## 16. Commit rules
 
 Commit only after the diff has been reviewed and relevant validation has been run or intentionally deferred.
 
@@ -468,7 +661,7 @@ type: short summary
 Body:
 1. What changed
 2. Why it changed
-3. Related issue number
+3. Related issue number or issue deferral reason
 4. Website type or hosting impact where relevant
 ```
 
@@ -482,54 +675,56 @@ Do not commit if:
 6. The user has not approved the commit where approval is required.
 7. The work was done on `main`, `master`, `production`, `staging`, a release branch, or a shared long lived branch.
 
-## 15. Push and publish branch rules
+## 17. Pull request workflow
 
-After the first clean commit, push or publish the branch only when collaboration, review, CI, or pull request work is needed and the user has requested or approved that workflow.
+Open a pull request from the task branch into the approved base branch, normally `main`, when repository changes are ready for review.
 
-Do not push or publish a branch unless:
+Ask about pull requests after the branch has been published, the diff has been reviewed, and validation has run or been intentionally deferred.
 
-1. The user requested the repository update and push is part of the agreed workflow.
-2. The commit is clean.
-3. The branch name and base branch are correct.
-4. The agent has summarised what will be pushed.
-5. Private configuration and private data are not included.
-
-Terminal command shape:
-
-```bash
-git push -u origin feature/myapes-portal-login
-```
-
-GitHub Desktop route:
+Pull request options:
 
 ```text
-1. Select the branch.
-2. Click Publish branch.
-3. Confirm it appears on GitHub.
+Pull request options:
+
+1. Recommended when validation is incomplete or review is needed: open a draft PR.
+2. Open a ready for review PR.
+3. Prepare PR title and body only.
+4. Do not open a PR yet.
+5. Custom: provide another PR instruction.
 ```
 
-## 16. Pull request rules
+Open a pull request when:
 
-Open a pull request from the task branch into the approved base branch, normally `main`.
+1. Repository files have changed.
+2. The work should be reviewed before merge.
+3. CI or GitHub checks should run.
+4. The task is linked to an issue.
+5. The branch needs to be visible for collaboration or handover.
+6. The user has approved opening a pull request or the agreed workflow requires it.
 
-Do not open a pull request until:
+Use a draft PR when:
 
-1. The branch has been published.
+1. Implementation is not fully ready.
+2. Validation is incomplete.
+3. Review is useful before final checks.
+4. The work is still in progress but should be visible.
+
+Use a ready for review PR when:
+
+1. Validation is complete or any validation deferral has been intentionally recorded.
 2. The diff has been reviewed.
-3. Validation has run or the deferral is recorded.
-4. The issue is linked or issue deferral is recorded.
-5. The website type and hosting impact are recorded where relevant.
-6. The user has approved opening a pull request, or the agreed workflow requires it.
+3. The branch contains only intended changes.
+4. The PR body explains the issue, scope, files changed, testing, risks, and deployment notes.
 
-Use draft pull requests when implementation is not fully ready for review.
+Do not open a pull request when:
 
-Use ready for review pull requests only when validation is complete or any validation deferral has been intentionally recorded.
-
-Pull request title example:
-
-```text
-Feature: add portal login structure
-```
+1. No repository files changed.
+2. The user only wants issue text, planning, or review comments.
+3. The branch has not been published.
+4. The diff has not been reviewed.
+5. Validation has not run or been deferred.
+6. Private configuration, private data, or unrelated changes are present.
+7. The user explicitly says no PR yet.
 
 Pull request body template:
 
@@ -541,10 +736,10 @@ Explain what changed.
 Closes #
 
 ## Type of change
-Feature / Bug fix / Clean up / Migration / Documentation / Refactor / Security / Compliance / Hosting / Hotfix
+Feature / Bug fix / Clean up / Migration / Documentation / Refactor / Security / Compliance / Hosting / Hotfix / Custom
 
 ## Website type
-Static website / PHP website / MySQL database website / CMS / Custom portal / Small web application / Migration / Merge / Documentation only / Other
+Static website / PHP website / MySQL database website / CMS / Custom portal / Small web application / Migration / Merge / Documentation only / Custom
 
 ## Files changed
 1.
@@ -569,9 +764,9 @@ Add any required environment, database, cache, Cloudron, rewrite, LDAP, or email
 List follow up tasks or say none.
 ```
 
-Use `Closes #123`, `Fixes #123`, or `Resolves #123` when the pull request should close the issue after merge.
+Use `Closes #123`, `Fixes #123`, or `Resolves #123` only when the pull request should close the issue after merge.
 
-## 17. Pull request review rules
+## 18. Pull request review rules
 
 Before merge, review the pull request against the issue, approved scope, selected website type, and approved hosting target.
 
@@ -582,54 +777,32 @@ Review this pull request before merge.
 
 Check:
 
-1. Does the PR fully satisfy the issue?
+1. Does the pull request fully satisfy the issue?
 2. Are there any unrelated changes?
 3. Is the selected website type followed?
 4. Are there any security risks?
 5. Is private configuration protected?
-6. Are there any broken routes, links, forms, redirects, or login issues?
-7. Are there any Cloudron LAMP compatibility problems?
-8. Are there any missing tests or manual checks?
-9. Is the PR safe to merge?
+6. Are there any UK GDPR issues?
+7. Are there any broken routes, links, forms, redirects, or login issues?
+8. Are there any Cloudron LAMP compatibility problems?
+9. Are README, changelog, Change Log Hub, version records, generated output, and issue updates aligned?
+10. Are SEO, sitemap, footer, Newsroom, and error page requirements satisfied where relevant?
+11. Was http://127.0.0.1:8080/ opened in the VS Code or Codex local browser view where supported?
+12. Was file:/// access checked for browser served static pages and public assets where applicable, or was a justified blocker recorded?
+13. Are there any missing tests or manual checks?
+14. Is the pull request safe to merge?
 
 Give me:
 1. Pass or fail.
 2. Required fixes before merge.
 3. Recommended improvements.
 4. Final merge recommendation.
+5. Clear next step options.
 ```
 
-If fixes are required, keep using the same branch and commit fixes to that branch.
+If fixes are required, keep using the same branch and commit fixes to that branch after approval where required.
 
-Fix prompt:
-
-```text
-The pull request review found these issues:
-
-1.
-2.
-3.
-
-Fix only these issues on the current branch.
-
-Do not introduce unrelated changes.
-
-After fixing, provide:
-1. Files changed.
-2. What was fixed.
-3. Testing completed.
-4. Any remaining risks.
-```
-
-Then commit and push to the same branch so the pull request updates automatically, after user approval where required.
-
-```bash
-git add .
-git commit -m "fix: address pull request review findings"
-git push
-```
-
-## 18. Validation before merge
+## 19. Validation before merge
 
 Run repository supported checks first. Inspect `package.json`, lockfiles, build scripts, framework configuration, Makefiles, CI files, Composer files, PHP files, dev scripts, and local documentation before choosing commands.
 
@@ -674,11 +847,11 @@ For documentation only repositories, validation may be limited to Markdown revie
 
 Treat development server commands such as `npm run dev` or `php -S` as local inspection and validation tools, not deployment evidence.
 
-## 19. Merge rules
+## 20. Merge workflow
 
 Merge only when:
 
-1. The pull request satisfies the issue.
+1. The pull request satisfies the issue or recorded scope.
 2. Checks pass or deferrals are approved and recorded.
 3. The diff has been reviewed.
 4. There are no unresolved merge conflicts.
@@ -688,11 +861,52 @@ Merge only when:
 8. Website type and hosting impact are recorded where relevant.
 9. The user explicitly approves merge.
 
-For most small or medium APES CIC website updates, prefer squash merge where repository settings allow it, because it keeps `main` tidy.
+Ask about merge only after the pull request has been reviewed and is ready for a merge decision.
 
-Do not merge automatically. Do not enable auto merge unless the user explicitly asks.
+Merge options:
 
-## 20. Branch cleanup after merge
+```text
+Merge options:
+
+1. Recommended for most APES CIC updates: squash merge.
+2. Merge commit, if preserving individual commits is important.
+3. Rebase merge, if the repository uses a linear history and this is approved.
+4. Do not merge yet.
+5. Custom: provide another merge instruction.
+```
+
+Use squash merge when:
+
+1. The repository allows it.
+2. The change is a small or medium task branch.
+3. A tidy `main` history is preferred.
+4. Individual commit history does not need preserving.
+
+Use merge commit when:
+
+1. The branch history should be preserved.
+2. The PR contains meaningful separate commits.
+3. The repository policy prefers merge commits.
+
+Use rebase merge only when:
+
+1. The repository policy supports it.
+2. The branch is clean and safe to rebase.
+3. The user explicitly approves it.
+
+Do not merge when:
+
+1. The user has not approved merge.
+2. The pull request has unresolved review comments.
+3. Checks are failing and deferral is not approved.
+4. There are merge conflicts.
+5. The diff includes unrelated changes.
+6. Private configuration or private data is present.
+7. Required issue, version, changelog, README, local preview, or release records are missing without approved deferral.
+
+Do not enable auto merge unless the user explicitly asks.
+
+## 21. Branch cleanup after merge
 
 After merge, ask before deleting branches unless repository settings automatically delete head branches.
 
@@ -718,20 +932,23 @@ git branch -d feature/myapes-portal-login
 
 If Git says the branch is not fully merged, stop and check before forcing deletion.
 
-GitHub Desktop cleanup route:
-
-```text
-1. Switch to main.
-2. Click Fetch origin.
-3. Click Pull origin if available.
-4. Use Branch -> Delete only after the PR is merged or safely closed.
-```
-
-## 21. Issue closure after merge
+## 22. Issue closure after merge
 
 If the pull request body used `Closes #123`, `Fixes #123`, or `Resolves #123`, confirm whether GitHub closed the issue automatically after merge.
 
 If the issue is not automatically closed and the work is complete, ask before closing it manually.
+
+Issue closure options:
+
+```text
+Issue closure options:
+
+1. Recommended when all work is complete: close the issue with a completion note.
+2. Keep the issue open for follow up work.
+3. Add a status update but do not close it.
+4. Do nothing to the issue.
+5. Custom: provide another issue closure instruction.
+```
 
 Closing comment shape:
 
@@ -743,44 +960,63 @@ Summary:
 2.
 3.
 
-The branch has been merged and deleted.
+Validation:
+1.
+2.
+3.
+
+Branch and release status:
+1.
+2.
+3.
 ```
 
 Do not close an issue if validation, release records, hosting notes, local preview, or follow up work remain unresolved unless the user approves closure with limitations recorded.
 
-## 22. Full workflow checklist
+## 23. Full workflow checklist
 
 Agents must track this checklist during GitHub tasks:
 
 ```text
-1. Create or link GitHub issue.
-2. Add scope and acceptance criteria.
-3. Confirm website type and hosting target.
-4. Confirm repository and current branch.
-5. Confirm working tree state.
-6. Create branch from main or approved base branch.
-7. Start or reuse local preview server before planning implementation or editing files.
-8. Open http://127.0.0.1:8080/ in the VS Code or Codex local browser view where supported.
-9. Check file:/// access for browser served static pages and public assets where applicable, or record a justified blocker.
-10. Produce planning response.
-11. Wait for user approval.
-12. Implement on the task branch only.
-13. Review file changes and diff.
-14. Run validation.
-15. Commit locally after approval.
-16. Push or publish branch after approval.
-17. Open pull request after approval.
-18. Link pull request to issue.
-19. Run checks and manual testing.
-20. Fix review issues on the same branch.
-21. Merge pull request only after approval.
-22. Delete remote branch after merge where approved.
-23. Pull latest main locally where approved.
-24. Delete local branch where safe and approved.
-25. Confirm issue is closed or update it with remaining work.
+1. Confirm request and repository.
+2. Ask clear grouped questions only when needed.
+3. Decide whether to create, update, use, or defer an issue.
+4. Add scope and acceptance criteria when using an issue.
+5. Confirm website type and hosting target.
+6. Confirm repository and current branch.
+7. Confirm working tree state.
+8. Decide branch creation.
+9. Create branch from main or approved base branch.
+10. Start or reuse local preview server before planning implementation or editing files.
+11. Open http://127.0.0.1:8080/ in the VS Code or Codex local browser view where supported.
+12. Check file:/// access for browser served static pages and public assets where applicable, or record a justified blocker.
+13. Produce planning response.
+14. Wait for user approval.
+15. Implement on the task branch only.
+16. Provide issue updates at meaningful milestones where an issue is used.
+17. Review file changes and diff.
+18. Run validation.
+19. Ask for commit approval.
+20. Commit locally after approval.
+21. Ask whether to publish branch.
+22. Push or publish branch after approval.
+23. Ask whether to open a pull request.
+24. Open pull request after approval.
+25. Link pull request to issue where applicable.
+26. Run checks and manual testing.
+27. Fix review issues on the same branch.
+28. Ask for merge decision only when ready.
+29. Merge pull request only after approval.
+30. Ask for branch cleanup decision after merge.
+31. Delete remote branch after merge where approved.
+32. Ask for pull or sync decision where local cleanup is relevant.
+33. Pull latest main locally where approved.
+34. Delete local branch where safe and approved.
+35. Confirm issue is closed or update it with remaining work.
+36. Provide final completion summary.
 ```
 
-## 23. Repository documentation, version, and release records
+## 24. Repository documentation, version, and release records
 
 During planning for repository work, verify the repository documentation, version, and release state where files exist:
 
@@ -825,7 +1061,7 @@ Patch changes are fixes, copy edits, styling polish, metadata corrections, depen
 
 Do not update a version without a matching changelog decision and entry.
 
-## 24. APES website public folder and website type rules
+## 25. APES website public folder and website type rules
 
 For applicable APES CIC website repositories, `public/` is the website folder and public web root.
 
@@ -848,7 +1084,7 @@ For custom portal projects, prefer this structure when approved:
 
 The public front end can sit in `/public`, and the portal can sit in `/public/portal`. Apache rewrite rules may serve the portal from a subdomain such as `portal.apes.org.uk` or another approved portal domain.
 
-## 25. Website type rules
+## 26. Website type rules
 
 When creating, merging, migrating, or refactoring a website, agents must confirm the selected website type and ensure the repository structure, language stack, routes, validation, documentation, and hosting notes comply with that setup.
 
@@ -988,7 +1224,7 @@ Good examples:
 
 For heavier applications, a dedicated app container or custom Cloudron packaged app may be better.
 
-## 26. Cloudron LAMP compatibility rules
+## 27. Cloudron LAMP compatibility rules
 
 A Cloudron LAMP container is suitable for websites that run on:
 
@@ -1075,7 +1311,7 @@ Required Cloudron LAMP checks before completion:
 13. `http://127.0.0.1:8080/` has been used as the primary local HTTP preview where supported.
 14. Direct `file:///` access has been checked for browser served static pages and public assets where applicable, or a justified server required blocker has been recorded.
 
-## 27. Security, safety, and UK GDPR rules
+## 28. Security, safety, and UK GDPR rules
 
 Do not edit private production configuration or unrelated environment files.
 
@@ -1083,7 +1319,7 @@ Do not deploy automatically.
 
 Do not commit, push, open pull requests, merge, close issues, rewrite history, force push, reset, rebase, stash, or delete branches unless the user explicitly asks or clearly approves that action.
 
-Before any state changing GitHub or Git action, show the relevant diff, validation result, risk, and recommended next step where practical.
+Before any state changing GitHub or Git action, show the relevant diff, validation result, risk, options, and recommended next step where practical.
 
 Never overwrite local user work. If uncommitted or unrelated changes exist, stop and explain the safest options.
 
@@ -1110,7 +1346,7 @@ For UK GDPR relevant work, identify and record where applicable:
 
 Sensitive case management, safeguarding, HR, finance, client record, or animal welfare record systems require explicit access control, audit logging, retention, backup, incident response, and UK GDPR design before implementation.
 
-## 28. SEO, sitemap, footer, Newsroom, and error pages
+## 29. SEO, sitemap, footer, Newsroom, and error pages
 
 Update SEO and sitemap records whenever public pages are added, removed, renamed, moved, or materially changed.
 
@@ -1139,7 +1375,7 @@ Verify branded, accessible 404 pages and any supported 403, 500, offline, mainte
 
 Error pages must not expose stack traces, internal system details, private URLs, credentials, environment values, or debugging output.
 
-## 29. Final response requirements
+## 30. Final response requirements
 
 For every APES CIC website or repository task, the final response must state:
 
@@ -1151,36 +1387,46 @@ For every APES CIC website or repository task, the final response must state:
 6. Public folder and local preview status, including whether `http://127.0.0.1:8080/` was started or reused where applicable, whether it was opened in the VS Code or Codex local browser view where supported, and whether `file:///` access was checked for affected browser served static pages and public assets.
 7. Website type status.
 8. Cloudron LAMP and hosting status where relevant.
-9. GitHub issue status where relevant.
+9. GitHub issue status, including whether an issue was created, updated, linked, deferred, or not used.
 10. SEO, sitemap, footer, Newsroom, and error page status where relevant.
 11. Branch name, base branch, commit status, push status, and pull request status.
 12. Pull or sync status, including whether the task branch is up to date with the base branch.
-13. Options for what the user wants to do about pulling next, such as pull latest into the task branch, update from the base branch, prepare local pull commands, leave the branch unchanged, or stop for review.
+13. Clear next step options for pulling, publishing, pull request, merge, branch cleanup, or issue closure where relevant.
 14. Next recommended GitHub step.
-15. Proposed commit message.
+15. Proposed commit message where no commit has been made yet.
 
 Keep final responses concise, practical, and transparent about outstanding user decisions.
 
-## 30. Best universal starter prompt for new tasks
+## 31. Best universal starter prompt for new tasks
 
 Use this starter prompt when the user begins a new GitHub task and has not already provided the needed details:
 
 ```text
 I want to start a new GitHub task using the correct issue, branch, pull request, and cleanup workflow.
 
-Before doing any implementation, ask me:
+Before doing any implementation, ask me only the decisions needed at this stage and give numbered options with a recommended option and a custom option.
+
+Ask me:
 
 1. What type of update is this?
-Feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, or urgent hotfix.
+Feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, urgent hotfix, or custom.
 
 2. What type of website setup should this use?
-Static website, PHP website, MySQL database website, CMS, custom portal, small web application, migration, merge, documentation only, or other.
+Static website, PHP website, MySQL database website, CMS, custom portal, small web application, migration, merge, documentation only, or custom.
 
-3. Should a GitHub issue be created or linked?
-If yes, ask for the issue title and description, or the existing issue number.
+3. What should happen with GitHub issue tracking?
+Option 1: Recommended for non trivial work, create a new GitHub issue.
+Option 2: Use an existing issue and ask for the issue number.
+Option 3: Update an existing issue and ask for the issue number.
+Option 4: Do not record an issue and record the reason.
+Option 5: Custom issue option.
 
 4. What branch should be used?
-Recommend a branch name using feature/, fix/, cleanup/, migration/, refactor/, docs/, security/, hotfix/, or hosting/.
+Option 1: Recommended for repository changes, create a new task branch from main.
+Option 2: Create a new task branch from another approved base branch.
+Option 3: Use an existing task branch after confirming it is safe.
+Option 4: No branch because this is planning, review, or text only.
+Option 5: Custom branch option.
 
 5. What is the base branch?
 Default to main unless I say otherwise.
@@ -1207,10 +1453,11 @@ Check file:/// access for browser served static pages and public assets where ap
 Do not edit files until I approve the plan.
 Do not work directly on main.
 Do not commit private configuration or generated credential files.
+Provide issue updates at meaningful milestones where an issue is used.
 After implementation, prepare a commit summary and pull request description.
 ```
 
-## 31. Universal planning prompt for agents
+## 32. Universal planning prompt for agents
 
 Use this prompt inside Codex, VS Code, GitHub Copilot Chat, or similar tools when asking an agent to plan work:
 
@@ -1220,12 +1467,12 @@ You are working in this APES CIC GitHub repository.
 Before editing files, do the following:
 
 1. Confirm the current repository and branch.
-2. Confirm the related GitHub issue number or recorded issue deferral.
+2. Confirm whether this task will create a new issue, update an existing issue, use an existing issue, or record no issue with a reason.
 3. Check the working tree for uncommitted changes.
 4. Read README.md, AGENTS.md, INSTRUCTIONS.md, package files, Composer files, configuration files, build files, and relevant source files.
 5. Identify the website stack and limitations.
-6. Identify the website type: static website, PHP website, MySQL database website, CMS, custom portal, small web application, migration, merge, documentation only, or other.
-7. Confirm whether this is a feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, or hotfix update.
+6. Identify the website type: static website, PHP website, MySQL database website, CMS, custom portal, small web application, migration, merge, documentation only, or custom.
+7. Confirm whether this is a feature, bug fix, clean up, migration, refactor, documentation, security, compliance, hosting, hotfix, or custom update.
 8. Confirm whether the target hosting is Cloudron LAMP or another platform.
 9. Start or reuse the local preview server for website repositories before planning implementation or editing files where preview support exists. Use http://127.0.0.1:8080/ unless repository instructions require another local HTTP URL. Open the website in the VS Code browser preview, VS Code Simple Browser, Codex browser, or available local preview tool where supported. If the server cannot be started, stop and record the blocker.
 10. Check direct file:/// access for browser served static pages and public assets where applicable. If server side routing, PHP, database features, sessions, forms, email, Redis, rewrite rules, or browser security restrictions prevent full file:/// behaviour, record the justified blocker.
@@ -1233,12 +1480,13 @@ Before editing files, do the following:
 12. List the files you expect to change.
 13. List any risks.
 14. List validation steps.
-15. Do not edit files until the plan is approved.
+15. List when issue updates will be provided if an issue is used.
+16. Do not edit files until the plan is approved.
 
 Answer with:
 
-Issue:
-Branch:
+Issue decision:
+Branch decision:
 Update type:
 Website type:
 Hosting target:
@@ -1246,12 +1494,13 @@ Local preview server:
 Environment notes:
 Files likely to change:
 Implementation plan:
+Work update plan:
 Risks:
 Validation:
 Questions before implementation:
 ```
 
-## 32. Universal implementation approval prompt
+## 33. Universal implementation approval prompt
 
 Use this prompt when approving an agent to move from planning into implementation:
 
@@ -1261,18 +1510,19 @@ The plan is approved with the following constraints:
 1. Stay on the current task branch.
 2. Do not edit main directly.
 3. Do not commit private configuration, private data, generated credential files, local database dumps, or secrets.
-4. Only change files required for this issue.
+4. Only change files required for this issue or recorded scope.
 5. Keep the project compatible with the approved website type, approved hosting target, and Cloudron LAMP limitations where relevant.
 6. Start or reuse the local preview server before implementation work continues, open http://127.0.0.1:8080/ in the VS Code or Codex local browser view where supported, and record the preview URL or blocker.
 7. Check file:/// access for affected browser served static pages and public assets where applicable, and record any justified blocker.
 8. Do not install tools, dependencies, packages, extensions, formatters, linters, or CLIs without approval.
 9. Do not change workspace, editor, task, launch, or extension settings without approval.
-10. After implementation, provide a summary, changed files list, validation results, risks, release record status, GitHub status, and follow up tasks.
+10. Provide issue updates at meaningful milestones where an issue is used.
+11. After implementation, provide a summary, changed files list, validation results, risks, release record status, GitHub status, and clear next step options.
 
 Start implementation now.
 ```
 
-## 33. Universal pre commit review prompt
+## 34. Universal pre commit review prompt
 
 Use this prompt before any commit:
 
@@ -1288,14 +1538,20 @@ Before committing, provide:
 7. UK GDPR concerns where relevant.
 8. Validation completed, including http://127.0.0.1:8080/ local browser view status where supported.
 9. file:/// static page and public asset access status where applicable, or justified blocker.
-10. Manual checks recommended.
-11. Confirmation that no private configuration, private data, local database dump, generated credential file, or secret is included.
-12. Proposed commit message.
+10. Issue update status where an issue is used.
+11. Manual checks recommended.
+12. Confirmation that no private configuration, private data, local database dump, generated credential file, or secret is included.
+13. Proposed commit message.
 
-Do not commit until I confirm.
+Commit options:
+
+1. Recommended if the diff is correct: commit these changes.
+2. Make more edits first.
+3. Do not commit yet.
+4. Custom: provide another commit instruction.
 ```
 
-## 34. Universal pull request review prompt
+## 35. Universal pull request review prompt
 
 Use this prompt before merge:
 
@@ -1304,7 +1560,7 @@ Review this pull request before merge.
 
 Check:
 
-1. Does the pull request fully satisfy the issue?
+1. Does the pull request fully satisfy the issue or recorded scope?
 2. Are there any unrelated changes?
 3. Is the selected website type followed?
 4. Are there any security risks?
@@ -1324,23 +1580,27 @@ Give me:
 2. Required fixes before merge.
 3. Recommended improvements.
 4. Final merge recommendation.
+5. Merge options with a recommended option and a custom option.
 ```
 
-## 35. Reference topics for agents
+## 36. Reference topics for agents
 
 When repository guidance is unclear, agents may use official documentation for clarification, but repository instructions and user approved scope take priority.
 
 Useful reference topics:
 
 1. Creating GitHub issues.
-2. Creating and deleting branches.
-3. Managing branches in VS Code and GitHub Desktop.
-4. Creating, linking, reviewing, and merging pull requests.
-5. Using closing keywords such as `Closes`, `Fixes`, and `Resolves`.
-6. Managing protected branch rules.
-7. OpenAI Codex and GitHub connection guidance.
-8. GitHub Copilot Chat repository workflows.
-9. Cloudron LAMP package documentation.
-10. Cloudron custom app packaging documentation.
-11. PHP local development with the built in server.
-12. UK GDPR and privacy notice requirements.
+2. Updating GitHub issues during work.
+3. Creating and deleting branches.
+4. Publishing branches.
+5. Managing branches in VS Code and GitHub Desktop.
+6. Creating, linking, reviewing, and merging pull requests.
+7. Merge commit, squash merge, and rebase merge options.
+8. Using closing keywords such as `Closes`, `Fixes`, and `Resolves`.
+9. Managing protected branch rules.
+10. OpenAI Codex and GitHub connection guidance.
+11. GitHub Copilot Chat repository workflows.
+12. Cloudron LAMP package documentation.
+13. Cloudron custom app packaging documentation.
+14. PHP local development with the built in server.
+15. UK GDPR and privacy notice requirements.
